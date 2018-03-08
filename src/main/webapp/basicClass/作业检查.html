@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>作业检查</title>
+<style>
+table {
+	margin: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td {
+	border-bottom: 1px solid black
+}
+
+.double {
+	background-color: gray;
+}
+</style>
+<script type="text/javascript">
+	window.onload = function() {
+		var img = document.getElementById('s001_img');
+		img.src = "images/icon/tick.jpg";
+		var textarea = document.getElementById('s001_url');
+		
+		var parameters="?method=getUrls";
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
+				+ parameters, true);
+		xmlhttp.send();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var textarea = document.getElementById('s001_url');
+				textarea.value= xmlhttp.responseText;
+			}
+		}
+	}
+
+	function saveUrl(sid) {
+		var textarea = document.getElementById(sid + '_url');
+		var url = textarea.value;
+		var parameters = "?url=" + url;
+		//提交到后台
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				alert("服务端响应：" + xmlhttp.responseText);
+			}
+		}
+		xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
+				+ parameters, true);
+		xmlhttp.send();
+	}
+
+	function openUrl(sid) {
+		var textarea = document.getElementById(sid + '_url');
+		var url = textarea.value;
+		window.open(url);
+	}
+
+	function switchStatus(sid) {
+		var img = document.getElementById(sid + '_img');
+		var src = img.src;
+		//查询JavaScript的string对象材料
+		if (src.lastIndexOf("cross.jpg") != -1) {
+			img.src = "images/icon/tick.jpg";
+		} else {
+			img.src = "images/icon/cross.jpg";
+		}
+		//提交到后台
+	}
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>统计：</td>
+			<td>完成x人，未完成x人</td>
+			<td><input type="button" value="刷新"></td>
+			<td><input type="button" value="重新开始"></td>
+		</tr>
+	</table>
+	<br>
+	<table>
+		<tr>
+			<td style="width:10%;text-align:center">第1组</td>
+
+			<td>陈超<br> <img id="s001_img" src="images/icon/cross.jpg"
+				height="20px" onclick="switchStatus('s001')">
+			</td>
+			<td><img src="images/student/陈超超.jpeg" width="50"></td>
+			<td><textarea id="s001_url" rows="3" cols="20"></textarea></td>
+			<td><input type="button" value="保存" onclick="saveUrl('s001')"><br>
+				<input type="button" value="测试" onclick="openUrl('s001')"></td>
+				
+			<td width="5%"></td>
+
+			<td>陈超<br> <input type="button" value="X">
+			</td>
+			<td><img src="images/student/陈超超.jpeg" width="50"></td>
+			<td><textarea rows="3" cols="20">http://127.0.0.1:8083/wuling</textarea></td>
+			<td><input type="button" value="保存"><br> <input
+				type="button" value="测试"></td>
+			<td width="5%"></td>
+
+			<td>陈超<br> <input type="button" value="X">
+			</td>
+			<td><img src="images/student/陈超超.jpeg" width="50"></td>
+			<td><textarea rows="3" cols="20">http://127.0.0.1:8083/wuling</textarea></td>
+			<td><input type="button" value="保存"><br> <input
+				type="button" value="测试"></td>
+		</tr>
+	</table>
+</body>
+</html>

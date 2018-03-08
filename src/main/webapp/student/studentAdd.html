@@ -1,0 +1,124 @@
+<html>
+<script>
+	function myFunction() {
+		var r = confirm('是否确认提交？')
+		if (r == true) {
+			//document.write("You pressed OK!")
+			document.getElementById("form1").submit();
+			alert("新增学生成功!");
+		} else {
+			//document.write("You pressed Cancel!")
+		}
+
+	}
+
+	function onChange() {
+		document.querySelector('#imgPicker').addEventListener(
+				'change',
+				function() {
+					//当没选中图片时，清除预览
+					if (this.files.length === 0) {
+						document.querySelector('#preview').src = '';
+						return;
+					}
+
+					//实例化一个FileReader
+					var reader = new FileReader();
+
+					reader.onload = function(e) {
+						//当reader加载时，把图片的内容赋值给
+						document.querySelector('#preview').src = e.target.result;
+					};
+
+					//读取选中的图片，并转换成dataURL格式
+					reader.readAsDataURL(this.files[0]);
+				}, false);
+	}
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>学生登记页</title>
+</head>
+<body>
+	<h1 align="center">学生登记页</h1>
+	<form action="/guoya/registryStudent" method="get" id="form1">
+		<table>
+			<tr>
+				<td>姓名:</td>
+				<td><input type="text" name="name" id="name" size="20"></td>
+				<td><span style="color:red">*</span></td>
+				<td>头像上传：</td>
+				<td><input type="file" name="touxiang" id="imgPicker"
+					accept="image/png,image/gif" onchange="onChange()"></input> <img id="preview" /></td>
+			</tr>
+			<tr>
+				<td>技能情况：</td>
+				<td>
+                        <input type="checkbox" name="skills" value="web" /><label>网络</label><br />
+                        <input type="checkbox" name="skills" value="training" /><label>培训</label><br />
+                        <input type="checkbox" name="skills" value="friend" /><label>朋友介绍</label><br />
+                        <input type="checkbox" name="skills" value="other" /><label>其他方式</label>
+				</td>
+			</tr>
+
+			<tr>
+				<td size=5>性别:</td>
+				<td><input type='radio' name="sex" checked value='male'></input><label>男</label>
+				</td>
+				<td><input type='radio' name="sex" value='female'></input><label>女</label>
+			</tr>
+
+			<tr>
+				<td>年龄:</td>
+				<td><input type="text" name="age" id="age" size="20"></td>
+				<td><span style="color:red">*</span></td>
+			</tr>
+
+
+			<tr>
+				<td>学历:</td>
+				<td><select id="Selector" name="education">
+						<option value="-1">--请选择--</option>
+						<option value="apple">博士</option>
+						<option value="peach">硕士</option>
+						<option value="banana">本科</option>
+						<option value="orange">大专</option>
+						<option value="grape">中专/高中</option>
+						<option value="mango">初中及以下</option>
+				</select></td>
+				<td><span style="color:red">*</span></td>
+			</tr>
+			<tr>
+				<td>介绍人:</td>
+				<td><input type="text" name="age" id="age" size="5"></td>
+			</tr>
+			<tr>
+				<td>入学时间:</td>
+				<td><input type="date" name="date" value="2018-01-01"></input></td>
+			</tr>
+			<tr>
+				<td>就职公司</td>
+				<td><input type="text" size=10></td>
+			</tr>
+			<tr>
+				<td>就业薪资</td>
+				<td><input type="text" size=10></td>
+			</tr>
+			<tr>
+				<td>已交学费:</td>
+				<td><input type="text" name="age" id="age" size="5"></td>
+			</tr>
+
+			<tr>
+				<td></td>
+				<td align="center"><input type="button" value="提交"
+					onclick="myFunction()"></td>
+			</tr>
+			<br>
+			<tr>
+				<td><span style="color:red">备注：带*的为必填信息</span></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
