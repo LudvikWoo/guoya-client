@@ -20,55 +20,180 @@ td {
 </style>
 <script type="text/javascript">
 	window.onload = function() {
-		var img = document.getElementById('s001_img');
-		img.src = "images/icon/tick.jpg";
-		var textarea = document.getElementById('s001_url');
-		
-		var parameters="?method=getUrls";
+		refresh();
+	};
+
+	function refresh() {
+		var parameters = "?method=getUrls";
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
+		xmlhttp.open("GET", "http://192.168.1.45:8083/guoya-server/studyInfo"
 				+ parameters, true);
 		xmlhttp.send();
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-				var textarea = document.getElementById('s001_url');
-				textarea.value= xmlhttp.responseText;
+				var result = xmlhttp.responseText;
+				generateHtml(result);
 			}
-		}
+		};
 	}
 
-	function saveUrl(sid) {
-		var textarea = document.getElementById(sid + '_url');
+	function generateHtml(jsonStr) {
+		//var jsonStr='{"study":{"student":[{"group":"1","sno":"s001","sname":"陈超","url":"http://127.0.0.1:8083/guoya-client/basicClass/首页.html","status":"pass"},{"group":"1","sno":"s001","sname":"陈超","url":"http://127.0.0.1:8083/guoya-client/basicClass/首页.html","status":"pass"},{"group":"1","sno":"s001","sname":"陈超","url":"http://127.0.0.1:8083/guoya-client/basicClass/首页.html","status":"pass"},{"group":"1","sno":"s001","sname":"陈超","url":"http://127.0.0.1:8083/guoya-client/basicClass/首页.html","status":"pass"}]}}';
+		//JSON.parse(json字符串)
+		var obj = JSON.parse(jsonStr);
+		var student = obj.study.student;
+		var innerHtml = "";
+		for ( var p in student) {//遍历json数组时，这么写p为索引，0,1
+			var item = student[p];
+
+			if (p % 3 == 0) {
+				innerHtml = innerHtml + '<tr>';
+			}
+			var imageName = "cross.jpg";
+			if (item.status == 1) {
+				imageName = "tick.jpg";
+				pass = pass + 1;
+			} else {
+				unPass = unPass + 1;
+			}
+			innerHtml = innerHtml
+					+ '			<td style="width:5%;text-align:center">'
+					+ '<img src="images/icon/delete.jpg" height="20px" onclick="deleteStudy('
+					+ item.sno
+					+ ')">'
+					+ '</td>                    '
+					+ '                                                                                 '
+					+ '			<td style="width:6%">'
+					+ item.sname
+					+ '<br>&nbsp;&nbsp;<img class="statusImg" id="'
+					+ item.sno
+					+ '_img"src="images/icon/'
+					+ imageName
+					+ '"           '
+					+ '				height="20px" onclick="switchStatus(\''
+					+ item.sno
+					+ '\')">                     '
+					+ '			</td>                                                                 '
+					+ '			<td><img src="images/student/陈超超.jpeg" width="50"></td>            '
+					+ '			<td><textarea id="'+item.sno+'_url" rows="3" cols="20" >'
+					+ item.url
+					+ '</textarea></td>       '
+					+ '			<td style="width:7%"><input type="button" value="保存" onclick="saveUrl(\''
+					+ item.sno + '\')"><br>  '
+					+ '				<input type="button" value="测试" onclick="openUrl(\''
+					+ item.sno + '\')"></td> ';
+
+			if (p % 3 == 2) {
+				innerHtml = innerHtml + '</tr>';
+			}
+		}
+		var table = document.getElementById('content');
+		table.innerHTML = innerHtml;
+		statistic();
+
+	}
+	function saveUrl(sno) {
+		var textarea = document.getElementById(sno + '_url');
 		var url = textarea.value;
-		var parameters = "?url=" + url;
+		var parameters = "?method=updateUrl&sno=" + sno + "&url=" + url;
 		//提交到后台
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 				alert("服务端响应：" + xmlhttp.responseText);
 			}
-		}
+		};
 		xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
 				+ parameters, true);
 		xmlhttp.send();
 	}
 
-	function openUrl(sid) {
-		var textarea = document.getElementById(sid + '_url');
+	function openUrl(sno) {
+		//var x1 = document.getElementById("pass").innerText;
+		//alert("x1=" + x1);
+		var textarea = document.getElementById(sno + '_url');
 		var url = textarea.value;
 		window.open(url);
 	}
 
-	function switchStatus(sid) {
-		var img = document.getElementById(sid + '_img');
-		var src = img.src;
-		//查询JavaScript的string对象材料
-		if (src.lastIndexOf("cross.jpg") != -1) {
-			img.src = "images/icon/tick.jpg";
-		} else {
-			img.src = "images/icon/cross.jpg";
+	function switchStatus(sno) {
+
+		var r = confirm("确认通过？");
+		if (r == true) {
+			var img = document.getElementById(sno + '_img');
+			var src = img.src;
+			var status = 0;
+			//查询JavaScript的string对象材料
+			if (src.lastIndexOf("cross.jpg") != -1) {
+				img.src = "images/icon/tick.jpg";
+				status = 1;
+			} else {
+				img.src = "images/icon/cross.jpg";
+				status = 0;
+				//unPass.innerHTML=parseInt(unPass.innerHTML)+1;
+			}
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					//alert("服务端响应：" + xmlhttp.responseText);
+					statistic();
+				}
+			};
+			var parameters = "?method=updateStatus&sno=" + sno + "&status="
+					+ status;
+			xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
+					+ parameters, true);
+			xmlhttp.send();
 		}
-		//提交到后台
+	}
+	function statistic() {
+		var pass = 0;
+		var unPass = 0;
+		var statusImgs = document.getElementsByClassName("statusImg");
+		for (var i = 0; i < statusImgs.length; i++) {
+			if (statusImgs[i].src.indexOf("cross.jpg") != -1) {
+				unPass = unPass + 1;
+			} else {
+				pass = pass + 1;
+			}
+		}
+		var report = document.getElementById('report');
+		report.innerHTML = '已完成<span style="color:red" id="pass">' + pass
+				+ '</span>人，未完成<span style="color:red" id="unPass">' + unPass
+				+ '</span>人';
+	}
+
+	function restart() {
+		var r = confirm("确认更新？");
+		if (r == true) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					refresh();
+				}
+			};
+			var parameters = "?method=updateAllStatus";
+			xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
+					+ parameters, true);
+			xmlhttp.send();
+		}
+
+	}
+	
+	function deleteStudy(sno){
+		var r = confirm("确认删除？");
+		if (r == true) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					refresh();
+				}
+			};
+			var parameters = "?method=deleteStudy&sno="+sno;
+			xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
+					+ parameters, true);
+			xmlhttp.send();
+		}
 	}
 </script>
 </head>
@@ -76,13 +201,19 @@ td {
 	<table>
 		<tr>
 			<td>统计：</td>
-			<td>完成x人，未完成x人</td>
-			<td><input type="button" value="刷新"></td>
-			<td><input type="button" value="重新开始"></td>
+			<td id="report">完成<span style="color:red" id="pass">x</span>人，未完成<span
+				style="color:red" id="unPass">x</span>人
+			</td>
+			<td><input type="button" value="刷新" onclick="refresh()"></td>
+			<td><input type="button" value="重新开始" onclick="restart()"></td>
+			<td>
+				<!-- 用按钮实现超链接 --> <input type="button" value="新增学生"
+				onclick="window.open('addStudyInfo.html','right')" />
+			</td>
 		</tr>
 	</table>
 	<br>
-	<table>
+	<table id="content" border=1>
 		<tr>
 			<td style="width:10%;text-align:center">第1组</td>
 
@@ -93,23 +224,8 @@ td {
 			<td><textarea id="s001_url" rows="3" cols="20"></textarea></td>
 			<td><input type="button" value="保存" onclick="saveUrl('s001')"><br>
 				<input type="button" value="测试" onclick="openUrl('s001')"></td>
-				
-			<td width="5%"></td>
 
-			<td>陈超<br> <input type="button" value="X">
-			</td>
-			<td><img src="images/student/陈超超.jpeg" width="50"></td>
-			<td><textarea rows="3" cols="20">http://127.0.0.1:8083/wuling</textarea></td>
-			<td><input type="button" value="保存"><br> <input
-				type="button" value="测试"></td>
 			<td width="5%"></td>
-
-			<td>陈超<br> <input type="button" value="X">
-			</td>
-			<td><img src="images/student/陈超超.jpeg" width="50"></td>
-			<td><textarea rows="3" cols="20">http://127.0.0.1:8083/wuling</textarea></td>
-			<td><input type="button" value="保存"><br> <input
-				type="button" value="测试"></td>
 		</tr>
 	</table>
 </body>
