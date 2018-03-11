@@ -42,7 +42,7 @@ td {
 		//JSON.parse(json字符串)
 		var obj = JSON.parse(jsonStr);
 		var student = obj.study.student;
-		var innerHtml = "";
+		var innerHtml = "我是\"wuling\"的朋友";
 		for ( var p in student) {//遍历json数组时，这么写p为索引，0,1
 			var item = student[p];
 
@@ -58,9 +58,9 @@ td {
 			}
 			innerHtml = innerHtml
 					+ '			<td style="width:5%;text-align:center">'
-					+ '<img src="images/icon/delete.jpg" height="20px" onclick="deleteStudy('
+					+ '<img src="images/icon/delete.jpg" height="20px" onclick="deleteStudy(\''
 					+ item.sno
-					+ ')">'
+					+ '\')">'
 					+ '</td>                    '
 					+ '                                                                                 '
 					+ '			<td style="width:6%">'
@@ -82,7 +82,6 @@ td {
 					+ item.sno + '\')"><br>  '
 					+ '				<input type="button" value="测试" onclick="openUrl(\''
 					+ item.sno + '\')"></td> ';
-
 			if (p % 3 == 2) {
 				innerHtml = innerHtml + '</tr>';
 			}
