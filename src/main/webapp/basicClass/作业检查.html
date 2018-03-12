@@ -19,6 +19,7 @@ td {
 }
 </style>
 <script type="text/javascript">
+	var publicUrl="http://192.168.1.45:8083/guoya-server/studyInfo";
 	window.onload = function() {
 		refresh();
 	};
@@ -26,7 +27,7 @@ td {
 	function refresh() {
 		var parameters = "?method=getUrls";
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", "http://192.168.1.45:8083/guoya-server/studyInfo"
+		xmlhttp.open("GET", publicUrl
 				+ parameters, true);
 		xmlhttp.send();
 		xmlhttp.onreadystatechange = function() {
@@ -42,12 +43,22 @@ td {
 		//JSON.parse(json字符串)
 		var obj = JSON.parse(jsonStr);
 		var student = obj.study.student;
-		var innerHtml = "我是\"wuling\"的朋友";
+		var innerHtml="		<table style=\"width:100%;\">  ";
+		var groupId="";
+		var groupIndex=0;
 		for ( var p in student) {//遍历json数组时，这么写p为索引，0,1
 			var item = student[p];
-
-			if (p % 3 == 0) {
-				innerHtml = innerHtml + '<tr>';
+			if(groupId != item.group){
+				innerHtml = innerHtml
+					+"			<tr>                       "
+					+"				<td colspan=17>第"+item.group+"组</td>         "
+					+"			</tr>                      "
+				groupId=item.group;
+				groupIndex=0;
+			} 
+			
+			if (groupIndex % 3 == 0) {
+				innerHtml = innerHtml +"			<tr>                       ";
 			}
 			var imageName = "cross.jpg";
 			if (item.status == 1) {
@@ -82,12 +93,14 @@ td {
 					+ item.sno + '\')"><br>  '
 					+ '				<input type="button" value="测试" onclick="openUrl(\''
 					+ item.sno + '\')"></td> ';
-			if (p % 3 == 2) {
-				innerHtml = innerHtml + '</tr>';
+			if (groupIndex % 3 == 2) {
+				innerHtml = innerHtml + "			</tr>                      ";
 			}
-		}
+			groupIndex=groupIndex+1;
+		}			
+
 		var table = document.getElementById('content');
-		table.innerHTML = innerHtml;
+		table.innerHTML = innerHtml+"</table>";
 		statistic();
 
 	}
@@ -102,7 +115,7 @@ td {
 				alert("服务端响应：" + xmlhttp.responseText);
 			}
 		};
-		xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
+		xmlhttp.open("GET", publicUrl
 				+ parameters, true);
 		xmlhttp.send();
 	}
@@ -117,7 +130,8 @@ td {
 
 	function switchStatus(sno) {
 
-		var r = confirm("确认通过？");
+		//var r = confirm("确认通过？");
+		var r=true;
 		if (r == true) {
 			var img = document.getElementById(sno + '_img');
 			var src = img.src;
@@ -140,7 +154,7 @@ td {
 			};
 			var parameters = "?method=updateStatus&sno=" + sno + "&status="
 					+ status;
-			xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
+			xmlhttp.open("GET", publicUrl
 					+ parameters, true);
 			xmlhttp.send();
 		}
@@ -172,7 +186,7 @@ td {
 				}
 			};
 			var parameters = "?method=updateAllStatus";
-			xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
+			xmlhttp.open("GET", publicUrl
 					+ parameters, true);
 			xmlhttp.send();
 		}
@@ -189,7 +203,7 @@ td {
 				}
 			};
 			var parameters = "?method=deleteStudy&sno="+sno;
-			xmlhttp.open("GET", "http://127.0.0.1:8083/guoya-server/studyInfo"
+			xmlhttp.open("GET", publicUrl
 					+ parameters, true);
 			xmlhttp.send();
 		}
@@ -212,7 +226,7 @@ td {
 		</tr>
 	</table>
 	<br>
-	<table id="content" border=1>
+	<div id="content">
 		<tr>
 			<td style="width:10%;text-align:center">第1组</td>
 
@@ -226,6 +240,6 @@ td {
 
 			<td width="5%"></td>
 		</tr>
-	</table>
+	</div>
 </body>
 </html>
