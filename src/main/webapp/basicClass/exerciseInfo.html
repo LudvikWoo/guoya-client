@@ -18,11 +18,21 @@ td {
 .double {
 	background-color: gray;
 }
+
+#nav /*悬浮框标签*/ {
+	position: fixed; /*浮窗位置*/
+	left: 4px;
+	top: 4px ;/*靠右*/
+	background-color: #D8D8D8;
+}
+#nav td /*悬浮框标签*/ {
+	border-bottom: 0px solid black
+}
 </style>
 <script type="text/javascript">
 	//var publicUrl="http://127.0.0.1:8083/guoya-server/studyInfo";
-	//var publicUrl="http://192.168.1.45:8083/guoya-server/studyInfo";
-	var publicUrl="http://www.guoyasoft.com:15021/guoya-server/studyInfo";
+	var publicUrl="http://192.168.1.45:8083/guoya-server/studyInfo";
+	//var publicUrl = "http://www.guoyasoft.com:15021/guoya-server/studyInfo";
 
 	window.onload = function() {
 		refresh();
@@ -31,8 +41,7 @@ td {
 	function refresh() {
 		var parameters = "?method=getUrls";
 		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.open("GET", publicUrl
-				+ parameters, true);
+		xmlhttp.open("GET", publicUrl + parameters, true);
 		xmlhttp.send();
 		xmlhttp.onreadystatechange = function() {
 			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -47,22 +56,21 @@ td {
 		//JSON.parse(json字符串)
 		var obj = JSON.parse(jsonStr);
 		var student = obj.study.student;
-		var innerHtml="		<table style=\"width:100%;\">  ";
-		var groupId="";
-		var groupIndex=0;
+		var innerHtml = "		<table style=\"width:100%;\">  ";
+		var groupId = "";
+		var groupIndex = 0;
 		for ( var p in student) {//遍历json数组时，这么写p为索引，0,1
 			var item = student[p];
-			if(groupId != item.group){
-				innerHtml = innerHtml
-					+"			<tr>                       "
-					+"				<td colspan=17>第"+item.group+"组</td>         "
-					+"			</tr>                      "
-				groupId=item.group;
-				groupIndex=0;
-			} 
-			
+			if (groupId != item.group) {
+				innerHtml = innerHtml + "			<tr>                       "
+						+ "				<td colspan=17>第" + item.group
+						+ "组</td>         " + "			</tr>                      "
+				groupId = item.group;
+				groupIndex = 0;
+			}
+
 			if (groupIndex % 3 == 0) {
-				innerHtml = innerHtml +"			<tr>                       ";
+				innerHtml = innerHtml + "			<tr>                       ";
 			}
 			var imageName = "cross.jpg";
 			if (item.status == 1) {
@@ -72,13 +80,14 @@ td {
 				unPass = unPass + 1;
 			}
 			innerHtml = innerHtml
-					+ '			<td style="width:5%;text-align:center">'
+					+ '			<td style="width:3%;text-align:center;display:none">'
 					+ '<img src="images/icon/delete.jpg" height="20px" onclick="deleteStudy(\''
 					+ item.sno
 					+ '\')">'
 					+ '</td>                    '
 					+ '                                                                                 '
-					+ '			<td style="width:6%">'
+					+ '			<td style="width:5%;text-align:center"><img src="images/guoya_logo.jpg" width="45px"></td>            '
+					+ '			<td style="width:5%">'
 					+ item.sname
 					+ '<br>&nbsp;&nbsp;<img class="statusImg" id="'
 					+ item.sno
@@ -89,8 +98,7 @@ td {
 					+ item.sno
 					+ '\')">                     '
 					+ '			</td>                                                                 '
-					+ '			<td><img src="images/student/陈超超.jpeg" width="50"></td>            '
-					+ '			<td><textarea id="'+item.sno+'_url" rows="3" cols="20" >'
+					+ '			<td><textarea id="'+item.sno+'_url" rows="3" cols="22" >'
 					+ item.url
 					+ '</textarea></td>       '
 					+ '			<td style="width:7%"><input type="button" value="保存" onclick="saveUrl(\''
@@ -100,11 +108,11 @@ td {
 			if (groupIndex % 3 == 2) {
 				innerHtml = innerHtml + "			</tr>                      ";
 			}
-			groupIndex=groupIndex+1;
-		}			
+			groupIndex = groupIndex + 1;
+		}
 
 		var table = document.getElementById('content');
-		table.innerHTML = innerHtml+"</table>";
+		table.innerHTML = innerHtml + "</table>";
 		statistic();
 
 	}
@@ -119,8 +127,7 @@ td {
 				alert("服务端响应：" + xmlhttp.responseText);
 			}
 		};
-		xmlhttp.open("GET", publicUrl
-				+ parameters, true);
+		xmlhttp.open("GET", publicUrl + parameters, true);
 		xmlhttp.send();
 	}
 
@@ -135,7 +142,7 @@ td {
 	function switchStatus(sno) {
 
 		//var r = confirm("确认通过？");
-		var r=true;
+		var r = true;
 		if (r == true) {
 			var img = document.getElementById(sno + '_img');
 			var src = img.src;
@@ -158,8 +165,7 @@ td {
 			};
 			var parameters = "?method=updateStatus&sno=" + sno + "&status="
 					+ status;
-			xmlhttp.open("GET", publicUrl
-					+ parameters, true);
+			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
 		}
 	}
@@ -190,14 +196,14 @@ td {
 				}
 			};
 			var parameters = "?method=updateAllStatus";
-			xmlhttp.open("GET", publicUrl
-					+ parameters, true);
+			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
 		}
 
 	}
-	
-	function deleteStudy(sno){
+
+	/*
+	function deleteStudy(sno) {
 		var r = confirm("确认删除？");
 		if (r == true) {
 			var xmlhttp = new XMLHttpRequest();
@@ -206,30 +212,34 @@ td {
 					refresh();
 				}
 			};
-			var parameters = "?method=deleteStudy&sno="+sno;
-			xmlhttp.open("GET", publicUrl
-					+ parameters, true);
+			var parameters = "?method=deleteStudy&sno=" + sno;
+			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
 		}
 	}
+	*/
 </script>
 </head>
 <body>
-	<table>
-		<tr>
-			<td>统计：</td>
-			<td id="report">完成<span style="color:red" id="pass">x</span>人，未完成<span
-				style="color:red" id="unPass">x</span>人
-			</td>
-			<td><input type="button" value="刷新" onclick="refresh()"></td>
-			<td><input type="button" value="重新开始" onclick="restart()"></td>
-			<td>
-				<!-- 用按钮实现超链接 --> <input type="button" value="新增学生"
-				onclick="window.open('addStudyInfo.html','right')" />
-			</td>
-		</tr>
-	</table>
-	<br>
+	<div id="nav">
+		<table>
+			<tr>
+				<td>统计：</td>
+				<td id="report">完成<span style="color:red" id="pass">x</span>人，未完成<span
+					style="color:red" id="unPass">x</span>人
+				</td>
+				<td><input type="button" value="刷新" onclick="refresh()"></td>
+				<td><input type="button" value="重新开始" onclick="restart()"></td>
+				<td>
+					<!-- 用按钮实现超链接 --> <input type="button" value="新增学生"
+					onclick="window.open('addStudyInfo.html','right')" />
+				</td>
+			</tr>
+		</table>
+	</div>
+
+
+	<br><br>
 	<div id="content">
 		<tr>
 			<td style="width:10%;text-align:center">第1组</td>
@@ -237,7 +247,7 @@ td {
 			<td>陈超<br> <img id="s001_img" src="images/icon/cross.jpg"
 				height="20px" onclick="switchStatus('s001')">
 			</td>
-			<td><img src="images/student/陈超超.jpeg" width="50"></td>
+			<td><img src="images/guoya_logo.jpg" width="50"></td>
 			<td><textarea id="s001_url" rows="3" cols="20"></textarea></td>
 			<td><input type="button" value="保存" onclick="saveUrl('s001')"><br>
 				<input type="button" value="测试" onclick="openUrl('s001')"></td>

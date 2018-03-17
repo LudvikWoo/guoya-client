@@ -1,0 +1,105 @@
+
+
+<tasks>
+	<task>
+		<taskId>aaa</taskId>
+		<taskName>aaa</taskName>
+		<createTime>aaa</createTime>
+		<items>
+			<item>
+				<itemId>aaa</itemId>
+				<itemName>aaa</itemName>
+				<itemDesc>aaa</itemDesc>
+				<itemStatus>aaa</itemStatus>
+			</item>
+			<item>
+				<itemId>aaa</itemId>
+				<itemName>aaa</itemName>
+				<itemDesc>aaa</itemDesc>
+				<itemStatus>aaa</itemStatus>
+			</item>
+		</items>
+	</task>
+	<task>
+		<taskId>aaa</taskId>
+		<taskName>aaa</taskName>
+		<createTime>aaa</createTime>
+		<items>
+			<item>
+				<itemId>aaa</itemId>
+				<itemName>aaa</itemName>
+				<itemDesc>aaa</itemDesc>
+				<itemStatus>aaa</itemStatus>
+			</item>
+			<item>
+				<itemId>aaa</itemId>
+				<itemName>aaa</itemName>
+				<itemDesc>aaa</itemDesc>
+				<itemStatus>aaa</itemStatus>
+			</item>
+		</items>
+	</task>
+</tasks>
+
+<!-- 
+task:
+taskId
+taskName
+createTime
+
+taskItem:
+itemId
+itemName
+taskId
+itemDesc
+itemStatus
+
+{
+  "tasks": {
+    "task": [
+      {
+        "taskId": "aaa",
+        "taskName": "aaa",
+        "createTime": "aaa",
+        "items": {
+          "item": [
+            {
+              "itemId": "aaa",
+              "itemName": "aaa",
+              "itemDesc": "aaa",
+              "itemStatus": "aaa"
+            },
+            {
+              "itemId": "aaa",
+              "itemName": "aaa",
+              "itemDesc": "aaa",
+              "itemStatus": "aaa"
+            }
+          ]
+        }
+      },
+      {
+        "taskId": "aaa",
+        "taskName": "aaa",
+        "createTime": "aaa",
+        "items": {
+          "item": [
+            {
+              "itemId": "aaa",
+              "itemName": "aaa",
+              "itemDesc": "aaa",
+              "itemStatus": "aaa"
+            },
+            {
+              "itemId": "aaa",
+              "itemName": "aaa",
+              "itemDesc": "aaa",
+              "itemStatus": "aaa"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+ -->

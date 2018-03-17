@@ -4,177 +4,485 @@
 <meta charset="utf-8" />
 <title>作业检查</title>
 <style>
-	table,tr,td{
-		border:0px solid black;
-		width:100%;
-	}
-	.head td{
-		border-spacing: 0;
-		border-padding: 0;
-		border-bottom: 1px solid black;
-	}
-	.content td{
+table,tr,td {
+	border: 0px solid black;
+	width: 100%;
+}
+
+.head td {
 	border-spacing: 0;
-		border-padding: 0;
-		border-bottom: 1px solid #D8D8D8;
-	}
+	border-padding: 0;
+	border-bottom: 1px solid black;
+}
+
+.content td {
+	border-spacing: 0;
+	border-padding: 0;
+	border-bottom: 1px solid #D8D8D8;
+}
 </style>
 <script type="text/javascript">
-function switchStatus(sno) {
+	//var publicUrl = "http://www.guoyasoft.com:15021/guoya-server/taskInfo";
+	//var publicUrl = "http://127.0.0.1:8083/guoya-server/taskInfo";
+	var publicUrl="http://192.168.1.45:8083/guoya-server/taskInfo";
 
-	//var r = confirm("确认通过？");
-	var r=true;
-	if (r == true) {
-		var img = document.getElementById(sno + '_img');
-		var src = img.src;
-		//查询JavaScript的string对象材料
-		if (src.lastIndexOf("cross.jpg") != -1) {
-			img.src = "images/icon/tick.jpg";
-		} else {
-			img.src = "images/icon/cross.jpg";
+	function generateStaticData() {
+		var data = "{                                                                                                           "
+				+ "  \"tasks\": {                                                                                              "
+				+ "    \"task\": [                                                                                             "
+				+ "      {                                                                                                     "
+				+ "        \"taskId\": \"1\",                                                                                  "
+				+ "        \"taskName\": \"自动生成一批相同的学生信息\",                                                       "
+				+ "        \"taskDate\": \"2018-03-13\",                                                                       "
+				+ "        \"items\": {                                                                                        "
+				+ "          \"item\": [                                                                                       "
+				+ "            {                                                                                               "
+				+ "              \"itemId\": \"1\",                                                                            "
+				+ "              \"itemName\": \"检查点1：\",                                                                  "
+				+ "              \"itemDesc\": \"新增“生成界面”按钮，点击按钮，调用函数（function），弹出alert提示\",          "
+				+ "              \"itemStatus\": \"0\"                                                                         "
+				+ "            },                                                                                              "
+				+ "            {                                                                                               "
+				+ "              \"itemId\": \"2\",                                                                            "
+				+ "              \"itemName\": \"检查点2：\",                                                                  "
+				+ "              \"itemDesc\": \"新增“生成界面”按钮，点击按钮，调用函数（function），弹出alert提示\",          "
+				+ "              \"itemStatus\": \"0\"                                                                         "
+				+ "            }                                                                                               "
+				+ "          ]                                                                                                 "
+				+ "        }                                                                                                   "
+				+ "      },                                                                                                    "
+				+ "      {                                                                                                     "
+				+ "        \"taskId\": \"2\",                                                                                  "
+				+ "        \"taskName\": \"自动生成不同姓名的学生信息\",                                                       "
+				+ "        \"taskDate\": \"2018-03-14\",                                                                       "
+				+ "        \"items\": {                                                                                        "
+				+ "          \"item\": [                                                                                       "
+				+ "            {                                                                                               "
+				+ "              \"itemId\": \"1\",                                                                            "
+				+ "              \"itemName\": \"检查点1：\",                                                                  "
+				+ "              \"itemDesc\": \"新增“生成界面”按钮，点击按钮，调用函数（function），弹出alert提示\",          "
+				+ "              \"itemStatus\": \"0\"                                                                         "
+				+ "            },                                                                                              "
+				+ "            {                                                                                               "
+				+ "              \"itemId\": \"2\",                                                                            "
+				+ "              \"itemName\": \"检查点2：\",                                                                  "
+				+ "              \"itemDesc\": \"新增“生成界面”按钮，点击按钮，调用函数（function），弹出alert提示\",          "
+				+ "              \"itemStatus\": \"0\"                                                                         "
+				+ "            }                                                                                               "
+				+ "          ]                                                                                                 "
+				+ "        }                                                                                                   "
+				+ "      }                                                                                                     "
+				+ "    ]                                                                                                       "
+				+ "  }                                                                                                         "
+				+ "}                                                                                                           ";
+		return data;
+	}
+
+	window.onload = function() {
+		refresh();
+	};
+	function refresh() {
+		//第一步：模拟数据实现刷新界面
+		//模拟数据1
+		//var data=generateStaticData();
+		//模拟数据2
+		//var data="{\"tasks\": {\"task\": [ { \"taskId\": \"1\",  \"taskName\": \"自动生成一批相同的学生信息\",     \"taskDate\": \"null\",\"items\": { \"item\": [{\"itemId\": \"1\", \"itemName\":\"检查点1：\",  \"itemDesc\": \"新增“生成界面”按钮，点击按钮，调用函数（function），弹出alert提示\", \"itemStatus\": \"0\"},{\"itemId\": \"2\", \"itemName\":\"检查点2：\",  \"itemDesc\": \"界面写一个空白的table，没有tr和td，点击“生成界面”按钮，往table里面添加一行一列，列里面随便写一句话\", \"itemStatus\": \"0\"},{\"itemId\": \"3\", \"itemName\":\"检查点31：\",  \"itemDesc\": \"点击“生成界面”按钮，往table里面插入一个学生的作业信息\", \"itemStatus\": \"0\"},{\"itemId\": \"4\", \"itemName\":\"检查点4：\",  \"itemDesc\": \"点击“生成界面”按钮，往table里面插入“指定个数”的作业信息\", \"itemStatus\": \"0\"},{\"itemId\": \"5\", \"itemName\":\"检查点5：\",  \"itemDesc\": \"打开“作业检查”界面时，自动调用“生成界面”方法，省去手工点击的步骤\", \"itemStatus\": \"0\"}]}},{ \"taskId\": \"2\",  \"taskName\": \"自动生成不同姓名的学生信息\",     \"taskDate\": \"null\",\"items\": { \"item\": [{\"itemId\": \"6\", \"itemName\":\"检查点1：\",  \"itemDesc\": \" 变量：定义变量姓名name、状态status、地址url，点击生成界面按钮，alert逐个弹框显示变量值\", \"itemStatus\": \"0\"},{\"itemId\": \"7\", \"itemName\":\"检查点2：\",  \"itemDesc\": \"字符串拼装：将所有变量组合成一个字符串，如“姓名：”+name+“,状态：”+status等等，点击按钮，alert弹“框显示整句话\", \"itemStatus\": \"0\"},{\"itemId\": \"8\", \"itemName\":\"检查点3：\",  \"itemDesc\": \" js更改界面内容：将自动生成界面的模板中的“姓名”、“url”值改为变量的值\", \"itemStatus\": \"0\"},{\"itemId\": \"9\", \"itemName\":\"检查点4：\",  \"itemDesc\": \" 数组：定义一个数组，里面存放5个名字；再定义一个数组，里面存放5个url\", \"itemStatus\": \"0\"},{\"itemId\": \"10\", \"itemName\":\"检查点5：\",  \"itemDesc\": \" js循环控制器：获取数组大小，循环遍历数组，alert数组中的每一个值\", \"itemStatus\": \"0\"},{\"itemId\": \"11\", \"itemName\":\"检查点6：\",  \"itemDesc\": \" js循环控制器：变量姓名数组，将自动生成界面的模板值替换成数组中的值，最终生成的界面姓名都不一样\", \"itemStatus\": \"0\"}]}}]}}";
+
+		//generateTaskHtml(data);
+
+		var divContent = document.getElementById("div_content");
+		divContent.innerHTML = "页面加载中，请稍等...........";
+
+		//第二步：替换成真实接口数据刷新界面
+		var parameters = "?method=getTaskInfo";
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", publicUrl + parameters, true);
+		xmlhttp.send();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var result = xmlhttp.responseText;
+				//alert(result);
+				generateTaskHtml(result);
+			}
+		};
+	}
+
+	function generateTaskHtml(data) {
+		//第一步：获取json数据，先静态，再动态
+		//var data=generateStaticData();
+		//var data="{\"tasks\": {\"task\": [ { \"taskId\": \"1\",  \"taskName\": \"自动生成一批相同的学生信息\",     \"taskDate\": \"null\",\"items\": { \"item\": [{\"itemId\": \"1\", \"itemName\":\"检查点1：\",  \"itemDesc\": \"新增“生成界面”按钮，点击按钮，调用函数（function），弹出alert提示\", \"itemStatus\": \"0\"},{\"itemId\": \"2\", \"itemName\":\"检查点2：\",  \"itemDesc\": \"界面写一个空白的table，没有tr和td，点击“生成界面”按钮，往table里面添加一行一列，列里面随便写一句话\", \"itemStatus\": \"0\"},{\"itemId\": \"3\", \"itemName\":\"检查点31：\",  \"itemDesc\": \"点击“生成界面”按钮，往table里面插入一个学生的作业信息\", \"itemStatus\": \"0\"},{\"itemId\": \"4\", \"itemName\":\"检查点4：\",  \"itemDesc\": \"点击“生成界面”按钮，往table里面插入“指定个数”的作业信息\", \"itemStatus\": \"0\"},{\"itemId\": \"5\", \"itemName\":\"检查点5：\",  \"itemDesc\": \"打开“作业检查”界面时，自动调用“生成界面”方法，省去手工点击的步骤\", \"itemStatus\": \"0\"}]}},{ \"taskId\": \"2\",  \"taskName\": \"自动生成不同姓名的学生信息\",     \"taskDate\": \"null\",\"items\": { \"item\": [{\"itemId\": \"6\", \"itemName\":\"检查点1：\",  \"itemDesc\": \" 变量：定义变量姓名name、状态status、地址url，点击生成界面按钮，alert逐个弹框显示变量值\", \"itemStatus\": \"0\"},{\"itemId\": \"7\", \"itemName\":\"检查点2：\",  \"itemDesc\": \"字符串拼装：将所有变量组合成一个字符串，如“姓名：”+name+“,状态：”+status等等，点击按钮，alert弹“框显示整句话\", \"itemStatus\": \"0\"},{\"itemId\": \"8\", \"itemName\":\"检查点3：\",  \"itemDesc\": \" js更改界面内容：将自动生成界面的模板中的“姓名”、“url”值改为变量的值\", \"itemStatus\": \"0\"},{\"itemId\": \"9\", \"itemName\":\"检查点4：\",  \"itemDesc\": \" 数组：定义一个数组，里面存放5个名字；再定义一个数组，里面存放5个url\", \"itemStatus\": \"0\"},{\"itemId\": \"10\", \"itemName\":\"检查点5：\",  \"itemDesc\": \" js循环控制器：获取数组大小，循环遍历数组，alert数组中的每一个值\", \"itemStatus\": \"0\"},{\"itemId\": \"11\", \"itemName\":\"检查点6：\",  \"itemDesc\": \" js循环控制器：变量姓名数组，将自动生成界面的模板值替换成数组中的值，最终生成的界面姓名都不一样\", \"itemStatus\": \"0\"}]}}]}}";
+		//alert("data="+data);
+
+		//第二步：解析成JSON对象
+		var json = JSON.parse(data);
+		//alert("taskName="+json.tasks.task[0].taskName);
+
+		//第三步：第一层循环，生成task任务
+		var tasks = json.tasks.task;
+		var divContent = document.getElementById("div_content");
+		divContent.innerHTML = "";
+		for (var i = 0; i < tasks.length; i++) {
+			var task = tasks[i];
+			//alert(task.taskId+","+task.taskName+","+task.taskDate);
+
+			var taskContent = "<br><table>                                                                       "
+					+ "			<tr class=\"head\">                                                 "
+					+ "				<td colspan=\"2\" style=\"width:90%\"><span style=\"font-size:20px\"><b>  "
+					+ task.taskDate
+					+ "	"
+					+ task.taskName
+					+ "</b></span></td>                "
+					+ "				<td><input type=\"button\" value=\"新增\" onclick=\"addItem("
+					+ task.taskId
+					+ ")\">"
+					+ " <input type=\"button\" value=\"删除\" onclick=\"deleteTask("
+					+ task.taskId
+					+ ")\"></td>           "
+					+ "			</tr>                                                               "
+					+ "			<tr>                                                                "
+					+ "				<td colspan=\"3\" style=\"height:10px\"></td>                   "
+					+ "			</tr>                                                               "
+					+ "</table>                                                                      "
+					+ "<table id=\"table_head_"+task.taskId+"\">                                                                       "
+					+ "</table>                                                                      ";
+			divContent.innerHTML = taskContent + divContent.innerHTML;
+
+			//第四步：第二层循环，生成item明细
+			var items = task.items.item;
+			for (var j = 0; j < items.length; j++) {
+				var item = items[j];
+				if ("null" != item.itemId && "" != item.itemId
+						&& "NULL" != item.itemId) {
+					//alert(item.itemId+","+item.itemName+","+item.itemDesc+","+item.itemStatus);
+					var statusImg = "images/icon/cross.jpg";
+					if (item.itemStatus == "1") {
+						statusImg = "images/icon/tick.jpg";
+					}
+
+					var taskElement = document.getElementById("table_head_"
+							+ task.taskId);
+					var itemContent = "			<tr class=\"content\">                                                 "
+							+ "				<td style=\"width:4%;text-align:center\"><img src=\"images/icon/delete.jpg\" style=\"height:22px;\" onclick=\"deleteTaskItem("
+							+ item.itemId
+							+ ")\"></td> "
+							+ "				<td style=\"width:7%\">"
+							+ item.itemName
+							+ "</td>                             "
+							+ "				<td style=\"width:80%\">"
+							+ item.itemDesc
+							+ "              </td>                                                              "
+							+ "				<td style=\"\"><img id=\""
+							+ item.itemId
+							+ "_img\"                       "
+							+ "					src=\""
+							+ statusImg
+							+ "\" height=\"20px\"                  "
+							+ "					onclick=\"switchStatus('"
+							+ item.itemId
+							+ "')\"></td>                         "
+							+ "			</tr>                                                                  ";
+					taskElement.innerHTML = taskElement.innerHTML + itemContent;
+				}
+			}
+		}
+		//第五步：动态添加到界面
+
+	}
+
+	function switchStatus(itemId) {
+		var r = confirm("确认通过？");
+		//var r = true;
+		if (r == true) {
+			var img = document.getElementById(itemId + '_img');
+			var src = img.src;
+			var status = 0;
+			//查询JavaScript的string对象材料
+			if (src.lastIndexOf("cross.jpg") != -1) {
+				img.src = "images/icon/tick.jpg";
+				status = 1;
+			} else {
+				img.src = "images/icon/cross.jpg";
+				status = 0;
+				//unPass.innerHTML=parseInt(unPass.innerHTML)+1;
+			}
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					//alert("服务端响应：" + xmlhttp.responseText);
+				}
+			};
+			var parameters = "?method=updateTaskItemStatus&itemId=" + itemId
+					+ "&itemStatus=" + status;
+			xmlhttp.open("GET", publicUrl + parameters, true);
+			xmlhttp.send();
 		}
 	}
-}
+
+	function addTask() {
+		var divContent = document.getElementById("div_content");
+		var task = "				<table>                                                                                      "
+				+ "					<tr class=\"head\">                                                                      "
+				+ "						<td style=\"width:8%\">任务日期：</td>                                               "
+				+ "						<td style=\"width:15%\"><input type=\"date\" name=\"taskDate\" id=\"taskDate\">      "
+				+ "						</td>                                                                                "
+				+ "						<td style=\"width:8%\">任务名称：</td>                                               "
+				+ "						<td style=\"width:60%\"><input type=\"text\" name=\"taskName\" style=\"width:98%\" "
+				+ "							id=\"taskName\"></td>"
+				+ "						<td><input type=\"button\" value=\"保存\" onclick=\"saveTask()\" >                   "
+				+ "						</td>                                                                                "
+				+ "					</tr>                                                                                    "
+				+ "				</table>                                                                                     ";
+		divContent.innerHTML = task + divContent.innerHTML;
+
+	}
+
+	function saveTask() {
+		var r = confirm("确认新增任务吗？");
+		//var r = true;
+		if (r == true) {
+			var taskDate = document.getElementById("taskDate").value;
+			var taskName = document.getElementById("taskName").value;
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					alert("服务端响应：" + xmlhttp.responseText);
+					refresh();
+				}
+			};
+			var parameters = "?method=addTask&taskDate=" + taskDate
+					+ "&taskName=" + taskName;
+			xmlhttp.open("GET", publicUrl + parameters, true);
+			xmlhttp.send();
+
+		}
+	}
+	/*
+	function addTaskbak() {
+		var divContent = document.getElementById("div_content");
+		var task = "<br><table>                                                                       "
+				+ "			<tr class=\"head\">                                                 "
+				+ "				<td colspan=\"2\" style=\"width:90%\"><span style=\"font-size:20px\"><b>2018-03-14  "
+				+ "							JS变量、字符串、数组</b></span></td>                "
+				+ "				<td><input type=\"button\" value=\"新增检查点\" onclick=\"addItem()\"></td>           "
+				+ "			</tr>                                                               "
+				+ "			<tr>                                                                "
+				+ "				<td colspan=\"3\" style=\"height:10px\"></td>                   "
+				+ "			</tr>                                                               "
+				+ "</table>                                                                      "
+				+ "<table id=\"table_head_taskId\">                                                                       "
+				+ "</table>                                                                      ";
+		divContent.innerHTML = task + divContent.innerHTML;
+	}
+	 */
+
+	function addItem(taskId) {
+		var task = document.getElementById("table_head_" + taskId);
+		var item = "			<tr class=\"content\" id=\"add_content_tr\">                                                                   "
+				+ "				<td style=\"width:4%;text-align:center\"><img src=\"images/icon/delete.jpg\" style=\"height:22px;\" onclick=\"refresh()\"></td>                                           "
+				+ "				<td style=\"width:7%\"><textarea id=\"add_item_name\" rows=\"2\" style=\"width:95%\"></textarea></td>                                               "
+				+ "				<td style=\"width:80%\"><textarea id=\"add_item_desc\" rows=\"2\" style=\"width:95%\"></textarea>"
+				+ "				</td>                                                                                "
+				+ "				<td style=\"text-align:left\"><input type=\"button\" value=\"保存\" onclick=\"saveItem("
+				+ taskId
+				+ ")\"></td>"
+				+ "			</tr>                                                                                    ";
+		task.innerHTML = task.innerHTML + item;
+	}
+	 
+	function saveItem(taskId) {
+		var r = confirm("确认操作吗？");
+		//var r = true;
+		if (r == true) {
+			var itemName = document.getElementById("add_item_name").value;
+			var itemDesc = document.getElementById("add_item_desc").value;
+			alert("taskId=" + taskId + "&itemName=" + itemName + "&itemDesc="
+					+ itemDesc);
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					alert("服务端响应：" + xmlhttp.responseText);
+					refresh();
+				}
+			};
+			var parameters = "?method=addTaskItem&taskId=" + taskId
+					+ "&itemName=" + itemName + "&itemDesc=" + itemDesc;
+			xmlhttp.open("GET", publicUrl + parameters, true);
+			xmlhttp.send();
+		}
+
+	}
+
+	function deleteTaskItem(itemId) {
+		var r = confirm("确认删除吗？");
+		//var r = true;
+		if (r == true) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					alert("服务端响应：" + xmlhttp.responseText);
+					refresh();
+				}
+			};
+			var parameters = "?method=deleteTaskItem&itemId=" + itemId;
+			xmlhttp.open("GET", publicUrl + parameters, true);
+			xmlhttp.send();
+		}
+
+	}
+	
+	function deleteTask(taskId){
+		var r = confirm("确认删除任务及所有子项吗？");
+		//var r = true;
+		if (r == true) {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					alert("服务端响应：" + xmlhttp.responseText);
+					refresh();
+				}
+			};
+			var parameters = "?method=deleteTask&taskId=" + taskId;
+			xmlhttp.open("GET", publicUrl + parameters, true);
+			xmlhttp.send();
+		}
+	}
 </script>
 </head>
-  <body>
-    <h1 style="text-align:center">任务列表</h1>
-    <table>
-    	<tr  class="head">
-    		<td colspan="2" ><span style="font-size:20px"><b>2018-03-14  JS变量、字符串、数组</b></span></td>
-    		<td >
-    			<input type="button" value="新增检查点">
-    		</td>
-    	</tr>    	
-    	<tr  >
-    		<td colspan="3" style="height:10px"></td>
-    	</tr>
-    	<tr class="content">
-    		<td style="width:10%">检查点1：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%"> 变量：定义变量姓名name、状态status、地址url，点击生成界面按钮，alert逐个弹框显示变量值</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>
-    	
-    	<tr class="content">
-    		<td style="width:10%">检查点2：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%"> 字符串拼装：将所有变量组合成一个字符串，如“姓名：”+name+",状态：”+status等等，点击按钮，alert弹框显示整句话</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>
-    	
-    	<tr class="content">
-    		<td style="width:10%">检查点3：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%"> js更改界面内容：将自动生成界面的模板中的“姓名”、“url”值改为变量的值</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>
-    	
-    	<tr class="content">
-    		<td style="width:10%">检查点4：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%"> 数组：定义一个数组，里面存放5个名字；再定义一个数组，里面存放5个url</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>
-    	
-    	<tr class="content">
-    		<td style="width:10%">检查点5：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%"> js循环控制器：获取数组大小，循环遍历数组，alert数组中的每一个值</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>    	
-    	
-    	<tr class="content">
-    		<td style="width:10%">检查点5：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%"> js循环控制器：变量姓名数组，将自动生成界面的模板值替换成数组中的值，最终生成的界面姓名都不一样</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>  
-    </table>
-    <br> <br>
-    <table>
-    	<tr  class="head">
-    		<td colspan="2" ><span style="font-size:20px"><b>2018-03-13  JS动态生成界面</b></span></td>
-    		<td >
-    			<input type="button" value="新增检查点">
-    		</td>
-    	</tr>    	
-    	<tr  >
-    		<td colspan="3" style="height:10px"></td>
-    	</tr>
-    	<tr class="content">
-    		<td style="width:10%">检查点1：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%">  新增“生成界面”按钮，点击按钮，调用函数（function），弹出alert提示</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>
-    	
-    	<tr class="content">
-    		<td style="width:10%">检查点2：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%"> 界面写一个空白的table，没有tr和td，点击“生成界面”按钮，往table里面添加一行一列，列里面随便写一句话</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>
-    	
-    	<tr class="content">
-    		<td style="width:10%">检查点3：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%"> 点击“生成界面”按钮，往table里面插入一个学生的作业信息</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>
-    	
-    	<tr class="content">
-    		<td style="width:10%">检查点4：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%"> 点击“生成界面”按钮，往table里面插入“指定个数”的作业信息</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>
-    	<tr class="content">
-    		<td style="width:10%">检查点5：</td>
-    		<td style="width:80%">
-    			<textarea rows="2" style="width:99%"> 打开“作业检查”界面时，自动调用“生成界面”方法，省去手工点击的步骤</textarea>
-    		</td>
-    		<td style="width:10%"><img id="s001_img" src="images/icon/cross.jpg"
-				height="20px" onclick="switchStatus('s001')">
-			</td>
-    	</tr>
-    </table>
-    <table>
-    	<tr>
-    		<td colspan="3">
-    			<img src="images/tasks/2018_-3_13_js_generate_code.png">
-    		</td>
-    	</tr>  
-    </table>
-  </body>
+<body>
+	<div id="div_head">
+		<div style="float: left;width:80%">
+			<h1 style="text-align:center">任务列表</h1>
+		</div>
+		<div style="float: right;width:20%">
+			<input type="button" value="新增任务" onclick="addTask()"> <input
+				type="button" value="刷新1" onclick="refresh();">
+		</div>
+	</div>
+	<div id="div_content">
+		<br>
+
+		<!-- 模板1：任务展现界面
+	<table>
+			<tr class="head">
+				<td colspan="2"><span style="font-size:20px"><b>2018-03-14
+							第2周 星期四 使用一个字符串描述一个班的学生信息</b></span></td>
+				<td><input type="button" value="新增检查点"></td>
+			</tr>
+			<tr>
+				<td colspan="3" style="height:10px"></td>
+			</tr>
+
+			<tr class="content">
+				<td style="width:10%">检查点1：</td>
+				<td style="width:80%"><textarea rows="2" style="width:99%"> 启动tomcat，“作业检查”界面确认网址可用，测试通过打钩</textarea>
+				</td>
+				<td style="width:10%"><img id="s001_img"
+					src="images/icon/cross.jpg" height="20px"
+					onclick="switchStatus('s001')"></td>
+			</tr>
+
+			<tr class="content">
+				<td style="width:10%">检查点2：</td>
+				<td style="width:80%"><textarea rows="2" style="width:99%"> 新增一个按钮，点击，往界面插入一句话</textarea>
+				</td>
+				<td style="width:10%"><img id="s001_img"
+					src="images/icon/cross.jpg" height="20px"
+					onclick="switchStatus('s001')"></td>
+			</tr>
+
+			<tr class="content">
+				<td style="width:10%">检查点3：</td>
+				<td style="width:80%"><textarea rows="2" style="width:99%"> 使用key=value&键值对描述一个学生的所有信息</textarea>
+				</td>
+				<td style="width:10%"><img id="s001_img"
+					src="images/icon/cross.jpg" height="20px"
+					onclick="switchStatus('s001')"></td>
+			</tr>
+
+			<tr class="content">
+				<td style="width:10%">检查点4：</td>
+				<td style="width:80%"><textarea rows="2" style="width:99%"> 使用xml描述一个学生的所有信息</textarea>
+				</td>
+				<td style="width:10%"><img id="s001_img"
+					src="images/icon/cross.jpg" height="20px"
+					onclick="switchStatus('s001')"></td>
+			</tr>
+
+			<tr class="content">
+				<td style="width:10%">检查点5：</td>
+				<td style="width:80%"><textarea rows="2" style="width:99%"> 使用json描述一个学生的所有信息</textarea>
+				</td>
+				<td style="width:10%"><img id="s001_img"
+					src="images/icon/cross.jpg" height="20px"
+					onclick="switchStatus('s001')"></td>
+			</tr>
+
+			<tr class="content">
+				<td style="width:10%">检查点6：</td>
+				<td style="width:80%"><textarea rows="2" style="width:99%"> 将学生信息从xml转成json</textarea>
+				</td>
+				<td style="width:10%"><img id="s001_img"
+					src="images/icon/cross.jpg" height="20px"
+					onclick="switchStatus('s001')"></td>
+			</tr>
+
+			<tr class="content">
+				<td style="width:10%">检查点7：</td>
+				<td style="width:80%"><textarea rows="2" style="width:99%"> 用xml和json描述一个班的学生信息(班class>组group>学生student)</textarea>
+				</td>
+				<td style="width:10%"><img id="s001_img"
+					src="images/icon/cross.jpg" height="20px"
+					onclick="switchStatus('s001')"></td>
+			</tr>
+		</table>
+
+		<table>
+			<tr>
+				<td colspan="3"><img
+					src="images/tasks/2018_-3_13_js_generate_code.png"></td>
+			</tr>
+		</table>
+		<br> <br>
+ -->
+
+		<!-- 样板1：任务名称展示模板
+		<table>
+			<tr class="head">
+				<td colspan="2" style="width:90%"><span style="font-size:20px"><b>2018-03-14
+							JS变量、字符串、数组</b></span></td>
+				<td><input type="button" value="新增检查点" onclick="addItem()"></td>
+			</tr>
+			<tr>
+				<td colspan="3" style="height:10px"></td>
+			</tr>
+		</table>
+		 -->
+
+		<!-- 样板1：新增任务模板
+		<table >
+			<tr class="head">
+				<td style="width:8%">
+					任务日期：
+				</td>
+				<td style="width:15%">
+					<input type="date" name="taskDate">
+				</td>
+				<td style="width:8%">
+					任务名称：
+				</td>
+				<td style="width:60%">
+					<input type="text" name="taskName" style="width:98%">
+				</td>
+				<td>
+					<input type="button" value="保存" onclick="saveTask()" >
+				</td>
+			</tr>
+		</table>
+		 
+		<table id="table_head_taskId">
+		</table>
+		-->
+	</div>
+	
+</body>
 </html>

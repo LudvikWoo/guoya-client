@@ -1,0 +1,17 @@
+*{margin: 0;padding: 0}
+.scroll_ad{position:relative;width: 1000px;height: 95%;margin:0 auto;overflow: hidden;}
+.scroll_ad ul {position: absolute;top:0;width: 11000px;height:100%;list-style: none;}
+.scroll_ad ul li {  float:left; }
+.scroll_ad ul li a { display:block; height:100%; }
+.scroll_ad ul li img {  height:100%; }
+.scroll_ad .prev,.scroll_ad .next{display:none;position:absolute;width: 30px;height: 50px;
+	opacity:0.5;filter:alpha(opacity=50);cursor: pointer;}
+.scroll_ad .prev{top:50%;left: 10px;background: #000 url(../img/ad-button.png)no-repeat;}
+.scroll_ad .next{top:50%;right: 10px;
+	background:#000 url(../img/ad-button.png)no-repeat 0 -50px;}
+.scroll_ad .hover{display: block;}
+.scroll_ad .tips{position: absolute;left:40%;bottom: 10px;width: 180px;
+	padding: 0 10px 0 15px;}
+.scroll_ad .tips span{float: left;width: 10px;height: 10px;
+	background:#b7b7b7;text-align: -99999px;margin-right: 5px;border-radius: 5px; }
+.scroll_ad .tips span.active{background: #093;}

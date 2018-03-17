@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>FQA.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+</head>
+
+<body>
+	<table>
+		<tr>
+			<td>JavaScript如何获取当前日期?</td>
+		</tr>
+		<tr>
+			<td><span> function getNowFormatDate() { var date = new
+					Date(); var seperator1 = "-"; var year = date.getFullYear(); var
+					month = date.getMonth() + 1; var strDate = date.getDate(); if
+					(month >= 1 && month <= 9) { month = "0" + month; } if (strDate >=
+					0 && strDate <= 9) { strDate = "0" + strDate; } var currentdate =
+					year + seperator1 + month + seperator1 + strDate; return
+					currentdate; } </span></td>
+
+		</tr>
+
+		<tr>
+			<td>如何实现界面加载时自动调用初始化方法？</td>
+		</tr>
+		<tr>
+			<td>window.onload=function(){ refresh(); };</td>
+		</tr>
+
+		<tr>
+			<td>上传图片和优化插件</td>
+		</tr>
+
+		<tr>
+			<td>https://www.cnblogs.com/gongyue/p/7686359.html</td>
+		</tr>
+
+		<tr>
+			<td>ajax实现图片上传功能</td>
+		</tr>
+
+		<tr>
+			<td>https://www.jianshu.com/p/5b78ea20c92b <br> function
+				uploadFile(userfile) { var fd = new FormData();
+				fd.append("userfile",userfile.files[0]);//文件追到到FormData var xhr =
+				new XMLHttpRequest(); //xhr.upload.addEventListener("progress",
+				uploadProgress, false); //xhr.addEventListener("load",
+				uploadComplete, false); //xhr.addEventListener("error",
+				uploadFailed, false); //xhr.addEventListener("abort",
+				uploadCanceled, false); xhr.open("POST",
+				"http://127.0.0.1:8083/guoya-server/taskInfo?method=uploadSumarizePic");
+				xhr.send(fd); xhr.onreadystatechange = function() { if
+				(xhr.readyState == 4 && xhr.status == 200) { var result =
+				xhr.responseText; alert(result); displayImgs(result); } }; }
+
+			</td>
+		</tr>
+		<tr>
+			<td>如何实现图片点击放大，再点击又复原</td>
+		</tr>
+		<tr>
+			<td>https://www.zhihu.com/question/27141533 <br>
+				http://www.w3school.com.cn/jquery/attributes_toggleclass.asp
+			</td>
+		</tr>
+
+		<p>如何点击首页图片刷新界面？</p>
+		<p>function refresh(){ window.open("/guoya-client",""); }</p>
+		<p>function refresh(){ window.open("/guoya-client","right"); }</p>
+		<p>第二个参数是打开位置，“”表示当前窗口，“right”指名字叫right的frame窗口，“_blank"是新窗口</p>
+		
+		<br>
+		
+		<h3>如何获取select下拉框的选项？</h3>
+		<p>直接获取选择项：	</p>	
+		<p>var selected_val = document.getElementById(select_id).value;</p>
+		<p>并且，通过操作select下的option也可以得到被选项的value值，方法为：	</p>	
+		<p>var sel = document.getElementById(select_id);
+var selected_val = sel.options[sel.selectedIndex].value;</p>
+
+		<p>界面样例：	</p>	
+		<p>
+		<!-- <select id="test" onchange="alert(this.value)">
+    <option value="0">options-0</option>
+    <option value="1">options-1</option>
+    <option value="2">options-2</option>
+</select></p> -->
+		<p>https://zhidao.baidu.com/question/571279563.html</p>
+		<br>
+		
+		<h3>formData</h3>
+		<p>https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects</p>
+		
+		
+		<h3>怎么按照属性选择元素？</h3>
+		<p>[type=button],[type=reset]{
+	background-color:#0099FF;
+	color:white;
+}</p>
+		
+		
+		<h3></h3>
+		<p></p>
+		
+		<h3></h3>
+		<p></p>
+	</table>
+
+</body>
+</html>
