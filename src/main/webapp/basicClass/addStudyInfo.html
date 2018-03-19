@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>addStudyInfo.html</title>
+<script type="text/javascript" src="js/guoya.js"></script>
+
 <script type="text/javascript">
 	function doSubmit() {
 		//window.history.go(-1);  //返回上一页
@@ -17,7 +19,7 @@
 			var groupId = document.getElementById("groupId").value;
 			var url = document.getElementById("url").value;
 
-			var addr = "/guoya-server/studyInfo" + "?method=" + method
+			var addr = publicUrl+"/guoya-server/studyInfo" + "?method=" + method
 					+ "&sname=" + sname + "&sno=" + sno + "&groupId=" + groupId
 					+ "&url=" + url;
 			var xmlhttp = new XMLHttpRequest();

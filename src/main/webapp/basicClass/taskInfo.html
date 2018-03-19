@@ -21,10 +21,9 @@ table,tr,td {
 	border-bottom: 1px solid #D8D8D8;
 }
 </style>
+<script type="text/javascript" src="js/guoya.js"></script>
+
 <script type="text/javascript">
-	//var publicUrl = "http://www.guoyasoft.com:15021/guoya-server/taskInfo";
-	//var publicUrl = "http://127.0.0.1:8083/guoya-server/taskInfo";
-	var publicUrl="http://192.168.1.45:8083/guoya-server/taskInfo";
 
 	function generateStaticData() {
 		var data = "{                                                                                                           "
@@ -94,7 +93,7 @@ table,tr,td {
 		divContent.innerHTML = "页面加载中，请稍等...........";
 
 		//第二步：替换成真实接口数据刷新界面
-		var parameters = "?method=getTaskInfo";
+		var parameters = "/guoya-server/taskInfo?method=getTaskInfo";
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", publicUrl + parameters, true);
 		xmlhttp.send();
@@ -211,7 +210,7 @@ table,tr,td {
 					//alert("服务端响应：" + xmlhttp.responseText);
 				}
 			};
-			var parameters = "?method=updateTaskItemStatus&itemId=" + itemId
+			var parameters = "/guoya-server/taskInfo?method=updateTaskItemStatus&itemId=" + itemId
 					+ "&itemStatus=" + status;
 			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
@@ -245,11 +244,11 @@ table,tr,td {
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-					alert("服务端响应：" + xmlhttp.responseText);
+					//alert("服务端响应：" + xmlhttp.responseText);
 					refresh();
 				}
 			};
-			var parameters = "?method=addTask&taskDate=" + taskDate
+			var parameters = "/guoya-server/taskInfo?method=addTask&taskDate=" + taskDate
 					+ "&taskName=" + taskName;
 			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
@@ -288,23 +287,22 @@ table,tr,td {
 				+ "			</tr>                                                                                    ";
 		task.innerHTML = task.innerHTML + item;
 	}
-	 
+
 	function saveItem(taskId) {
 		var r = confirm("确认操作吗？");
 		//var r = true;
 		if (r == true) {
 			var itemName = document.getElementById("add_item_name").value;
 			var itemDesc = document.getElementById("add_item_desc").value;
-			alert("taskId=" + taskId + "&itemName=" + itemName + "&itemDesc="
-					+ itemDesc);
+			//alert("taskId=" + taskId + "&itemName=" + itemName + "&itemDesc="+ itemDesc);
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-					alert("服务端响应：" + xmlhttp.responseText);
+					//alert("服务端响应：" + xmlhttp.responseText);
 					refresh();
 				}
 			};
-			var parameters = "?method=addTaskItem&taskId=" + taskId
+			var parameters = "/guoya-server/taskInfo?method=addTaskItem&taskId=" + taskId
 					+ "&itemName=" + itemName + "&itemDesc=" + itemDesc;
 			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
@@ -319,29 +317,29 @@ table,tr,td {
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-					alert("服务端响应：" + xmlhttp.responseText);
+					//alert("服务端响应：" + xmlhttp.responseText);
 					refresh();
 				}
 			};
-			var parameters = "?method=deleteTaskItem&itemId=" + itemId;
+			var parameters = "/guoya-server/taskInfo?method=deleteTaskItem&itemId=" + itemId;
 			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
 		}
 
 	}
-	
-	function deleteTask(taskId){
+
+	function deleteTask(taskId) {
 		var r = confirm("确认删除任务及所有子项吗？");
 		//var r = true;
 		if (r == true) {
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-					alert("服务端响应：" + xmlhttp.responseText);
+					//alert("服务端响应：" + xmlhttp.responseText);
 					refresh();
 				}
 			};
-			var parameters = "?method=deleteTask&taskId=" + taskId;
+			var parameters = "/guoya-server/taskInfo?method=deleteTask&taskId=" + taskId;
 			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
 		}
@@ -483,6 +481,6 @@ table,tr,td {
 		</table>
 		-->
 	</div>
-	
+
 </body>
 </html>

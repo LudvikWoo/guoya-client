@@ -29,17 +29,16 @@ td {
 	border-bottom: 0px solid black
 }
 </style>
+<script type="text/javascript" src="js/guoya.js"></script>
+
 <script type="text/javascript">
-	//var publicUrl="http://127.0.0.1:8083/guoya-server/studyInfo";
-	var publicUrl="http://192.168.1.45:8083/guoya-server/studyInfo";
-	//var publicUrl = "http://www.guoyasoft.com:15021/guoya-server/studyInfo";
 
 	window.onload = function() {
 		refresh();
 	};
 
 	function refresh() {
-		var parameters = "?method=getUrls";
+		var parameters = "/guoya-server/studyInfo?method=getUrls";
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", publicUrl + parameters, true);
 		xmlhttp.send();
@@ -119,7 +118,7 @@ td {
 	function saveUrl(sno) {
 		var textarea = document.getElementById(sno + '_url');
 		var url = textarea.value;
-		var parameters = "?method=updateUrl&sno=" + sno + "&url=" + url;
+		var parameters = "/guoya-server/studyInfo?method=updateUrl&sno=" + sno + "&url=" + url;
 		//提交到后台
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
@@ -163,7 +162,7 @@ td {
 					statistic();
 				}
 			};
-			var parameters = "?method=updateStatus&sno=" + sno + "&status="
+			var parameters = "/guoya-server/studyInfo?method=updateStatus&sno=" + sno + "&status="
 					+ status;
 			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
@@ -195,7 +194,7 @@ td {
 					refresh();
 				}
 			};
-			var parameters = "?method=updateAllStatus";
+			var parameters = "/guoya-server/studyInfo?method=updateAllStatus";
 			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
 		}

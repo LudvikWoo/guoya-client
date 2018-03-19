@@ -6,10 +6,12 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="this is my page">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
 <script type="text/javascript"
 	src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/jquery.js"></script>
-<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+<script type="text/javascript" src="js/guoya.js"></script>
+
 <style type="text/css">
 div {
 	border: 0px solid black;
@@ -29,9 +31,9 @@ img {
 }
 
 .max {
-	width: 100%;
+	width: 95%;
 	height: auto;
-	margin-left: 50px;
+	margin-left: 10px;
 	margin-top: 10px;
 	margin-right: 10px;
 }
@@ -79,14 +81,12 @@ img {
 	border: 1px solid gray;
 }
 
-[type=button],[type=reset]{
-	background-color:#0099FF;
-	color:white;
+[type=button],[type=reset] {
+	background-color: #0099FF;
+	color: white;
 }
 </style>
 <script type="text/javascript">
-	var publicUrl = "http://192.168.1.45:8083/guoya-server/summaryInfo";
-	//var publicUrl="http://127.0.0.1:8083/guoya-server/summaryInfo";
 	$(document).ready(function() {
 		/*$('#div_imgs_id img').click(function() {
 			$(this).toggleClass('min');
@@ -98,12 +98,31 @@ img {
 		});
 	});
 	function uploadFile() {
+		var uploadFileBtn = document.getElementById("uploadFileBtn");
+		uploadFileBtn.disabled = true;
 		//获取学号
 		var sno = document.getElementById("sno").value;
+		if (sno == "") {
+			alert("姓名为空，请选择后再提交？");
+			uploadFileBtn.disabled = false;
+			return;
+		}
 		//var snoSelect = document.getElementById("sno");
 		//var sno = snoSelect.options[snoSelect.selectedIndex].value;
 		//alert(sno);
+		var postFild = document.getElementById("postFild");
+		//alert(postFild.value);
+		if (postFild.value == "") {
+			alert("照片为空，请选择后再提交？");
+			uploadFileBtn.disabled = false;
+			return;
+		}
 		var summaryDate = document.getElementById("summaryDate").value;
+		if (summaryDate == "") {
+			alert("日期为空，请选择后再提交？");
+			uploadFileBtn.disabled = false;
+			return;
+		}
 		//alert(summaryDate);
 		var r = confirm("确认提交？");
 		if (r == true) {
@@ -112,10 +131,10 @@ img {
 			fd.append("userfile", userfile.files[0]);//文件追到到FormData
 			fd.append("sno", sno);
 			fd.append("summaryDate", summaryDate);
-
 			var xhr = new XMLHttpRequest();
-			xhr.open("POST", publicUrl + "?method=uploadSumarizePic&sno=" + sno
-					+ "&summaryDate=" + summaryDate);
+			xhr.open("POST", publicUrl
+					+ "/guoya-server/summaryInfo?method=uploadSumarizePic&sno="
+					+ sno + "&summaryDate=" + summaryDate);
 			xhr.send(fd);
 			xhr.onreadystatechange = function() {
 				if (xhr.readyState == 4 && xhr.status == 200) {
@@ -123,11 +142,17 @@ img {
 					//alert(result);
 					displayImgs(result);
 				}
+				uploadFileBtn.disabled = false;
 			};
+		} else {
+			uploadFileBtn.disabled = false;
 		}
 	}
 
 	function displayImgs(data) {
+		//取完数据，重置表单
+		document.getElementById("submit_summary_form").reset();
+		//document.getElementById("search_condition_form").reset();
 		/*var data = "{                                                                                              "
 				+ "  \"summaries\": {                                                                             "
 				+ "    \"summaryDate\": {                                                                         "
@@ -200,8 +225,11 @@ img {
 		}
 		var currentdate = year + seperator1 + month + seperator1 + strDate;
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST", publicUrl + "?method=querySumariseByDate&summaryDate="
-				+ currentdate);
+		xhr
+				.open(
+						"POST",
+						publicUrl
+								+ "/guoya-server/summaryInfo?method=querySumarise&outstanding=1");
 		xhr.send();
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
@@ -211,139 +239,175 @@ img {
 			}
 		};
 	}
+
+	function querySummaries() {
+		querySummariesBtn
+		//查询开始，先失效按钮
+		var querySummariesBtn = document.getElementById("querySummariesBtn");
+		querySummariesBtn.disabled = true;
+		var groupId = document.getElementById("searchGroup").value;
+		var tutor = document.getElementById("searchTutor").value;
+		var summaryDate = document.getElementById("searchSummaryDate").value;
+		var sno = document.getElementById("searchSno").value;
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", publicUrl
+				+ "/guoya-server/summaryInfo?method=querySumarise&groupId="
+				+ groupId + "&tutor=" + tutor + "&summaryDate=" + summaryDate
+				+ "&sno=" + sno);
+		xhr.send();
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var result = xhr.responseText;
+				//alert(result);
+				displayImgs(result);
+			}
+			querySummariesBtn.disabled = false;
+		};
+
+	}
 </script>
 </head>
 
 <body>
 
 	<div id="search_condition_div">
-		<form>
-		<table>
-			<tr>
-				<td>姓名：</td>
-			</tr>
-			<tr>
-				<td><select style="width:95%" id="sno">
-						<option value="-1" selected="selected">——请选择——</option>
-						<option value="s0101">S0101_陈琳</option>
-						<option value="s0102">S0102_唐文</option>
-						<option value="s0103">S0103_丁国梁</option>
-						<option value="s0201">S0201_陈倪</option>
-						<option value="s0202">S0202_吴浪</option>
-						<option value="s0203">S0203_张兴</option>
-						<option value="s0301">S0301_郑地</option>
-						<option value="s0302">S0302_胡小芬</option>
-						<option value="s0303">S0303_张聪</option>
-						<option value="s0401">S0401_陈海东</option>
-						<option value="s0402">S0402_金兆斌</option>
-						<option value="s0403">S0403_徐英</option>
-						<option value="s0501">S0501_王静</option>
-						<option value="s0502">S0502_刘广洲</option>
-						<option value="s0503">S0503_王均</option>
-						<option value="s0601">S0601_肖飞飞</option>
-						<option value="s0602">S0602_刘樊</option>
-						<option value="s0603">S0603_朱赛健</option>
-						<option value="s0701">S0701_庄昌宁</option>
-						<option value="s0702">S0702_魏聿明</option>
-						<option value="s0703">S0703_李静</option>
-						<option value="s0801">S0801_陈超</option>
-						<option value="s0802">S0802_周盛明</option>
-						<option value="s0803">S0803_蒋方妍</option>
-						<option value="s0901">S0901_杨志康</option>
-				</select></td>
-			</tr>
-			<tr>
-				<td>日期：</td>
-			</tr>
-			<tr>
-				<td><input type="date"></td>
-			</tr>
-			<tr>
-				<td>导师：</td>
-			</tr>
-			<tr>
-				<td><select style="width:95%" size="1">
-						<option>---请选择---</option>
-						<option>李晓阳</option>
-						<option>戈维维</option>
-						<option>马超</option>
-						<option>闫松林</option>
-						<option>李苏云</option>
-						<option>戴全明</option>
-						<option>周启明</option>
-						<option>曾春苗</option>
+		<form id="search_condition_form">
+			<table>
+				<tr>
+					<td>姓名：</td>
+				</tr>
+				<tr>
+					<td><select style="width:95%" id="searchSno">
+							<option value="" selected="selected">——请选择——</option>
+							<option value="S0101">S0101_陈琳</option>
+							<option value="S0102">S0102_唐文</option>
+							<option value="S0103">S0103_丁国梁</option>
+							<option value="S0201">S0201_陈倪</option>
+							<option value="S0202">S0202_吴浪</option>
+							<option value="S0203">S0203_张兴</option>
+							<option value="S0301">S0301_郑地</option>
+							<option value="S0302">S0302_胡小芬</option>
+							<option value="S0303">S0303_张聪</option>
+							<option value="S0401">S0401_陈海东</option>
+							<option value="S0402">S0402_金兆斌</option>
+							<option value="S0403">S0403_徐英</option>
+							<option value="S0501">S0501_王静</option>
+							<option value="S0502">S0502_刘广洲</option>
+							<option value="S0503">S0503_王均</option>
+							<option value="S0601">S0601_肖飞飞</option>
+							<option value="S0602">S0602_刘樊</option>
+							<option value="S0603">S0603_朱赛健</option>
+							<option value="S0701">S0701_庄昌宁</option>
+							<option value="S0702">S0702_魏聿明</option>
+							<option value="S0703">S0703_李静</option>
+							<option value="S0801">S0801_陈超</option>
+							<option value="S0802">S0802_周盛明</option>
+							<option value="S0803">S0803_蒋方妍</option>
+							<option value="S0901">S0901_杨志康</option>
 					</select></td>
-			</tr>
-			<tr>
-				<td>小组：</td>
-			</tr>
-			<tr>
-				<td><select style="width:95%" size="1">
-						<option>---请选择---</option>
-						<option>第1组</option>
-						<option>第2组</option>
-						<option>第3组</option>
-						<option>第4组</option>
-						<option>第5组</option>
-						<option>第6组</option>
-						<option>第7组</option>
-						<option>第8组</option>
-						<option>第9组</option>
+				</tr>
+				<tr>
+					<td>日期：</td>
+				</tr>
+				<tr>
+					<td><input type="date" name="searchSummaryDate"
+						id="searchSummaryDate"></td>
+				</tr>
+				<tr>
+					<td>导师：</td>
+				</tr>
+				<tr>
+					<td><select style="width:95%" size="1" name="searchTutor"
+						id="searchTutor">
+							<option value="">---请选择---</option>
+							<option value="李晓阳">李晓阳</option>
+							<option value="戈维维">戈维维</option>
+							<option value="马超">马超</option>
+							<option value="闫松林">闫松林</option>
+							<option value="李苏云">李苏云</option>
+							<option value="戴全明">戴全明</option>
+							<option value="周启明">周启明</option>
+							<option value="曾春苗">曾春苗</option>
 					</select></td>
-			</tr>
-			<tr>
-				<td>
-					<input type="button" value="查询" style="width:40%;margin-left:5px;margin-top:15px;margin-bottom:10px">
-					<input type="reset" value="重置" style="width:40%;margin-left:10px;margin-top:15px;margin-bottom:10px">
-				</td>
-			</tr>
-		</table>
+				</tr>
+				<tr>
+					<td>小组：</td>
+				</tr>
+				<tr>
+					<td><select style="width:95%" size="1" name="searchGroup"
+						id="searchGroup">
+							<option value="">---请选择---</option>
+							<option value="1">第1组</option>
+							<option value="2">第2组</option>
+							<option value="3">第3组</option>
+							<option value="4">第4组</option>
+							<option value="5">第5组</option>
+							<option value="6">第6组</option>
+							<option value="7">第7组</option>
+							<option value="8">第8组</option>
+							<option value="9">第9组</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td><input type="button" value="查询" id="querySummariesBtn"
+						onclick="querySummaries()"
+						style="width:40%;margin-left:5px;margin-top:15px;margin-bottom:10px">
+						<input type="reset" value="重置"
+						style="width:40%;margin-left:10px;margin-top:15px;margin-bottom:10px">
+					</td>
+				</tr>
+			</table>
 		</form>
 	</div>
 	<div id="submit_summary_div">
-		<table>
-			<tr>
-				<td class="search_name_td">姓名：</td>
-				<td style="width:20%;"><select style="width:80%" id="sno">
-						<option value="-1" selected="selected">——请选择——</option>
-						<option value="s0101">S0101_陈琳</option>
-						<option value="s0102">S0102_唐文</option>
-						<option value="s0103">S0103_丁国梁</option>
-						<option value="s0201">S0201_陈倪</option>
-						<option value="s0202">S0202_吴浪</option>
-						<option value="s0203">S0203_张兴</option>
-						<option value="s0301">S0301_郑地</option>
-						<option value="s0302">S0302_胡小芬</option>
-						<option value="s0303">S0303_张聪</option>
-						<option value="s0401">S0401_陈海东</option>
-						<option value="s0402">S0402_金兆斌</option>
-						<option value="s0403">S0403_徐英</option>
-						<option value="s0501">S0501_王静</option>
-						<option value="s0502">S0502_刘广洲</option>
-						<option value="s0503">S0503_王均</option>
-						<option value="s0601">S0601_肖飞飞</option>
-						<option value="s0602">S0602_刘樊</option>
-						<option value="s0603">S0603_朱赛健</option>
-						<option value="s0701">S0701_庄昌宁</option>
-						<option value="s0702">S0702_魏聿明</option>
-						<option value="s0703">S0703_李静</option>
-						<option value="s0801">S0801_陈超</option>
-						<option value="s0802">S0802_周盛明</option>
-						<option value="s0803">S0803_蒋方妍</option>
-						<option value="s0901">S0901_杨志康</option>
-				</select></td>
+		<form id="submit_summary_form">
+			<table>
+				<tr>
+					<td class="search_name_td">姓名：</td>
+					<td style="width:20%;"><select style="width:80%" id="sno">
+							<option value="" selected="selected">——请选择——</option>
+							<option value="S0101">S0101_陈琳</option>
+							<option value="S0102">S0102_唐文</option>
+							<option value="S0103">S0103_丁国梁</option>
+							<option value="S0201">S0201_陈倪</option>
+							<option value="S0202">S0202_吴浪</option>
+							<option value="S0203">S0203_张兴</option>
+							<option value="S0301">S0301_郑地</option>
+							<option value="S0302">S0302_胡小芬</option>
+							<option value="S0303">S0303_张聪</option>
+							<option value="S0401">S0401_陈海东</option>
+							<option value="S0402">S0402_金兆斌</option>
+							<option value="S0403">S0403_徐英</option>
+							<option value="S0501">S0501_王静</option>
+							<option value="S0502">S0502_刘广洲</option>
+							<option value="S0503">S0503_王均</option>
+							<option value="S0601">S0601_肖飞飞</option>
+							<option value="S0602">S0602_刘樊</option>
+							<option value="S0603">S0603_朱赛健</option>
+							<option value="S0701">S0701_庄昌宁</option>
+							<option value="S0702">S0702_魏聿明</option>
+							<option value="S0703">S0703_李静</option>
+							<option value="S0801">S0801_陈超</option>
+							<option value="S0802">S0802_周盛明</option>
+							<option value="S0803">S0803_蒋方妍</option>
+							<option value="S0901">S0901_杨志康</option>
+					</select></td>
 
-				<td class="search_name_td">拍照：</td>
-				<td style="width:20%;"><input style="width:80%" type="file"
-					id="postFild" name="userfile" /></td>
-				<td class="search_name_td">日期：</td>
-				<td style="width:20%;"><input type="date" name="summaryDate"
-					id="summaryDate"></td>
+					<td class="search_name_td">拍照：</td>
+					<td style="width:20%;"><input style="width:80%" type="file"
+						id="postFild" name="userfile" /></td>
+					<td class="search_name_td">日期：</td>
+					<td style="width:20%;"><input type="date" name="summaryDate"
+						id="summaryDate"></td>
 
-				<td style="text-align:center;"><input type="button"
-					value="上传总结" onclick="uploadFile();" /></td>
-			</tr>
-		</table>
+					<td style="text-align:center;width:10%;"><input
+						id="uploadFileBtn" type="button" value="上传总结"
+						onclick="uploadFile();" /></td>
+					<td style="text-align:left;"><input type="reset" value="重置" /></td>
+				</tr>
+			</table>
+		</form>
 		<hr>
 	</div>
 	<div id="div_imgs_id" style="width:100%;margin-top:55px;">

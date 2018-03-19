@@ -66,33 +66,63 @@
 						<option>初中</option>
 					</select>
 				</td>
-			</tr><tr >
+			</tr>
+			
+			<tr >
+				<td>毕业时间：</td>
+				<td>
+					<input type="date" style="width:168px" value="1990-01-01">
+					<span style="color:red">*</span>
+				</td>
+			</tr>
+			<tr >
 				<td>介绍人：</td>
 				<td>
 					<input type="text" size="20" value="无">
 				</td>
-			</tr><tr >
-				<td>入学时间：</td>
+			</tr>
+			
+			<tr >
+				<td>测试工龄：</td>
 				<td>
-					<input type="date" style="width:173px" value="2018-03-01">
+					<input type="number" min="0" max="9" step="1" style="width:168px" value="0">
 				</td>
-			</tr><tr >
-				<td>班级：</td>
+			</tr>
+			<tr >
+				<td>意向班级：</td>
 				<td>
 					<select style="width:173px" size="1">
 						<option>---请选择---</option>
-						<option>1707初级班</option>
-						<option>1709初级班</option>
-						<option>1709高级班</option>
-						<option>1711初级班</option>
-						<option>1711高级班</option>
-						<option>1801初级班</option>
-						<option>1801高级班</option>
-						<option>1803初级班</option>
-						<option>1803高级级班</option>
+						<option>测试-初级班-插班</option>
+						<option>测试-初级班-新班</option>
+						<option>测试-初级班-下下个班</option>
+						<option>测试-高级班-插班</option>
+						<option>测试-高级班-新班</option>
+						<option>测试-高级班-下下个班</option>
+						<option>开发-初级班-插班</option>
+						<option>开发-初级班-新班</option>
+						<option>开发-初级班-下下个班</option>
+						<option>开发-提高班-插班</option>
+						<option>开发-提高班-新班</option>
+						<option>开发-提高班-下下个班</option>
 					</select>
 				</td>
-			</tr><tr >
+			</tr>
+			<tr >
+				<td>报名意愿：</td>
+				<td>
+					<select style="width:173px" size="1">
+						<option>---请选择---</option>
+						<option>被了解</option>
+						<option>感兴趣</option>
+						<option>有意向</option>
+						<option>确认报名</option>
+						<option>已缴费</option>
+					</select>
+				</td>
+			</tr>
+			<!-- 
+			<tr >
 				<td>导师：</td>
 				<td>
 					<select style="width:173px" size="1">
@@ -120,11 +150,16 @@
 					<i>提示：带<span style="color:red">*</span>的必须填写</i>
 				</td>
 			</tr>
+			-->
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
 			<tr align="center">
 				<td colspan="2">
 					<input type="button" value="提交" onclick="doSubmit()">
 				</td>
 			</tr>
+			<!-- 
 			<tr align="center">
 				<td colspan="2">
 					<a href="http://www.taobao.com">
@@ -132,6 +167,7 @@
 					</a>
 				</td>
 			</tr>
+			 -->
 		</table>		
 	</body>
 </html>
