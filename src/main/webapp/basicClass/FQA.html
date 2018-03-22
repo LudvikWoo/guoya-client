@@ -75,42 +75,57 @@
 		<p>function refresh(){ window.open("/guoya-client",""); }</p>
 		<p>function refresh(){ window.open("/guoya-client","right"); }</p>
 		<p>第二个参数是打开位置，“”表示当前窗口，“right”指名字叫right的frame窗口，“_blank"是新窗口</p>
-		
-		<br>
-		
-		<h3>如何获取select下拉框的选项？</h3>
-		<p>直接获取选择项：	</p>	
-		<p>var selected_val = document.getElementById(select_id).value;</p>
-		<p>并且，通过操作select下的option也可以得到被选项的value值，方法为：	</p>	
-		<p>var sel = document.getElementById(select_id);
-var selected_val = sel.options[sel.selectedIndex].value;</p>
 
-		<p>界面样例：	</p>	
+		<br>
+
+		<h3>如何获取select下拉框的选项？</h3>
+		<p>直接获取选择项：</p>
+		<p>var selected_val = document.getElementById(select_id).value;</p>
+		<p>并且，通过操作select下的option也可以得到被选项的value值，方法为：</p>
+		<p>var sel = document.getElementById(select_id); var selected_val
+			= sel.options[sel.selectedIndex].value;</p>
+
+		<p>界面样例：</p>
 		<p>
-		<!-- <select id="test" onchange="alert(this.value)">
+			<!-- <select id="test" onchange="alert(this.value)">
     <option value="0">options-0</option>
     <option value="1">options-1</option>
     <option value="2">options-2</option>
 </select></p> -->
 		<p>https://zhidao.baidu.com/question/571279563.html</p>
 		<br>
-		
+
 		<h3>formData</h3>
 		<p>https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects</p>
-		
-		
+
+
 		<h3>怎么按照属性选择元素？</h3>
-		<p>[type=button],[type=reset]{
-	background-color:#0099FF;
-	color:white;
-}</p>
-		
-		
+		<p>[type=button],[type=reset]{ background-color:#0099FF;
+			color:white; }</p>
+
+
+		<h3>ajax发送get和post请求</h3>
+		<p>http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_send.asp</p>
+
+
+		<h3>JavaScript中，json字符串和json对象如何互转？</h3>
+		<p>//var obj={ "name": "cxh", "sex": "man" }; //alert(obj.name);
+			//var last=JSON.stringify(obj); //alert(last);</p>
+
+		<h3>引用css外部样式</h3>
+			<textarea rows="3" cols="100"><link rel="stylesheet"
+					type="text/css" href="css/guoya.css">
+		</textarea>
+
+
+		<h3>html界面展现html代码</h3>
+		<p>
+			使用textarea标签
+		</p>
+
 		<h3></h3>
 		<p></p>
-		
-		<h3></h3>
-		<p></p>
+
 	</table>
 
 </body>

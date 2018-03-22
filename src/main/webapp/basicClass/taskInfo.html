@@ -19,6 +19,7 @@ table,tr,td {
 	border-spacing: 0;
 	border-padding: 0;
 	border-bottom: 1px solid #D8D8D8;
+	border-right: 1px solid #D8D8D8;
 }
 </style>
 <script type="text/javascript" src="js/guoya.js"></script>
@@ -78,6 +79,10 @@ table,tr,td {
 	}
 
 	window.onload = function() {
+		//var obj={ "name": "cxh", "sex": "man" };
+		//alert(obj.name);
+		//var last=JSON.stringify(obj); 
+		//alert(last);
 		refresh();
 	};
 	function refresh() {
@@ -164,10 +169,10 @@ table,tr,td {
 							+ "				<td style=\"width:4%;text-align:center\"><img src=\"images/icon/delete.jpg\" style=\"height:22px;\" onclick=\"deleteTaskItem("
 							+ item.itemId
 							+ ")\"></td> "
-							+ "				<td style=\"width:7%\">"
+							+ "				<td style=\"width:17%\">"
 							+ item.itemName
 							+ "</td>                             "
-							+ "				<td style=\"width:80%\">"
+							+ "				<td style=\"width:70%\">"
 							+ item.itemDesc
 							+ "              </td>                                                              "
 							+ "				<td style=\"\"><img id=\""
@@ -278,8 +283,8 @@ table,tr,td {
 		var task = document.getElementById("table_head_" + taskId);
 		var item = "			<tr class=\"content\" id=\"add_content_tr\">                                                                   "
 				+ "				<td style=\"width:4%;text-align:center\"><img src=\"images/icon/delete.jpg\" style=\"height:22px;\" onclick=\"refresh()\"></td>                                           "
-				+ "				<td style=\"width:7%\"><textarea id=\"add_item_name\" rows=\"2\" style=\"width:95%\"></textarea></td>                                               "
-				+ "				<td style=\"width:80%\"><textarea id=\"add_item_desc\" rows=\"2\" style=\"width:95%\"></textarea>"
+				+ "				<td style=\"width:17%\"><textarea id=\"add_item_name\" rows=\"2\" style=\"width:95%\"></textarea></td>                                               "
+				+ "				<td style=\"width:70%\"><textarea id=\"add_item_desc\" rows=\"2\" style=\"width:95%\"></textarea>"
 				+ "				</td>                                                                                "
 				+ "				<td style=\"text-align:left\"><input type=\"button\" value=\"保存\" onclick=\"saveItem("
 				+ taskId

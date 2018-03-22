@@ -1,0 +1,74 @@
+
+div {
+	border: 0px solid black;
+}
+/*-------------------------------十二栅格化统一样式----------------------------*/
+.row {
+	width: 100%;
+	display: flex; /*这是为了让同一row中的Div横向排列而不是默认的纵向*/
+	/*flex-wrap:wrap; 没错就是它*/
+}
+
+.col-1 {
+	width: 8.33%;
+}
+
+.col-2 {
+	width: 16.67%;
+}
+
+.col-3 {
+	width: 25%;
+}
+
+.col-4 {
+	width: 33.33%;
+}
+
+.col-5 {
+	width: 41.65%;
+}
+
+.col-6 {
+	width: 50%;
+}
+
+.col-12 {
+	width: 100%;
+}
+
+
+/*-------------------------------导航悬浮窗口样式----------------------------*/
+.right_navigat_div /*悬浮框标签*/ {
+	position: fixed; /*浮窗位置*/
+	right: 10px;
+	top: 10%; /*靠右*/
+	background-color: white;
+	border: 0px solid black;
+	opacity:1.0;
+}
+
+.right_navigat_div td /*悬浮框标签*/ {
+	border-bottom: 0px solid black;
+}
+
+.right_navigat_div input {
+	height: 20px;
+	width: 95%;
+	border: 1px solid gray;
+}
+
+/*-------------------------------超链接统一样式----------------------------*/
+
+a:link {
+	color: #000000;
+} /* 未访问链接*/
+/*a:visited {
+	color: #00FF00;
+}*/ /* 已访问链接 */
+a:hover {
+	color: #FF00FF;
+} /* 鼠标移动到链接上 */
+a:active {
+	color: #0000FF;
+} /* 鼠标点击时 */
