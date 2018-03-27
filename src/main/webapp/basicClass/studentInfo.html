@@ -23,14 +23,43 @@
 			}
 		
 		</script>
+		
+		<style>
+			h1{
+				text-align:center;
+			}
+			table{
+				width:50%;
+				margin:5% auto;
+				padding:1%;
+				border:1px solid gray;
+				
+			}
+			td{
+				border:1px solid gray;
+			}
+			input[type="text"],[type="number"],[type="date"],[type="file"]{
+				width:90%;
+			}
+			select{
+				width:90%;	
+			}
+			.submit_tr{
+				height:50px;
+				text-align:center;
+			}
+			.submit_tr td{
+				padding-top:2%;
+			}
+		</style>
 	</head>
 	<body>
-		<h1 style="text-align:center">学生信息系统</h1>
-		<table border="0" style="margin:0 auto;" >
+		<h1>学生信息系统</h1>
+		<table>
 			<tr >
 				<td>姓名：</td>
 				<td >
-					<input size="20" type="text">
+					<input type="text">
 					<span style="color:red">*</span></td>
 			</tr>
 			<tr>
@@ -50,14 +79,14 @@
 			<tr >
 				<td>年龄：</td>
 				<td>
-					<input type="date" style="width:168px" value="1990-01-01">
+					<input type="date" value="1990-01-01">
 					<span style="color:red">*</span>
 				</td>
 			</tr>
 			<tr >
 				<td>学历：</td>
 				<td>
-					<select style="width:173px" size="1">
+					<select  size="1">
 						<option>---请选择---</option>
 						<option>硕士</option>
 						<option>本科</option>
@@ -71,27 +100,27 @@
 			<tr >
 				<td>毕业时间：</td>
 				<td>
-					<input type="date" style="width:168px" value="1990-01-01">
+					<input type="date" value="1990-01-01">
 					<span style="color:red">*</span>
 				</td>
 			</tr>
 			<tr >
 				<td>介绍人：</td>
 				<td>
-					<input type="text" size="20" >
+					<input type="text" >
 				</td>
 			</tr>
 			
 			<tr >
 				<td>测试工龄：</td>
 				<td>
-					<input type="number" min="0" max="9" step="1" style="width:168px" value="0">
+					<input type="number" min="0" max="9" step="1" value="0">
 				</td>
 			</tr>
 			<tr >
 				<td>意向班级：</td>
 				<td>
-					<select style="width:173px" size="1">
+					<select  size="1">
 						<option>---请选择---</option>
 						<option>测试-初级班-插班</option>
 						<option>测试-初级班-新班</option>
@@ -111,7 +140,7 @@
 			<tr >
 				<td>报名意愿：</td>
 				<td>
-					<select style="width:173px" size="1">
+					<select  size="1">
 						<option>---请选择---</option>
 						<option>被了解</option>
 						<option>感兴趣</option>
@@ -125,7 +154,7 @@
 			<tr >
 				<td>导师：</td>
 				<td>
-					<select style="width:173px" size="1">
+					<select  size="1">
 						<option>---请选择---</option>
 						<option>李晓阳</option>
 						<option>戈维维</option>
@@ -151,10 +180,7 @@
 				</td>
 			</tr>
 			-->
-			<tr>
-				<td>&nbsp;</td>
-			</tr>
-			<tr align="center">
+			<tr class="submit_tr">
 				<td colspan="2">
 					<input type="button" value="提交" onclick="doSubmit()">
 				</td>

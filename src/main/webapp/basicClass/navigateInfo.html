@@ -5,10 +5,12 @@
 <title>多媒体资源页</title>
 <link rel="stylesheet" type="text/css" href="css/guoya.css">
 <style>
+
 div {
-	border-bottom: 1px solid #D8D8D8;
+	border-bottom: 0px solid #D8D8D8;
 }
 </style>
+<script type="text/javascript" src="js/navigation/software.js"></script>
 <script type="text/javascript">
 	window.onload = function() {
 		var xmlhttp = new XMLHttpRequest();
@@ -16,11 +18,13 @@ div {
 		xmlhttp.open("GET", "navigation/menu.html", false);
 		xmlhttp.send();
 		document.getElementById("menu").innerHTML = xmlhttp.responseText;
-		
+
 		//软件下载
 		xmlhttp.open("GET", "navigation/software.html", false);
 		xmlhttp.send();
 		document.getElementById("software").innerHTML = xmlhttp.responseText;
+		//alert(software());
+		//document.getElementById("software").innerHTML = software();
 
 		//源码仓库
 		xmlhttp.open("GET", "navigation/code.html", false);
@@ -68,32 +72,42 @@ div {
 		document.getElementById("protocol").innerHTML = xmlhttp.responseText;
 	};
 </script>
+<base target="_blank"> 
 </head>
 <body>
 	<div>
-	
-		<a name="anchor_top"></a>
+		<div style="height:0px;">
+			<a name="anchor_top"></a>
+		</div>
+
 		<!-- 01 悬浮菜单 -->
 		<div id="menu"></div>
 		<!-- 02 软件下载 -->
-		<a name="anchor_software"></a>
+		<div style="height:0px;">
+			<a name="anchor_software"></a>
+		</div>
 		<div id="software"></div>
 		<br> <br>
 		<!-- 03 源码仓库 -->
-		<a name="anchor_code"></a>
+		<div style="height:0px;">
+			<a name="anchor_code"></a>
+		</div>
 		<div id="code"></div>
 		<br> <br>
 		<!-- 04 前端开发 -->
-		<a name="anchor_ui"></a>
+		<div style="height:0px;">
+			<a name="anchor_ui"></a>
+		</div>
 		<div id="ui"></div>
 		<br> <br>
 		<!-- 05 界面测试 -->
-		<a name="anchor_uiTest"></a>
+		<div style="height:0px;">
+			<a name="anchor_uiTest"></a>
+		</div>
 		<div id="uiTest"></div>
 		<br> <br>
 		<!-- 06 后端开发 -->
-		<a name="anchor_uiTest"></a>
-		<a name="anchor_java"></a>
+		<a name="anchor_uiTest"></a> <a name="anchor_java"></a>
 		<div id="java"></div>
 		<br> <br>
 		<!-- 07 接口测试 -->

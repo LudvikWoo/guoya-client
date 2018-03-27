@@ -2,13 +2,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>果芽官网</title>
+<style>
+	#top{
+		border :10px solid #E8E8E8;
+	}
+	#left{
+		border-left :10px solid #E8E8E8;
+	}
+	#right{
+		border-left :10px solid #E8E8E8;
+		border-right :10px solid #E8E8E8;
+	}
+	#bottom{
+		border :10px solid #E8E8E8;
+	}
+</style>
 </head> 
-<frameset rows="15%,75%,*" border="1">
-	<frame src="basicClass/frame/top.html"></frame>
+<frameset rows="15%,75%,*" frameborder="no">
+	<frame src="basicClass/frame/top.html" id="top"></frame>
 	<frameset cols="20%,*">
-		<frame src="basicClass/frame/left.html"></frame>
-		<frame src="basicClass/slidebox-master/slidebox.html" name="right"></frame>
+		<frame src="basicClass/frame/left.html" id="left"></frame>
+		<frame src="basicClass/slidebox-master/slidebox.html" name="right" id="right"></frame>
 	</frameset>
-	<frame src="basicClass/frame/button.html"></frame>
+	<frame src="basicClass/frame/button.html" id="bottom"></frame>
 </frameset>
 </html>

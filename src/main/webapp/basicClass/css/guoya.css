@@ -1,4 +1,3 @@
-
 div {
 	border: 0px solid black;
 }
@@ -10,33 +9,47 @@ div {
 }
 
 .col-1 {
-	width: 8.33%;
+	width: 8%;
 }
 
 .col-2 {
-	width: 16.67%;
+	width: 16%;
 }
 
 .col-3 {
-	width: 25%;
+	width: 24%;
 }
 
 .col-4 {
-	width: 33.33%;
+	width: 32%;
 }
 
 .col-5 {
-	width: 41.65%;
+	width: 40%;
 }
 
 .col-6 {
-	width: 50%;
+	width: 48%;
+}
+.col-7 {
+	width: 56%;
+}
+.col-8 {
+	width: 64%;
 }
 
+.col-9 {
+	width: 72%;
+}
+.col-10 {
+	width: 80%;
+}
+.col-11 {
+	width: 88%;
+}
 .col-12 {
-	width: 100%;
+	width: 96%;
 }
-
 
 /*-------------------------------导航悬浮窗口样式----------------------------*/
 .right_navigat_div /*悬浮框标签*/ {
@@ -45,7 +58,7 @@ div {
 	top: 10%; /*靠右*/
 	background-color: white;
 	border: 0px solid black;
-	opacity:1.0;
+	opacity: 1.0;
 }
 
 .right_navigat_div td /*悬浮框标签*/ {
@@ -59,7 +72,6 @@ div {
 }
 
 /*-------------------------------超链接统一样式----------------------------*/
-
 a:link {
 	color: #000000;
 } /* 未访问链接*/
@@ -70,5 +82,95 @@ a:hover {
 	color: #FF00FF;
 } /* 鼠标移动到链接上 */
 a:active {
-	color: #0000FF;
+	color: 6F99FF;
 } /* 鼠标点击时 */
+
+/*-------------------------------资料导航页样式----------------------------*/
+.theme {
+	border: 1px solid #AAAAAA;
+	padding: 1%;
+}
+
+.theme .head {
+	background-color: white;
+}
+
+.theme .head .tile {
+	/*line-height: 15px;（控制行间距） */
+	font-weight: bold; /*（控制字体加粗） */
+	font-size: 30px; /*（控制字体大小） */
+	color: #000000; /*（控制字体颜色）  */
+	font-family: 宋体; /*（注明是什么字体） */
+	text-align: center; /*控制内容位置*/
+}
+
+.theme .body {
+	
+}
+
+.theme .body .item {
+	
+}
+
+.theme .body .item .head {
+	line-height: 35px; /*（控制行间距） */
+	font-weight: bold; /*（控制字体加粗） */
+	font-size: 18px; /*（控制字体大小） */
+	color: #000000; /*（控制字体颜色）  */
+	font-family: 宋体; /*（注明是什么字体） */
+	/*text-align:center;控制内容位置*/
+	
+	
+	background-color: white;
+	margin: 10px 0 0 0;
+	padding-left: 1%;
+	border-bottom: 2px solid #AAAAAA;
+}
+
+.theme .body .item .body {
+	border-left: 1px solid #AAAAAA;
+	border-right: 1px solid #AAAAAA;
+	border-bottom: 1px solid #AAAAAA;
+	padding: 1%;
+	
+}
+
+.theme .body .item .body .row {
+	line-height: 30px; 
+	padding-left:3px;
+}
+
+.theme .body .item .body .row.one {
+	background-color: #F8F8F8;
+	margin: 0% 0 0 0;
+}
+
+.theme .body .item .body .row.two {
+	
+	background-color: #F8F8F8;
+	margin: 1% 0 0 0;
+}
+
+.theme .body .item .body .row .tech {
+}
+
+.theme .body .item .body .row .tech .name {
+	font-weight: bold; /*（控制字体加粗） */
+	font-size: 16px; /*（控制字体大小） */
+	color: #484848; /*（控制字体颜色）  */
+	font-family: 宋体; /*（注明是什么字体） */
+	background-color:#EDEDED;
+	padding-left: 2%;
+}
+.theme .body .item .body .row .tech .download {
+	font-size: 14px; /*（控制字体大小） */
+	color: #000000; /*（控制字体颜色）  */
+	font-family: 宋体; /*（注明是什么字体） */
+	padding-left: 2%;
+}
+.theme .body .item .body .row .tech .tutorial {
+	font-size: 14px; /*（控制字体大小） */
+	color: #000000; /*（控制字体颜色）  */
+	font-family: 宋体; /*（注明是什么字体） */
+	padding-left: 2%;
+}

@@ -118,7 +118,16 @@ td {
 	function saveUrl(sno) {
 		var textarea = document.getElementById(sno + '_url');
 		var url = textarea.value;
-		var parameters = "/guoya-server/studyInfo?method=updateUrl&sno=" + sno + "&url=" + url;
+		var json={
+				request:{
+					method:"updateStudent",
+					student:{
+						sno:sno,
+						url:url
+					}
+				}
+		};
+		var parameters = "/guoya-server/studyInfo";
 		//提交到后台
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
@@ -126,8 +135,8 @@ td {
 				alert("服务端响应：" + xmlhttp.responseText);
 			}
 		};
-		xmlhttp.open("GET", publicUrl + parameters, true);
-		xmlhttp.send();
+		xmlhttp.open("POST", publicUrl + parameters, true);
+		xmlhttp.send(JSON.stringify(json));
 	}
 
 	function openUrl(sno) {
@@ -158,14 +167,22 @@ td {
 			var xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-					//alert("服务端响应：" + xmlhttp.responseText);
+					alert("服务端响应：" + xmlhttp.responseText);
 					statistic();
 				}
 			};
-			var parameters = "/guoya-server/studyInfo?method=updateStatus&sno=" + sno + "&status="
-					+ status;
-			xmlhttp.open("GET", publicUrl + parameters, true);
-			xmlhttp.send();
+			var parameters = "/guoya-server/studyInfo";
+			var json={
+					request:{
+						method:"updateStudent",
+						student:{
+							sno:sno,
+							status:status
+						}
+					}
+			};
+			xmlhttp.open("POST", publicUrl + parameters, true);
+			xmlhttp.send(JSON.stringify(json));
 		}
 	}
 	function statistic() {
