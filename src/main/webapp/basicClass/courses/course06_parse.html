@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>解析JSON数据</title>
+<meta charset="UTF-8">
+<style type="text/css">
+body {
+	padding: 2%;
+	background-color: #F8F8F8;
+}
+
+.parse {
+	width: 70%;
+	margin: 1% auto;
+	background-color: white;
+}
+
+.source {
+	width: 70%;
+	margin: 1% auto;
+	background-color: white;
+}
+
+xmp {
+	width: 60%;
+	margin: 10px;
+	padding: 10px;
+	border: 0px solid black;
+}
+</style>
+</head>
+
+<body>
+
+	<center>
+		<h1>第6课 代码详解</h1>
+	</center>
+	
+	
+	<div class="source">
+		<xmp>
+		var student = {
+			"sno" : "S1001",
+			"pic" : "../images/guoya_logo.jpg",
+			"sname" : "果芽",
+			"status" : "1",
+			"url" : "http://www.guoyasoft.com",
+			"group" : "第一组",
+			"cno" : "201803B"
+		};
+		var demo = document.getElementById("demo");
+		var html = demo.innerHTML;
+		html = html.replace("{sno}", student.sno);
+		html = html.replace("{pic}", student.pic);
+		</xmp>
+	</div>
+	
+	<div class="parse">
+	<xmp>
+1. json是什么
+　　它是js提供的一种数据交换格式！
+
+2. json的语法
+　　{}：是对象！
+　　属性名必须使用双引号括起来！单引不行！！！
+　　属性值：可以是基本类型、对象、数组三种中的一种
+
+3. 基本类型
+   null:	"addr":null
+         数值:		"age":23
+        字符串:	"name":"果芽"
+   boolean值：true和false	, "isPass":true
+	
+4. 数组：使用[]括起来
+	{"student":[{"name":"第一组","id":"1"},{"name":"第一组","id":"1"}]}
+	
+5. 对象：值是花括号{}
+	{"group":{"name":"第一组","id":"1"}}
+
+6. 应用json
+　　　　var person = {"name":"zhangSan", "age":18, "sex":"male"};
+
+7. 读取json数据
+		基本类型:
+		直接使用变量名，取变量值
+
+		对象：使用"."
+		使用对象名.属性名获取“属性值”
+		{"group":{"name":"第一组","id":"1"}}
+		group.name
+		group.id
+		
+		数组：使用下标
+		{"student":[{"name":"第一组","id":"1"},{"name":"第一组","id":"1"}]}
+		student[0].name
+		student[1].id
+		
+		student[1].name
+		student[1].id
+		
+	
+8. json与xml比较
+　　　　可读性：XML胜出
+　　　　解析难度：JSON本身就是JS对象（主场作战），所以简单很多
+　　　　流行度：XML已经流行好多年，但在AJAX领域，JSON更受欢迎。
+</xmp>
+	</div>
+	
+	
+	<div class="parse">
+		<h3>界面源代码</h3>
+	</div>
+	<div class="source">
+		<xmp> <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+		<html>
+<head>
+<title>解析JSON数据</title>
+<meta charset="UTF-8">
+<style type="text/css">
+.student {
+	display: flex;
+	width: 40%;
+	height: 8%;
+	margin: 1% 5% 1% 5%;
+	padding: 1%;
+	border-bottom: 1px solid black;
+	background-color: #E8E8E8;
+}
+
+.col {
+	width: 15%;
+	border: 1px solid black;
+}
+</style>
+<script type="text/javascript">
+	function changeStatus() {
+		var img = document.getElementById("status_img");
+		var src = img.src;
+		if (src.indexOf("cross.jpg") == -1) {
+			img.src = "../images/icon/cross.jpg";
+		} else {
+			img.src = "../images/icon/tick.jpg";
+		}
+	}
+
+	function saveUrl() {
+		var url = document.getElementById("url_textarea").value;
+		var r = confirm("确定保存?");
+		if (r == true) {
+			alert("保存成功，url=" + url);
+		}
+	}
+
+	function testUrl() {
+		var url = document.getElementById("url_textarea").value;
+		window.open(url);
+	}
+
+	window.onload = function() {
+		var student = {
+			"sno" : "S1001",
+			"pic" : "../images/guoya_logo.jpg",
+			"sname" : "果芽",
+			"status" : "1",
+			"url" : "http://www.guoyasoft.com",
+			"group" : "第一组",
+			"cno" : "201803B"
+		};
+		var demo = document.getElementById("demo");
+		var html = demo.innerHTML;
+		html = html.replace("{sno}", student.sno);
+		html = html.replace("{pic}", student.pic);
+		if (student.status == "0") {
+			html = html.replace("{status}", "../images/icon/cross.jpg");
+		}
+		if (student.status == "1") {
+			html = html.replace("{status}", "../images/icon/tick.jpg");
+		}
+		html = html.replace("{name}", student.sname);
+		html = html.replace("{url}", student.url);
+
+		demo.innerHTML = html;
+	}
+</script>
+
+</head>
+
+<body>
+	<div id="demo">
+		<div class="student">
+			<div style="width:10%">
+				<img style="height:50px" alt="" src="{pic}">
+			</div>
+			<div style="width:10%">{sno}</div>
+			<div style="width:10%">{name}</div>
+			<div style="width:10%">
+				<img id="status_img" style="height:50px" alt="" src="{status}"
+					onclick="changeStatus()">
+			</div>
+			<div style="width:30%">
+				<textarea id="url_textarea" rows="3" cols="20">{url}</textarea>
+			</div>
+			<div style="width:10%">
+				<input type="button" value="保存" onclick="saveUrl()">
+			</div>
+			<div style="width:10%">
+				<input type="button" value="测试" onclick="testUrl()">
+			</div>
+		</div>
+</body>
+
+		</html>
+		</xmp>
+	</div>
+</body>
+
+</html>

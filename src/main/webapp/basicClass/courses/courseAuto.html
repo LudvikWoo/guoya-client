@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>第1课</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/guoya.css">
+
+<base target="_blank" />
+<script type="text/javascript">
+	var indexRow = 1;
+	var indexTech = 1;
+	function generateTech(index, techCount) {
+		var row = document.getElementById("row_id_" + index);
+		var tech = document.getElementById("demo_tech");
+		for (var i = 0; i < techCount; i++) {
+			var html = tech.innerHTML;
+			if (indexTech < 10) {
+				html = html.replace(/{courseId}/g, "0" + indexTech);
+			} else {
+				html = html.replace(/{courseId}/g, indexTech);
+			}
+			row.innerHTML += html;
+			indexTech += 1;
+		}
+	}
+
+	function generateRow(index, count) {
+		var body = document.getElementById("body_id_" + index);
+		var demo = document.getElementById("demo_row");
+		for (var i = 0; i < count; i++) {
+			var html = demo.innerHTML;
+			html = html.replace(/{rowId}/g, indexRow);
+			body.innerHTML += html;
+			//每新增一行，就新增3项
+			generateTech(indexRow, 3);//几行几列
+			indexRow += 1;
+		}
+	}
+
+	function generateItem() {
+		var body = document.getElementById("theme_body");
+		var demo = document.getElementById("demo_item");
+		var json = {
+			"item" : [ {
+				"id" : 1,
+				"name" : "动态界面"
+			}, {
+				"id" : 2,
+				"name" : "接口调用"
+			}, {
+				"id" : 3,
+				"name" : "静态界面"
+			} ]
+		};
+		for (var i = 0; i < json.item.length; i++) {
+			var html = demo.innerHTML;
+			html = html.replace(/{itemId}/g, json.item[i].id);
+			html = html.replace("{item_title}", json.item[i].name);
+			body.innerHTML += html;
+			//每新增一个ITEM，就新增3行
+			//第一个参数：行号，第二个参数：列数
+			indexTech = 1;
+			generateRow(json.item[i].id, 3);
+		}
+	}
+	window.onload = function() {
+		generateItem();
+	}
+</script>
+<script type="text/javascript">
+	
+</script>
+</head>
+
+<body>
+	<!----------------------------------数据库板块------------------------------------------>
+	<div class="theme">
+		<!---------------板块大标题---------------------->
+		<div class="row head">
+			<div class="col-12 tile">基础课件</div>
+		</div>
+		<!---------------板块小标题---------------------->
+		<div class="body" id="theme_body">
+			<!------------- -----板块结束符---------------- -->
+		</div>
+	</div>
+	<div id="demo_item" style="display:none">
+		<div class="item" id="item_id_{itemId}">
+			<div class="row head" id="head_id_{itemId}">{item_title}</div>
+			<div class="body" id="body_id_{itemId}"></div>
+		</div>
+	</div>
+
+	<div id="demo_tech" style="display:none">
+		<div class="row tech">
+			<div class="col-5 name">第{courseId}课</div>
+			<div class="col-3 download">
+				<a href="course{courseId}.html">样例</a>
+			</div>
+			<div class="col-3 tutorial">
+				<a href="course{courseId}_parse.html">讲解</a>
+			</div>
+		</div>
+	</div>
+
+	<div id="demo_row" style="display: none">
+		<div class="row two" id="row_id_{rowId}"></div>
+	</div>
+
+
+</body>
+</html>

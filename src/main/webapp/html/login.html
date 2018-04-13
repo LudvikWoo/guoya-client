@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>果芽-登录</title>
+<script type="text/javascript">
+	window.onload = function() {
+		var xmlhttp = new XMLHttpRequest();
+		//菜单
+		xmlhttp.open("GET", "../basicClass/frame/top.html", false);
+		xmlhttp.send();
+		document.getElementById("top").innerHTML = xmlhttp.responseText;
+		//菜单
+		xmlhttp.open("GET", "../basicClass/frame/button.html", false);
+		xmlhttp.send();
+		document.getElementById("button").innerHTML = xmlhttp.responseText;
+		
+	};
+</script>
+<style type="text/css">
+td[style="text-align:right;width:20%"]{
+	display:none;
+}
+body {
+	background-color: #F7F7F7;
+}
+
+#top {
+	height: 10%;
+	width: 98%;
+	margin:auto;
+	padding-right:5px;
+	background-color: white;
+}
+
+#login_main {
+	background-color: white;
+	position: fixed;
+	right: 2%;
+	top: 20%;
+	width: 15%;
+	padding: 1%;
+}
+
+.login_row {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.login_item_name {
+	width: 30%;
+}
+
+.login_item_value input {
+	width: 90%;
+}
+
+.login_button {
+	text-align: center;
+	width: 100%;
+}
+
+.login_button input {
+	width: 50%;
+	height: 30px;
+	color: white;
+	font-size: 16px;
+	font-weight: 600;
+	background-color: #6DB3FB;
+	border: 0;
+}
+
+#company_display_div {
+	margin-top: 1%;
+	margin-left: 5%;
+}
+
+#login_title {
+	height: 40px;
+	margin-bottom: 10%;
+	border-bottom: 1px solid #E5E5E5;
+}
+
+#login_title_row {
+	font-weight: 500;
+	font-size: 20px;
+	margin: 6px;
+	display: flex;
+}
+
+#login_title_row div {
+	text-align: center;
+	width: 100%;
+}
+
+input[type="text"],[type="password"] {
+	border: 1px solid #E5E5E5;
+}
+</style>
+</head>
+
+<body>
+	<div id="main">
+		<div id="top"></div>
+		<div id="content"></div>
+		<div id="company_display_div">
+			<img alt="" src="../basicClass/images/company/c07.jpg">
+		</div>
+		<!-- 登录界面开始 -->
+		<div id="login_main">
+			<div id="login_title">
+				<div id="login_title_row">
+					<div>账户登录</div>
+				</div>
+			</div>
+			<form action="/guoya-client/login" method="post">
+				<div class="login_row">
+					<div class="login_item_name">姓名:</div>
+					<div class="login_item_value">
+						<input type="text" name="username">
+					</div>
+				</div>
+
+				<div class="login_row">
+					<div class="login_item_name">密码：</div>
+					<div class="login_item_value">
+						<input type="password" name="password">
+					</div>
+				</div>
+
+				<div class="login_row">
+					<div class="login_button">
+						<input type="submit" value="登&nbsp;&nbsp;&nbsp;录">
+					</div>
+				</div>
+			</form>
+		</div>
+		<!-- 登录界面结束 -->
+
+	</div>
+
+	<div id="button"></div>
+</body>
+</html>

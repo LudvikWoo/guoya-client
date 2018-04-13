@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>course01_parse</title>
+<meta charset="UTF-8">
+<style type="text/css">
+body{
+	padding:1%;
+}
+xmp {
+	width:60%;
+	margin:10px;
+	padding:10px;
+	background-color:#F8F8F8;
+	border: 0px solid black;
+}
+</style>
+</head>
+
+<body>
+	<h1>第一课 源代码</h1>
+	<xmp><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+	<html>
+<head>
+<title>course01</title>
+<meta charset="UTF-8">
+<style type="text/css">
+.student {
+	display: flex;
+	width: 40%;
+	height: 8%;
+	margin: 1% 5% 1% 5%;
+	padding: 1%;
+	border-bottom: 1px solid black;
+	background-color: #E8E8E8;
+}
+
+.col {
+	width: 15%;
+	border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+	<div class="student">
+		<div class="col">头像</div>
+		<div class="col">学号</div>
+		<div class="col">姓名</div>
+		<div class="col">状态</div>
+		<div class="col">URL</div>
+		<div class="col">保存</div>
+		<div class="col">测试</div>
+	</div>
+</body>
+
+	</html>
+	</xmp>
+
+	<h1>实现步骤</h1>
+	<h3>第一步：界面布局</h3>
+	界面布局：1行，6列
+	<br>效果是先画一个大框，大框里面6个小框，一个div就是一个框，专业名词叫“块”
+	<xmp>
+	<div>
+		<div>头像</div>
+		<div>学号</div>
+		<div>姓名</div>
+		<div>状态</div>
+		<div>URL</div>
+		<div>保存</div>
+		<div>测试</div>
+	</div>
+	</xmp>
+
+
+	<h3>第二步：给不同的块进行分类</h3>
+	<ol>
+		<li>给不同的块进行分类,便于使用css统一设置样式</li>
+		<li>html界面、Css样式、JavaScript代码，最好都分开写，便于维护和更换</li>
+		<li>如何选择使用id、name、class的哪一种给标签打标识？</li>
+		<li>如果是同一类，会有多个需要相同的方式处理，就用class；如果是唯一，就用id。name一遍用于传输数据时当做变量名使用</li>
+	</ol>
+
+	<xmp>
+	<div class="student">
+		<div class="col">头像</div>
+		<div class="col">学号</div>
+		<div class="col">姓名</div>
+		<div class="col">状态</div>
+		<div class="col">URL</div>
+		<div class="col">保存</div>
+		<div class="col">测试</div>
+	</div>
+	</xmp>
+</body>
+
+</html>

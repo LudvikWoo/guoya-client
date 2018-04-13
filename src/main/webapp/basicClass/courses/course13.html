@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>course01</title>
+<meta charset="UTF-8">
+<style type="text/css">
+.student {
+	width: 60%;
+	height: 10%;
+	border: 1px solid black;
+	margin: 5%;
+	padding: 2%;
+	background-color: gray;
+	display: flex;
+}
+
+.col {
+	width: 10%;
+	height: 70%;
+	border: 1px solid black;
+	margin: 1%;
+	padding: 1%;
+	background-color: white;
+}
+
+.url {
+	width: 20%;
+}
+
+img {
+	height: 40px;
+}
+</style>
+
+<script type="text/javascript">
+	function changeStatus(sno) {
+		alert("sdf");
+		var img = document.getElementById(sno + "_status_img");
+		alert(img.src);
+		var src = img.src;
+		if (src.indexOf("cross.jpg") == -1) {
+			img.src = "../images/icon/cross.jpg";
+		} else {
+			img.src = "../images/icon/tick.jpg";
+		}
+	}
+
+	window.onload = function() {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", "http://www.guoyasoft.com:15021/guoya-server/studyInfo?method=getUrls", true);
+		xmlhttp.send();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				//alert("服务端响应：" + xmlhttp.responseText);
+				var json=JSON.parse(xmlhttp.responseText);
+				for (var i = 0; i < json.study.student.length; i++) {
+					generteStu(json.study.student[i]);
+				}
+			}
+		};
+		
+
+		
+	};
+
+	function generteStu(json) {
+		var demo = document.getElementById("demo");
+		alert("ok");
+		var html = demo.innerHTML;
+		alert(html);
+		html = html.replace(/{sno}/g, json.sno);
+		html = html.replace("{sname}", json.sname);
+		html = html.replace("{url}", json.url);
+		alert(html);
+
+		var display = document.getElementById("display");
+		display.innerHTML += html;
+	}
+</script>
+</head>
+
+<body>
+	<div id="demo">
+		<div class="student">
+			<div class="col">{sno}</div>
+			<div class="col">{sname}</div>
+			<div class="col">
+				<img id="{sno}_status_img" alt="" src="../images/icon/cross.jpg"
+					onclick="changeStatus('{sno}')">
+			</div>
+			<div class="col">
+				<img alt="" src="../images/company/guoyasoft_logo.jpg">
+			</div>
+			<div class="col url">
+				<textarea rows="3" cols="30">{url}</textarea>
+			</div>
+			<div class="col">
+				<input type="button" value="保存">
+			</div>
+			<div class="col">
+				<input type="button" value="测试">
+			</div>
+		</div>
+	</div>
+
+	<div id="display"></div>
+</body>
+
+</html>
