@@ -55,7 +55,7 @@ div {
 .right_navigat_div /*Ðü¸¡¿ò±êÇ©*/ {
 	position: fixed; /*¸¡´°Î»ÖÃ*/
 	right: 10px;
-	top: 10%; /*¿¿ÓÒ*/
+	top: 30px; /*¿¿ÓÒ*/
 	background-color: white;
 	border: 0px solid black;
 	opacity: 1.0;

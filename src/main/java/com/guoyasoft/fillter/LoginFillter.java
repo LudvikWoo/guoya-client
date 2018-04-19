@@ -42,7 +42,7 @@ public class LoginFillter implements Filter {
 		String[] includeStrings = config.getInitParameter("includeStrings")
 				.split(";");
 		System.out.println("getRequestURI="+hrequest.getRequestURI());
-		if (!"/guoya_client/".equals(hrequest.getRequestURI()) && !this.isContains(hrequest.getRequestURI(), includeStrings)) {
+		if (!"/guoya-client/".equals(hrequest.getRequestURI()) && !this.isContains(hrequest.getRequestURI(), includeStrings)) {
 			chain.doFilter(request, response);
 			return;
 		}

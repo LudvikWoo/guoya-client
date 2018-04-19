@@ -13,7 +13,7 @@
 		</commentGenerator>
 		<!-- 数据库链接URL、用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://192.168.1.83:3306/guoya" userId="gydev1o"
+			connectionURL="jdbc:mysql://47.98.226.232:3306/guoya" userId="root"
 			password="123456">
 			<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" 
 				userId="msa" password="msa"> -->
@@ -22,7 +22,7 @@
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 		<!-- 生成实体类的包名和位置，这里配置将生成的实体类放在me.gacl.domain这个包下 -->
-		<javaModelGenerator targetPackage="com.guoyasoft.bean"
+		<javaModelGenerator targetPackage="com.guoyasoft.bean.db"
 			targetProject="\\vmware-host\Shared Folders\Desktop\mybatis\src\main\java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
@@ -39,7 +39,7 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-		<table tableName="gy_daily_summary" domainObjectName="GyDailySummary"
+		<table tableName="gy_user" domainObjectName="GyUser"
 			enableCountByExample="true" enableUpdateByExample="true"
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true" enableDeleteByPrimaryKey="true"
