@@ -103,18 +103,17 @@ select {
 					</select></td>
 				</tr>
 				<tr>
-					<td>薪资:</td>
-					<td><input type="text" name="salary" id="salary"></td>
+					<td>期望薪资:</td>
+					<td><input type="text" name="expectSalary" id="expectSalary"></td>
+				</tr>
+				<tr>
+					<td>实际薪资:</td>
+					<td><input type="text" name="realSalary" id="realSalary"></td>
 				</tr>
 				<tr>
 					<td>HR联系方式:</td>
 					<td><input type="text" name="hrContact" id="hrContact">
 					</td>
-				</tr>
-				<tr>
-					<td>没过原因:</td>
-					<td><textarea rows="3" cols="30" name="unpassReason"
-							id="unpassReason"></textarea></td>
 				</tr>
 				<tr>
 					<td>难点技术:</td>
@@ -125,11 +124,6 @@ select {
 					<td>其它总结:</td>
 					<td><textarea rows="3" cols="30" name="mark" id="mark"></textarea>
 					</td>
-				</tr>
-				<tr>
-					<td>上传录音:</td>
-					<td><input type="file" name="interviewAudio"
-						id="interviewAudio"></td>
 				</tr>
 				<tr>
 					<td colspan="2"><input type="submit" value="提交"> <input

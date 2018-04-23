@@ -23,11 +23,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 	-->
 
-   <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+
 <style type="text/css">
 table {
 	width: 40%;
@@ -44,46 +40,34 @@ td {
 <script src="js/md5.js" type="text/javascript"></script>
 <script type="text/javascript">
 	var key = "guoyasoft";
-	$(document).ready(function() {
-		$("#loginBtn").click(function() {
-			var password = $("#password").val();
-			$("#password").val(hex_md5(password + "&key=" + key));
-			$("#form").submit();
-		});
-	});
+	function checkForm() {
+		var password = document.getElementById("password").value;
+		document.getElementById("password").value = hex_md5(password + "&key="
+				+ key);
+		return true;
+	}
 </script>
 
 </head>
 
 <body>
-	<div class="container">
-    
-	<form class="form-horizontal" role="form" action="user/login.action"
-		method="post" id="form">
-        <div class="form row">
-            <div class="form-horizontal col-md-offset-3" id="login_form">
-                <h3 class="form-title">LOGIN</h3>
-                <div class="col-md-9">
-                    <div class="form-group">
-                        <i class="fa fa-user fa-lg"></i>
-                        <input class="form-control required" type="text" placeholder="Username" id="userName" name="userName" autofocus="autofocus" maxlength="20"/>
-                    </div>
-                    <div class="form-group">
-                            <i class="fa fa-lock fa-lg"></i>
-                            <input class="form-control required" type="password" placeholder="Password" id="password" name="password" maxlength="8"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="checkbox">
-                            <input type="checkbox" name="remember" value="1"/>记住我
-                        </label>
-                    </div>
-                    <div class="form-group col-md-offset-9">
-                        <button type="submit" class="btn btn-success pull-right" id="loginBtn" name="submit">登录</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </form>
-    </div>
+	<center><h1>用户登录</h1></center>
+	<form action="user/login.action" method="post" id="form" onsubmit='return checkForm()'>
+		<table>
+			<tr>
+				<td>用户名：</td>
+				<td><input type="text" id="userName" name="userName" /></td>
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td><input type="password" id="password" name="password"
+					maxlength="8" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" id="loginBtn"
+					name="submit" value="登录"  /></td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>

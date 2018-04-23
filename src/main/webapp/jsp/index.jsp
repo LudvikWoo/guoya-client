@@ -221,6 +221,7 @@ function logout(){
 					target="right">内荐机会</a></li>
 				<li><a href="jsp/interview/add.jsp" target="right">面试登记</a></li>
 				<li><a href="jsp/interview/query.jsp" target="right">面试查询</a></li>
+				<li><a href="jsp/student/add.jsp" target="right">报名登记</a></li>
 				<!-- <li><a href="http://www.runoob.com/" target="right">菜鸟教程</a></li>
 				<li><a href="http://www.w3school.com.cn/" target="right">W3school</a></li>
 				<li><a href="https://www.bejson.com/xml2json/" target="right">xml转json</a></li>

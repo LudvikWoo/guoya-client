@@ -34,7 +34,7 @@
 				<td><input type="text" name="userName"></td>
 				<td>公司：</td>
 				<td><input type="text" name="userName"></td>
-				
+
 			</tr>
 			<tr>
 				<td>面试时间：</td>
@@ -48,12 +48,20 @@
 					type="number" min="18" max="32" name="maxAge">K</td>
 			</tr>
 			<tr>
-				<td colspan="6" align="right"><input type="submit" value="查询"><input type="reset" value="重置"></td>
+				<td>导师：</td>
+				<td>
+					<select name="tutor" id="tutor">
+						<option>戈维维</option>
+						<option>李晓阳</option>
+					</select>
+				</td>
+				<td colspan="4" align="right"><input type="submit" value="查询"><input
+					type="reset" value="重置"></td>
 			</tr>
 		</table>
 	</form>
 </body>
-<iframe id="iframepage" name="result" width="100%"
-			noResize scrolling="no" frameborder="0"
-			onload="this.height=this.contentWindow.document.body.scrollHeight+10">
+<iframe id="iframepage" name="result" width="100%" noResize
+	scrolling="no" frameborder="0"
+	onload="this.height=this.contentWindow.document.body.scrollHeight+10">
 </html>
