@@ -55,7 +55,7 @@ select {
   </head>
   
   <body>
-    <form action="interview/add.action" method="get" target="_top">
+    <form action="interview/add.action" method="get" target="right">
 			<table>
 				<tr>
 					<td>姓名:</td>

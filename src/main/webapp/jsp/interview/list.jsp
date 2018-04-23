@@ -58,6 +58,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     			<td><input type=button value="下载" onclick="window.open('http://www.baidu.com')"></td>
     			<td><input type=button value="更改" onclick="window.open('interview/update.action','_self')"></td>
     		</tr>
+    		
+    		<tr>
+    			<td>S0001</td>
+    			<td>果芽</td>
+    			<td>中国平安</td>
+    			<td>保险</td>
+    			<td>2018-04-23</td>
+    			<td>2018-04-24</td>
+    			<td>2018-04-26</td>
+    			<td>面试通过</td>
+    			<td>12K</td>
+    			<td>面试简历可以写得简单一些，面试项目只需要能从粗到细说溜一致两个模块就行，技术方面的专业名词需要强化</td>
+    			<td>adb命令不清楚</td>
+    			<td></td>
+    			<td><input type=button value="下载" onclick="window.open('http://www.baidu.com')"></td>
+    			<td><input type=button value="更改" onclick="window.open('interview/update.action','_self')"></td>
+    		</tr>
     	</tbody>
     </table>
   </body>

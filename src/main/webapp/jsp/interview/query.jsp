@@ -34,21 +34,21 @@
 				<td><input type="text" name="userName"></td>
 				<td>公司：</td>
 				<td><input type="text" name="userName"></td>
+				
+			</tr>
+			<tr>
 				<td>面试时间：</td>
 				<td><input type="date" name="startTime">-<input
 					type="date" name="endTime"></td>
-			</tr>
-			<tr>
 				<td>上班时间：</td>
 				<td><input type="date" name="startTime">-<input
 					type="date" name="endTime"></td>
 				<td>薪资：</td>
 				<td><input type="number" min="18" max="32" name="minAge">K-<input
 					type="number" min="18" max="32" name="maxAge">K</td>
-				<td></td>
-				<td></td>
-				<td>查询：</td>
-				<td><input type="submit" value="查询"></td>
+			</tr>
+			<tr>
+				<td colspan="6" align="right"><input type="submit" value="查询"><input type="reset" value="重置"></td>
 			</tr>
 		</table>
 	</form>

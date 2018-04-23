@@ -219,18 +219,21 @@ function logout(){
 				<li><a href="basicClass/courses/courseAuto.html" target="right">课件讲解</a></li>
 				<li><a href="basicClass/slidebox-master/slidebox.html"
 					target="right">内荐机会</a></li>
-				<li><a href="http://www.runoob.com/" target="right">菜鸟教程</a></li>
+				<li><a href="jsp/interview/add.jsp" target="right">面试登记</a></li>
+				<li><a href="jsp/interview/query.jsp" target="right">面试查询</a></li>
+				<!-- <li><a href="http://www.runoob.com/" target="right">菜鸟教程</a></li>
 				<li><a href="http://www.w3school.com.cn/" target="right">W3school</a></li>
 				<li><a href="https://www.bejson.com/xml2json/" target="right">xml转json</a></li>
 				<li><a href="basicClass/happyMoment.html" target="right">果芽乐园</a></li>
-				<li><a href="basicClass/bigEvents.html" target="right">果芽大事件</a></li>
+				<li><a href="basicClass/bigEvents.html" target="right">果芽大事件</a></li> -->
 			</ul>
 		</div>
 		</nav>
 
 		<section> <iframe id="iframepage" name="right" width="100%"
-			noResize scrolling="no" frameborder="0"
+			noResize scrolling="auto" frameborder="0"
 			onload="this.height=this.contentWindow.document.body.scrollHeight"></iframe>
+			
 		</section>
 		<footer>
 		<div>
