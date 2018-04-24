@@ -22,12 +22,28 @@
 </script>
 </head>
 <script>
-	
+	$(document).ready(function() {
+		
+		$("button").click(function() {
+			$("p").hide();
+			alert($("img").attr("src"));
+			$("#name").Attr("value");
+			add();
+		});
+		
+		function add(){
+			alert(1+2);
+		}
+	});
+
+	function add(){
+		alert(1+2);
+	}
 </script>
 </head>
 
 <body>
-	<form action="student/add.action">
+	<form action="student/update.action" target="right">
 		<table>
 			<tr>
 				<td>姓名：</td>

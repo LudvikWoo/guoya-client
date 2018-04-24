@@ -210,18 +210,19 @@ function logout(){
 		<nav>
 		<div class="main_div">
 			<ul>
-				<li><a href="basicClass/studentInfo.html" target="right">学生登记</a></li>
-				<li><a href="basicClass/medias.html" target="right">面试题库</a></li>
-				<li><a href="basicClass/navigateInfo.html" target="_top">资料汇总</a></li>
-				<li><a href="basicClass/exerciseInfo.html" target="_top">作业检查</a></li>
-				<li><a href="basicClass/taskInfo.html" target="right">任务列表</a></li>
-				<li><a href="basicClass/summarizeInfo.html" target="right">上传总结</a></li>
-				<li><a href="basicClass/courses/courseAuto.html" target="right">课件讲解</a></li>
-				<li><a href="basicClass/slidebox-master/slidebox.html"
-					target="right">内荐机会</a></li>
 				<li><a href="jsp/interview/add.jsp" target="right">面试登记</a></li>
 				<li><a href="jsp/interview/query.jsp" target="right">面试查询</a></li>
 				<li><a href="jsp/student/add.jsp" target="right">报名登记</a></li>
+				<li><a href="jsp/student/query.jsp" target="right">报名查询</a></li>
+				<li><a href="jsp/exam/add.jsp" target="right">笔试上传</a></li>
+				<li><a href="jsp/exam/query.jsp" target="right">笔试查询</a></li>
+				<li><a href="basicClass/medias.html" target="right">高频问题</a></li>
+				<li><a href="basicClass/slidebox-master/slidebox.html" target="right">内荐机会</a></li>
+				<li><a href="basicClass/navigateInfo.html" target="_blank">资料汇总</a></li>
+				<li><a href="basicClass/exerciseInfo.html" target="_blank">作业检查</a></li>
+				<li><a href="basicClass/taskInfo.html" target="right">任务列表</a></li>
+				<li><a href="basicClass/summarizeInfo.html" target="right">上传总结</a></li>
+				<li><a href="basicClass/courses/courseAuto.html" target="right">课件讲解</a></li>
 				<!-- <li><a href="http://www.runoob.com/" target="right">菜鸟教程</a></li>
 				<li><a href="http://www.w3school.com.cn/" target="right">W3school</a></li>
 				<li><a href="https://www.bejson.com/xml2json/" target="right">xml转json</a></li>
@@ -231,10 +232,10 @@ function logout(){
 		</div>
 		</nav>
 
-		<section> <iframe id="iframepage" name="right" width="100%"
+		<section> <iframe id="iframepage" name="right" width="100%" height="96%"
 			noResize scrolling="auto" frameborder="0"
-			onload="this.height=this.contentWindow.document.body.scrollHeight"></iframe>
-			
+			></iframe>
+			<!-- onload="this.height=this.contentWindow.document.body.scrollHeight" -->
 		</section>
 		<footer>
 		<div>
