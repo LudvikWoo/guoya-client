@@ -3,11 +3,9 @@ package com.guoyasoft.bean.db;
 import java.util.Date;
 
 public class GyUser {
-    private String uno;
+    private Integer uid;
 
-    private Integer id;
-
-    private String realName;
+    private Integer cno;
 
     private String userName;
 
@@ -19,30 +17,22 @@ public class GyUser {
 
     private Date updateTime;
 
-    private String roleId;
+    private String operateUno;
 
-    public String getUno() {
-        return uno;
+    public Integer getUid() {
+        return uid;
     }
 
-    public void setUno(String uno) {
-        this.uno = uno == null ? null : uno.trim();
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getCno() {
+        return cno;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getRealName() {
-        return realName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName == null ? null : realName.trim();
+    public void setCno(Integer cno) {
+        this.cno = cno;
     }
 
     public String getUserName() {
@@ -85,11 +75,11 @@ public class GyUser {
         this.updateTime = updateTime;
     }
 
-    public String getRoleId() {
-        return roleId;
+    public String getOperateUno() {
+        return operateUno;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId == null ? null : roleId.trim();
+    public void setOperateUno(String operateUno) {
+        this.operateUno = operateUno == null ? null : operateUno.trim();
     }
 }

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.guoyasoft.dao.GyUserMapper">
-  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.GyUser">
-    <id column="uid" jdbcType="INTEGER" property="uid" />
+<mapper namespace="com.guoyasoft.dao.GyStudentMapper">
+  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.GyStudent">
+    <id column="sno" jdbcType="INTEGER" property="sno" />
+    <result column="psno" jdbcType="VARCHAR" property="psno" />
+    <result column="uno" jdbcType="VARCHAR" property="uno" />
     <result column="cno" jdbcType="INTEGER" property="cno" />
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
-    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="operate_uno" jdbcType="VARCHAR" property="operateUno" />
+    <result column="status" jdbcType="INTEGER" property="status" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,16 +70,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    uid, cno, user_name, pwd, status, create_time, update_time, operate_uno
+    sno, psno, uno, cno, uid, create_time, update_time, status
   </sql>
-  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.GyUserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.GyStudentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from gy_user
+    from gy_student
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -90,44 +90,44 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from gy_user
-    where uid = #{uid,jdbcType=INTEGER}
+    from gy_student
+    where sno = #{sno,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from gy_user
-    where uid = #{uid,jdbcType=INTEGER}
+    delete from gy_student
+    where sno = #{sno,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.guoyasoft.bean.db.GyUserExample">
-    delete from gy_user
+  <delete id="deleteByExample" parameterType="com.guoyasoft.bean.db.GyStudentExample">
+    delete from gy_student
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.guoyasoft.bean.db.GyUser">
-    insert into gy_user (uid, cno, user_name, 
-      pwd, status, create_time, 
-      update_time, operate_uno)
-    values (#{uid,jdbcType=INTEGER}, #{cno,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
-      #{pwd,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{operateUno,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.guoyasoft.bean.db.GyStudent">
+    insert into gy_student (sno, psno, uno, 
+      cno, uid, create_time, 
+      update_time, status)
+    values (#{sno,jdbcType=INTEGER}, #{psno,jdbcType=VARCHAR}, #{uno,jdbcType=VARCHAR}, 
+      #{cno,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.GyUser">
-    insert into gy_user
+  <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.GyStudent">
+    insert into gy_student
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="uid != null">
-        uid,
+      <if test="sno != null">
+        sno,
+      </if>
+      <if test="psno != null">
+        psno,
+      </if>
+      <if test="uno != null">
+        uno,
       </if>
       <if test="cno != null">
         cno,
       </if>
-      <if test="userName != null">
-        user_name,
-      </if>
-      <if test="pwd != null">
-        pwd,
-      </if>
-      <if test="status != null">
-        status,
+      <if test="uid != null">
+        uid,
       </if>
       <if test="createTime != null">
         create_time,
@@ -135,25 +135,25 @@
       <if test="updateTime != null">
         update_time,
       </if>
-      <if test="operateUno != null">
-        operate_uno,
+      <if test="status != null">
+        status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="uid != null">
-        #{uid,jdbcType=INTEGER},
+      <if test="sno != null">
+        #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="psno != null">
+        #{psno,jdbcType=VARCHAR},
+      </if>
+      <if test="uno != null">
+        #{uno,jdbcType=VARCHAR},
       </if>
       <if test="cno != null">
         #{cno,jdbcType=INTEGER},
       </if>
-      <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="pwd != null">
-        #{pwd,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=INTEGER},
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -161,34 +161,34 @@
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="operateUno != null">
-        #{operateUno,jdbcType=VARCHAR},
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.guoyasoft.bean.db.GyUserExample" resultType="java.lang.Long">
-    select count(*) from gy_user
+  <select id="countByExample" parameterType="com.guoyasoft.bean.db.GyStudentExample" resultType="java.lang.Long">
+    select count(*) from gy_student
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update gy_user
+    update gy_student
     <set>
-      <if test="record.uid != null">
-        uid = #{record.uid,jdbcType=INTEGER},
+      <if test="record.sno != null">
+        sno = #{record.sno,jdbcType=INTEGER},
+      </if>
+      <if test="record.psno != null">
+        psno = #{record.psno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uno != null">
+        uno = #{record.uno,jdbcType=VARCHAR},
       </if>
       <if test="record.cno != null">
         cno = #{record.cno,jdbcType=INTEGER},
       </if>
-      <if test="record.userName != null">
-        user_name = #{record.userName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.pwd != null">
-        pwd = #{record.pwd,jdbcType=VARCHAR},
-      </if>
-      <if test="record.status != null">
-        status = #{record.status,jdbcType=INTEGER},
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -196,8 +196,8 @@
       <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.operateUno != null">
-        operate_uno = #{record.operateUno,jdbcType=VARCHAR},
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -205,33 +205,33 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update gy_user
-    set uid = #{record.uid,jdbcType=INTEGER},
+    update gy_student
+    set sno = #{record.sno,jdbcType=INTEGER},
+      psno = #{record.psno,jdbcType=VARCHAR},
+      uno = #{record.uno,jdbcType=VARCHAR},
       cno = #{record.cno,jdbcType=INTEGER},
-      user_name = #{record.userName,jdbcType=VARCHAR},
-      pwd = #{record.pwd,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=INTEGER},
+      uid = #{record.uid,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      operate_uno = #{record.operateUno,jdbcType=VARCHAR}
+      status = #{record.status,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.guoyasoft.bean.db.GyUser">
-    update gy_user
+  <update id="updateByPrimaryKeySelective" parameterType="com.guoyasoft.bean.db.GyStudent">
+    update gy_student
     <set>
+      <if test="psno != null">
+        psno = #{psno,jdbcType=VARCHAR},
+      </if>
+      <if test="uno != null">
+        uno = #{uno,jdbcType=VARCHAR},
+      </if>
       <if test="cno != null">
         cno = #{cno,jdbcType=INTEGER},
       </if>
-      <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="pwd != null">
-        pwd = #{pwd,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=INTEGER},
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -239,21 +239,21 @@
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="operateUno != null">
-        operate_uno = #{operateUno,jdbcType=VARCHAR},
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
       </if>
     </set>
-    where uid = #{uid,jdbcType=INTEGER}
+    where sno = #{sno,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.guoyasoft.bean.db.GyUser">
-    update gy_user
-    set cno = #{cno,jdbcType=INTEGER},
-      user_name = #{userName,jdbcType=VARCHAR},
-      pwd = #{pwd,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
+  <update id="updateByPrimaryKey" parameterType="com.guoyasoft.bean.db.GyStudent">
+    update gy_student
+    set psno = #{psno,jdbcType=VARCHAR},
+      uno = #{uno,jdbcType=VARCHAR},
+      cno = #{cno,jdbcType=INTEGER},
+      uid = #{uid,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      operate_uno = #{operateUno,jdbcType=VARCHAR}
-    where uid = #{uid,jdbcType=INTEGER}
+      status = #{status,jdbcType=INTEGER}
+    where sno = #{sno,jdbcType=INTEGER}
   </update>
 </mapper>

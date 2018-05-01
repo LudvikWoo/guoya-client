@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value="exam")
 public class ExamController {
+	@RequestMapping(value="init.action")
+	public String init(){
+		return "exam/add";
+	}
 	
 	@RequestMapping(value="add.action")
 	public String add(){

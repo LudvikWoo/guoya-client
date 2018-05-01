@@ -30,7 +30,7 @@
 }
 
 .guoya_table tr {
-	height: 25px;
+	height: 35px;
 }
 
 .guoya_table tr td:nth-child(1) {
@@ -50,7 +50,7 @@ select {
 }
 
 .submit_tr {
-	height: 35px;
+	height: 50px;
 	text-align: center;
 }
 
@@ -67,9 +67,9 @@ select {
 				<tr>
 					<td>姓名:</td>
 					<td><select name="sno" id="sno">
-							<option value="">--请选择--</option>
-							<option value="S001">S001 李静</option>
-							<option value="S002">S002 胡小芬</option>
+							<option>--请选择--</option>
+							<option>S001 李静</option>
+							<option>S002 胡小芬</option>
 					</select><span style="color: red"> *</span></td>
 				</tr>
 				<tr>
@@ -92,13 +92,8 @@ select {
 						style="color: red"> *</span></td>
 				</tr>
 				<tr>
-					<td>面试日期:</td>
-					<td><input type="date" name="interviewDate" id="interviewDate"><span
-						style="color: red"> *</span></td>
-				</tr>
-				<tr>
 					<td>面试时间:</td>
-					<td><input type="time" name="interviewTime" id="interviewTime"><span
+					<td><input type="date" name="interviewTime" id="interviewTime"><span
 						style="color: red"> *</span></td>
 				</tr>
 				<tr>
@@ -108,20 +103,20 @@ select {
 				</tr>
 				<tr>
 					<td>面试进度:</td>
-					<td><select name="progress" id="progress">
-							<option value="">--请选择--</option>
-							<option value="0" selected="selected">等待面试</option>
-							<option value="1" >正在面试</option>
-							<option value="2" >面试结束</option>
+					<td><select name="status" id="status">
+							<option>--请选择--</option>
+							<option>等待面试</option>
+							<option>正在面试</option>
+							<option>面试结束</option>
 					</select><span style="color: red"> *</span></td>
 				</tr>
 				<tr>
 					<td>面试结果:</td>
-					<td><select name="result" id="result">
-							<option value="" >--请选择--</option>
-							<option  value="0" selected="selected">待定</option>
-							<option value="1" >通过</option>
-							<option value="2" >未通过</option>
+					<td><select name="isPass" id="isPass">
+							<option>--请选择--</option>
+							<option>待定</option>
+							<option>通过</option>
+							<option>未通过</option>
 					</select></td>
 				</tr>
 				<tr>
@@ -144,10 +139,10 @@ select {
 				<tr>
 					<td>HR联系方式:</td>
 					<td><select name="hrContactType">
-						<option value="" >--请选择--</option>
-						<option value="0" >微信</option>
-						<option value="1" selected="selected">QQ</option>
-						<option value="2" >电话</option>
+						<option>--请选择--</option>
+						<option>微信</option>
+						<option>QQ</option>
+						<option>电话</option>
 					</select> <span style="color: red"> *</span> 
 					</td>
 				</tr>

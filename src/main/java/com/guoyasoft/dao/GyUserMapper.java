@@ -10,7 +10,7 @@ public interface GyUserMapper {
 
     int deleteByExample(GyUserExample example);
 
-    int deleteByPrimaryKey(String uno);
+    int deleteByPrimaryKey(Integer uid);
 
     int insert(GyUser record);
 
@@ -18,7 +18,7 @@ public interface GyUserMapper {
 
     List<GyUser> selectByExample(GyUserExample example);
 
-    GyUser selectByPrimaryKey(String uno);
+    GyUser selectByPrimaryKey(Integer uid);
 
     int updateByExampleSelective(@Param("record") GyUser record, @Param("example") GyUserExample example);
 

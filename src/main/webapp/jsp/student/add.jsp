@@ -112,7 +112,7 @@
 			</tr>
 			<tr>
 				<td>口碑费：</td>
-				<td><input type="text" name="serviceCharge" id="serviceCharge"></td>
+				<td><input type="text" name="referralFee" id="referralFee"></td>
 			</tr>
 			<tr>
 				<td>已付口碑：</td>

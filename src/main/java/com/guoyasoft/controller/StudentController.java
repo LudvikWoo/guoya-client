@@ -23,7 +23,7 @@ public class StudentController {
 	@RequestMapping(value="update.action")
 	public String update(){
 		
-		return "student/update";
+		return "student/list";
 	}
 	
 	

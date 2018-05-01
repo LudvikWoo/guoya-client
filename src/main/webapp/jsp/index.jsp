@@ -105,7 +105,7 @@ header {
 
 nav {
 	line-height: 30px;
-	width: 20%;
+	width: 15%;
 	float: left;
 	padding: 10px;
 	margin: 0 1% 1% 1%;
@@ -113,7 +113,7 @@ nav {
 }
 
 section {
-	width: 72%;
+	width: 75%;
 	float: left;
 	padding: 10px;
 	margin: 0 1% 1% 0;
@@ -214,12 +214,16 @@ function logout(){
 				<li><a href="jsp/interview/query.jsp" target="right">面试查询</a></li>
 				<li><a href="jsp/student/add.jsp" target="right">报名登记</a></li>
 				<li><a href="jsp/student/query.jsp" target="right">报名查询</a></li>
-				<li><a href="jsp/exam/add.jsp" target="right">笔试上传</a></li>
 				<li><a href="jsp/exam/query.jsp" target="right">笔试查询</a></li>
-				<li><a href="basicClass/medias.html" target="right">高频问题</a></li>
-				<li><a href="basicClass/slidebox-master/slidebox.html" target="right">内荐机会</a></li>
-				<li><a href="basicClass/navigateInfo.html" target="_blank">资料汇总</a></li>
-				<li><a href="basicClass/exerciseInfo.html" target="_blank">作业检查</a></li>
+				<li><a href="jsp/FQA/add.jsp" target="right">新增题库</a></li>
+				<li><a href="jsp/FQA/query.jsp" target="right">查询题库</a></li>
+				<li><a href="jsp/job/add.jsp" target="right">新增内荐</a></li>
+				<li><a href="jsp/job/query.jsp" target="right">查询内荐</a></li>
+				<li><a href="jsp/contact/add.jsp" target="right">新增名片</a></li>
+				<li><a href="jsp/contact/query.jsp" target="right">查询名片</a></li>
+				<li><a href="jsp/statistic/total.jsp" target="right">统计分析</a></li>
+				<li><a href="basicClass/navigateInfo.html" target="right">资料汇总</a></li>
+				<li><a href="basicClass/exerciseInfo.html" target="right">作业检查</a></li>
 				<li><a href="basicClass/taskInfo.html" target="right">任务列表</a></li>
 				<li><a href="basicClass/summarizeInfo.html" target="right">上传总结</a></li>
 				<li><a href="basicClass/courses/courseAuto.html" target="right">课件讲解</a></li>
@@ -233,7 +237,7 @@ function logout(){
 		</nav>
 
 		<section> <iframe id="iframepage" name="right" width="100%" height="96%"
-			noResize scrolling="auto" frameborder="0"
+			 scrolling="auto" frameborder="0"
 			></iframe>
 			<!-- onload="this.height=this.contentWindow.document.body.scrollHeight" -->
 		</section>
