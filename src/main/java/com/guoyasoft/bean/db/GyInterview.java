@@ -222,20 +222,4 @@ public class GyInterview {
     public void setTno(String tno) {
         this.tno = tno == null ? null : tno.trim();
     }
-
-	@Override
-	public String toString() {
-		return "GyInterview [ino=" + ino + ", sno=" + sno + ", company="
-				+ company + ", companyType=" + companyType + ", callTime="
-				+ callTime + ", interviewDate=" + interviewDate
-				+ ", interviewTime=" + interviewTime + ", workTime=" + workTime
-				+ ", progress=" + progress + ", result=" + result
-				+ ", expectSalary=" + expectSalary + ", realSalary="
-				+ realSalary + ", hrName=" + hrName + ", hrCompany="
-				+ hrCompany + ", hrContactType=" + hrContactType
-				+ ", hrContact=" + hrContact + ", hardTech=" + hardTech
-				+ ", mark=" + mark + ", audioAddr1=" + audioAddr1
-				+ ", audioAddr2=" + audioAddr2 + ", audioAddr3=" + audioAddr3
-				+ ", tno=" + tno + "]";
-	}
 }

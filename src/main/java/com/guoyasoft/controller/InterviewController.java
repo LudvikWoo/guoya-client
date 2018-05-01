@@ -56,7 +56,13 @@ public class InterviewController {
 	}
 	
 	@RequestMapping(value="query.action")
-	public String query(){
+	public String query(com.guoyasoft.bean.api.interview.query.request.AddInterview bean){
+		System.out.println(bean.toString());
+		boolean check=bean.isValid();
+		
+		//业务代码
+		
+		
 		return "interview/list";
 	}
 	
