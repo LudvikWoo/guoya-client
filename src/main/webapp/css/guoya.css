@@ -1,0 +1,19 @@
+.myTable {
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	border-collapse: collapse;
+}
+
+.myTable td,th {
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+}
+
+.queryTable {
+	border-collapse: collapse;
+}
+
+.queryTable tr {
+	height: 35px;
+	border-bottom: 1px solid gray;
+}

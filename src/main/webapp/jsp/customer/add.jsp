@@ -24,6 +24,10 @@
 	window.onload = function() {
 		document.getElementById("enrollDate").value = getNowFormatDate();
 	};
+	
+	function queryCustomer(){
+		open('jsp/customer/queryCustomer.jsp','','resizable=1,scrollbars=1,status=no,toolbar=no,menu=no,width=500,height=400,left=150,top=50');
+	}
 </script>
 </head>
 
@@ -38,8 +42,8 @@
 				<td>客户类型：</td>
 				<td><select name="cstType" id="cstType">
 						<option value="">--请选择--</option>
-						<option value="1" selected="selected">内部人员</option>
-						<option value="2">外部人员</option>
+						<option value="0" selected="selected">内部人员</option>
+						<option value="1">外部人员</option>
 				</select></td>
 			</tr>
 			<tr>
@@ -57,11 +61,11 @@
 				<td>学历：</td>
 				<td><select name="education" id="education">
 						<option value="">--请选择--</option>
-						<option value="c">初中</option>
-						<option value="g">高中</option>
-						<option value="d">大专</option>
-						<option value="b" selected="selected">本科</option>
-						<option value="y">研究生</option>
+						<option value="1">初中</option>
+						<option value="2">高中</option>
+						<option value="3">大专</option>
+						<option value="4">本科</option>
+						<option value="5">研究生</option>
 				</select></td>
 			</tr>
 			<tr>
@@ -123,9 +127,9 @@
 			</tr>
 			<tr>
 				<td>介绍人：</td>
-				<td><input type="text" name="introducer" id="introducer"
-					value="老学员"> <input type="button" value="查询"
-					onclick="queryCustomer"> <input type="button" value="新增"
+				<td><input type="text" name="introducerDesc" id="introducerDesc"  readonly="readonly" >
+					<input type="text" name="introducer" id="introducer" readonly="readonly" hidden="hidden">  <input type="button" value="查询"
+					onclick="queryCustomer()"> <input type="button" value="新增"
 					onclick="addCustomer"></td>
 			</tr>
 			<tr>

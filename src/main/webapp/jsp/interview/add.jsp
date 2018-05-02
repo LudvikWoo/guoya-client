@@ -86,7 +86,7 @@ select {
 							<option>其它</option>
 					</select></td>
 				</tr>
-				<tr>
+				<tr hidden="hidden">
 					<td>电话时间:</td>
 					<td><input type="date" name="callTime" id="callTime"><span
 						style="color: red"> *</span></td>
@@ -101,12 +101,12 @@ select {
 					<td><input type="time" name="interviewTime" id="interviewTime"><span
 						style="color: red"> *</span></td>
 				</tr>
-				<tr>
+				<tr  hidden="hidden">
 					<td>到岗时间:</td>
 					<td><input type="date" name="workTime" id="workTime">
 					</td>
 				</tr>
-				<tr>
+				<tr  hidden="hidden">
 					<td>面试进度:</td>
 					<td><select name="progress" id="progress">
 							<option value="">--请选择--</option>
@@ -115,7 +115,7 @@ select {
 							<option value="2" >面试结束</option>
 					</select><span style="color: red"> *</span></td>
 				</tr>
-				<tr>
+				<tr  hidden="hidden">
 					<td>面试结果:</td>
 					<td><select name="result" id="result">
 							<option value="" >--请选择--</option>
@@ -124,11 +124,11 @@ select {
 							<option value="2" >未通过</option>
 					</select></td>
 				</tr>
-				<tr>
+				<tr  hidden="hidden">
 					<td>期望薪资:</td>
 					<td><input type="text" name="expectSalary" id="expectSalary"></td>
 				</tr>
-				<tr>
+				<tr  hidden="hidden">
 					<td>实际薪资:</td>
 					<td><input type="text" name="realSalary" id="realSalary"></td>
 				</tr>
@@ -156,17 +156,17 @@ select {
 					<td><input type="text" name="hrContact" id="hrContact"><span style="color: red"> *</span> 
 					</td>
 				</tr>
-				<tr>
+				<tr  hidden="hidden">
 					<td>面试难点:</td>
 					<td><textarea rows="3" cols="40" name="hardTech" id="hardTech"></textarea>
 					</td>
 				</tr>
-				<tr>
+				<tr  hidden="hidden">
 					<td>其它总结:</td>
 					<td><textarea rows="3" cols="40" name="mark" id="mark"></textarea>
 					</td>
 				</tr>
-				<tr>
+				<tr  hidden="hidden">
 					<td>录音上传:</td>
 					<td><input type="file" name="audio">
 					</td>

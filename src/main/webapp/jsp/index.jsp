@@ -210,10 +210,14 @@ function logout(){
 		<nav>
 		<div class="main_div">
 			<ul>
+				<li><a href="jsp/customer/add.jsp" target="right">新增客户</a></li>
+				<li><a href="jsp/customer/query.jsp" target="right">查询客户</a></li>
+				<li><a href="jsp/student/add.jsp" target="right">新增学生</a></li>
+				<li><a href="jsp/student/query.jsp" target="right">查询学生</a></li>
+				<li><a href="jsp/user/add.jsp" target="right">新增用户</a></li>
+				<li><a href="jsp/user/query.jsp" target="right">查询用户</a></li>
 				<li><a href="jsp/interview/add.jsp" target="right">面试登记</a></li>
 				<li><a href="jsp/interview/query.jsp" target="right">面试查询</a></li>
-				<li><a href="jsp/student/add.jsp" target="right">报名登记</a></li>
-				<li><a href="jsp/student/query.jsp" target="right">报名查询</a></li>
 				<li><a href="jsp/exam/query.jsp" target="right">笔试查询</a></li>
 				<li><a href="jsp/FQA/add.jsp" target="right">新增题库</a></li>
 				<li><a href="jsp/FQA/query.jsp" target="right">查询题库</a></li>
@@ -221,6 +225,8 @@ function logout(){
 				<li><a href="jsp/job/query.jsp" target="right">查询内荐</a></li>
 				<li><a href="jsp/contact/add.jsp" target="right">新增名片</a></li>
 				<li><a href="jsp/contact/query.jsp" target="right">查询名片</a></li>
+				<li><a href="jsp/project/add.jsp" target="right">新增项目</a></li>
+				<li><a href="jsp/project/query.jsp" target="right">查询项目</a></li>
 				<li><a href="jsp/statistic/total.jsp" target="right">统计分析</a></li>
 				<li><a href="basicClass/navigateInfo.html" target="right">资料汇总</a></li>
 				<li><a href="basicClass/exerciseInfo.html" target="right">作业检查</a></li>

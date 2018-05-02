@@ -22,28 +22,42 @@
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 		<!-- 生成实体类的包名和位置，这里配置将生成的实体类放在me.gacl.domain这个包下 -->
-		<javaModelGenerator targetPackage="com.guoyasoft.bean.db"
+		<javaModelGenerator targetPackage="com.guoyasoft.bean.db.user"
 			targetProject="\\vmware-host\Shared Folders\Desktop\mybatis">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		<!-- 生成的SQL映射文件包名和位置，这里配置将生成的SQL映射文件放在me.gacl.mapping这个包下 -->
-		<sqlMapGenerator targetPackage="com.guoyasoft.mapper"
+		<sqlMapGenerator targetPackage="com.guoyasoft.mapper.user"
 			targetProject="\\vmware-host\Shared Folders\Desktop\mybatis">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置，这里配置将生成的dao类放在me.gacl.dao这个包下 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.guoyasoft.dao"
+			targetPackage="com.guoyasoft.dao.user"
 			targetProject="\\vmware-host\Shared Folders\Desktop\mybatis">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-		<table tableName="gy_interview" domainObjectName="GyInterview"
+		<table tableName="v_u_customer" domainObjectName="VUCustomer"
+			enableCountByExample="true" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
+			selectByExampleQueryId="true" enableDeleteByPrimaryKey="false"
+			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="false"
+			selectByPrimaryKeyQueryId="false" enableInsert="false" />
+			
+			<!-- 视图生成方法
+			enableCountByExample="true" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="true"
+			selectByExampleQueryId="true" enableDeleteByPrimaryKey="false"
+			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="false"
+			selectByPrimaryKeyQueryId="false" enableInsert="false" /> -->
+			
+			<!-- table生成方法
 			enableCountByExample="true" enableUpdateByExample="true"
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true" enableDeleteByPrimaryKey="true"
 			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
-			selectByPrimaryKeyQueryId="true" enableInsert="true" />
+			selectByPrimaryKeyQueryId="true" enableInsert="true" /> -->
 	</context>
 </generatorConfiguration>
