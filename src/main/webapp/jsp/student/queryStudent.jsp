@@ -24,22 +24,22 @@
 	-->
 
 <script type="text/javascript">
-	function returnCno(cno,cname){
+	function returnCno(sno,sname){
 		/* alert("cno="+cno+",cname="+cname); */
-		window.opener.document.getElementById('${param.name}').value = cno;
+		window.opener.document.getElementById('${param.name}').value = sno;
 		/* window.opener.document.all.introducerDesc.value = cname; */
-		window.opener.document.getElementById('${param.name}Desc').value = cname;
+		window.opener.document.getElementById('${param.name}Desc').value = sname;
 		window.close();
 	}
 </script>
 </head>
 
 <body>
-	<form action="customer/queryCstNo.action" target="result" method="post">
+	<form action="student/queryStuNo.action" target="result" method="post">
 			<table border="1">
 			<tr>
 				<td>姓名：</td>
-				<td><input type="text" name="cname"></td>
+				<td><input type="text" name="sname"></td>
 				<td colspan="4" align="right"><input type="submit" value="查询"></td>
 			</tr>
 		</table>

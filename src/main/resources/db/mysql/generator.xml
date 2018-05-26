@@ -39,12 +39,12 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-		<table tableName="v_u_customer" domainObjectName="VUCustomer"
-			enableCountByExample="true" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="true"
-			selectByExampleQueryId="true" enableDeleteByPrimaryKey="false"
-			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="false"
-			selectByPrimaryKeyQueryId="false" enableInsert="false" />
+		<table tableName="t_u_student" domainObjectName="TUStudent"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true" enableDeleteByPrimaryKey="true"
+			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			selectByPrimaryKeyQueryId="true" enableInsert="true" /> 
 			
 			<!-- 视图生成方法
 			enableCountByExample="true" enableUpdateByExample="false"
@@ -53,11 +53,12 @@
 			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="false"
 			selectByPrimaryKeyQueryId="false" enableInsert="false" /> -->
 			
-			<!-- table生成方法
+			<!-- table生成方法 
 			enableCountByExample="true" enableUpdateByExample="true"
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true" enableDeleteByPrimaryKey="true"
 			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
-			selectByPrimaryKeyQueryId="true" enableInsert="true" /> -->
+			selectByPrimaryKeyQueryId="true" enableInsert="true" /> 
+			-->
 	</context>
 </generatorConfiguration>

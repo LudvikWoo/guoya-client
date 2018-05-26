@@ -29,11 +29,7 @@
 		<table border="1">
 			<tr>
 				<td>姓名：</td>
-				<td><input type="text" name="userName"></td>
-				<td>日期：</td>
-				<td><input type="date" name="enrollDate" id="enrollDate"></td>
-				<td>年龄：</td>
-				<td><input type="number" name="age" id="age"></td>
+				<td><input type="text" name="sName"></td>
 			</tr>
 			<tr>
 				<td>性别：</td>

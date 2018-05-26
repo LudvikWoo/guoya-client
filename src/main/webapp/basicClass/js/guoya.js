@@ -16,3 +16,11 @@ function getNowFormatDate() {
     var currentdate = year + seperator1 + month + seperator1 + strDate;
     return currentdate;
 }
+function queryCustomer(elementId){
+	open('jsp/customer/queryCustomer.jsp?name='+elementId,'','resizable=1,scrollbars=1,status=no,toolbar=no,menu=no,width=500,height=400,left=150,top=50');
+}
+
+function queryStudent(elementId){
+	open('jsp/student/queryStudent.jsp?name='+elementId,'','resizable=1,scrollbars=1,status=no,toolbar=no,menu=no,width=500,height=400,left=150,top=50');
+
+}

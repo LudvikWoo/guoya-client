@@ -25,9 +25,6 @@
 		document.getElementById("enrollDate").value = getNowFormatDate();
 	};
 	
-	function queryCustomer(){
-		open('jsp/customer/queryCustomer.jsp','','resizable=1,scrollbars=1,status=no,toolbar=no,menu=no,width=500,height=400,left=150,top=50');
-	}
 </script>
 </head>
 
@@ -129,7 +126,7 @@
 				<td>介绍人：</td>
 				<td><input type="text" name="introducerDesc" id="introducerDesc"  readonly="readonly" >
 					<input type="text" name="introducer" id="introducer" readonly="readonly" hidden="hidden">  <input type="button" value="查询"
-					onclick="queryCustomer()"> <input type="button" value="新增"
+					onclick="queryCustomer('introducer')"> <input type="button" value="新增"
 					onclick="addCustomer"></td>
 			</tr>
 			<tr>
