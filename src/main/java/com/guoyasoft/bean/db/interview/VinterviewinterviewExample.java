@@ -1732,6 +1732,76 @@ public class VinterviewinterviewExample {
             return (Criteria) this;
         }
 
+        public Criteria andCompanyNameAbbreviationIsNull() {
+            addCriterion("company_name_abbreviation is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationIsNotNull() {
+            addCriterion("company_name_abbreviation is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationEqualTo(String value) {
+            addCriterion("company_name_abbreviation =", value, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationNotEqualTo(String value) {
+            addCriterion("company_name_abbreviation <>", value, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationGreaterThan(String value) {
+            addCriterion("company_name_abbreviation >", value, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationGreaterThanOrEqualTo(String value) {
+            addCriterion("company_name_abbreviation >=", value, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationLessThan(String value) {
+            addCriterion("company_name_abbreviation <", value, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationLessThanOrEqualTo(String value) {
+            addCriterion("company_name_abbreviation <=", value, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationLike(String value) {
+            addCriterion("company_name_abbreviation like", value, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationNotLike(String value) {
+            addCriterion("company_name_abbreviation not like", value, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationIn(List<String> values) {
+            addCriterion("company_name_abbreviation in", values, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationNotIn(List<String> values) {
+            addCriterion("company_name_abbreviation not in", values, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationBetween(String value1, String value2) {
+            addCriterion("company_name_abbreviation between", value1, value2, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
+        public Criteria andCompanyNameAbbreviationNotBetween(String value1, String value2) {
+            addCriterion("company_name_abbreviation not between", value1, value2, "companyNameAbbreviation");
+            return (Criteria) this;
+        }
+
         public Criteria andCompanyDescIsNull() {
             addCriterion("company_desc is null");
             return (Criteria) this;
@@ -2239,6 +2309,136 @@ public class VinterviewinterviewExample {
 
         public Criteria andHasExamDescNotBetween(String value1, String value2) {
             addCriterion("has_exam_desc not between", value1, value2, "hasExamDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceIsNull() {
+            addCriterion("is_outsource is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceIsNotNull() {
+            addCriterion("is_outsource is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceEqualTo(Integer value) {
+            addCriterion("is_outsource =", value, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceNotEqualTo(Integer value) {
+            addCriterion("is_outsource <>", value, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceGreaterThan(Integer value) {
+            addCriterion("is_outsource >", value, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceGreaterThanOrEqualTo(Integer value) {
+            addCriterion("is_outsource >=", value, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceLessThan(Integer value) {
+            addCriterion("is_outsource <", value, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceLessThanOrEqualTo(Integer value) {
+            addCriterion("is_outsource <=", value, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceIn(List<Integer> values) {
+            addCriterion("is_outsource in", values, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceNotIn(List<Integer> values) {
+            addCriterion("is_outsource not in", values, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceBetween(Integer value1, Integer value2) {
+            addCriterion("is_outsource between", value1, value2, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceNotBetween(Integer value1, Integer value2) {
+            addCriterion("is_outsource not between", value1, value2, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescIsNull() {
+            addCriterion("is_outsource_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescIsNotNull() {
+            addCriterion("is_outsource_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescEqualTo(String value) {
+            addCriterion("is_outsource_desc =", value, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescNotEqualTo(String value) {
+            addCriterion("is_outsource_desc <>", value, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescGreaterThan(String value) {
+            addCriterion("is_outsource_desc >", value, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescGreaterThanOrEqualTo(String value) {
+            addCriterion("is_outsource_desc >=", value, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescLessThan(String value) {
+            addCriterion("is_outsource_desc <", value, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescLessThanOrEqualTo(String value) {
+            addCriterion("is_outsource_desc <=", value, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescLike(String value) {
+            addCriterion("is_outsource_desc like", value, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescNotLike(String value) {
+            addCriterion("is_outsource_desc not like", value, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescIn(List<String> values) {
+            addCriterion("is_outsource_desc in", values, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescNotIn(List<String> values) {
+            addCriterion("is_outsource_desc not in", values, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescBetween(String value1, String value2) {
+            addCriterion("is_outsource_desc between", value1, value2, "isOutsourceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsOutsourceDescNotBetween(String value1, String value2) {
+            addCriterion("is_outsource_desc not between", value1, value2, "isOutsourceDesc");
             return (Criteria) this;
         }
     }

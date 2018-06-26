@@ -53,6 +53,8 @@ public class Vinterviewinterview {
 
     private String companyName;
 
+    private String companyNameAbbreviation;
+
     private String companyDesc;
 
     private Integer companyType;
@@ -68,6 +70,10 @@ public class Vinterviewinterview {
     private Integer hasExam;
 
     private String hasExamDesc;
+
+    private Integer isOutsource;
+
+    private String isOutsourceDesc;
 
     public Integer getInterviewId() {
         return interviewId;
@@ -269,6 +275,14 @@ public class Vinterviewinterview {
         this.companyName = companyName == null ? null : companyName.trim();
     }
 
+    public String getCompanyNameAbbreviation() {
+        return companyNameAbbreviation;
+    }
+
+    public void setCompanyNameAbbreviation(String companyNameAbbreviation) {
+        this.companyNameAbbreviation = companyNameAbbreviation == null ? null : companyNameAbbreviation.trim();
+    }
+
     public String getCompanyDesc() {
         return companyDesc;
     }
@@ -331,5 +345,21 @@ public class Vinterviewinterview {
 
     public void setHasExamDesc(String hasExamDesc) {
         this.hasExamDesc = hasExamDesc == null ? null : hasExamDesc.trim();
+    }
+
+    public Integer getIsOutsource() {
+        return isOutsource;
+    }
+
+    public void setIsOutsource(Integer isOutsource) {
+        this.isOutsource = isOutsource;
+    }
+
+    public String getIsOutsourceDesc() {
+        return isOutsourceDesc;
+    }
+
+    public void setIsOutsourceDesc(String isOutsourceDesc) {
+        this.isOutsourceDesc = isOutsourceDesc == null ? null : isOutsourceDesc.trim();
     }
 }

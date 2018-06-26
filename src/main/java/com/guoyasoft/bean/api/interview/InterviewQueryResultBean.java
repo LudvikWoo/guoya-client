@@ -5,69 +5,75 @@ import java.util.Date;
 public class InterviewQueryResultBean {
 	private Integer interviewId;
 
-    private Integer status;
+	private Integer status;
 
-    private Date createTime;
+	private Date createTime;
 
-    private Date callTime;
+	private Date callTime;
 
-    private Date interviewTime;
+	private Date interviewTime;
 
-    private Date workTime;
+	private Date workTime;
 
-    private Integer expectSalary;
+	private Integer expectSalary;
 
-    private Integer realSalary;
+	private Integer realSalary;
 
-    private String progress;
+	private String progress;
 
-    private String progressDesc;
+	private String progressDesc;
 
-    private String result;
+	private String result;
 
-    private String resultDesc;
+	private String resultDesc;
 
-    private Integer classId;
+	private Integer classId;
 
-    private String className;
+	private String className;
 
-    private String classAbbreviation;
+	private String classAbbreviation;
 
-    private Integer courseInstanceId;
+	private Integer courseInstanceId;
 
-    private String courseInstanceName;
+	private String courseInstanceName;
 
-    private Integer customerId;
+	private Integer customerId;
 
-    private Integer studentId;
+	private Integer studentId;
 
-    private Integer userId;
+	private Integer userId;
 
-    private String customerName;
+	private String customerName;
 
-    private Integer teacherId;
+	private Integer teacherId;
 
-    private String teacherName;
+	private String teacherName;
 
-    private Integer companyId;
+	private Integer companyId;
 
-    private String companyName;
+	private String companyName;
 
-    private String companyDesc;
+	private String companyDesc;
 
-    private Integer companyType;
+	private Integer companyType;
 
-    private Integer hrId;
+	private Integer hrId;
 
-    private Integer hrCompanyId;
+	private Integer hrCompanyId;
 
-    private String hrCompanyName;
+	private String hrCompanyName;
 
-    private Integer contactType;
+	private Integer contactType;
 
-    private Integer hasExam;
+	private Integer hasExam;
 
-    private String hasExamDesc;
+	private String hasExamDesc;
+
+	private Integer isOutsource;
+
+	private String isOutsourceDesc;
+
+	private String companyNameAbbreviation;
 
 	public Integer getInterviewId() {
 		return interviewId;
@@ -332,5 +338,29 @@ public class InterviewQueryResultBean {
 	public void setHasExamDesc(String hasExamDesc) {
 		this.hasExamDesc = hasExamDesc;
 	}
-    
+
+	public Integer getIsOutsource() {
+		return isOutsource;
+	}
+
+	public void setIsOutsource(Integer isOutsource) {
+		this.isOutsource = isOutsource;
+	}
+
+	public String getIsOutsourceDesc() {
+		return isOutsourceDesc;
+	}
+
+	public void setIsOutsourceDesc(String isOutsourceDesc) {
+		this.isOutsourceDesc = isOutsourceDesc;
+	}
+
+	public String getCompanyNameAbbreviation() {
+		return companyNameAbbreviation;
+	}
+
+	public void setCompanyNameAbbreviation(String companyNameAbbreviation) {
+		this.companyNameAbbreviation = companyNameAbbreviation;
+	}
+
 }

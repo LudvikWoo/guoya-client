@@ -27,6 +27,7 @@
     <result column="teacher_name" jdbcType="VARCHAR" property="teacherName" />
     <result column="company_id" jdbcType="INTEGER" property="companyId" />
     <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_name_abbreviation" jdbcType="VARCHAR" property="companyNameAbbreviation" />
     <result column="company_desc" jdbcType="VARCHAR" property="companyDesc" />
     <result column="company_type" jdbcType="INTEGER" property="companyType" />
     <result column="hr_id" jdbcType="INTEGER" property="hrId" />
@@ -35,6 +36,8 @@
     <result column="contact_type" jdbcType="INTEGER" property="contactType" />
     <result column="has_exam" jdbcType="INTEGER" property="hasExam" />
     <result column="has_exam_desc" jdbcType="VARCHAR" property="hasExamDesc" />
+    <result column="is_outsource" jdbcType="INTEGER" property="isOutsource" />
+    <result column="is_outsource_desc" jdbcType="VARCHAR" property="isOutsourceDesc" />
   </resultMap>
   <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.guoyasoft.bean.db.interview.VinterviewinterviewWithBLOBs">
     <result column="hr_name" jdbcType="VARBINARY" property="hrName" />
@@ -73,8 +76,9 @@
     interview_id, status, create_time, call_time, interview_time, work_time, expect_salary, 
     real_salary, progress, progress_desc, result, result_desc, class_id, class_name, 
     class_abbreviation, course_instance_id, course_instance_name, customer_id, student_id, 
-    user_id, customer_name, teacher_id, teacher_name, company_id, company_name, company_desc, 
-    company_type, hr_id, hr_company_id, hr_company_name, contact_type, has_exam, has_exam_desc
+    user_id, customer_name, teacher_id, teacher_name, company_id, company_name, company_name_abbreviation, 
+    company_desc, company_type, hr_id, hr_company_id, hr_company_name, contact_type, 
+    has_exam, has_exam_desc, is_outsource, is_outsource_desc
   </sql>
   <sql id="Blob_Column_List">
     hr_name, contact_number

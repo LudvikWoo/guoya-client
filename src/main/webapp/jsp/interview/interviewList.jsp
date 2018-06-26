@@ -25,35 +25,35 @@
 	-->
 <!-- Css files -->
 <!-- Icons -->
-<link href="/guoya-client/templates/assets/css/icons.css"
+<link href="/guoya-client/assets/css/icons.css"
 	rel="stylesheet" />
 <!-- jQueryUI -->
 <link
-	href="/guoya-client/templates/assets/css/sprflat-theme/jquery.ui.all.css"
+	href="/guoya-client/assets/css/sprflat-theme/jquery.ui.all.css"
 	rel="stylesheet" />
 <!-- Bootstrap stylesheets (included template modifications) -->
-<link href="/guoya-client/templates/assets/css/bootstrap.css"
+<link href="/guoya-client/assets/css/bootstrap.css"
 	rel="stylesheet" />
 <!-- Plugins stylesheets (all plugin custom css) -->
-<link href="/guoya-client/templates/assets/css/plugins.css"
+<link href="/guoya-client/assets/css/plugins.css"
 	rel="stylesheet" />
 <!-- Main stylesheets (template main css file) -->
-<link href="/guoya-client/templates/assets/css/main.css"
+<link href="/guoya-client/assets/css/main.css"
 	rel="stylesheet" />
 <!-- Custom stylesheets ( Put your own changes here ) -->
-<link href="/guoya-client/templates/assets/css/custom.css"
+<link href="/guoya-client/assets/css/custom.css"
 	rel="stylesheet" />
 <!-- Fav and touch icons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="/guoya-client/templates/assets/img/ico/apple-touch-icon-144-precomposed.png">
+	href="/guoya-client/assets/img/ico/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="/guoya-client/templates/assets/img/ico/apple-touch-icon-114-precomposed.png">
+	href="/guoya-client/assets/img/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="/guoya-client/templates/assets/img/ico/apple-touch-icon-72-precomposed.png">
+	href="/guoya-client/assets/img/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed"
-	href="/guoya-client/templates/assets/img/ico/apple-touch-icon-57-precomposed.png">
+	href="/guoya-client/assets/img/ico/apple-touch-icon-57-precomposed.png">
 <link rel="icon"
-	href="/guoya-client/templates/assets/img/ico/favicon.ico"
+	href="/guoya-client/assets/img/ico/favicon.ico"
 	type="image/png">
 <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
 <meta name="msapplication-TileColor" content="#3399cc" />
@@ -79,12 +79,13 @@
 									<th class="per15">班级</th>
 									<th class="per10">公司</th>
 									<th class="per10">面试日期</th>
-									<th class="per10">面试时间</th>
+									<th class="per6">时间</th>
+									<th class="per10">是否外包</th>
 									<th class="per10">进度</th>
 									<th class="per6">结果</th>
 									<th class="per6">薪资</th>
 									<th class="per6">笔试</th>
-									<th class="per20">操作</th>
+									<th class="per15">操作</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -92,9 +93,10 @@
 									<tr>
 										<td>${var.customerName}</td>
 										<td>${var.className }</td>
-										<td>${var.companyName }</td>
+										<td>${var.companyNameAbbreviation }</td>
 										<td><fmt:formatDate value="${var.interviewTime }" pattern="yyyy-MM-dd"/></td>
 										<td><fmt:formatDate value="${var.interviewTime }" pattern="HH:mm"/></td>
+										<td>${var.isOutsourceDesc }</td>
 										<td>${var.progressDesc }</td>
 										<td>${var.resultDesc }</td>
 										<td>${var.realSalary }</td>
