@@ -3,6 +3,7 @@ package com.guoyasoft.bean.db;
 import java.util.Date;
 
 public class GyStudent {
+	
     private Integer sno;
 
     private String psno;

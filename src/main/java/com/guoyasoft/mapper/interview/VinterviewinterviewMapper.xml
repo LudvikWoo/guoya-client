@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.interview.VinterviewinterviewMapper">
+  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.interview.Vinterviewinterview">
+    <result column="interview_id" jdbcType="INTEGER" property="interviewId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="call_time" jdbcType="TIMESTAMP" property="callTime" />
+    <result column="interview_time" jdbcType="TIMESTAMP" property="interviewTime" />
+    <result column="work_time" jdbcType="DATE" property="workTime" />
+    <result column="expect_salary" jdbcType="INTEGER" property="expectSalary" />
+    <result column="real_salary" jdbcType="INTEGER" property="realSalary" />
+    <result column="progress" jdbcType="VARCHAR" property="progress" />
+    <result column="progress_desc" jdbcType="VARCHAR" property="progressDesc" />
+    <result column="result" jdbcType="VARCHAR" property="result" />
+    <result column="result_desc" jdbcType="VARCHAR" property="resultDesc" />
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="class_abbreviation" jdbcType="VARCHAR" property="classAbbreviation" />
+    <result column="course_instance_id" jdbcType="INTEGER" property="courseInstanceId" />
+    <result column="course_instance_name" jdbcType="VARCHAR" property="courseInstanceName" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="student_id" jdbcType="INTEGER" property="studentId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="teacher_id" jdbcType="INTEGER" property="teacherId" />
+    <result column="teacher_name" jdbcType="VARCHAR" property="teacherName" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_desc" jdbcType="VARCHAR" property="companyDesc" />
+    <result column="company_type" jdbcType="INTEGER" property="companyType" />
+    <result column="hr_id" jdbcType="INTEGER" property="hrId" />
+    <result column="hr_company_id" jdbcType="INTEGER" property="hrCompanyId" />
+    <result column="hr_company_name" jdbcType="VARCHAR" property="hrCompanyName" />
+    <result column="contact_type" jdbcType="INTEGER" property="contactType" />
+    <result column="has_exam" jdbcType="INTEGER" property="hasExam" />
+    <result column="has_exam_desc" jdbcType="VARCHAR" property="hasExamDesc" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.guoyasoft.bean.db.interview.VinterviewinterviewWithBLOBs">
+    <result column="hr_name" jdbcType="VARBINARY" property="hrName" />
+    <result column="contact_number" jdbcType="VARBINARY" property="contactNumber" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    interview_id, status, create_time, call_time, interview_time, work_time, expect_salary, 
+    real_salary, progress, progress_desc, result, result_desc, class_id, class_name, 
+    class_abbreviation, course_instance_id, course_instance_name, customer_id, student_id, 
+    user_id, customer_name, teacher_id, teacher_name, company_id, company_name, company_desc, 
+    company_type, hr_id, hr_company_id, hr_company_name, contact_type, has_exam, has_exam_desc
+  </sql>
+  <sql id="Blob_Column_List">
+    hr_name, contact_number
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.guoyasoft.bean.db.interview.VinterviewinterviewExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from v_interview_interview
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.interview.VinterviewinterviewExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from v_interview_interview
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="countByExample" parameterType="com.guoyasoft.bean.db.interview.VinterviewinterviewExample" resultType="java.lang.Long">
+    select count(*) from v_interview_interview
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+</mapper>

@@ -28,7 +28,7 @@
 		</init-param>
 		<init-param>
 			<param-name>disabletestfilter</param-name><!-- Y:过滤无效 -->
-			<param-value>N</param-value>
+			<param-value>Y</param-value>
 		</init-param>
 	</filter>
 	
@@ -89,6 +89,10 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>default</servlet-name>
+    <url-pattern>*.png</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
     <url-pattern>*.js</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
@@ -121,9 +125,5 @@
 	<servlet-mapping>
 		<servlet-name>LogoutController</servlet-name>
 		<url-pattern>/logout</url-pattern>
-	</servlet-mapping>
-	<listener>
-		<listener-class>
-			com.sun.xml.ws.transport.http.servlet.WSServletContextListener
-		</listener-class>
-	</listener></web-app>
+	</servlet-mapping
+	</web-app>
