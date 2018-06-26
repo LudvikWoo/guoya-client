@@ -27,7 +27,7 @@
 		</init-param>
 		<init-param>
 			<param-name>disabletestfilter</param-name><!-- Y:过滤无效 -->
-			<param-value>N</param-value>
+			<param-value>Y</param-value>
 		</init-param>
 	</filter>
 	
@@ -85,6 +85,10 @@
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>*.jpg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>*.png</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>default</servlet-name>
