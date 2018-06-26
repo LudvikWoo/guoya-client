@@ -13,6 +13,10 @@ public class Vinterviewinterview {
 
     private Date interviewTime;
 
+    private String interviewTimeDate;
+
+    private String interviewTimeTime;
+
     private Date workTime;
 
     private Integer expectSalary;
@@ -113,6 +117,22 @@ public class Vinterviewinterview {
 
     public void setInterviewTime(Date interviewTime) {
         this.interviewTime = interviewTime;
+    }
+
+    public String getInterviewTimeDate() {
+        return interviewTimeDate;
+    }
+
+    public void setInterviewTimeDate(String interviewTimeDate) {
+        this.interviewTimeDate = interviewTimeDate == null ? null : interviewTimeDate.trim();
+    }
+
+    public String getInterviewTimeTime() {
+        return interviewTimeTime;
+    }
+
+    public void setInterviewTimeTime(String interviewTimeTime) {
+        this.interviewTimeTime = interviewTimeTime == null ? null : interviewTimeTime.trim();
     }
 
     public Date getWorkTime() {

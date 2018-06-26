@@ -7,6 +7,8 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="call_time" jdbcType="TIMESTAMP" property="callTime" />
     <result column="interview_time" jdbcType="TIMESTAMP" property="interviewTime" />
+    <result column="interview_time_date" jdbcType="VARCHAR" property="interviewTimeDate" />
+    <result column="interview_time_time" jdbcType="VARCHAR" property="interviewTimeTime" />
     <result column="work_time" jdbcType="DATE" property="workTime" />
     <result column="expect_salary" jdbcType="INTEGER" property="expectSalary" />
     <result column="real_salary" jdbcType="INTEGER" property="realSalary" />
@@ -73,12 +75,13 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    interview_id, status, create_time, call_time, interview_time, work_time, expect_salary, 
-    real_salary, progress, progress_desc, result, result_desc, class_id, class_name, 
-    class_abbreviation, course_instance_id, course_instance_name, customer_id, student_id, 
-    user_id, customer_name, teacher_id, teacher_name, company_id, company_name, company_name_abbreviation, 
-    company_desc, company_type, hr_id, hr_company_id, hr_company_name, contact_type, 
-    has_exam, has_exam_desc, is_outsource, is_outsource_desc
+    interview_id, status, create_time, call_time, interview_time, interview_time_date, 
+    interview_time_time, work_time, expect_salary, real_salary, progress, progress_desc, 
+    result, result_desc, class_id, class_name, class_abbreviation, course_instance_id, 
+    course_instance_name, customer_id, student_id, user_id, customer_name, teacher_id, 
+    teacher_name, company_id, company_name, company_name_abbreviation, company_desc, 
+    company_type, hr_id, hr_company_id, hr_company_name, contact_type, has_exam, has_exam_desc, 
+    is_outsource, is_outsource_desc
   </sql>
   <sql id="Blob_Column_List">
     hr_name, contact_number

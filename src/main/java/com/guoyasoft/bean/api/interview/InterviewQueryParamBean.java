@@ -6,8 +6,7 @@ public class InterviewQueryParamBean {
 	private String classId;
 	private String companyName;
 	private String hrName;
-	private String interviewDateStart;
-	private String interviewDateEnd;
+	private String interviewDate;
 	private String interviewTime;
 	private String workTimeStart;
 	private String workTimeEnd;
@@ -47,17 +46,12 @@ public class InterviewQueryParamBean {
 	public void setHrName(String hrName) {
 		this.hrName = hrName;
 	}
-	public String getInterviewDateStart() {
-		return interviewDateStart;
+	
+	public String getInterviewDate() {
+		return interviewDate;
 	}
-	public void setInterviewDateStart(String interviewDateStart) {
-		this.interviewDateStart = interviewDateStart;
-	}
-	public String getInterviewDateEnd() {
-		return interviewDateEnd;
-	}
-	public void setInterviewDateEnd(String interviewDateEnd) {
-		this.interviewDateEnd = interviewDateEnd;
+	public void setInterviewDate(String interviewDate) {
+		this.interviewDate = interviewDate;
 	}
 	public String getInterviewTime() {
 		return interviewTime;

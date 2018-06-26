@@ -69,7 +69,7 @@
 					class="panel panel-default plain toggle panelClose panelRefresh">
 					<!-- Start .panel -->
 					<div class="panel-heading white-bg">
-						<h4 class="panel-title">总面试数：30，学生数：10；面试中：5；面试通过：20</h4>
+						<h2 class="panel-title">面试学生数：${studentCount}，面试总数：${interviewCount}</h2>
 					</div>
 					<div class="panel-body">
 						<table class="table table-striped">

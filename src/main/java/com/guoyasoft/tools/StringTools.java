@@ -2,7 +2,7 @@ package com.guoyasoft.tools;
 
 public class StringTools {
 	public static boolean isNotBlank(String str){
-		if(!"".equals(str)&& str!=null && !"null".equals(str) && !"NULL".equals(str)){
+		if(!"".equals(str.trim())&& str.trim()!=null && !"null".equalsIgnoreCase(str.trim())){
 			return true;
 		}else{
 			return false;

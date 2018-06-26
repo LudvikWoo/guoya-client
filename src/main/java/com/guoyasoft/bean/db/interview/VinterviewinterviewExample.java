@@ -432,6 +432,146 @@ public class VinterviewinterviewExample {
             return (Criteria) this;
         }
 
+        public Criteria andInterviewTimeDateIsNull() {
+            addCriterion("interview_time_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateIsNotNull() {
+            addCriterion("interview_time_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateEqualTo(String value) {
+            addCriterion("interview_time_date =", value, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateNotEqualTo(String value) {
+            addCriterion("interview_time_date <>", value, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateGreaterThan(String value) {
+            addCriterion("interview_time_date >", value, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateGreaterThanOrEqualTo(String value) {
+            addCriterion("interview_time_date >=", value, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateLessThan(String value) {
+            addCriterion("interview_time_date <", value, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateLessThanOrEqualTo(String value) {
+            addCriterion("interview_time_date <=", value, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateLike(String value) {
+            addCriterion("interview_time_date like", value, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateNotLike(String value) {
+            addCriterion("interview_time_date not like", value, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateIn(List<String> values) {
+            addCriterion("interview_time_date in", values, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateNotIn(List<String> values) {
+            addCriterion("interview_time_date not in", values, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateBetween(String value1, String value2) {
+            addCriterion("interview_time_date between", value1, value2, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeDateNotBetween(String value1, String value2) {
+            addCriterion("interview_time_date not between", value1, value2, "interviewTimeDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeIsNull() {
+            addCriterion("interview_time_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeIsNotNull() {
+            addCriterion("interview_time_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeEqualTo(String value) {
+            addCriterion("interview_time_time =", value, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeNotEqualTo(String value) {
+            addCriterion("interview_time_time <>", value, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeGreaterThan(String value) {
+            addCriterion("interview_time_time >", value, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeGreaterThanOrEqualTo(String value) {
+            addCriterion("interview_time_time >=", value, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeLessThan(String value) {
+            addCriterion("interview_time_time <", value, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeLessThanOrEqualTo(String value) {
+            addCriterion("interview_time_time <=", value, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeLike(String value) {
+            addCriterion("interview_time_time like", value, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeNotLike(String value) {
+            addCriterion("interview_time_time not like", value, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeIn(List<String> values) {
+            addCriterion("interview_time_time in", values, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeNotIn(List<String> values) {
+            addCriterion("interview_time_time not in", values, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeBetween(String value1, String value2) {
+            addCriterion("interview_time_time between", value1, value2, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewTimeTimeNotBetween(String value1, String value2) {
+            addCriterion("interview_time_time not between", value1, value2, "interviewTimeTime");
+            return (Criteria) this;
+        }
+
         public Criteria andWorkTimeIsNull() {
             addCriterion("work_time is null");
             return (Criteria) this;

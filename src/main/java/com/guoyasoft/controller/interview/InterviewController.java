@@ -1,8 +1,12 @@
 package com.guoyasoft.controller.interview;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,7 +21,9 @@ import com.guoyasoft.bean.api.interview.InterviewQueryParamBean;
 import com.guoyasoft.bean.api.interview.InterviewQueryResultBean;
 import com.guoyasoft.bean.db.interview.Vinterviewinterview;
 import com.guoyasoft.bean.db.interview.VinterviewinterviewExample;
+import com.guoyasoft.bean.db.interview.VinterviewinterviewExample.Criteria;
 import com.guoyasoft.dao.interview.VinterviewinterviewMapper;
+import com.guoyasoft.tools.StringTools;
 
 @Controller
 @RequestMapping("interview")
@@ -30,7 +36,7 @@ public class InterviewController {
 	public String initInterviewQuery(HttpSession session){
 		InterviewQueryInitBean init=new InterviewQueryInitBean();
 		init.getClassSelect().add(new SelectOption("", "--请选择--",false));
-		init.getClassSelect().add(new SelectOption("2", "测试基础班1805",true));
+		init.getClassSelect().add(new SelectOption("2", "测试基础班1805",false));
 		init.getClassSelect().add(new SelectOption("9", "测试中级班1806",false));
 		
 		init.getProgressSelect().add(new SelectOption("", "--请选择--",false));
@@ -40,7 +46,7 @@ public class InterviewController {
 		init.getProgressSelect().add(new SelectOption("3", "结束",false));
 
 		init.getResultSelect().add(new SelectOption("", "--请选择--",false));
-		init.getResultSelect().add(new SelectOption("0", "待定",false));
+		init.getResultSelect().add(new SelectOption("0", "未开始",false));
 		init.getResultSelect().add(new SelectOption("1", "未通过",false));
 		init.getResultSelect().add(new SelectOption("2", "等offer",false));
 		init.getResultSelect().add(new SelectOption("3", "拒绝offer",false));
@@ -52,31 +58,71 @@ public class InterviewController {
 	
 	@RequestMapping(value="queryInterview.action")
 	public String queryInterview(InterviewQueryParamBean params,HttpSession session){
-		session.setAttribute("paramsObj", params);
-		VinterviewinterviewExample example=new VinterviewinterviewExample();
-		List<Vinterviewinterview> result=mapper.selectByExample(example);
-		
-		List<InterviewQueryResultBean> list=new ArrayList<InterviewQueryResultBean>(); 
-		for(int i=0;i<result.size();i++){
-			InterviewQueryResultBean bean=new InterviewQueryResultBean();
-			Vinterviewinterview var=result.get(i);
-			BeanUtils.copyProperties(var, bean);
-		
+		try{
+			VinterviewinterviewExample example=new VinterviewinterviewExample();
+			Criteria criteria= example.createCriteria();
+			if(StringTools.isNotBlank(params.getCustmerName())){
+				criteria.andCustomerNameLike("%"+params.getCustmerName().trim()+"%");
+			}
+			if(StringTools.isNotBlank(params.getClassId())){
+				criteria.andClassIdEqualTo(Integer.parseInt(params.getClassId()));
+			}
+			if(StringTools.isNotBlank(params.getCompanyName())){
+				criteria.andCompanyNameLike("%"+params.getCompanyName().trim()+"%");
+			}
+			if(StringTools.isNotBlank(params.getInterviewDate())){
+				String[] times=params.getInterviewDate().split("-");
+				SimpleDateFormat sf=new SimpleDateFormat("MM/dd/yyyy");
+				Date start=sf.parse(times[0].trim());
+				Date end=sf.parse(times[1].trim());
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(end);
+				cal.add(Calendar.DATE,1);
+				end=cal.getTime();
+				criteria.andInterviewTimeBetween(start, end);
+			}
+			if(StringTools.isNotBlank(params.getInterviewTime())){
+				if("am".equals(params.getInterviewTime().trim())){
+					criteria.andInterviewTimeTimeBetween("00:00:00", "12:00:00");
+				}else{
+					criteria.andInterviewTimeTimeBetween("12:00:00", "24:00:00");
+				}
+			}
+			if(StringTools.isNotBlank(params.getProgress())){
+				criteria.andProgressEqualTo(params.getProgress().trim());
+			}
+			if(StringTools.isNotBlank(params.getResult())){
+				criteria.andResultEqualTo(params.getResult().trim());
+			}
+
+			List<Vinterviewinterview> result=mapper.selectByExample(example);
 			
-//			bean.setCustomerId(var.getCustomerId());
-//			bean.setCustomerName(var.getCustomerName());
-//			bean.setClassId(var.getClassId());;
-//			bean.setClassName(var.getClassName());
-//			bean.setCompanyId(var.getCompanyId());
-//			bean.setCompanyName(var.getCompanyName());
-//			bean.setInterviewTime(var.getInterviewTime());
-//			bean.setProgressDesc(var.getProgressDesc());
-//			bean.setResultDesc(var.getResultDesc());
-//			bean.setRealSalary(var.getRealSalary());
-//			bean.setHasExamDesc(i%2==0?"有":"无");
-			list.add(bean);
+			List<InterviewQueryResultBean> list=new ArrayList<InterviewQueryResultBean>(); 
+			Set<Integer> sets=new HashSet<Integer>();
+			for(int i=0;i<result.size();i++){
+				InterviewQueryResultBean bean=new InterviewQueryResultBean();
+				Vinterviewinterview var=result.get(i);
+				BeanUtils.copyProperties(var, bean);
+				sets.add(var.getCustomerId());
+//				bean.setCustomerId(var.getCustomerId());
+//				bean.setCustomerName(var.getCustomerName());
+//				bean.setClassId(var.getClassId());;
+//				bean.setClassName(var.getClassName());
+//				bean.setCompanyId(var.getCompanyId());
+//				bean.setCompanyName(var.getCompanyName());
+//				bean.setInterviewTime(var.getInterviewTime());
+//				bean.setProgressDesc(var.getProgressDesc());
+//				bean.setResultDesc(var.getResultDesc());
+//				bean.setRealSalary(var.getRealSalary());
+//				bean.setHasExamDesc(i%2==0?"有":"无");
+				list.add(bean);
+			}
+			session.setAttribute("result", list);
+			session.setAttribute("studentCount", sets.size());
+			session.setAttribute("interviewCount", list.size());
+		}catch(Exception e){
+			e.printStackTrace();
 		}
-		session.setAttribute("result", list);
 		return "interview/interviewList";
 	}
 }
