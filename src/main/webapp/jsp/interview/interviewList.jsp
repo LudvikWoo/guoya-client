@@ -72,25 +72,27 @@
 						<h2 class="panel-title">面试学生数：${studentCount}，面试总数：${interviewCount}</h2>
 					</div>
 					<div class="panel-body">
-						<table class="table table-striped">
+						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
+									<th class="per6">面试号</th>
 									<th class="per6">姓名</th>
 									<th class="per15">班级</th>
 									<th class="per10">公司</th>
-									<th class="per10">面试日期</th>
+									<th class="per8">面试日期</th>
 									<th class="per6">时间</th>
 									<th class="per10">是否外包</th>
 									<th class="per10">进度</th>
 									<th class="per6">结果</th>
 									<th class="per6">薪资</th>
 									<th class="per6">笔试</th>
-									<th class="per15">操作</th>
+									<th class="per12">操作</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach items="${result }" var="var">
 									<tr>
+										<td>${var.interviewId}</td>
 										<td>${var.customerName}</td>
 										<td>${var.className }</td>
 										<td>${var.companyNameAbbreviation }</td>
@@ -101,8 +103,8 @@
 										<td>${var.resultDesc }</td>
 										<td>${var.realSalary }</td>
 										<td>${var.hasExamDesc }</td>
-										<td><input type="button" value="详情"> <input
-											type="button" value="笔试"></td>
+										<td><input type="button" value="详情" > <input
+											type="button" value="笔试" onclick="window.open('interview/getPaperExam.action?interviewId=${var.interviewId}');"></td>
 									</tr>
 								</c:forEach>
 							</tbody>

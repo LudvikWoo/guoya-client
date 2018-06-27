@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.interview.TInterviewExamAnswerMapper">
+  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.interview.TInterviewExamAnswer">
+    <id column="answer_id" jdbcType="INTEGER" property="answerId" />
+    <result column="picture_id" jdbcType="INTEGER" property="pictureId" />
+    <result column="author_cst_id" jdbcType="INTEGER" property="authorCstId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="praise_count" jdbcType="INTEGER" property="praiseCount" />
+    <result column="subject_index" jdbcType="VARCHAR" property="subjectIndex" />
+    <result column="subject_desc" jdbcType="VARCHAR" property="subjectDesc" />
+    <result column="answer" jdbcType="VARCHAR" property="answer" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    answer_id, picture_id, author_cst_id, status, create_time, praise_count, subject_index, 
+    subject_desc, answer
+  </sql>
+  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.interview.TInterviewExamAnswerExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_interview_exam_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_interview_exam_answer
+    where answer_id = #{answerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_interview_exam_answer
+    where answer_id = #{answerId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.guoyasoft.bean.db.interview.TInterviewExamAnswerExample">
+    delete from t_interview_exam_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.guoyasoft.bean.db.interview.TInterviewExamAnswer">
+    insert into t_interview_exam_answer (answer_id, picture_id, author_cst_id, 
+      status, create_time, praise_count, 
+      subject_index, subject_desc, answer
+      )
+    values (#{answerId,jdbcType=INTEGER}, #{pictureId,jdbcType=INTEGER}, #{authorCstId,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{praiseCount,jdbcType=INTEGER}, 
+      #{subjectIndex,jdbcType=VARCHAR}, #{subjectDesc,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.interview.TInterviewExamAnswer">
+    insert into t_interview_exam_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="answerId != null">
+        answer_id,
+      </if>
+      <if test="pictureId != null">
+        picture_id,
+      </if>
+      <if test="authorCstId != null">
+        author_cst_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="praiseCount != null">
+        praise_count,
+      </if>
+      <if test="subjectIndex != null">
+        subject_index,
+      </if>
+      <if test="subjectDesc != null">
+        subject_desc,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="answerId != null">
+        #{answerId,jdbcType=INTEGER},
+      </if>
+      <if test="pictureId != null">
+        #{pictureId,jdbcType=INTEGER},
+      </if>
+      <if test="authorCstId != null">
+        #{authorCstId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="praiseCount != null">
+        #{praiseCount,jdbcType=INTEGER},
+      </if>
+      <if test="subjectIndex != null">
+        #{subjectIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectDesc != null">
+        #{subjectDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.guoyasoft.bean.db.interview.TInterviewExamAnswerExample" resultType="java.lang.Long">
+    select count(*) from t_interview_exam_answer
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_interview_exam_answer
+    <set>
+      <if test="record.answerId != null">
+        answer_id = #{record.answerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pictureId != null">
+        picture_id = #{record.pictureId,jdbcType=INTEGER},
+      </if>
+      <if test="record.authorCstId != null">
+        author_cst_id = #{record.authorCstId,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.praiseCount != null">
+        praise_count = #{record.praiseCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.subjectIndex != null">
+        subject_index = #{record.subjectIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subjectDesc != null">
+        subject_desc = #{record.subjectDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.answer != null">
+        answer = #{record.answer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_interview_exam_answer
+    set answer_id = #{record.answerId,jdbcType=INTEGER},
+      picture_id = #{record.pictureId,jdbcType=INTEGER},
+      author_cst_id = #{record.authorCstId,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      praise_count = #{record.praiseCount,jdbcType=INTEGER},
+      subject_index = #{record.subjectIndex,jdbcType=VARCHAR},
+      subject_desc = #{record.subjectDesc,jdbcType=VARCHAR},
+      answer = #{record.answer,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guoyasoft.bean.db.interview.TInterviewExamAnswer">
+    update t_interview_exam_answer
+    <set>
+      <if test="pictureId != null">
+        picture_id = #{pictureId,jdbcType=INTEGER},
+      </if>
+      <if test="authorCstId != null">
+        author_cst_id = #{authorCstId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="praiseCount != null">
+        praise_count = #{praiseCount,jdbcType=INTEGER},
+      </if>
+      <if test="subjectIndex != null">
+        subject_index = #{subjectIndex,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectDesc != null">
+        subject_desc = #{subjectDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        answer = #{answer,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where answer_id = #{answerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guoyasoft.bean.db.interview.TInterviewExamAnswer">
+    update t_interview_exam_answer
+    set picture_id = #{pictureId,jdbcType=INTEGER},
+      author_cst_id = #{authorCstId,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      praise_count = #{praiseCount,jdbcType=INTEGER},
+      subject_index = #{subjectIndex,jdbcType=VARCHAR},
+      subject_desc = #{subjectDesc,jdbcType=VARCHAR},
+      answer = #{answer,jdbcType=VARCHAR}
+    where answer_id = #{answerId,jdbcType=INTEGER}
+  </update>
+</mapper>

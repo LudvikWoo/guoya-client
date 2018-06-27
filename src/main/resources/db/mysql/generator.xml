@@ -39,12 +39,12 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-		<table tableName="v_interview_interview" domainObjectName="Vinterviewinterview"
-			enableCountByExample="true" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="true"
-			selectByExampleQueryId="true" enableDeleteByPrimaryKey="false"
-			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="false"
-			selectByPrimaryKeyQueryId="false" enableInsert="false" />
+		<table tableName="t_interview_exam_answer" domainObjectName="TInterviewExamAnswer"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true" enableDeleteByPrimaryKey="true"
+			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
+			selectByPrimaryKeyQueryId="true" enableInsert="true" />
 			
 			<!-- 视图生成方法
 			enableCountByExample="true" enableUpdateByExample="false"

@@ -2262,66 +2262,6 @@ public class VinterviewinterviewExample {
             return (Criteria) this;
         }
 
-        public Criteria andContactTypeIsNull() {
-            addCriterion("contact_type is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeIsNotNull() {
-            addCriterion("contact_type is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeEqualTo(Integer value) {
-            addCriterion("contact_type =", value, "contactType");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeNotEqualTo(Integer value) {
-            addCriterion("contact_type <>", value, "contactType");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeGreaterThan(Integer value) {
-            addCriterion("contact_type >", value, "contactType");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("contact_type >=", value, "contactType");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeLessThan(Integer value) {
-            addCriterion("contact_type <", value, "contactType");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("contact_type <=", value, "contactType");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeIn(List<Integer> values) {
-            addCriterion("contact_type in", values, "contactType");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeNotIn(List<Integer> values) {
-            addCriterion("contact_type not in", values, "contactType");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeBetween(Integer value1, Integer value2) {
-            addCriterion("contact_type between", value1, value2, "contactType");
-            return (Criteria) this;
-        }
-
-        public Criteria andContactTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("contact_type not between", value1, value2, "contactType");
-            return (Criteria) this;
-        }
-
         public Criteria andHasExamIsNull() {
             addCriterion("has_exam is null");
             return (Criteria) this;

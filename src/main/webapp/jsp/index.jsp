@@ -113,7 +113,7 @@ nav {
 }
 
 section {
-	width: 79%;
+	width: 77%;
 	float: left;
 	padding: 10px;
 	margin: 0 1% 1% 0;

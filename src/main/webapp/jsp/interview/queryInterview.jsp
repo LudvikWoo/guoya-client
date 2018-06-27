@@ -62,12 +62,12 @@
 			<div class="form-group">
 
 				<label class="col-lg-1 col-md-1 col-sm-6 control-label">姓名</label>
-				<div class="col-lg-2 col-md-2">
+				<div class="col-lg-2 col-md-2 col-sm-6">
 					<input type="text" name="custmerName" class="form-control">
 				</div>
 
 				<label class="col-lg-1 col-md-1 col-sm-6 control-label">班级</label>
-				<div class="col-lg-1 col-md-2">
+				<div class="col-lg-1 col-md-2  col-sm-6">
 					<div class="row">
 						<div class="col-lg-12 col-md-12">
 							<select name="classId" id="classId" class="form-control select2">

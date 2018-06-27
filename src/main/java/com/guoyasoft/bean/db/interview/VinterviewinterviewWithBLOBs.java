@@ -3,7 +3,9 @@ package com.guoyasoft.bean.db.interview;
 public class VinterviewinterviewWithBLOBs extends Vinterviewinterview {
     private byte[] hrName;
 
-    private byte[] contactNumber;
+    private byte[] weichat;
+
+    private byte[] qq;
 
     public byte[] getHrName() {
         return hrName;
@@ -13,11 +15,19 @@ public class VinterviewinterviewWithBLOBs extends Vinterviewinterview {
         this.hrName = hrName;
     }
 
-    public byte[] getContactNumber() {
-        return contactNumber;
+    public byte[] getWeichat() {
+        return weichat;
     }
 
-    public void setContactNumber(byte[] contactNumber) {
-        this.contactNumber = contactNumber;
+    public void setWeichat(byte[] weichat) {
+        this.weichat = weichat;
+    }
+
+    public byte[] getQq() {
+        return qq;
+    }
+
+    public void setQq(byte[] qq) {
+        this.qq = qq;
     }
 }

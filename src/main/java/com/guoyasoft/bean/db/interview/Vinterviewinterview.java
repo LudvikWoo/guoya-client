@@ -69,8 +69,6 @@ public class Vinterviewinterview {
 
     private String hrCompanyName;
 
-    private Integer contactType;
-
     private Integer hasExam;
 
     private String hasExamDesc;
@@ -341,14 +339,6 @@ public class Vinterviewinterview {
 
     public void setHrCompanyName(String hrCompanyName) {
         this.hrCompanyName = hrCompanyName == null ? null : hrCompanyName.trim();
-    }
-
-    public Integer getContactType() {
-        return contactType;
-    }
-
-    public void setContactType(Integer contactType) {
-        this.contactType = contactType;
     }
 
     public Integer getHasExam() {
