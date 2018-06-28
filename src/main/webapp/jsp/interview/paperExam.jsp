@@ -120,7 +120,10 @@
 						type="submit" value="笔试交卷"></a>
 				</div>
 				<div>
-					<input type="button" value="刷新界面">
+				<a
+						href="interview/getPaperExam.action?interviewId=${interviewId}"
+						onclick="javascript:return confirm('确认刷新界面吗？');"><input
+						type="submit" value="刷新界面"></a>
 				</div>
 			</div>
 		</div>
