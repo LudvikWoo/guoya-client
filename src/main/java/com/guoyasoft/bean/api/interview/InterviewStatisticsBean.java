@@ -12,6 +12,7 @@ public class InterviewStatisticsBean {
 	private int unpassStu;
 	private int passInterviewCtn;
 	private int unpassInterviewCtn;
+	private int giveUpInterviewCtn;
 	
 	private Set<String> studentSet=new HashSet<String>();
 
@@ -105,6 +106,14 @@ public class InterviewStatisticsBean {
 
 	public void setUnpassStuSet(Set<String> unpassStuSet) {
 		this.unpassStuSet = unpassStuSet;
+	}
+
+	public int getGiveUpInterviewCtn() {
+		return giveUpInterviewCtn;
+	}
+
+	public void setGiveUpInterviewCtn(int giveUpInterviewCtn) {
+		this.giveUpInterviewCtn = giveUpInterviewCtn;
 	}
 	
 	

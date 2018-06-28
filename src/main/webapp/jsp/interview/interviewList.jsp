@@ -31,12 +31,13 @@
 					<!-- Start .panel -->
 					<div class="panel-heading white-bg">
 						<h3 class="panel-title">
-							学生总数：<span style="color: red">${statistics.studentCtn}</span>（
-							拿offer <span style="color: red">${statistics.passStu}</span>），
-							面试总数: <span style="color: red">${statistics.interviewCtn}</span>（
-							未开始 <span style="color: red">${statistics.unCompleteCtn}</span>，
-							已结束 <span style="color: red">${statistics.completeCtn}</span> [ 通过 <span
-								style="color: red">${statistics.passInterviewCtn}</span> ]）
+							面试人数：<span style="color: red">${statistics.studentCtn}</span>（ 就业
+							<span style="color: red">${statistics.passStu}</span>） , 面试总数: <span
+								style="color: red">${statistics.interviewCtn}</span>（ 未开始 <span
+								style="color: red">${statistics.unCompleteCtn}</span> , 已结束 <span
+								style="color: red">${statistics.completeCtn}</span> [ 通过 <span
+								style="color: red">${statistics.passInterviewCtn}</span> ] ,
+							放弃面试 <span style="color: red">${statistics.giveUpInterviewCtn}</span>）
 						</h3>
 					</div>
 					<div class="panel-body">

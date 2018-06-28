@@ -51,9 +51,8 @@ public class InterviewController {
 
 		init.getProgressSelect().add(new SelectOption("", "--请选择--", false));
 		init.getProgressSelect().add(new SelectOption("0", "未开始", false));
-		init.getProgressSelect().add(new SelectOption("1", "面试中", false));
-		init.getProgressSelect().add(new SelectOption("2", "等结果", false));
-		init.getProgressSelect().add(new SelectOption("3", "结束", false));
+		init.getProgressSelect().add(new SelectOption("1", "面试结束", false));
+		init.getProgressSelect().add(new SelectOption("2", "放弃面试", false));
 
 		init.getResultSelect().add(new SelectOption("", "--请选择--", false));
 		init.getResultSelect().add(new SelectOption("0", "未开始", false));
@@ -127,12 +126,16 @@ public class InterviewController {
 					statistics.getUnpassStuSet().add(var.getStudentId()+"");
 					statistics.setUnpassInterviewCtn(statistics.getUnpassInterviewCtn()+1);
 				}
-				if(var.getProgress()==3){
+				if(var.getProgress()==1){
 					//记录面试结束数
 					statistics.setCompleteCtn(statistics.getCompleteCtn()+1);
-				}else{
+				}else if(var.getProgress()==0){
 					//记录面试未结束数
 					statistics.setUnCompleteCtn(statistics.getUnCompleteCtn()+1);
+				}else if(var.getProgress()==2){
+					//记录面试未结束数
+					statistics.setGiveUpInterviewCtn(statistics.getGiveUpInterviewCtn()+1);
+					
 				}
 				// bean.setCustomerId(var.getCustomerId());
 				// bean.setCustomerName(var.getCustomerName());
