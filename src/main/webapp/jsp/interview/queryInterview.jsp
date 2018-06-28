@@ -11,233 +11,150 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-
-<title>My JSP 'query.jsp' starting page</title>
-
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-<!-- Import google fonts - Heading first/ text second -->
-<link rel='stylesheet' type='text/css'>
-<!--[if lt IE 9]>
-
-<![endif]-->
-<!-- Css files -->
-<!-- Icons -->
-<link href="/guoya-client/assets/css/icons.css" rel="stylesheet" />
+<title>面试查询</title>
+<!-- 小图标 -->
+<link href="assets/css/icons.css" rel="stylesheet" />
 <!-- jQueryUI -->
 <link href="/guoya-client/assets/css/sprflat-theme/jquery.ui.all.css"
 	rel="stylesheet" />
-<!-- Bootstrap stylesheets (included template modifications) -->
+<!-- Bootstrap 样式 -->
 <link href="/guoya-client/assets/css/bootstrap.css" rel="stylesheet" />
-<!-- Plugins stylesheets (all plugin custom css) -->
+<!-- 时间控件-->
 <link href="/guoya-client/assets/css/plugins.css" rel="stylesheet" />
-<!-- Main stylesheets (template main css file) -->
-<link href="/guoya-client/assets/css/main.css" rel="stylesheet" />
-<!-- Custom stylesheets ( Put your own changes here ) -->
-<link href="/guoya-client/assets/css/custom.css" rel="stylesheet" />
-<!-- Fav and touch icons -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="/guoya-client/assets/img/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="/guoya-client/assets/img/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="/guoya-client/assets/img/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="/guoya-client/assets/img/ico/apple-touch-icon-57-precomposed.png">
-<link rel="icon" href="/guoya-client/assets/img/ico/favicon.ico"
-	type="image/png">
 </head>
 
 <body>
-	<div>
-		<form action="interview/queryInterview.action" target="result"
-			method="post" class="form-horizontal group-border hover-stripped"
-			role="form">
-			<div class="form-group">
-
-				<label class="col-lg-1 col-md-1 col-sm-6 control-label">姓名</label>
-				<div class="col-lg-2 col-md-2 col-sm-6">
-					<input type="text" name="custmerName" class="form-control">
-				</div>
-
-				<label class="col-lg-1 col-md-1 col-sm-6 control-label">班级</label>
-				<div class="col-lg-1 col-md-2  col-sm-6">
-					<div class="row">
-						<div class="col-lg-12 col-md-12">
-							<select name="classId" id="classId" class="form-control select2">
-								<c:forEach items="${initObj.classSelect}" var="var"
-									varStatus="vs">
-									<option value="${var.value}"
-										<c:if test="${var.selected==true}">selected</c:if>>
-										${var.text}</option>
-								</c:forEach>
-							</select>
-						</div>
+	<div class="outlet">
+		<!-- Start .outlet -->
+		<!-- Page start here ( usual with .row ) -->
+		<div class="row">
+			<!-- Start .row -->
+			<div class="col-lg-12">
+				<!-- Start col-lg-12 -->
+				<div class="panel panel-default toggle">
+					<!-- Start .panel -->
+					<div class="panel-heading  white-bg" >
+						<h3 class="panel-title">查询条件</h3>
 					</div>
-				</div>
+					<div class="panel-body">
+						<form action="interview/queryInterview.action" target="result"
+							method="post" class="form-horizontal group-border hover-stripped"
+							role="form">
+							<div class="form-group">
+
+								<label class="col-lg-1 col-md-1 col-sm-2 control-label">学生姓名</label>
+								<div class="col-lg-2 col-md-2 col-sm-4">
+									<input type="text" name="custmerName" class="form-control">
+								</div>
+
+								<label class="col-lg-1 col-md-1 col-sm-2 control-label">所属班级</label>
+								<div class="col-lg-1 col-md-2  col-sm-4">
+									<div class="row">
+										<div class="col-lg-12 col-md-12">
+											<select name="classId" id="classId"
+												class="form-control select2">
+												<c:forEach items="${initObj.classSelect}" var="var"
+													varStatus="vs">
+													<option value="${var.value}"
+														<c:if test="${var.selected==true}">selected</c:if>>
+														${var.text}</option>
+												</c:forEach>
+											</select>
+										</div>
+									</div>
+								</div>
 
 
-				<label class="col-lg-1 col-md-1 col-sm-6 control-label">公司</label>
-				<div class="col-lg-2 col-md-2">
-					<input type="text" name="companyName" id="companyName"
-						class="form-control">
-				</div>
+								<label class="col-lg-1 col-md-1 col-sm-2 control-label">公司名称</label>
+								<div class="col-lg-2 col-md-2 col-sm-4">
+									<input type="text" name="companyName" id="companyName"
+										class="form-control">
+								</div>
 
 
-				<label class="col-lg-1 col-md-1 col-sm-6 control-label">面试日期</label>
-				<div class="col-lg-2 col-md-2">
-					<div class="row">
-						<div class="col-lg-12 col-md-12">
-							<div class="input-group">
-								<input class="form-control" name="interviewDate"
-									id="daterangepicker"> <span class="input-group-addon"><i
-									class="fa-calendar"></i></span>
+								<label class="col-lg-1 col-md-1 col-sm-2 control-label">面试日期</label>
+								<div class="col-lg-2 col-md-2 col-sm-4">
+									<div class="row">
+										<div class="col-lg-12 col-md-12">
+											<div class="input-group">
+												<input class="form-control" name="interviewDate"
+													id="daterangepicker"> <span
+													class="input-group-addon"><i class="fa-calendar"></i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+
 							</div>
-						</div>
+							<div class="form-group">
+
+
+								<label class="col-lg-1 col-md-1 col-sm-2 control-label">面试时间</label>
+								<div class="col-lg-2 col-md-2 col-sm-4">
+									<div class="row">
+										<div class="col-lg-12 col-md-12">
+											<select name="interviewTime" id="interviewTime"
+												class="form-control select2">
+												<option value="">--请选择--</option>
+												<option value="am">上午</option>
+												<option value="pm">下午</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<label class="col-lg-1 col-md-1 col-sm-2 control-label">面试进度</label>
+								<div class="col-lg-1 col-md-2 col-sm-4">
+									<div class="row">
+										<div class="col-lg-12 col-md-12">
+											<select name="progress" id="progress"
+												class="form-control select2">
+												<c:forEach items="${initObj.progressSelect}" var="var"
+													varStatus="vs">
+													<option value="${var.value}"
+														<c:if test="${var.selected==true}">selected</c:if>>
+														${var.text}</option>
+												</c:forEach>
+											</select>
+										</div>
+
+									</div>
+								</div>
+
+								<label class="col-lg-1 col-md-1 col-sm-2 control-label">面试结果</label>
+								<div class="col-lg-1 col-md-2 col-sm-4">
+									<div class="row">
+										<div class="col-lg-12 col-md-12">
+											<select name="result" id="result"
+												class="form-control select2">
+												<c:forEach items="${initObj.resultSelect}" var="var"
+													varStatus="vs">
+													<option value="${var.value}"
+														<c:if test="${var.selected==true}">selected</c:if>>
+														${var.text}</option>
+												</c:forEach>
+											</select>
+										</div>
+
+									</div>
+								</div>
+
+
+								<div class="col-lg-1 col-md-1  col-sm-4">
+									<button class="btn btn-primary pull-right" type="submit">查询</button>
+								</div>
+								<div class="col-lg-1 col-md-1  col-sm-4">
+									<button class="btn btn-warning pull-right" type="reset">重置</button>
+
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
-
 			</div>
-			<div class="form-group">
-
-
-				<label class="col-lg-1 col-md-1 col-sm-6 control-label">面试时间</label>
-				<div class="col-lg-2 col-md-2">
-					<div class="row">
-						<div class="col-lg-12 col-md-12">
-							<select name="interviewTime" id="interviewTime"
-								class="form-control select2">
-								<option value="">--请选择--</option>
-								<option value="am">上午</option>
-								<option value="pm">下午</option>
-							</select>
-						</div>
-					</div>
-				</div>
-
-				<label class="col-lg-1 col-md-1 col-sm-6 control-label">面试进度</label>
-				<div class="col-lg-1 col-md-2">
-					<div class="row">
-						<div class="col-lg-12 col-md-12">
-							<select name="progress" id="progress"
-								class="form-control select2">
-								<c:forEach items="${initObj.progressSelect}" var="var"
-									varStatus="vs">
-									<option value="${var.value}"
-										<c:if test="${var.selected==true}">selected</c:if>>
-										${var.text}</option>
-								</c:forEach>
-							</select>
-						</div>
-
-					</div>
-				</div>
-
-				<label class="col-lg-1 col-md-1 col-sm-6 control-label">面试结果</label>
-				<div class="col-lg-1 col-md-2">
-					<div class="row">
-						<div class="col-lg-12 col-md-12">
-							<select name="result" id="result" class="form-control select2">
-								<c:forEach items="${initObj.resultSelect}" var="var"
-									varStatus="vs">
-									<option value="${var.value}"
-										<c:if test="${var.selected==true}">selected</c:if>>
-										${var.text}</option>
-								</c:forEach>
-							</select>
-						</div>
-
-					</div>
-				</div>
-
-
-				<div class="col-lg-1 col-md-1">
-					<button class="btn btn-success pull-right" type="submit">查询</button>
-				</div>
-				<div class="col-lg-1 col-md-1">
-					<button class="btn btn-warning pull-right" type="reset">重置</button>
-
-				</div>
-			</div>
-
-			<%-- <table border="0">
-
-				<tr>
-
-					<td>HR姓名：</td>
-					<td><input type="text" name="hrName" id="hrName"></td>
-					<td>笔试：</td>
-					<td><select name="hasExam" id="hasExam">
-							<option value="">--请选择--</option>
-							<option value="0">无</option>
-							<option value="1">有</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td>面试日期：</td>
-					<td><input type="date" name="interviewDateStart">-<input
-						type="date" name="interviewDateEnd"></td>
-					<td>面试时间：</td>
-					<td><select name="interviewTime" id="interviewTime">
-							<option value="">--请选择--</option>
-							<option value="0">上午</option>
-							<option value="0">上午</option>
-					</select></td>
-					<td>上班时间：</td>
-					<td><input type="date" name="workTimeStart">-<input
-						type="date" name="workTimeEnd"></td>
-				</tr>
-				<tr>
-					<td>面试进度:</td>
-					<td><select name="progress" id="progress">
-							<c:forEach items="${initObj.progressSelect}" var="var"
-								varStatus="vs">
-								<option value="${var.value}"
-									<c:if test="${var.selected==true}">selected</c:if>>
-									${var.text}</option>
-							</c:forEach>
-					</select><span style="color: red"> *</span></td>
-					<td>面试结果:</td>
-					<td><select name="result" id="result">
-							<c:forEach items="${initObj.resultSelect}" var="var"
-								varStatus="vs">
-								<option value="${var.value}"
-									<c:if test="${var.selected==true}">selected</c:if>>
-									${var.text}</option>
-							</c:forEach>
-					</select></td>
-					<td>实际薪资：</td>
-					<td><input type="number" min="18" max="32" name="salayMin">K-<input
-						type="number" min="18" max="32" name="salayMax">K</td>
-				</tr>
-				<tr>
-					<td>排序字段:</td>
-					<td><select name="orderField" id="orderField">
-							<option>--请选择--</option>
-							<option>班级</option>
-							<option>面试日期</option>
-							<option>面试时间</option>
-							<option>薪资高低</option>
-					</select></td>
-					<td>升/降序:</td>
-					<td><select name="orderType" id="orderType">
-							<option>--请选择--</option>
-							<option>升序</option>
-							<option>降序</option>
-					</select></td>
-					<td colspan="2"><input type="submit" value="查询"><input
-						type="reset" value="重置"></td>
-				</tr>
-			</table> --%>
-		</form>
-		<hr>
+		</div>
 	</div>
+
 	<!-- End #content -->
 	<!-- Javascripts -->
 	<!-- Load pace first -->
@@ -311,7 +228,7 @@
 	<script
 		src="/guoya-client/assets/plugins/forms/password/jquery-passy.js"></script>
 	<script
-		src="/guoya-client/assets/plugins/forms/checkall/jquery.CheckAll.js"></script>
+		src="/guoya-client/assets/plugins/forms/checkall/jquery.checkAll.js"></script>
 	<script
 		src="/guoya-client/assets/plugins/misc/highlight/highlight.pack.js"></script>
 	<script

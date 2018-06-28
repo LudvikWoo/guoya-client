@@ -16,40 +16,18 @@
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
+<link href="assets/css/icons.css" rel="stylesheet" />
+<!-- jQueryUI -->
+<link href="assets/css/sprflat-theme/jquery.ui.all.css" rel="stylesheet" />
+<!-- Bootstrap stylesheets (included template modifications) -->
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
+<!-- Plugins stylesheets (all plugin custom css) -->
+<link href="assets/css/plugins.css" rel="stylesheet" />
+<!-- Main stylesheets (template main css file) -->
+<link href="assets/css/main.css" rel="stylesheet" />
+<!-- Custom stylesheets ( Put your own changes here ) -->
+<link href="assets/css/custom.css" rel="stylesheet" />
 <script type="text/javascript">
-	/* function uploadPic(interviewId) {
-		var obj = document.getElementById("pic_upload");
-		//alert("开始上传.....");
-		for (i = 0; i < obj.files.length; i++) {
-			//alert("文件数："+obj.files.length);
-			var fileObj = obj.files[i];
-			var FileController = "interview/uploadExamPic.action?interviewId="
-					+ interviewId; // 接收上传文件的后台地址
-			// FormData 对象
-			var form = new FormData();
-			// 可以增加表单数据
-			form.append("file", fileObj); // 文件对象
-			// XMLHttpRequest 对象
-			//alert("开始上传第："+i+"个文件....");
-			var xhr = new XMLHttpRequest();
-			xhr.open("post", FileController, true);
-			xhr.onload = function() {
-				//alert("上传完成!");
-				location.reload();
-			};
-			xhr.onprgress = function(a, b, c) {
-				console.log(a + "++" + b + "__" + "c")
-			};
-			xhr.load = function() {
-				cnosole.log('');
-			};
-			xhr.send(form);
-		}
-	}
-	 */
 	function showPics(obj) {
 		var oimgbox = document.getElementById("imgboxid");
 		oimgbox.innerHTML = "";
@@ -101,158 +79,233 @@
 </head>
 
 <body>
-	<div>
-		<!-- 个人信息区 -->
-		<div style="display: flex">
-			<div style="display: flex">
-				<div>姓名：</div>
-				<div>${exam.customerName }</div>
-			</div>
-			<div style="display: flex">
-				<div>公司：</div>
-				<div>${exam.companyName }</div>
-			</div>
-			<div style="display: flex">
-				<div>
-					<a
-						href="interview/completeExam.action?examId=${exam.examId}&interviewId=${interviewId}"
-						onclick="javascript:return confirm('确认笔试结束吗？');"><input
-						type="submit" value="笔试交卷"></a>
-				</div>
-				<div>
-				<a
-						href="interview/getPaperExam.action?interviewId=${interviewId}"
-						onclick="javascript:return confirm('确认刷新界面吗？');"><input
-						type="submit" value="刷新界面"></a>
-				</div>
-			</div>
-		</div>
-		<hr>
-		<br>
-		<!-- 上传照片区 -->
-		<div>
-			<div>
-				<form
-					action="interview/uploadExamPic.action?interviewId=${interviewId }"
-					method="post" enctype="multipart/form-data">
-					<div>上传照片</div>
-					<div>
-						<input id="pic_upload" name="pic_upload" type="file"
-							multiple="true" accept='image/*' onchange="showPics(this)">
+	<div class="outlet">
+		<!-- Start .outlet -->
+		<!-- Page start here ( usual with .row ) -->
+		<div class="row">
+			<!-- Start .row -->
+			<div class="col-lg-12">
+				<!-- Start col-lg-12 -->
+				<div class="panel panel-default ">
+					<!-- Start .panel -->
+					<div class="panel-heading navbar-fixed-top">
+						<h3 class="panel-title  col-lg-1 col-md-1">姓名：
+							${exam.customerName }</h3>
+						<h3 class="panel-title  col-lg-1 col-md-1">公司：
+							${exam.companyName }</h3>
+						<span class="panel-title text-right col-lg-8 col-md-8"> <a
+							href="interview/completeExam.action?examId=${exam.examId}&interviewId=${interviewId}"
+							onclick="javascript:return confirm('确认笔试结束吗？');"><button
+									class="btn btn-danger btn-xs" type="submit">笔试交卷</button></a>
+						</span> <span class="panel-title text-left col-lg-1 col-md-1"> <a
+							href="interview/getPaperExam.action?interviewId=${interviewId}"
+							onclick="javascript:return confirm('确认刷新界面吗？');">
+								<button class="btn btn-primary  btn-xs" type="submit">刷新界面</button>
+						</a>
+						</span>
 					</div>
-					<div>
-						<input type="submit" value="上传">
-					</div>
-				</form>
-			</div>
-		</div>
+					<br> <br> <br>
+					<div class="panel-body">
+						<div class="row">
+							<form class="form-horizontal group-border hover-stripped"
+								role="form"
+								action="interview/uploadExamPic.action?interviewId=${interviewId }"
+								method="post" enctype="multipart/form-data">
 
-		<!-- 照片临时显示区 -->
-		<div class="img-box" id="imgboxid"></div>
-		<hr>
-		<br>
-		<!-- 答题区 -->
-		<div>
-			<c:if test="${not empty exam.pictures }">
-				<c:forEach items="${exam.pictures }" var="picture">
-					<!-- 图片展现区 -->
-					<div>
-						<img src="${picture.picAddr }" width="60%">
-					</div>
-					<hr>
-					<br>
-					<!-- 图片操作区 -->
-					<div>
-						<div>
-							<input type="button" value="新增答案"
-								onclick="addAnswer(${picture.pictureId})">
-						</div>
-						<div>
-							<a
-								href="interview/deletePicture.action?pictureId=${picture.pictureId}&interviewId=${interviewId}"
-								onclick="javascript:return confirm('确认删除照片和照片的答案吗？');"><input
-								type="submit" value="删除照片"></a>
-
-						</div>
-					</div>
-					<hr>
-					<br>
-
-					<!-- 新增答案区 -->
-					<div id="answerDiv${picture.pictureId}" style="display: none">
-						<form action="interview/addPicAnswer.action" method="post"
-							onreset="cancelAnswer(${picture.pictureId})">
-							<div style="display: none">
-								<div>隐藏数据：</div>
-								<div>
-									<input type="text" name="interviewId"
-										value="${exam.interviewId }"> <input type="text"
-										name="pictureId" value="${picture.pictureId }">
-								</div>
-							</div>
-							<div>
-								<div>题号：</div>
-								<div>
-									<input type="text" name="subjectIndex">
-								</div>
-							</div>
-							<div>
-								<div>答案：</div>
-								<div>
-									<input type="text" name="answer">
-								</div>
-							</div><!-- 
-							<div>
-								<div>作者：</div>
-								<div>
-									<input type="text" name="authorCstName"> <input
-										type="text" name="authorCstId">
-								</div>
-								<div>
-									<input type="button" value="查询">
-								</div>
-							</div> -->
-							<div>
-								<input type="submit" value="提交">
-							</div>
-							<div>
-								<input type="reset" value="取消">
-							</div>
-						</form>
-					</div>
-					<hr>
-					<br>
-
-
-					<!-- 答案列表区 -->
-					<div>
-						<c:if test="${not empty  picture.answers}">
-							<c:forEach items="${picture.answers }" var="answer">
-								<div>
-									<div>${answer.subjectIndex }</div>
-									<div>${answer.answer }</div>
-									<div>${answer.authorCstName }</div>
-									<%-- <div>
-										<a
-											href="interview/updatePicAnswer.action?method=praise&answerId=${answer.answerId }&interviewId=${interviewId}"
-											onclick="javascript:return confirm('确认点赞吗？');"><input
-											type="button" value="点赞"></a>
-
-									</div> --%>
-									<div>
-										<a
-											href="interview/updatePicAnswer.action?method=delete&answerId=${answer.answerId }&interviewId=${interviewId}"
-											onclick="javascript:return confirm('确认删除答案吗？');"><input
-											type="button" value="删除答案"></a>
-
+								<!-- End .form-group  -->
+								<div class="form-group">
+									<label class="col-lg-1 col-md-1 col-sm-2 control-label">上传照片：</label>
+									<div class="col-lg-3 col-md-3">
+										<input type="file" id="pic_upload" name="pic_upload"
+											type="file" multiple="true" accept='image/*'
+											onchange="showPics(this)">
+									</div>
+									<div class="col-lg-1 col-md-1  col-sm-4">
+										<button class="btn btn-primary" type="submit">上传</button>
 									</div>
 								</div>
-							</c:forEach>
-						</c:if>
+							</form>
+						</div>
+						<div class="img-box" id="imgboxid"></div>
+
+						<!-- 照片临时显示区 -->
+						<hr>
+						<br>
+						<!-- 答题区 -->
+						<div>
+							<c:if test="${not empty exam.pictures }">
+								<c:forEach items="${exam.pictures }" var="picture">
+									<!-- 图片展现区 -->
+									<div class="row">
+										<div class="col-lg-8 col-md-8">
+											<img src="${picture.picAddr }" width="100%">
+										</div>
+									</div>
+									<br>
+									<!-- 图片操作区 -->
+									<div class="row">
+										<div class="col-lg-1 col-md-1">
+											<a
+												href="interview/deletePicture.action?pictureId=${picture.pictureId}&interviewId=${interviewId}"
+												onclick="javascript:return confirm('确认删除照片和照片的答案吗？');">
+												<button type="button" class="btn btn-default">删除照片</button>
+											</a>
+										</div>
+										<div class="col-lg-1 col-md-1">
+											<button type="button" class="btn btn-primary"
+												onclick="addAnswer(${picture.pictureId})">新增答案</button>
+										</div>
+									</div>
+
+									<!-- 新增答案区 -->
+									<div class="row" id="answerDiv${picture.pictureId}"
+										style="display: none">
+										<form class="form-horizontal group-border" role="form"
+											action="interview/addPicAnswer.action" method="post"
+											onreset="cancelAnswer(${picture.pictureId})" onsubmit="javascript:return confirm('确认提交答案吗？');">
+											<div hidden="hidden">
+												<div>隐藏数据：</div>
+												<div>
+													<input type="text" name="interviewId"
+														value="${exam.interviewId }"> <input type="text"
+														name="pictureId" value="${picture.pictureId }">
+												</div>
+											</div>
+											<br>
+											<div class="form-group">
+												<label class="col-lg-1 col-md-1 col-sm-2 control-label">题号：</label>
+												<div class="col-lg-7 col-md-7">
+													<input type="text" name="subjectIndex" class="form-control"
+														placeholder="请输题号，例如：1、1.1 、 1.1.1 ...">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="col-lg-1 col-md-1 col-sm-2 control-label">答案：</label>
+												<div class="col-lg-7 col-md-7">
+													<textarea rows="10" name="answer" class="form-control "
+														placeholder="请输答案..."></textarea>
+												</div>
+											</div>
+											<div class="form-group ">
+												<div class="col-lg-6 col-md-6 text-right">
+													<button type="reset" class="btn">取消</button>
+												</div>
+												<div class="col-lg-2 col-md-2 text-left">
+													<button type="submit" class="btn btn-primary">提交</button>
+												</div>
+											</div>
+										</form>
+									</div>
+									<br>
+									<c:if test="${not empty  picture.answers}">
+										<div class="row">
+											<!-- Start .row -->
+											<div class="col-lg-8 col-md-8">
+												<!-- col-lg-6 start here -->
+												<div class="panel panel-default plain toggle">
+													<!-- Start .panel -->
+													<div class="panel-heading white-bg"></div>
+													<div class="panel-body">
+														<table class="table table-striped table-hover">
+															<thead>
+																<tr>
+																	<th class="per10">题号</th>
+																	<th class="per70">答案</th>
+																	<th class="per10">答题者</th>
+																	<th class="per10">操作</th>
+																</tr>
+															</thead>
+															<tbody>
+																<c:forEach items="${picture.answers }" var="answer">
+																	<tr>
+																		<td>${answer.subjectIndex }</td>
+																		<td>${answer.answer }</td>
+																		<td>${answer.authorCstName }</td>
+																		<td><a
+																			href="interview/updatePicAnswer.action?method=delete&answerId=${answer.answerId }&interviewId=${interviewId}"
+																			onclick="javascript:return confirm('确认删除答案吗？');">删除</a></td>
+																	</tr>
+																</c:forEach>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+									</c:if>
+									<br>
+								</c:forEach>
+							</c:if>
+						</div>
 					</div>
-				</c:forEach>
-			</c:if>
+				</div>
+			</div>
 		</div>
 	</div>
+	<!-- End #content -->
+	<!-- Javascripts -->
+	<!-- Load pace first -->
+	<script src="assets/plugins/core/pace/pace.min.js"></script>
+	<!-- Important javascript libs(put in all pages) -->
+	<script src="assets/js/jquery-1.8.3.min.js"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="assets/js/libs/jquery-2.1.1.min.js">\x3C/script>')
+	</script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="assets/js/libs/jquery-ui-1.10.4.min.js">\x3C/script>')
+	</script>
+	<!--[if lt IE 9]>
+  <script type="text/javascript" src="assets/js/libs/excanvas.min.js"></script>
+  <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <script type="text/javascript" src="assets/js/libs/respond.min.js"></script>
+<![endif]-->
+	<!-- Bootstrap plugins -->
+	<script src="assets/js/bootstrap/bootstrap.js"></script>
+	<!-- Core plugins ( not remove ever) -->
+	<!-- Handle responsive view functions -->
+	<script src="assets/js/jRespond.min.js"></script>
+	<!-- Custom scroll for sidebars,tables and etc. -->
+	<script src="assets/plugins/core/slimscroll/jquery.slimscroll.min.js"></script>
+	<script
+		src="assets/plugins/core/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+	<!-- Resize text area in most pages -->
+	<script src="assets/plugins/forms/autosize/jquery.autosize.js"></script>
+	<!-- Proivde quick search for many widgets -->
+	<script src="assets/plugins/core/quicksearch/jquery.quicksearch.js"></script>
+	<!-- Bootbox confirm dialog for reset postion on panels -->
+	<script src="assets/plugins/ui/bootbox/bootbox.js"></script>
+	<!-- Other plugins ( load only nessesary plugins for every page) -->
+	<script src="assets/plugins/core/moment/moment.min.js"></script>
+	<script src="assets/plugins/charts/sparklines/jquery.sparkline.js"></script>
+	<script src="assets/plugins/charts/pie-chart/jquery.easy-pie-chart.js"></script>
+	<script src="assets/plugins/forms/icheck/jquery.icheck.js"></script>
+	<script src="assets/plugins/forms/tags/jquery.tagsinput.min.js"></script>
+	<script src="assets/plugins/forms/tinymce/tinymce.min.js"></script>
+	<script src="assets/plugins/forms/switch/jquery.onoff.min.js"></script>
+	<script src="assets/plugins/forms/maxlength/bootstrap-maxlength.js"></script>
+	<script
+		src="assets/plugins/forms/bootstrap-filestyle/bootstrap-filestyle.js"></script>
+	<script src="assets/plugins/forms/color-picker/spectrum.js"></script>
+	<script src="assets/plugins/forms/daterangepicker/daterangepicker.js"></script>
+	<script
+		src="assets/plugins/forms/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+	<script src="assets/plugins/forms/globalize/globalize.js"></script>
+	<script src="assets/plugins/forms/maskedinput/jquery.maskedinput.js"></script>
+	<script src="assets/plugins/forms/select2/select2.js"></script>
+	<script
+		src="assets/plugins/forms/dual-list-box/jquery.bootstrap-duallistbox.js"></script>
+	<script src="assets/plugins/forms/password/jquery-passy.js"></script>
+	<script src="assets/plugins/forms/checkall/jquery.checkAll.js"></script>
+	<script src="assets/plugins/misc/highlight/highlight.pack.js"></script>
+	<script src="assets/plugins/misc/countTo/jquery.countTo.js"></script>
+	<script src="assets/js/jquery.sprFlat.js"></script>
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/pages/forms.js"></script>
 </body>
 </html>

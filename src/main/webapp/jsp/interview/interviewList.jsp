@@ -5,73 +5,42 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <base href="<%=basePath%>">
-
-<title>My JSP 'queryInterview.jsp' starting page</title>
-
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="cache-control" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-<!-- Css files -->
-<!-- Icons -->
-<link href="/guoya-client/assets/css/icons.css" rel="stylesheet" />
+<title>面试查询</title>
 <!-- jQueryUI -->
 <link href="/guoya-client/assets/css/sprflat-theme/jquery.ui.all.css"
 	rel="stylesheet" />
 <!-- Bootstrap stylesheets (included template modifications) -->
 <link href="/guoya-client/assets/css/bootstrap.css" rel="stylesheet" />
-<!-- Plugins stylesheets (all plugin custom css) -->
-<link href="/guoya-client/assets/css/plugins.css" rel="stylesheet" />
-<!-- Main stylesheets (template main css file) -->
-<link href="/guoya-client/assets/css/main.css" rel="stylesheet" />
-<!-- Custom stylesheets ( Put your own changes here ) -->
-<link href="/guoya-client/assets/css/custom.css" rel="stylesheet" />
-<!-- Fav and touch icons -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	href="/guoya-client/assets/img/ico/apple-touch-icon-144-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	href="/guoya-client/assets/img/ico/apple-touch-icon-114-precomposed.png">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	href="/guoya-client/assets/img/ico/apple-touch-icon-72-precomposed.png">
-<link rel="apple-touch-icon-precomposed"
-	href="/guoya-client/assets/img/ico/apple-touch-icon-57-precomposed.png">
-<link rel="icon" href="/guoya-client/assets/img/ico/favicon.ico"
-	type="image/png">
-<!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
-<meta name="msapplication-TileColor" content="#3399cc" />
 </head>
-
 <body>
-	<div>
+
+	<div class="outlet">
+		<!-- Start .outlet -->
+		<!-- Page start here ( usual with .row ) -->
 		<div class="row">
 			<!-- Start .row -->
-			<div class="col-lg-12 col-md-12">
-				<!-- col-lg-6 start here -->
-				<div
-					class="panel panel-default plain toggle panelClose panelRefresh">
+			<div class="col-lg-12">
+				<!-- Start col-lg-12 -->
+				<div class="panel panel-default toggle">
 					<!-- Start .panel -->
 					<div class="panel-heading white-bg">
-						<h2 class="panel-title">
+						<h3 class="panel-title">
 							面试学生数：<span style="color: red">${statistics.studentCtn}</span>（
 							拿offer：<span style="color: red">${statistics.passStu}</span>），
 							面试总数：<span style="color: red">${statistics.interviewCtn}</span>（
 							未开始：<span style="color: red">${statistics.unCompleteCtn}</span>，
-							已结束：<span style="color: red">${statistics.completeCtn}</span>[
-							通过<span style="color: red">${statistics.passStu}</span>]）
-						</h2>
+							已结束：<span style="color: red">${statistics.completeCtn}</span>[ 通过<span
+								style="color: red">${statistics.passStu}</span>]）
+						</h3>
 					</div>
 					<div class="panel-body">
+
 						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
@@ -117,5 +86,6 @@
 				<!-- End .panel -->
 			</div>
 		</div>
+	</div>
 </body>
 </html>
