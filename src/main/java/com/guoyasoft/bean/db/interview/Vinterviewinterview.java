@@ -2,7 +2,7 @@ package com.guoyasoft.bean.db.interview;
 
 import java.util.Date;
 
-public class VInterviewInterview {
+public class VinterviewInterview {
     private Integer interviewId;
 
     private Integer status;

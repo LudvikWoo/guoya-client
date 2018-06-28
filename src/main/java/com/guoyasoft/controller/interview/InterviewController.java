@@ -24,10 +24,10 @@ import com.guoyasoft.bean.api.interview.InterviewQueryResultBean;
 import com.guoyasoft.bean.api.interview.InterviewStatisticsBean;
 import com.guoyasoft.bean.api.interview.examAnswer.Answer;
 import com.guoyasoft.bean.api.interview.examAnswer.Exam;
-import com.guoyasoft.bean.db.interview.VInterviewInterview;
-import com.guoyasoft.bean.db.interview.VInterviewInterviewExample;
-import com.guoyasoft.bean.db.interview.VInterviewInterviewExample.Criteria;
-import com.guoyasoft.dao.interview.VInterviewInterviewMapper;
+import com.guoyasoft.bean.db.interview.VinterviewInterview;
+import com.guoyasoft.bean.db.interview.VinterviewInterviewExample;
+import com.guoyasoft.bean.db.interview.VinterviewInterviewExample.Criteria;
+import com.guoyasoft.dao.interview.VinterviewInterviewMapper;
 import com.guoyasoft.service.IInterviewSvc;
 import com.guoyasoft.tools.FileUpload;
 import com.guoyasoft.tools.StringTools;
@@ -37,7 +37,7 @@ import com.guoyasoft.tools.StringTools;
 public class InterviewController {
 
 	@Autowired
-	private VInterviewInterviewMapper vInterViewMapper;
+	private VinterviewInterviewMapper vInterViewMapper;
 	
 	@Autowired
 	private IInterviewSvc interviewSvc;
@@ -70,7 +70,7 @@ public class InterviewController {
 	public String queryInterview(InterviewQueryParamBean params,
 			HttpSession session) {
 		try {
-			VInterviewInterviewExample example = new VInterviewInterviewExample();
+			VinterviewInterviewExample example = new VinterviewInterviewExample();
 			Criteria criteria = example.createCriteria();
 			if (StringTools.isNotBlank(params.getCustmerName())) {
 				criteria.andCustomerNameLike("%"
@@ -108,13 +108,13 @@ public class InterviewController {
 				criteria.andResultEqualTo(Integer.parseInt(params.getResult().trim()));
 			}
 
-			List<VInterviewInterview> result = vInterViewMapper.selectByExample(example);
+			List<VinterviewInterview> result = vInterViewMapper.selectByExample(example);
 
 			List<InterviewQueryResultBean> list = new ArrayList<InterviewQueryResultBean>();
 			InterviewStatisticsBean statistics=new InterviewStatisticsBean();
 			for (int i = 0; i < result.size(); i++) {
 				InterviewQueryResultBean bean = new InterviewQueryResultBean();
-				VInterviewInterview var = result.get(i);
+				VinterviewInterview var = result.get(i);
 				BeanUtils.copyProperties(var, bean);
 				//记录学生
 				statistics.getStudentSet().add(var.getCustomerId()+"");
@@ -248,7 +248,7 @@ public class InterviewController {
 	}
 	
 	@RequestMapping(value="initAddInterview.action")
-	public String initAddInterview(VInterviewInterview interview,HttpSession session){
+	public String initAddInterview(VinterviewInterview interview,HttpSession session){
 		session.setAttribute("name", "guoya");
 		return "interview/addInterview";
 	}

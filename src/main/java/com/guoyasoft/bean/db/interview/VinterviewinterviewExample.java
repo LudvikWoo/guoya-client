@@ -5,14 +5,14 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-public class VInterviewInterviewExample {
+public class VinterviewInterviewExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public VInterviewInterviewExample() {
+    public VinterviewInterviewExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

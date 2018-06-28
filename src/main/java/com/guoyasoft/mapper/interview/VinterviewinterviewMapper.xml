@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.guoyasoft.dao.interview.VInterviewInterviewMapper">
-  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.interview.VInterviewInterview">
+<mapper namespace="com.guoyasoft.dao.interview.VinterviewInterviewMapper">
+  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.interview.VinterviewInterview">
     <result column="interview_id" jdbcType="INTEGER" property="interviewId" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -119,7 +119,7 @@
     mobile_phone, email, has_exam, has_exam_desc, is_outsource, is_outsource_desc, has_offer, 
     has_offer_desc, to_work, to_work_desc
   </sql>
-  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.interview.VInterviewInterviewExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.interview.VinterviewInterviewExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -134,13 +134,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.guoyasoft.bean.db.interview.VInterviewInterviewExample">
+  <delete id="deleteByExample" parameterType="com.guoyasoft.bean.db.interview.VinterviewInterviewExample">
     delete from v_interview_interview
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.guoyasoft.bean.db.interview.VInterviewInterview">
+  <insert id="insert" parameterType="com.guoyasoft.bean.db.interview.VinterviewInterview">
     insert into v_interview_interview (interview_id, status, create_time, 
       call_time, interview_time, interview_time_date, 
       interview_time_time, work_time, expect_salary, 
@@ -176,7 +176,7 @@
       #{hasOfferDesc,jdbcType=INTEGER}, #{toWork,jdbcType=INTEGER}, #{toWorkDesc,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.interview.VInterviewInterview">
+  <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.interview.VinterviewInterview">
     insert into v_interview_interview
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="interviewId != null">
@@ -471,7 +471,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.guoyasoft.bean.db.interview.VInterviewInterviewExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.guoyasoft.bean.db.interview.VinterviewInterviewExample" resultType="java.lang.Long">
     select count(*) from v_interview_interview
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

@@ -1,22 +1,22 @@
 package com.guoyasoft.dao.interview;
 
-import com.guoyasoft.bean.db.interview.VInterviewInterview;
-import com.guoyasoft.bean.db.interview.VInterviewInterviewExample;
+import com.guoyasoft.bean.db.interview.VinterviewInterview;
+import com.guoyasoft.bean.db.interview.VinterviewInterviewExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
-public interface VInterviewInterviewMapper {
-    long countByExample(VInterviewInterviewExample example);
+public interface VinterviewInterviewMapper {
+    long countByExample(VinterviewInterviewExample example);
 
-    int deleteByExample(VInterviewInterviewExample example);
+    int deleteByExample(VinterviewInterviewExample example);
 
-    int insert(VInterviewInterview record);
+    int insert(VinterviewInterview record);
 
-    int insertSelective(VInterviewInterview record);
+    int insertSelective(VinterviewInterview record);
 
-    List<VInterviewInterview> selectByExample(VInterviewInterviewExample example);
+    List<VinterviewInterview> selectByExample(VinterviewInterviewExample example);
 
-    int updateByExampleSelective(@Param("record") VInterviewInterview record, @Param("example") VInterviewInterviewExample example);
+    int updateByExampleSelective(@Param("record") VinterviewInterview record, @Param("example") VinterviewInterviewExample example);
 
-    int updateByExample(@Param("record") VInterviewInterview record, @Param("example") VInterviewInterviewExample example);
+    int updateByExample(@Param("record") VinterviewInterview record, @Param("example") VinterviewInterviewExample example);
 }
