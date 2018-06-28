@@ -2,7 +2,7 @@ package com.guoyasoft.bean.api.interview;
 
 import java.util.Date;
 
-public class InterviewQueryResultBean {
+public class InterviewAddBean {
 	private Integer interviewId;
 
 	private Integer status;
@@ -13,17 +13,21 @@ public class InterviewQueryResultBean {
 
 	private Date interviewTime;
 
+	private String interviewTimeDate;
+
+	private String interviewTimeTime;
+
 	private Date workTime;
 
 	private Integer expectSalary;
 
 	private Integer realSalary;
 
-	private Integer progress;
+	private String progress;
 
 	private String progressDesc;
 
-	private Integer result;
+	private String result;
 
 	private String resultDesc;
 
@@ -53,6 +57,8 @@ public class InterviewQueryResultBean {
 
 	private String companyName;
 
+	private String companyNameAbbreviation;
+
 	private String companyDesc;
 
 	private Integer companyType;
@@ -63,7 +69,11 @@ public class InterviewQueryResultBean {
 
 	private String hrCompanyName;
 
-	private Integer contactType;
+	private String hrName;
+
+	private String weichat;
+
+	private String qq;
 
 	private Integer hasExam;
 
@@ -72,8 +82,6 @@ public class InterviewQueryResultBean {
 	private Integer isOutsource;
 
 	private String isOutsourceDesc;
-
-	private String companyNameAbbreviation;
 
 	public Integer getInterviewId() {
 		return interviewId;
@@ -115,6 +123,24 @@ public class InterviewQueryResultBean {
 		this.interviewTime = interviewTime;
 	}
 
+	public String getInterviewTimeDate() {
+		return interviewTimeDate;
+	}
+
+	public void setInterviewTimeDate(String interviewTimeDate) {
+		this.interviewTimeDate = interviewTimeDate == null ? null
+				: interviewTimeDate.trim();
+	}
+
+	public String getInterviewTimeTime() {
+		return interviewTimeTime;
+	}
+
+	public void setInterviewTimeTime(String interviewTimeTime) {
+		this.interviewTimeTime = interviewTimeTime == null ? null
+				: interviewTimeTime.trim();
+	}
+
 	public Date getWorkTime() {
 		return workTime;
 	}
@@ -139,12 +165,12 @@ public class InterviewQueryResultBean {
 		this.realSalary = realSalary;
 	}
 
-	public Integer getProgress() {
+	public String getProgress() {
 		return progress;
 	}
 
-	public void setProgress(Integer progress) {
-		this.progress = progress;
+	public void setProgress(String progress) {
+		this.progress = progress == null ? null : progress.trim();
 	}
 
 	public String getProgressDesc() {
@@ -152,15 +178,15 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setProgressDesc(String progressDesc) {
-		this.progressDesc = progressDesc;
+		this.progressDesc = progressDesc == null ? null : progressDesc.trim();
 	}
 
-	public Integer getResult() {
+	public String getResult() {
 		return result;
 	}
 
-	public void setResult(Integer result) {
-		this.result = result;
+	public void setResult(String result) {
+		this.result = result == null ? null : result.trim();
 	}
 
 	public String getResultDesc() {
@@ -168,7 +194,7 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setResultDesc(String resultDesc) {
-		this.resultDesc = resultDesc;
+		this.resultDesc = resultDesc == null ? null : resultDesc.trim();
 	}
 
 	public Integer getClassId() {
@@ -184,7 +210,7 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setClassName(String className) {
-		this.className = className;
+		this.className = className == null ? null : className.trim();
 	}
 
 	public String getClassAbbreviation() {
@@ -192,7 +218,8 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setClassAbbreviation(String classAbbreviation) {
-		this.classAbbreviation = classAbbreviation;
+		this.classAbbreviation = classAbbreviation == null ? null
+				: classAbbreviation.trim();
 	}
 
 	public Integer getCourseInstanceId() {
@@ -208,7 +235,8 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setCourseInstanceName(String courseInstanceName) {
-		this.courseInstanceName = courseInstanceName;
+		this.courseInstanceName = courseInstanceName == null ? null
+				: courseInstanceName.trim();
 	}
 
 	public Integer getCustomerId() {
@@ -240,7 +268,7 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+		this.customerName = customerName == null ? null : customerName.trim();
 	}
 
 	public Integer getTeacherId() {
@@ -256,7 +284,7 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
+		this.teacherName = teacherName == null ? null : teacherName.trim();
 	}
 
 	public Integer getCompanyId() {
@@ -272,7 +300,16 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+		this.companyName = companyName == null ? null : companyName.trim();
+	}
+
+	public String getCompanyNameAbbreviation() {
+		return companyNameAbbreviation;
+	}
+
+	public void setCompanyNameAbbreviation(String companyNameAbbreviation) {
+		this.companyNameAbbreviation = companyNameAbbreviation == null ? null
+				: companyNameAbbreviation.trim();
 	}
 
 	public String getCompanyDesc() {
@@ -280,7 +317,7 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setCompanyDesc(String companyDesc) {
-		this.companyDesc = companyDesc;
+		this.companyDesc = companyDesc == null ? null : companyDesc.trim();
 	}
 
 	public Integer getCompanyType() {
@@ -312,15 +349,32 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setHrCompanyName(String hrCompanyName) {
-		this.hrCompanyName = hrCompanyName;
+		this.hrCompanyName = hrCompanyName == null ? null : hrCompanyName
+				.trim();
 	}
 
-	public Integer getContactType() {
-		return contactType;
+	public String getHrName() {
+		return hrName;
 	}
 
-	public void setContactType(Integer contactType) {
-		this.contactType = contactType;
+	public void setHrName(String hrName) {
+		this.hrName = hrName == null ? null : hrName.trim();
+	}
+
+	public String getWeichat() {
+		return weichat;
+	}
+
+	public void setWeichat(String weichat) {
+		this.weichat = weichat == null ? null : weichat.trim();
+	}
+
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq == null ? null : qq.trim();
 	}
 
 	public Integer getHasExam() {
@@ -336,7 +390,7 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setHasExamDesc(String hasExamDesc) {
-		this.hasExamDesc = hasExamDesc;
+		this.hasExamDesc = hasExamDesc == null ? null : hasExamDesc.trim();
 	}
 
 	public Integer getIsOutsource() {
@@ -352,15 +406,7 @@ public class InterviewQueryResultBean {
 	}
 
 	public void setIsOutsourceDesc(String isOutsourceDesc) {
-		this.isOutsourceDesc = isOutsourceDesc;
+		this.isOutsourceDesc = isOutsourceDesc == null ? null : isOutsourceDesc
+				.trim();
 	}
-
-	public String getCompanyNameAbbreviation() {
-		return companyNameAbbreviation;
-	}
-
-	public void setCompanyNameAbbreviation(String companyNameAbbreviation) {
-		this.companyNameAbbreviation = companyNameAbbreviation;
-	}
-
 }

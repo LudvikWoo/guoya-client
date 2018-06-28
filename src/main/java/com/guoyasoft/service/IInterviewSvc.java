@@ -9,4 +9,10 @@ public interface IInterviewSvc {
 	public Exam queryExamAnswers(String interviewId);
 
 	public int insertExamPicAnswer(Answer answer);
+
+	public int updateExampStatus(String examId, int i);
+
+	public int deletePicture(String pictureId, String interviewId);
+
+	public int updatePicAnswer(Answer answer, String method);
 }

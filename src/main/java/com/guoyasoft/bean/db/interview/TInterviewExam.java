@@ -11,6 +11,8 @@ public class TInterviewExam {
 
     private Integer status;
 
+    private Date updateTime;
+
     public Integer getExamId() {
         return examId;
     }
@@ -41,5 +43,13 @@ public class TInterviewExam {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

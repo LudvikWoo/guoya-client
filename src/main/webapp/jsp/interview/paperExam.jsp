@@ -88,6 +88,15 @@
 			//alert(1);  
 		}
 	}
+
+	function addAnswer(pictureId) {
+		var div = document.getElementById("answerDiv" + pictureId);
+		div.style.display = "block";
+	}
+	function cancelAnswer(pictureId) {
+		var div = document.getElementById("answerDiv" + pictureId);
+		div.style.display = "none";
+	}
 </script>
 </head>
 
@@ -105,9 +114,10 @@
 			</div>
 			<div style="display: flex">
 				<div>
-					<form action="interview/completeExam.action?examId=${exam.examId}" method="get" onsubmit="javascript:return confirm('确认笔试结束吗？');">
-						<input type="submit" value="结束答题" >
-					</form>
+					<a
+						href="interview/completeExam.action?examId=${exam.examId}&interviewId=${interviewId}"
+						onclick="javascript:return confirm('确认笔试结束吗？');"><input
+						type="submit" value="笔试交卷"></a>
 				</div>
 				<div>
 					<input type="button" value="刷新界面">
@@ -140,87 +150,105 @@
 		<br>
 		<!-- 答题区 -->
 		<div>
-			<c:forEach items="${exam.pictures }" var="picture">
-				<!-- 图片展现区 -->
-				<div>
-					<img src="${picture.picAddr }">
-				</div>
-				<hr>
-				<br>
-				<!-- 图片操作区 -->
-				<div>
+			<c:if test="${not empty exam.pictures }">
+				<c:forEach items="${exam.pictures }" var="picture">
+					<!-- 图片展现区 -->
 					<div>
-						<input type="button" value="新增答案"
-							onclick="addAnswer(${picture.pictureId})">
+						<img src="${picture.picAddr }" width="60%">
 					</div>
+					<hr>
+					<br>
+					<!-- 图片操作区 -->
 					<div>
-						<input type="button" value="删除照片"
-							onclick="deletePicture(${picture.pictureId})">
+						<div>
+							<input type="button" value="新增答案"
+								onclick="addAnswer(${picture.pictureId})">
+						</div>
+						<div>
+							<a
+								href="interview/deletePicture.action?pictureId=${picture.pictureId}&interviewId=${interviewId}"
+								onclick="javascript:return confirm('确认删除照片和照片的答案吗？');"><input
+								type="submit" value="删除照片"></a>
+
+						</div>
 					</div>
-				</div>
-				<hr>
-				<br>
+					<hr>
+					<br>
 
-				<!-- 新增答案区 -->
-				<div>
-					<form action="interview/addPicAnswer.action" method="post">
-						<div style="display: none">
-							<div>隐藏数据：</div>
-							<div>
-								<input type="text" name="interviewId"
-									value="${exam.interviewId }"> <input type="text"
-									name="pictureId" value="${picture.pictureId }">
-							</div>
-						</div>
-						<div>
-							<div>题号：</div>
-							<div>
-								<input type="text" name="subjectIndex">
-							</div>
-						</div>
-						<div>
-							<div>答案：</div>
-							<div>
-								<input type="text" name="answer">
-							</div>
-						</div>
-						<div>
-							<div>作者：</div>
-							<div>
-								<input type="text" name="authorCstName"> <input
-									type="text" name="authorCstId">
+					<!-- 新增答案区 -->
+					<div id="answerDiv${picture.pictureId}" style="display: none">
+						<form action="interview/addPicAnswer.action" method="post"
+							onreset="cancelAnswer(${picture.pictureId})">
+							<div style="display: none">
+								<div>隐藏数据：</div>
+								<div>
+									<input type="text" name="interviewId"
+										value="${exam.interviewId }"> <input type="text"
+										name="pictureId" value="${picture.pictureId }">
+								</div>
 							</div>
 							<div>
-								<input type="button" value="查询">
+								<div>题号：</div>
+								<div>
+									<input type="text" name="subjectIndex">
+								</div>
 							</div>
-						</div>
-						<div>
-							<input type="submit" value="提交">
-						</div>
-					</form>
-				</div>
-				<hr>
-				<br>
+							<div>
+								<div>答案：</div>
+								<div>
+									<input type="text" name="answer">
+								</div>
+							</div><!-- 
+							<div>
+								<div>作者：</div>
+								<div>
+									<input type="text" name="authorCstName"> <input
+										type="text" name="authorCstId">
+								</div>
+								<div>
+									<input type="button" value="查询">
+								</div>
+							</div> -->
+							<div>
+								<input type="submit" value="提交">
+							</div>
+							<div>
+								<input type="reset" value="取消">
+							</div>
+						</form>
+					</div>
+					<hr>
+					<br>
 
 
-				<!-- 答案列表区 -->
-				<div>
-					<c:forEach items="${picture.answers }" var="answer">
-						<div>
-							<div>${answer.subjectIndex }</div>
-							<div>${answer.answer }</div>
-							<div>${answer.authorCstName }</div>
-							<div>
-								<input type="button" value="点赞">
-							</div>
-							<div>
-								<input type="button" value="删除">
-							</div>
-						</div>
-					</c:forEach>
-				</div>
-			</c:forEach>
+					<!-- 答案列表区 -->
+					<div>
+						<c:if test="${not empty  picture.answers}">
+							<c:forEach items="${picture.answers }" var="answer">
+								<div>
+									<div>${answer.subjectIndex }</div>
+									<div>${answer.answer }</div>
+									<div>${answer.authorCstName }</div>
+									<%-- <div>
+										<a
+											href="interview/updatePicAnswer.action?method=praise&answerId=${answer.answerId }&interviewId=${interviewId}"
+											onclick="javascript:return confirm('确认点赞吗？');"><input
+											type="button" value="点赞"></a>
 
+									</div> --%>
+									<div>
+										<a
+											href="interview/updatePicAnswer.action?method=delete&answerId=${answer.answerId }&interviewId=${interviewId}"
+											onclick="javascript:return confirm('确认删除答案吗？');"><input
+											type="button" value="删除答案"></a>
+
+									</div>
+								</div>
+							</c:forEach>
+						</c:if>
+					</div>
+				</c:forEach>
+			</c:if>
 		</div>
 	</div>
 </body>

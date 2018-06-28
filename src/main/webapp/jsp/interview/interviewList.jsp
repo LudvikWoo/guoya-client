@@ -25,24 +25,18 @@
 	-->
 <!-- Css files -->
 <!-- Icons -->
-<link href="/guoya-client/assets/css/icons.css"
-	rel="stylesheet" />
+<link href="/guoya-client/assets/css/icons.css" rel="stylesheet" />
 <!-- jQueryUI -->
-<link
-	href="/guoya-client/assets/css/sprflat-theme/jquery.ui.all.css"
+<link href="/guoya-client/assets/css/sprflat-theme/jquery.ui.all.css"
 	rel="stylesheet" />
 <!-- Bootstrap stylesheets (included template modifications) -->
-<link href="/guoya-client/assets/css/bootstrap.css"
-	rel="stylesheet" />
+<link href="/guoya-client/assets/css/bootstrap.css" rel="stylesheet" />
 <!-- Plugins stylesheets (all plugin custom css) -->
-<link href="/guoya-client/assets/css/plugins.css"
-	rel="stylesheet" />
+<link href="/guoya-client/assets/css/plugins.css" rel="stylesheet" />
 <!-- Main stylesheets (template main css file) -->
-<link href="/guoya-client/assets/css/main.css"
-	rel="stylesheet" />
+<link href="/guoya-client/assets/css/main.css" rel="stylesheet" />
 <!-- Custom stylesheets ( Put your own changes here ) -->
-<link href="/guoya-client/assets/css/custom.css"
-	rel="stylesheet" />
+<link href="/guoya-client/assets/css/custom.css" rel="stylesheet" />
 <!-- Fav and touch icons -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144"
 	href="/guoya-client/assets/img/ico/apple-touch-icon-144-precomposed.png">
@@ -52,8 +46,7 @@
 	href="/guoya-client/assets/img/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed"
 	href="/guoya-client/assets/img/ico/apple-touch-icon-57-precomposed.png">
-<link rel="icon"
-	href="/guoya-client/assets/img/ico/favicon.ico"
+<link rel="icon" href="/guoya-client/assets/img/ico/favicon.ico"
 	type="image/png">
 <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
 <meta name="msapplication-TileColor" content="#3399cc" />
@@ -69,7 +62,14 @@
 					class="panel panel-default plain toggle panelClose panelRefresh">
 					<!-- Start .panel -->
 					<div class="panel-heading white-bg">
-						<h2 class="panel-title">面试学生数：${studentCount}，面试总数：${interviewCount}</h2>
+						<h2 class="panel-title">
+							面试学生数：<span style="color: red">${statistics.studentCtn}</span>（
+							拿offer：<span style="color: red">${statistics.passStu}</span>），
+							面试总数：<span style="color: red">${statistics.interviewCtn}</span>（
+							未开始：<span style="color: red">${statistics.unCompleteCtn}</span>，
+							已结束：<span style="color: red">${statistics.completeCtn}</span>[
+							通过<span style="color: red">${statistics.passStu}</span>]）
+						</h2>
 					</div>
 					<div class="panel-body">
 						<table class="table table-striped table-hover">
@@ -96,15 +96,18 @@
 										<td>${var.customerName}</td>
 										<td>${var.className }</td>
 										<td>${var.companyNameAbbreviation }</td>
-										<td><fmt:formatDate value="${var.interviewTime }" pattern="yyyy-MM-dd"/></td>
-										<td><fmt:formatDate value="${var.interviewTime }" pattern="HH:mm"/></td>
+										<td><fmt:formatDate value="${var.interviewTime }"
+												pattern="yyyy-MM-dd" /></td>
+										<td><fmt:formatDate value="${var.interviewTime }"
+												pattern="HH:mm" /></td>
 										<td>${var.isOutsourceDesc }</td>
 										<td>${var.progressDesc }</td>
 										<td>${var.resultDesc }</td>
 										<td>${var.realSalary }</td>
 										<td>${var.hasExamDesc }</td>
-										<td><input type="button" value="详情" > <input
-											type="button" value="笔试" onclick="window.open('interview/getPaperExam.action?interviewId=${var.interviewId}');"></td>
+										<td><input type="button" value="详情"> <input
+											type="button" value="笔试"
+											onclick="window.open('interview/getPaperExam.action?interviewId=${var.interviewId}');"></td>
 									</tr>
 								</c:forEach>
 							</tbody>

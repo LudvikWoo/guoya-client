@@ -211,8 +211,9 @@ function logout(){
 		<div class="main_div">
 			<ul>
 				<li><a href="study/init.action" target="right">作业检查</a></li>
-				<li><a href="jsp/interview/add.jsp" target="right">面试登记</a></li>
+				<li><a href="interview/initAddInterview.action" target="right">面试登记</a></li>
 				<li><a href="interview/initInterviewQuery.action" target="right">面试查询</a></li>
+				<li><a href="jsp/interview/company/addCompany.jsp" target="right">新增公司</a></li>
 				<li><a href="jsp/project/add.jsp" target="right">新增项目</a></li>
 				<li><a href="jsp/project/query.jsp" target="right">查询项目</a></li>
 				<li><a href="jsp/customer/add.jsp" target="right">新增客户</a></li>

@@ -2,7 +2,7 @@ package com.guoyasoft.bean.db.interview;
 
 import java.util.Date;
 
-public class Vinterviewinterview {
+public class VInterviewInterview {
     private Integer interviewId;
 
     private Integer status;
@@ -23,11 +23,13 @@ public class Vinterviewinterview {
 
     private Integer realSalary;
 
-    private String progress;
+    private Integer salaryCount;
+
+    private Integer progress;
 
     private String progressDesc;
 
-    private String result;
+    private Integer result;
 
     private String resultDesc;
 
@@ -69,6 +71,18 @@ public class Vinterviewinterview {
 
     private String hrCompanyName;
 
+    private String hrName;
+
+    private String weichat;
+
+    private String qq;
+
+    private String telPhone;
+
+    private String mobilePhone;
+
+    private String email;
+
     private Integer hasExam;
 
     private String hasExamDesc;
@@ -76,6 +90,14 @@ public class Vinterviewinterview {
     private Integer isOutsource;
 
     private String isOutsourceDesc;
+
+    private Integer hasOffer;
+
+    private Integer hasOfferDesc;
+
+    private Integer toWork;
+
+    private Integer toWorkDesc;
 
     public Integer getInterviewId() {
         return interviewId;
@@ -157,12 +179,20 @@ public class Vinterviewinterview {
         this.realSalary = realSalary;
     }
 
-    public String getProgress() {
+    public Integer getSalaryCount() {
+        return salaryCount;
+    }
+
+    public void setSalaryCount(Integer salaryCount) {
+        this.salaryCount = salaryCount;
+    }
+
+    public Integer getProgress() {
         return progress;
     }
 
-    public void setProgress(String progress) {
-        this.progress = progress == null ? null : progress.trim();
+    public void setProgress(Integer progress) {
+        this.progress = progress;
     }
 
     public String getProgressDesc() {
@@ -173,12 +203,12 @@ public class Vinterviewinterview {
         this.progressDesc = progressDesc == null ? null : progressDesc.trim();
     }
 
-    public String getResult() {
+    public Integer getResult() {
         return result;
     }
 
-    public void setResult(String result) {
-        this.result = result == null ? null : result.trim();
+    public void setResult(Integer result) {
+        this.result = result;
     }
 
     public String getResultDesc() {
@@ -341,6 +371,54 @@ public class Vinterviewinterview {
         this.hrCompanyName = hrCompanyName == null ? null : hrCompanyName.trim();
     }
 
+    public String getHrName() {
+        return hrName;
+    }
+
+    public void setHrName(String hrName) {
+        this.hrName = hrName == null ? null : hrName.trim();
+    }
+
+    public String getWeichat() {
+        return weichat;
+    }
+
+    public void setWeichat(String weichat) {
+        this.weichat = weichat == null ? null : weichat.trim();
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
+    }
+
+    public String getTelPhone() {
+        return telPhone;
+    }
+
+    public void setTelPhone(String telPhone) {
+        this.telPhone = telPhone == null ? null : telPhone.trim();
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone == null ? null : mobilePhone.trim();
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
     public Integer getHasExam() {
         return hasExam;
     }
@@ -371,5 +449,37 @@ public class Vinterviewinterview {
 
     public void setIsOutsourceDesc(String isOutsourceDesc) {
         this.isOutsourceDesc = isOutsourceDesc == null ? null : isOutsourceDesc.trim();
+    }
+
+    public Integer getHasOffer() {
+        return hasOffer;
+    }
+
+    public void setHasOffer(Integer hasOffer) {
+        this.hasOffer = hasOffer;
+    }
+
+    public Integer getHasOfferDesc() {
+        return hasOfferDesc;
+    }
+
+    public void setHasOfferDesc(Integer hasOfferDesc) {
+        this.hasOfferDesc = hasOfferDesc;
+    }
+
+    public Integer getToWork() {
+        return toWork;
+    }
+
+    public void setToWork(Integer toWork) {
+        this.toWork = toWork;
+    }
+
+    public Integer getToWorkDesc() {
+        return toWorkDesc;
+    }
+
+    public void setToWorkDesc(Integer toWorkDesc) {
+        this.toWorkDesc = toWorkDesc;
     }
 }

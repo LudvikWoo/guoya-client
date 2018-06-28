@@ -7,13 +7,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,12 +21,13 @@ import com.guoyasoft.bean.api.SelectOption;
 import com.guoyasoft.bean.api.interview.InterviewQueryInitBean;
 import com.guoyasoft.bean.api.interview.InterviewQueryParamBean;
 import com.guoyasoft.bean.api.interview.InterviewQueryResultBean;
+import com.guoyasoft.bean.api.interview.InterviewStatisticsBean;
 import com.guoyasoft.bean.api.interview.examAnswer.Answer;
 import com.guoyasoft.bean.api.interview.examAnswer.Exam;
-import com.guoyasoft.bean.db.interview.Vinterviewinterview;
-import com.guoyasoft.bean.db.interview.VinterviewinterviewExample;
-import com.guoyasoft.bean.db.interview.VinterviewinterviewExample.Criteria;
-import com.guoyasoft.dao.interview.VinterviewinterviewMapper;
+import com.guoyasoft.bean.db.interview.VInterviewInterview;
+import com.guoyasoft.bean.db.interview.VInterviewInterviewExample;
+import com.guoyasoft.bean.db.interview.VInterviewInterviewExample.Criteria;
+import com.guoyasoft.dao.interview.VInterviewInterviewMapper;
 import com.guoyasoft.service.IInterviewSvc;
 import com.guoyasoft.tools.FileUpload;
 import com.guoyasoft.tools.StringTools;
@@ -38,7 +37,7 @@ import com.guoyasoft.tools.StringTools;
 public class InterviewController {
 
 	@Autowired
-	private VinterviewinterviewMapper vInterViewMapper;
+	private VInterviewInterviewMapper vInterViewMapper;
 	
 	@Autowired
 	private IInterviewSvc interviewSvc;
@@ -58,10 +57,10 @@ public class InterviewController {
 
 		init.getResultSelect().add(new SelectOption("", "--请选择--", false));
 		init.getResultSelect().add(new SelectOption("0", "未开始", false));
-		init.getResultSelect().add(new SelectOption("1", "未通过", false));
-		init.getResultSelect().add(new SelectOption("2", "等offer", false));
-		init.getResultSelect().add(new SelectOption("3", "拒绝offer", false));
-		init.getResultSelect().add(new SelectOption("4", "入职", false));
+		init.getResultSelect().add(new SelectOption("1", "通过", false));
+		init.getResultSelect().add(new SelectOption("2", "未通过", false));
+/*		init.getResultSelect().add(new SelectOption("3", "拒绝offer", false));
+		init.getResultSelect().add(new SelectOption("4", "入职", false));*/
 
 		session.setAttribute("initObj", init);
 		return "interview/queryInterview";
@@ -71,7 +70,7 @@ public class InterviewController {
 	public String queryInterview(InterviewQueryParamBean params,
 			HttpSession session) {
 		try {
-			VinterviewinterviewExample example = new VinterviewinterviewExample();
+			VInterviewInterviewExample example = new VInterviewInterviewExample();
 			Criteria criteria = example.createCriteria();
 			if (StringTools.isNotBlank(params.getCustmerName())) {
 				criteria.andCustomerNameLike("%"
@@ -103,21 +102,38 @@ public class InterviewController {
 				}
 			}
 			if (StringTools.isNotBlank(params.getProgress())) {
-				criteria.andProgressEqualTo(params.getProgress().trim());
+				criteria.andProgressEqualTo(Integer.parseInt(params.getProgress().trim()));
 			}
 			if (StringTools.isNotBlank(params.getResult())) {
-				criteria.andResultEqualTo(params.getResult().trim());
+				criteria.andResultEqualTo(Integer.parseInt(params.getResult().trim()));
 			}
 
-			List<Vinterviewinterview> result = vInterViewMapper.selectByExample(example);
+			List<VInterviewInterview> result = vInterViewMapper.selectByExample(example);
 
 			List<InterviewQueryResultBean> list = new ArrayList<InterviewQueryResultBean>();
-			Set<Integer> sets = new HashSet<Integer>();
+			InterviewStatisticsBean statistics=new InterviewStatisticsBean();
 			for (int i = 0; i < result.size(); i++) {
 				InterviewQueryResultBean bean = new InterviewQueryResultBean();
-				Vinterviewinterview var = result.get(i);
+				VInterviewInterview var = result.get(i);
 				BeanUtils.copyProperties(var, bean);
-				sets.add(var.getCustomerId());
+				//记录学生
+				statistics.getStudentSet().add(var.getCustomerId()+"");
+				if(var.getResult()==1){
+					//记录面试通过学生
+					statistics.getPassStuSet().add(var.getStudentId()+"");
+					statistics.setPassInterviewCtn(statistics.getPassInterviewCtn()+1);
+				}else{
+					//记录面试未学生
+					statistics.getUnpassStuSet().add(var.getStudentId()+"");
+					statistics.setUnpassInterviewCtn(statistics.getUnpassInterviewCtn()+1);
+				}
+				if(var.getProgress()==3){
+					//记录面试结束数
+					statistics.setCompleteCtn(statistics.getCompleteCtn()+1);
+				}else{
+					//记录面试未结束数
+					statistics.setUnCompleteCtn(statistics.getUnCompleteCtn()+1);
+				}
 				// bean.setCustomerId(var.getCustomerId());
 				// bean.setCustomerName(var.getCustomerName());
 				// bean.setClassId(var.getClassId());;
@@ -131,9 +147,9 @@ public class InterviewController {
 				// bean.setHasExamDesc(i%2==0?"有":"无");
 				list.add(bean);
 			}
+			statistics.setInterviewCtn(list.size());
 			session.setAttribute("result", list);
-			session.setAttribute("studentCount", sets.size());
-			session.setAttribute("interviewCount", list.size());
+			session.setAttribute("statistics", statistics);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -177,6 +193,33 @@ public class InterviewController {
 		return result;
 	}
 	
+	@RequestMapping("deletePicture.action")
+	public String deletePicture(String interviewId,String pictureId,HttpSession session){
+		int count=interviewSvc.deletePicture(pictureId,interviewId);
+		/*
+		 * 刷新笔试界面
+		 */
+		String result=getPaperExam(interviewId, session);
+		return result;
+	}
+	
+	@RequestMapping(value="completeExam.action")
+	public String completeExam(String examId,String interviewId,HttpSession session){
+		/*
+		 * 第一步：将答案插入数据库
+		 */
+		try{
+			int count=interviewSvc.updateExampStatus(examId,2);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		/*
+		 * 第二步：再次查询笔试信息
+		 */
+		String result=getPaperExam(interviewId, session);
+		return result;
+	}
+	
 	@RequestMapping(value="addPicAnswer.action")
 	public String addPicAnswer(Answer answer,HttpSession session){
 		/*
@@ -192,5 +235,21 @@ public class InterviewController {
 		 */
 		String result=getPaperExam(answer.getInterviewId()+"", session);
 		return result;
+	}
+	
+	@RequestMapping("updatePicAnswer.action")
+	public String updatePicAnswer(Answer answer,String method,String interviewId,HttpSession session){
+		int count=interviewSvc.updatePicAnswer(answer,method);
+		/*
+		 * 第二步：再次查询笔试信息
+		 */
+		String result=getPaperExam(interviewId, session);
+		return result;
+	}
+	
+	@RequestMapping(value="initAddInterview.action")
+	public String initAddInterview(VInterviewInterview interview,HttpSession session){
+		session.setAttribute("name", "guoya");
+		return "interview/addInterview";
 	}
 }

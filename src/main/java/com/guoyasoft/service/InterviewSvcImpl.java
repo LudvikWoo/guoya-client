@@ -17,6 +17,7 @@ import com.guoyasoft.bean.api.interview.examAnswer.Exam;
 import com.guoyasoft.bean.api.interview.examAnswer.Picture;
 import com.guoyasoft.bean.db.interview.TInterviewExam;
 import com.guoyasoft.bean.db.interview.TInterviewExamAnswer;
+import com.guoyasoft.bean.db.interview.TInterviewExamAnswerExample;
 import com.guoyasoft.bean.db.interview.TInterviewExamExample;
 import com.guoyasoft.bean.db.interview.TInterviewExamPicture;
 import com.guoyasoft.bean.db.interview.TInterviewInterview;
@@ -27,6 +28,7 @@ import com.guoyasoft.dao.interview.TInterviewExamMapper;
 import com.guoyasoft.dao.interview.TInterviewExamPictureMapper;
 import com.guoyasoft.dao.interview.TInterviewInterviewMapper;
 import com.guoyasoft.dao.interview.VInterviewExamAnswerMapper;
+import com.guoyasoft.tools.StringTools;
 
 @Service("interviceSvc")
 public class InterviewSvcImpl implements IInterviewSvc {
@@ -41,7 +43,7 @@ public class InterviewSvcImpl implements IInterviewSvc {
 
 	@Autowired
 	VInterviewExamAnswerMapper answerMapper;
-	
+
 	@Autowired
 	TInterviewExamAnswerMapper answerTableMapper;
 
@@ -106,21 +108,33 @@ public class InterviewSvcImpl implements IInterviewSvc {
 				/*
 				 * 第三步：生成answer信息
 				 */
-				Answer answer = new Answer();
-				BeanUtils.copyProperties(a, answer);
-				Picture picture = pictures.get(a.getPictureId() + "");
-				if (picture == null) {
-					picture = new Picture();
-					picture.setPictureId(a.getPictureId());
-					picture.setPicAddr(a.getPicAddr());
-					pictures.put(a.getPictureId() + "", picture);
+				if (a.getPictureId() != null
+						&& !"".equals(a.getPictureId())
+								&& !"null".equalsIgnoreCase(a.getPictureId()+"")) {
+					Picture picture = pictures.get(a.getPictureId() + "");
+					if (picture == null) {
+						picture = new Picture();
+						picture.setPictureId(a.getPictureId());
+						picture.setPicAddr(a.getPicAddr());
+						pictures.put(a.getPictureId() + "", picture);
+					}
+					if (a.getAnswerId() != null && !"".equals(a.getAnswerId())
+							&& !"null".equalsIgnoreCase(a.getAnswerId() + "")) {
+						Answer answer = new Answer();
+						BeanUtils.copyProperties(a, answer);
+						picture.getAnswers().add(answer);
+					}
 				}
-				picture.getAnswers().add(answer);
 			}
-			
-			Iterator<Entry<String, Picture>>  iterator=pictures.entrySet().iterator();
-			while(iterator.hasNext()){
-				Picture p=iterator.next().getValue();
+			if(pictures.size()==0){
+				TInterviewInterview record=interviewMapper.selectByPrimaryKey(Integer.parseInt(interviewId));
+				record.setHasExam(0);
+				interviewMapper.updateByPrimaryKey(record);
+			}
+			Iterator<Entry<String, Picture>> iterator = pictures.entrySet()
+					.iterator();
+			while (iterator.hasNext()) {
+				Picture p = iterator.next().getValue();
 				exam.getPictures().add(p);
 			}
 
@@ -131,13 +145,41 @@ public class InterviewSvcImpl implements IInterviewSvc {
 
 	@Override
 	public int insertExamPicAnswer(Answer answer) {
-		TInterviewExamAnswer record=new TInterviewExamAnswer();
+		TInterviewExamAnswer record = new TInterviewExamAnswer();
 		BeanUtils.copyProperties(answer, record);
 		record.setCreateTime(new Date());
 		record.setStatus(0);
 		record.setPraiseCount(0);
-		int count=answerTableMapper.insert(record);
+		int count = answerTableMapper.insert(record);
 		return count;
+	}
+
+	@Override
+	public int updateExampStatus(String examId, int i) {
+		TInterviewExam record = examMapper.selectByPrimaryKey(Integer
+				.parseInt(examId));
+		record.setUpdateTime(new Date());
+		record.setStatus(i);
+		int count = examMapper.updateByPrimaryKey(record);
+		return count;
+	}
+
+	@Override
+	public int deletePicture(String pictureId, String interviewId) {
+		TInterviewExamAnswerExample example = new TInterviewExamAnswerExample();
+		example.createCriteria().andPictureIdEqualTo(
+				Integer.parseInt(pictureId));
+		int count = answerTableMapper.deleteByExample(example);
+		count += pictureMapper.deleteByPrimaryKey(Integer.parseInt(pictureId));
+		return count;
+	}
+
+	@Override
+	public int updatePicAnswer(Answer answer, String method) {
+		if("delete".equals(method)){
+			answerTableMapper.deleteByPrimaryKey(answer.getAnswerId());
+		}
+		return 0;
 	}
 
 }

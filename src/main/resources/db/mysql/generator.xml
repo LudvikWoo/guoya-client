@@ -39,7 +39,7 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-		<table tableName="t_interview_exam_answer" domainObjectName="TInterviewExamAnswer"
+		<table tableName="v_interview_interview" domainObjectName="VInterviewInterview"
 			enableCountByExample="true" enableUpdateByExample="true"
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true" enableDeleteByPrimaryKey="true"
