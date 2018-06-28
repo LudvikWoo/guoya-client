@@ -117,7 +117,7 @@
 									<label class="col-lg-1 col-md-1 col-sm-2 control-label">上传照片：</label>
 									<div class="col-lg-3 col-md-3">
 										<input type="file" id="pic_upload" name="pic_upload"
-											type="file" multiple="true" accept='image/*'
+											multiple="true" accept='image/*'
 											onchange="showPics(this)">
 									</div>
 									<div class="col-lg-1 col-md-1  col-sm-4">
