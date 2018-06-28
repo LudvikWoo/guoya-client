@@ -126,6 +126,7 @@
 								</div>
 							</form>
 						</div>
+						<br>
 						<div class="img-box" id="imgboxid"></div>
 
 						<!-- 照片临时显示区 -->
