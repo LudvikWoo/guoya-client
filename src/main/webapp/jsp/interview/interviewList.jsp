@@ -36,7 +36,7 @@
 							面试总数：<span style="color: red">${statistics.interviewCtn}</span>（
 							未开始：<span style="color: red">${statistics.unCompleteCtn}</span>，
 							已结束：<span style="color: red">${statistics.completeCtn}</span>[ 通过<span
-								style="color: red">${statistics.passStu}</span>]）
+								style="color: red">${statistics.passInterviewCtn}</span>]）
 						</h3>
 					</div>
 					<div class="panel-body">

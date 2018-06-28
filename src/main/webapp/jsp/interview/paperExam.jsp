@@ -91,9 +91,9 @@
 					<div class="panel-heading navbar-fixed-top">
 						<h3 class="panel-title  col-lg-1 col-md-1">姓名：
 							${exam.customerName }</h3>
-						<h3 class="panel-title  col-lg-1 col-md-1">公司：
+						<h3 class="panel-title  col-lg-2 col-md-2">公司：
 							${exam.companyName }</h3>
-						<span class="panel-title text-right col-lg-8 col-md-8"> <a
+						<span class="panel-title text-right col-lg-6 col-md-6"> <a
 							href="interview/completeExam.action?examId=${exam.examId}&interviewId=${interviewId}"
 							onclick="javascript:return confirm('确认笔试结束吗？');"><button
 									class="btn btn-danger btn-xs" type="submit">笔试交卷</button></a>
