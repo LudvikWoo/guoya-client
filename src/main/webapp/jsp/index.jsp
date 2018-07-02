@@ -174,12 +174,12 @@ table {
 }
 </style>
 <script type="text/javascript">
-function refresh(){
-	window.open("/guoya-client");
-}
-function logout(){
-	document.getElementById("logoutForm").submit();
-}
+	function refresh() {
+		window.open("/guoya-client");
+	}
+	function logout() {
+		document.getElementById("logoutForm").submit();
+	}
 </script>
 </head>
 
@@ -210,11 +210,16 @@ function logout(){
 		<nav>
 		<div class="main_div">
 			<ul>
-				<li><a href="study/init.action" target="right">作业检查</a></li>
-				<li><a href="interview/initAddInterview.action" target="right">面试登记</a></li>
-				<li><a href="interview/initInterviewQuery.action" target="right">面试查询</a></li>
-				<li><a href="jsp/interview/company/addCompany.jsp" target="right">新增公司</a></li>
-				<li><a href="jsp/project/add.jsp" target="right">新增项目</a></li>
+				<li><a href="jsp/study/checkTask.jsp" target="right">作业检查</a></li>
+				<li><a href="jsp/interview/addInterview.jsp" target="right">面试登记</a></li>
+				<li><a href="interview/initInterviewQuery.action"
+					target="right">查询面试</a></li>
+				<li><a href="jsp/interview/company/queryCompany.jsp"
+					target="right">查询公司</a></li>
+				<li><a href="jsp/interview/company/project/addProject.jsp"
+					target="right">加项目组</a></li>
+				<li><a href="jsp/interview/company/hr/addHr.jsp"
+					target="right">新增HR</a></li>
 				<li><a href="jsp/project/query.jsp" target="right">查询项目</a></li>
 				<li><a href="jsp/customer/add.jsp" target="right">新增客户</a></li>
 				<li><a href="jsp/customer/query.jsp" target="right">查询客户</a></li>
@@ -243,10 +248,8 @@ function logout(){
 		</div>
 		</nav>
 
-		<section> <iframe id="iframepage" name="right" width="100%" height="96%"
-			 scrolling="auto" frameborder="0"
-			></iframe>
-			<!-- onload="this.height=this.contentWindow.document.body.scrollHeight" -->
+		<section> <iframe id="iframepage" name="right" width="100%"
+			height="96%" scrolling="auto" frameborder="0"></iframe> <!-- onload="this.height=this.contentWindow.document.body.scrollHeight" -->
 		</section>
 		<footer>
 		<div>

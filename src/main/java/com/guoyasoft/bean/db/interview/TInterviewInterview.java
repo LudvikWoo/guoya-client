@@ -13,13 +13,15 @@ public class TInterviewInterview {
 
     private Date workTime;
 
-    private String progress;
+    private Integer progress;
 
-    private String result;
+    private Integer result;
 
     private Integer expectSalary;
 
     private Integer realSalary;
+
+    private Integer salaryCount;
 
     private String mark;
 
@@ -34,6 +36,10 @@ public class TInterviewInterview {
     private Integer hasExam;
 
     private Integer isOutsource;
+
+    private Integer hasOffer;
+
+    private Integer toWork;
 
     public Integer getInterviewId() {
         return interviewId;
@@ -75,20 +81,20 @@ public class TInterviewInterview {
         this.workTime = workTime;
     }
 
-    public String getProgress() {
+    public Integer getProgress() {
         return progress;
     }
 
-    public void setProgress(String progress) {
-        this.progress = progress == null ? null : progress.trim();
+    public void setProgress(Integer progress) {
+        this.progress = progress;
     }
 
-    public String getResult() {
+    public Integer getResult() {
         return result;
     }
 
-    public void setResult(String result) {
-        this.result = result == null ? null : result.trim();
+    public void setResult(Integer result) {
+        this.result = result;
     }
 
     public Integer getExpectSalary() {
@@ -105,6 +111,14 @@ public class TInterviewInterview {
 
     public void setRealSalary(Integer realSalary) {
         this.realSalary = realSalary;
+    }
+
+    public Integer getSalaryCount() {
+        return salaryCount;
+    }
+
+    public void setSalaryCount(Integer salaryCount) {
+        this.salaryCount = salaryCount;
     }
 
     public String getMark() {
@@ -161,5 +175,21 @@ public class TInterviewInterview {
 
     public void setIsOutsource(Integer isOutsource) {
         this.isOutsource = isOutsource;
+    }
+
+    public Integer getHasOffer() {
+        return hasOffer;
+    }
+
+    public void setHasOffer(Integer hasOffer) {
+        this.hasOffer = hasOffer;
+    }
+
+    public Integer getToWork() {
+        return toWork;
+    }
+
+    public void setToWork(Integer toWork) {
+        this.toWork = toWork;
     }
 }

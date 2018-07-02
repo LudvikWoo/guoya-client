@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.interview.VInterviewHrMapper">
+  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.interview.VInterviewHr">
+    <result column="hr_id" jdbcType="INTEGER" property="hrId" />
+    <result column="hr_name" jdbcType="VARCHAR" property="hrName" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="tel_phone" jdbcType="VARCHAR" property="telPhone" />
+    <result column="weichat" jdbcType="VARCHAR" property="weichat" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="hr_status" jdbcType="INTEGER" property="hrStatus" />
+    <result column="hr_status_desc" jdbcType="VARCHAR" property="hrStatusDesc" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_name_abbreviation" jdbcType="VARCHAR" property="companyNameAbbreviation" />
+    <result column="company_desc" jdbcType="VARCHAR" property="companyDesc" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="company_status" jdbcType="INTEGER" property="companyStatus" />
+    <result column="company_status_desc" jdbcType="VARCHAR" property="companyStatusDesc" />
+    <result column="is_outsource" jdbcType="INTEGER" property="isOutsource" />
+    <result column="is_outsource_desc" jdbcType="VARCHAR" property="isOutsourceDesc" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    hr_id, hr_name, mobile_phone, tel_phone, weichat, qq, email, create_time, update_time, 
+    hr_status, hr_status_desc, company_id, company_name, company_name_abbreviation, company_desc, 
+    addr, company_status, company_status_desc, is_outsource, is_outsource_desc
+  </sql>
+  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.interview.VInterviewHrExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from v_interview_hr
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.guoyasoft.bean.db.interview.VInterviewHrExample">
+    delete from v_interview_hr
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.guoyasoft.bean.db.interview.VInterviewHr">
+    insert into v_interview_hr (hr_id, hr_name, mobile_phone, 
+      tel_phone, weichat, qq, 
+      email, create_time, update_time, 
+      hr_status, hr_status_desc, company_id, 
+      company_name, company_name_abbreviation, company_desc, 
+      addr, company_status, company_status_desc, 
+      is_outsource, is_outsource_desc)
+    values (#{hrId,jdbcType=INTEGER}, #{hrName,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, 
+      #{telPhone,jdbcType=VARCHAR}, #{weichat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{hrStatus,jdbcType=INTEGER}, #{hrStatusDesc,jdbcType=VARCHAR}, #{companyId,jdbcType=INTEGER}, 
+      #{companyName,jdbcType=VARCHAR}, #{companyNameAbbreviation,jdbcType=VARCHAR}, #{companyDesc,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{companyStatus,jdbcType=INTEGER}, #{companyStatusDesc,jdbcType=VARCHAR}, 
+      #{isOutsource,jdbcType=INTEGER}, #{isOutsourceDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.interview.VInterviewHr">
+    insert into v_interview_hr
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hrId != null">
+        hr_id,
+      </if>
+      <if test="hrName != null">
+        hr_name,
+      </if>
+      <if test="mobilePhone != null">
+        mobile_phone,
+      </if>
+      <if test="telPhone != null">
+        tel_phone,
+      </if>
+      <if test="weichat != null">
+        weichat,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="hrStatus != null">
+        hr_status,
+      </if>
+      <if test="hrStatusDesc != null">
+        hr_status_desc,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="companyNameAbbreviation != null">
+        company_name_abbreviation,
+      </if>
+      <if test="companyDesc != null">
+        company_desc,
+      </if>
+      <if test="addr != null">
+        addr,
+      </if>
+      <if test="companyStatus != null">
+        company_status,
+      </if>
+      <if test="companyStatusDesc != null">
+        company_status_desc,
+      </if>
+      <if test="isOutsource != null">
+        is_outsource,
+      </if>
+      <if test="isOutsourceDesc != null">
+        is_outsource_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hrId != null">
+        #{hrId,jdbcType=INTEGER},
+      </if>
+      <if test="hrName != null">
+        #{hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhone != null">
+        #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="telPhone != null">
+        #{telPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="weichat != null">
+        #{weichat,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hrStatus != null">
+        #{hrStatus,jdbcType=INTEGER},
+      </if>
+      <if test="hrStatusDesc != null">
+        #{hrStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyNameAbbreviation != null">
+        #{companyNameAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="companyDesc != null">
+        #{companyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="addr != null">
+        #{addr,jdbcType=VARCHAR},
+      </if>
+      <if test="companyStatus != null">
+        #{companyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="companyStatusDesc != null">
+        #{companyStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="isOutsource != null">
+        #{isOutsource,jdbcType=INTEGER},
+      </if>
+      <if test="isOutsourceDesc != null">
+        #{isOutsourceDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.guoyasoft.bean.db.interview.VInterviewHrExample" resultType="java.lang.Long">
+    select count(*) from v_interview_hr
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update v_interview_hr
+    <set>
+      <if test="record.hrId != null">
+        hr_id = #{record.hrId,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrName != null">
+        hr_name = #{record.hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobilePhone != null">
+        mobile_phone = #{record.mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telPhone != null">
+        tel_phone = #{record.telPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weichat != null">
+        weichat = #{record.weichat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qq != null">
+        qq = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hrStatus != null">
+        hr_status = #{record.hrStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrStatusDesc != null">
+        hr_status_desc = #{record.hrStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyId != null">
+        company_id = #{record.companyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.companyName != null">
+        company_name = #{record.companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyNameAbbreviation != null">
+        company_name_abbreviation = #{record.companyNameAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyDesc != null">
+        company_desc = #{record.companyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addr != null">
+        addr = #{record.addr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyStatus != null">
+        company_status = #{record.companyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.companyStatusDesc != null">
+        company_status_desc = #{record.companyStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isOutsource != null">
+        is_outsource = #{record.isOutsource,jdbcType=INTEGER},
+      </if>
+      <if test="record.isOutsourceDesc != null">
+        is_outsource_desc = #{record.isOutsourceDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update v_interview_hr
+    set hr_id = #{record.hrId,jdbcType=INTEGER},
+      hr_name = #{record.hrName,jdbcType=VARCHAR},
+      mobile_phone = #{record.mobilePhone,jdbcType=VARCHAR},
+      tel_phone = #{record.telPhone,jdbcType=VARCHAR},
+      weichat = #{record.weichat,jdbcType=VARCHAR},
+      qq = #{record.qq,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      hr_status = #{record.hrStatus,jdbcType=INTEGER},
+      hr_status_desc = #{record.hrStatusDesc,jdbcType=VARCHAR},
+      company_id = #{record.companyId,jdbcType=INTEGER},
+      company_name = #{record.companyName,jdbcType=VARCHAR},
+      company_name_abbreviation = #{record.companyNameAbbreviation,jdbcType=VARCHAR},
+      company_desc = #{record.companyDesc,jdbcType=VARCHAR},
+      addr = #{record.addr,jdbcType=VARCHAR},
+      company_status = #{record.companyStatus,jdbcType=INTEGER},
+      company_status_desc = #{record.companyStatusDesc,jdbcType=VARCHAR},
+      is_outsource = #{record.isOutsource,jdbcType=INTEGER},
+      is_outsource_desc = #{record.isOutsourceDesc,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

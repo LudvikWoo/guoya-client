@@ -3,7 +3,7 @@
 <mapper namespace="com.guoyasoft.dao.interview.TInterviewExamMapper">
   <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.interview.TInterviewExam">
     <id column="exam_id" jdbcType="INTEGER" property="examId" />
-    <result column="interview_id" jdbcType="VARCHAR" property="interviewId" />
+    <result column="interview_id" jdbcType="INTEGER" property="interviewId" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -103,7 +103,7 @@
   <insert id="insert" parameterType="com.guoyasoft.bean.db.interview.TInterviewExam">
     insert into t_interview_exam (exam_id, interview_id, create_time, 
       status, update_time)
-    values (#{examId,jdbcType=INTEGER}, #{interviewId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+    values (#{examId,jdbcType=INTEGER}, #{interviewId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.interview.TInterviewExam">
@@ -130,7 +130,7 @@
         #{examId,jdbcType=INTEGER},
       </if>
       <if test="interviewId != null">
-        #{interviewId,jdbcType=VARCHAR},
+        #{interviewId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -156,7 +156,7 @@
         exam_id = #{record.examId,jdbcType=INTEGER},
       </if>
       <if test="record.interviewId != null">
-        interview_id = #{record.interviewId,jdbcType=VARCHAR},
+        interview_id = #{record.interviewId,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -175,7 +175,7 @@
   <update id="updateByExample" parameterType="map">
     update t_interview_exam
     set exam_id = #{record.examId,jdbcType=INTEGER},
-      interview_id = #{record.interviewId,jdbcType=VARCHAR},
+      interview_id = #{record.interviewId,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       status = #{record.status,jdbcType=INTEGER},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
@@ -187,7 +187,7 @@
     update t_interview_exam
     <set>
       <if test="interviewId != null">
-        interview_id = #{interviewId,jdbcType=VARCHAR},
+        interview_id = #{interviewId,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -203,7 +203,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.guoyasoft.bean.db.interview.TInterviewExam">
     update t_interview_exam
-    set interview_id = #{interviewId,jdbcType=VARCHAR},
+    set interview_id = #{interviewId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       status = #{status,jdbcType=INTEGER},
       update_time = #{updateTime,jdbcType=TIMESTAMP}

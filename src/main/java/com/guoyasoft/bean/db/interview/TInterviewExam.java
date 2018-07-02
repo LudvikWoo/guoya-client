@@ -5,7 +5,7 @@ import java.util.Date;
 public class TInterviewExam {
     private Integer examId;
 
-    private String interviewId;
+    private Integer interviewId;
 
     private Date createTime;
 
@@ -21,12 +21,12 @@ public class TInterviewExam {
         this.examId = examId;
     }
 
-    public String getInterviewId() {
+    public Integer getInterviewId() {
         return interviewId;
     }
 
-    public void setInterviewId(String interviewId) {
-        this.interviewId = interviewId == null ? null : interviewId.trim();
+    public void setInterviewId(Integer interviewId) {
+        this.interviewId = interviewId;
     }
 
     public Date getCreateTime() {

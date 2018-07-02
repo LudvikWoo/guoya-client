@@ -31,7 +31,8 @@
 					<!-- Start .panel -->
 					<div class="panel-heading white-bg">
 						<h3 class="panel-title">
-							面试人数：<span style="color: red">${statistics.studentCtn}</span>（ 就业
+						<button class="btn btn-primary btn-sm" type="button" onclick="window.open('interview/initAddInterview.action')">新增面试</button> 
+							&nbsp;&nbsp;面试人数：<span style="color: red">${statistics.studentCtn}</span>（ 就业
 							<span style="color: red">${statistics.passStu}</span>） , 面试总数: <span
 								style="color: red">${statistics.interviewCtn}</span>（ 未开始 <span
 								style="color: red">${statistics.unCompleteCtn}</span> , 已结束 <span

@@ -13,8 +13,8 @@
 		</commentGenerator>
 		<!-- 数据库链接URL、用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://47.98.226.232:3306/guoya_official_dev" userId="root"
-			password="123456">
+			connectionURL="jdbc:mysql://47.98.226.232:3306/guoya_official_dev"
+			userId="root" password="123456">
 			<!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" 
 				userId="msa" password="msa"> -->
 		</jdbcConnection>
@@ -34,31 +34,25 @@
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置，这里配置将生成的dao类放在me.gacl.dao这个包下 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.guoyasoft.dao.interview"
-			targetProject="\\vmware-host\Shared Folders\Desktop\mybatis">
+			targetPackage="com.guoyasoft.dao.interview" targetProject="\\vmware-host\Shared Folders\Desktop\mybatis">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-		<table tableName="v_interview_interview" domainObjectName="VInterviewInterview"
+		<table tableName="t_interview_exam" domainObjectName="TInterviewExam"
 			enableCountByExample="true" enableUpdateByExample="true"
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true" enableDeleteByPrimaryKey="true"
 			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
 			selectByPrimaryKeyQueryId="true" enableInsert="true" />
-			
-			<!-- 视图生成方法
-			enableCountByExample="true" enableUpdateByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="true"
-			selectByExampleQueryId="true" enableDeleteByPrimaryKey="false"
-			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="false"
-			selectByPrimaryKeyQueryId="false" enableInsert="false" /> -->
-			
-			<!-- table生成方法 
-			enableCountByExample="true" enableUpdateByExample="true"
-			enableDeleteByExample="true" enableSelectByExample="true"
-			selectByExampleQueryId="true" enableDeleteByPrimaryKey="true"
-			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"
-			selectByPrimaryKeyQueryId="true" enableInsert="true" /> 
-			-->
+
+		<!-- 视图生成方法 enableCountByExample="true" enableUpdateByExample="false" enableDeleteByExample="false" 
+			enableSelectByExample="true" selectByExampleQueryId="true" enableDeleteByPrimaryKey="false" 
+			enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="false" selectByPrimaryKeyQueryId="false" 
+			enableInsert="false" /> -->
+
+		<!-- table生成方法 enableCountByExample="true" enableUpdateByExample="true" 
+			enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" 
+			enableDeleteByPrimaryKey="true" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true" 
+			selectByPrimaryKeyQueryId="true" enableInsert="true" /> -->
 	</context>
 </generatorConfiguration>

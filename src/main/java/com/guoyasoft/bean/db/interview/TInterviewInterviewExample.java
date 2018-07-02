@@ -442,62 +442,52 @@ public class TInterviewInterviewExample {
             return (Criteria) this;
         }
 
-        public Criteria andProgressEqualTo(String value) {
+        public Criteria andProgressEqualTo(Integer value) {
             addCriterion("progress =", value, "progress");
             return (Criteria) this;
         }
 
-        public Criteria andProgressNotEqualTo(String value) {
+        public Criteria andProgressNotEqualTo(Integer value) {
             addCriterion("progress <>", value, "progress");
             return (Criteria) this;
         }
 
-        public Criteria andProgressGreaterThan(String value) {
+        public Criteria andProgressGreaterThan(Integer value) {
             addCriterion("progress >", value, "progress");
             return (Criteria) this;
         }
 
-        public Criteria andProgressGreaterThanOrEqualTo(String value) {
+        public Criteria andProgressGreaterThanOrEqualTo(Integer value) {
             addCriterion("progress >=", value, "progress");
             return (Criteria) this;
         }
 
-        public Criteria andProgressLessThan(String value) {
+        public Criteria andProgressLessThan(Integer value) {
             addCriterion("progress <", value, "progress");
             return (Criteria) this;
         }
 
-        public Criteria andProgressLessThanOrEqualTo(String value) {
+        public Criteria andProgressLessThanOrEqualTo(Integer value) {
             addCriterion("progress <=", value, "progress");
             return (Criteria) this;
         }
 
-        public Criteria andProgressLike(String value) {
-            addCriterion("progress like", value, "progress");
-            return (Criteria) this;
-        }
-
-        public Criteria andProgressNotLike(String value) {
-            addCriterion("progress not like", value, "progress");
-            return (Criteria) this;
-        }
-
-        public Criteria andProgressIn(List<String> values) {
+        public Criteria andProgressIn(List<Integer> values) {
             addCriterion("progress in", values, "progress");
             return (Criteria) this;
         }
 
-        public Criteria andProgressNotIn(List<String> values) {
+        public Criteria andProgressNotIn(List<Integer> values) {
             addCriterion("progress not in", values, "progress");
             return (Criteria) this;
         }
 
-        public Criteria andProgressBetween(String value1, String value2) {
+        public Criteria andProgressBetween(Integer value1, Integer value2) {
             addCriterion("progress between", value1, value2, "progress");
             return (Criteria) this;
         }
 
-        public Criteria andProgressNotBetween(String value1, String value2) {
+        public Criteria andProgressNotBetween(Integer value1, Integer value2) {
             addCriterion("progress not between", value1, value2, "progress");
             return (Criteria) this;
         }
@@ -512,62 +502,52 @@ public class TInterviewInterviewExample {
             return (Criteria) this;
         }
 
-        public Criteria andResultEqualTo(String value) {
+        public Criteria andResultEqualTo(Integer value) {
             addCriterion("result =", value, "result");
             return (Criteria) this;
         }
 
-        public Criteria andResultNotEqualTo(String value) {
+        public Criteria andResultNotEqualTo(Integer value) {
             addCriterion("result <>", value, "result");
             return (Criteria) this;
         }
 
-        public Criteria andResultGreaterThan(String value) {
+        public Criteria andResultGreaterThan(Integer value) {
             addCriterion("result >", value, "result");
             return (Criteria) this;
         }
 
-        public Criteria andResultGreaterThanOrEqualTo(String value) {
+        public Criteria andResultGreaterThanOrEqualTo(Integer value) {
             addCriterion("result >=", value, "result");
             return (Criteria) this;
         }
 
-        public Criteria andResultLessThan(String value) {
+        public Criteria andResultLessThan(Integer value) {
             addCriterion("result <", value, "result");
             return (Criteria) this;
         }
 
-        public Criteria andResultLessThanOrEqualTo(String value) {
+        public Criteria andResultLessThanOrEqualTo(Integer value) {
             addCriterion("result <=", value, "result");
             return (Criteria) this;
         }
 
-        public Criteria andResultLike(String value) {
-            addCriterion("result like", value, "result");
-            return (Criteria) this;
-        }
-
-        public Criteria andResultNotLike(String value) {
-            addCriterion("result not like", value, "result");
-            return (Criteria) this;
-        }
-
-        public Criteria andResultIn(List<String> values) {
+        public Criteria andResultIn(List<Integer> values) {
             addCriterion("result in", values, "result");
             return (Criteria) this;
         }
 
-        public Criteria andResultNotIn(List<String> values) {
+        public Criteria andResultNotIn(List<Integer> values) {
             addCriterion("result not in", values, "result");
             return (Criteria) this;
         }
 
-        public Criteria andResultBetween(String value1, String value2) {
+        public Criteria andResultBetween(Integer value1, Integer value2) {
             addCriterion("result between", value1, value2, "result");
             return (Criteria) this;
         }
 
-        public Criteria andResultNotBetween(String value1, String value2) {
+        public Criteria andResultNotBetween(Integer value1, Integer value2) {
             addCriterion("result not between", value1, value2, "result");
             return (Criteria) this;
         }
@@ -689,6 +669,66 @@ public class TInterviewInterviewExample {
 
         public Criteria andRealSalaryNotBetween(Integer value1, Integer value2) {
             addCriterion("real_salary not between", value1, value2, "realSalary");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountIsNull() {
+            addCriterion("salary_count is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountIsNotNull() {
+            addCriterion("salary_count is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountEqualTo(Integer value) {
+            addCriterion("salary_count =", value, "salaryCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountNotEqualTo(Integer value) {
+            addCriterion("salary_count <>", value, "salaryCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountGreaterThan(Integer value) {
+            addCriterion("salary_count >", value, "salaryCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("salary_count >=", value, "salaryCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountLessThan(Integer value) {
+            addCriterion("salary_count <", value, "salaryCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountLessThanOrEqualTo(Integer value) {
+            addCriterion("salary_count <=", value, "salaryCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountIn(List<Integer> values) {
+            addCriterion("salary_count in", values, "salaryCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountNotIn(List<Integer> values) {
+            addCriterion("salary_count not in", values, "salaryCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountBetween(Integer value1, Integer value2) {
+            addCriterion("salary_count between", value1, value2, "salaryCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andSalaryCountNotBetween(Integer value1, Integer value2) {
+            addCriterion("salary_count not between", value1, value2, "salaryCount");
             return (Criteria) this;
         }
 
@@ -1119,6 +1159,126 @@ public class TInterviewInterviewExample {
 
         public Criteria andIsOutsourceNotBetween(Integer value1, Integer value2) {
             addCriterion("is_outsource not between", value1, value2, "isOutsource");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferIsNull() {
+            addCriterion("has_offer is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferIsNotNull() {
+            addCriterion("has_offer is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferEqualTo(Integer value) {
+            addCriterion("has_offer =", value, "hasOffer");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferNotEqualTo(Integer value) {
+            addCriterion("has_offer <>", value, "hasOffer");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferGreaterThan(Integer value) {
+            addCriterion("has_offer >", value, "hasOffer");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferGreaterThanOrEqualTo(Integer value) {
+            addCriterion("has_offer >=", value, "hasOffer");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferLessThan(Integer value) {
+            addCriterion("has_offer <", value, "hasOffer");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferLessThanOrEqualTo(Integer value) {
+            addCriterion("has_offer <=", value, "hasOffer");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferIn(List<Integer> values) {
+            addCriterion("has_offer in", values, "hasOffer");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferNotIn(List<Integer> values) {
+            addCriterion("has_offer not in", values, "hasOffer");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferBetween(Integer value1, Integer value2) {
+            addCriterion("has_offer between", value1, value2, "hasOffer");
+            return (Criteria) this;
+        }
+
+        public Criteria andHasOfferNotBetween(Integer value1, Integer value2) {
+            addCriterion("has_offer not between", value1, value2, "hasOffer");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkIsNull() {
+            addCriterion("to_work is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkIsNotNull() {
+            addCriterion("to_work is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkEqualTo(Integer value) {
+            addCriterion("to_work =", value, "toWork");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkNotEqualTo(Integer value) {
+            addCriterion("to_work <>", value, "toWork");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkGreaterThan(Integer value) {
+            addCriterion("to_work >", value, "toWork");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkGreaterThanOrEqualTo(Integer value) {
+            addCriterion("to_work >=", value, "toWork");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkLessThan(Integer value) {
+            addCriterion("to_work <", value, "toWork");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkLessThanOrEqualTo(Integer value) {
+            addCriterion("to_work <=", value, "toWork");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkIn(List<Integer> values) {
+            addCriterion("to_work in", values, "toWork");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkNotIn(List<Integer> values) {
+            addCriterion("to_work not in", values, "toWork");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkBetween(Integer value1, Integer value2) {
+            addCriterion("to_work between", value1, value2, "toWork");
+            return (Criteria) this;
+        }
+
+        public Criteria andToWorkNotBetween(Integer value1, Integer value2) {
+            addCriterion("to_work not between", value1, value2, "toWork");
             return (Criteria) this;
         }
     }

@@ -175,62 +175,52 @@ public class TInterviewExamExample {
             return (Criteria) this;
         }
 
-        public Criteria andInterviewIdEqualTo(String value) {
+        public Criteria andInterviewIdEqualTo(Integer value) {
             addCriterion("interview_id =", value, "interviewId");
             return (Criteria) this;
         }
 
-        public Criteria andInterviewIdNotEqualTo(String value) {
+        public Criteria andInterviewIdNotEqualTo(Integer value) {
             addCriterion("interview_id <>", value, "interviewId");
             return (Criteria) this;
         }
 
-        public Criteria andInterviewIdGreaterThan(String value) {
+        public Criteria andInterviewIdGreaterThan(Integer value) {
             addCriterion("interview_id >", value, "interviewId");
             return (Criteria) this;
         }
 
-        public Criteria andInterviewIdGreaterThanOrEqualTo(String value) {
+        public Criteria andInterviewIdGreaterThanOrEqualTo(Integer value) {
             addCriterion("interview_id >=", value, "interviewId");
             return (Criteria) this;
         }
 
-        public Criteria andInterviewIdLessThan(String value) {
+        public Criteria andInterviewIdLessThan(Integer value) {
             addCriterion("interview_id <", value, "interviewId");
             return (Criteria) this;
         }
 
-        public Criteria andInterviewIdLessThanOrEqualTo(String value) {
+        public Criteria andInterviewIdLessThanOrEqualTo(Integer value) {
             addCriterion("interview_id <=", value, "interviewId");
             return (Criteria) this;
         }
 
-        public Criteria andInterviewIdLike(String value) {
-            addCriterion("interview_id like", value, "interviewId");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterviewIdNotLike(String value) {
-            addCriterion("interview_id not like", value, "interviewId");
-            return (Criteria) this;
-        }
-
-        public Criteria andInterviewIdIn(List<String> values) {
+        public Criteria andInterviewIdIn(List<Integer> values) {
             addCriterion("interview_id in", values, "interviewId");
             return (Criteria) this;
         }
 
-        public Criteria andInterviewIdNotIn(List<String> values) {
+        public Criteria andInterviewIdNotIn(List<Integer> values) {
             addCriterion("interview_id not in", values, "interviewId");
             return (Criteria) this;
         }
 
-        public Criteria andInterviewIdBetween(String value1, String value2) {
+        public Criteria andInterviewIdBetween(Integer value1, Integer value2) {
             addCriterion("interview_id between", value1, value2, "interviewId");
             return (Criteria) this;
         }
 
-        public Criteria andInterviewIdNotBetween(String value1, String value2) {
+        public Criteria andInterviewIdNotBetween(Integer value1, Integer value2) {
             addCriterion("interview_id not between", value1, value2, "interviewId");
             return (Criteria) this;
         }

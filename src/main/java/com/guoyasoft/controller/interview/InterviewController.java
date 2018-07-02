@@ -18,12 +18,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.guoyasoft.bean.api.SelectOption;
+import com.guoyasoft.bean.api.interview.InterviewAddBean;
 import com.guoyasoft.bean.api.interview.InterviewQueryInitBean;
 import com.guoyasoft.bean.api.interview.InterviewQueryParamBean;
 import com.guoyasoft.bean.api.interview.InterviewQueryResultBean;
 import com.guoyasoft.bean.api.interview.InterviewStatisticsBean;
 import com.guoyasoft.bean.api.interview.examAnswer.Answer;
 import com.guoyasoft.bean.api.interview.examAnswer.Exam;
+import com.guoyasoft.bean.db.interview.TInterviewInterview;
+import com.guoyasoft.bean.db.interview.VCourseSchedule;
 import com.guoyasoft.bean.db.interview.VInterviewInterview;
 import com.guoyasoft.bean.db.interview.VInterviewInterviewExample;
 import com.guoyasoft.bean.db.interview.VInterviewInterviewExample.Criteria;
@@ -55,7 +58,7 @@ public class InterviewController {
 		init.getProgressSelect().add(new SelectOption("2", "放弃面试", false));
 
 		init.getResultSelect().add(new SelectOption("", "--请选择--", false));
-		init.getResultSelect().add(new SelectOption("0", "未开始", false));
+		init.getResultSelect().add(new SelectOption("0", "待定", false));
 		init.getResultSelect().add(new SelectOption("1", "通过", false));
 		init.getResultSelect().add(new SelectOption("2", "未通过", false));
 /*		init.getResultSelect().add(new SelectOption("3", "拒绝offer", false));
@@ -250,8 +253,16 @@ public class InterviewController {
 		return result;
 	}
 	
+	@RequestMapping(value="addInterview.action")
+	public String addInterview(InterviewAddBean interview,HttpSession session){
+		TInterviewInterview newInterview=interviewSvc.addInterview(interview);
+		int count=interviewSvc.addInterviewExam(newInterview);
+		String result=initInterviewQuery(session);
+		return result;
+	}
+	
 	@RequestMapping(value="initAddInterview.action")
-	public String initAddInterview(VInterviewInterview interview,HttpSession session){
+	public String initAddInterview(HttpSession session){
 		session.setAttribute("name", "guoya");
 		return "interview/addInterview";
 	}

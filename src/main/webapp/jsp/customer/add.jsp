@@ -127,7 +127,7 @@
 				<td><input type="text" name="introducerDesc" id="introducerDesc"  readonly="readonly" >
 					<input type="text" name="introducer" id="introducer" readonly="readonly" hidden="hidden">  <input type="button" value="查询"
 					onclick="queryCustomer('introducer')"> <input type="button" value="新增"
-					onclick="addCustomer"></td>
+					onclick="addCustomer()"></td>
 			</tr>
 			<tr>
 				<td>口碑费(元)：</td>

@@ -1,5 +1,7 @@
 package com.guoyasoft.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -12,6 +14,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.guoyasoft.bean.api.interview.InterviewAddBean;
 import com.guoyasoft.bean.api.interview.examAnswer.Answer;
 import com.guoyasoft.bean.api.interview.examAnswer.Exam;
 import com.guoyasoft.bean.api.interview.examAnswer.Picture;
@@ -21,6 +24,8 @@ import com.guoyasoft.bean.db.interview.TInterviewExamAnswerExample;
 import com.guoyasoft.bean.db.interview.TInterviewExamExample;
 import com.guoyasoft.bean.db.interview.TInterviewExamPicture;
 import com.guoyasoft.bean.db.interview.TInterviewInterview;
+import com.guoyasoft.bean.db.interview.TInterviewInterviewExample;
+import com.guoyasoft.bean.db.interview.VCourseSchedule;
 import com.guoyasoft.bean.db.interview.VInterviewExamAnswer;
 import com.guoyasoft.bean.db.interview.VInterviewExamAnswerExample;
 import com.guoyasoft.dao.interview.TInterviewExamAnswerMapper;
@@ -59,7 +64,7 @@ public class InterviewSvcImpl implements IInterviewSvc {
 		TInterviewExamExample example = new TInterviewExamExample();
 		com.guoyasoft.bean.db.interview.TInterviewExamExample.Criteria criteria = example
 				.createCriteria();
-		criteria.andInterviewIdEqualTo(interviewId);
+		criteria.andInterviewIdEqualTo(Integer.parseInt(interviewId));
 		List<TInterviewExam> exams = examMapper.selectByExample(example);
 		TInterviewExam exam = exams.get(0);
 		if (interview.getHasExam() == 0) {
@@ -180,6 +185,65 @@ public class InterviewSvcImpl implements IInterviewSvc {
 			answerTableMapper.deleteByPrimaryKey(answer.getAnswerId());
 		}
 		return 0;
+	}
+
+	@Override
+	public TInterviewInterview addInterview(InterviewAddBean addBean) {
+		//新增面试表
+		TInterviewInterview interview=new TInterviewInterview();
+		interview.setScheduleId(Integer.parseInt(addBean.getScheduleId()));
+		SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date interviewTime=new Date();
+		try {
+			interviewTime = sf.parse(addBean.getInterviewDate()+" "+addBean.getInterviewTime());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Date createTime=new Date();
+		interview.setCreateTime(createTime);
+		interview.setStatus(0);
+		interview.setInterviewTime(interviewTime);
+		interview.setCallTime(new Date());
+		interview.setProgress(0);
+		interview.setResult(0);
+		interview.setExpectSalary(0);
+		interview.setRealSalary(0);
+		interview.setSalaryCount(0);
+		interview.setCompanyId(Integer.parseInt(addBean.getCompanyId()));
+		interview.setHrId(Integer.parseInt(addBean.getHrId()));
+		interview.setHasExam(0);
+		interview.setIsOutsource(Integer.parseInt(addBean.getIsOutsource()));
+		int iterviewId=interviewMapper.insert(interview);
+		
+		
+		return interview;
+	}
+
+	@Override
+	public int addInterviewExam(TInterviewInterview newInterview) {
+		TInterviewInterviewExample example=new TInterviewInterviewExample();
+		TInterviewInterviewExample.Criteria criteria=example.createCriteria();
+		criteria.andScheduleIdEqualTo(newInterview.getScheduleId());
+		criteria.andStatusEqualTo(0);
+		/*criteria.andCreateTimeEqualTo(newInterview.getCreateTime());
+		criteria.andInterviewTimeEqualTo(newInterview.getInterviewTime());*/
+		criteria.andHrIdEqualTo(newInterview.getHrId());
+		criteria.andCompanyIdEqualTo(newInterview.getCompanyId());
+		List<TInterviewInterview> newInterviews=interviewMapper.selectByExample(example);
+		int interviewId=0;
+		if(newInterviews.size()>0){
+			interviewId=newInterviews.get(0).getInterviewId();
+		}
+		System.out.println("面试ID="+interviewId);
+		
+		TInterviewExam exam=new TInterviewExam();
+		exam.setCreateTime(newInterview.getCreateTime());
+		exam.setInterviewId(interviewId);
+		exam.setStatus(0);
+		exam.setUpdateTime(new Date());
+		int count=examMapper.insert(exam);
+		return count;
 	}
 
 }

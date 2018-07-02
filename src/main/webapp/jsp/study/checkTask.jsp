@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<base href="<%=basePath%>">
 <meta charset="utf-8" />
 <title>作业检查</title>
 <style>
@@ -38,11 +39,8 @@ td {
 	border-bottom: 0px solid black
 }
 </style>
-<script type="text/javascript" src="../../js/guoya.js"></script>
+<script type="text/javascript" src="js/guoya-clent.js"></script>
 
-<script type="text/javascript">
-	
-</script>
 </head>
 <body>
 	<div id="nav">

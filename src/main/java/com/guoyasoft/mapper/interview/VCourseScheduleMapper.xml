@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.interview.VCourseScheduleMapper">
+  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.interview.VCourseSchedule">
+    <result column="schedule_id" jdbcType="INTEGER" property="scheduleId" />
+    <result column="schedule_status" jdbcType="INTEGER" property="scheduleStatus" />
+    <result column="schedule_status_desc" jdbcType="VARCHAR" property="scheduleStatusDesc" />
+    <result column="schedule_create_time" jdbcType="TIMESTAMP" property="scheduleCreateTime" />
+    <result column="schedule_deactive_time" jdbcType="TIMESTAMP" property="scheduleDeactiveTime" />
+    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="course_instance_id" jdbcType="INTEGER" property="courseInstanceId" />
+    <result column="course_instance_name" jdbcType="VARCHAR" property="courseInstanceName" />
+    <result column="course_start_time" jdbcType="DATE" property="courseStartTime" />
+    <result column="course_end_time" jdbcType="DATE" property="courseEndTime" />
+    <result column="course_status" jdbcType="INTEGER" property="courseStatus" />
+    <result column="course_status_desc" jdbcType="VARCHAR" property="courseStatusDesc" />
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="class_abbreviation" jdbcType="VARCHAR" property="classAbbreviation" />
+    <result column="teacher_id" jdbcType="INTEGER" property="teacherId" />
+    <result column="teacher_name" jdbcType="VARCHAR" property="teacherName" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="student_id" jdbcType="INTEGER" property="studentId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="start_date" jdbcType="DATE" property="startDate" />
+    <result column="graduate_date" jdbcType="DATE" property="graduateDate" />
+    <result column="class_status" jdbcType="INTEGER" property="classStatus" />
+    <result column="class_status_desc" jdbcType="VARCHAR" property="classStatusDesc" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    schedule_id, schedule_status, schedule_status_desc, schedule_create_time, schedule_deactive_time, 
+    course_id, course_instance_id, course_instance_name, course_start_time, course_end_time, 
+    course_status, course_status_desc, class_id, class_name, class_abbreviation, teacher_id, 
+    teacher_name, user_id, student_id, customer_id, customer_name, start_date, graduate_date, 
+    class_status, class_status_desc
+  </sql>
+  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.interview.VCourseScheduleExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from v_course_schedule
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.guoyasoft.bean.db.interview.VCourseScheduleExample">
+    delete from v_course_schedule
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.guoyasoft.bean.db.interview.VCourseSchedule">
+    insert into v_course_schedule (schedule_id, schedule_status, schedule_status_desc, 
+      schedule_create_time, schedule_deactive_time, 
+      course_id, course_instance_id, course_instance_name, 
+      course_start_time, course_end_time, course_status, 
+      course_status_desc, class_id, class_name, 
+      class_abbreviation, teacher_id, teacher_name, 
+      user_id, student_id, customer_id, 
+      customer_name, start_date, graduate_date, 
+      class_status, class_status_desc)
+    values (#{scheduleId,jdbcType=INTEGER}, #{scheduleStatus,jdbcType=INTEGER}, #{scheduleStatusDesc,jdbcType=VARCHAR}, 
+      #{scheduleCreateTime,jdbcType=TIMESTAMP}, #{scheduleDeactiveTime,jdbcType=TIMESTAMP}, 
+      #{courseId,jdbcType=INTEGER}, #{courseInstanceId,jdbcType=INTEGER}, #{courseInstanceName,jdbcType=VARCHAR}, 
+      #{courseStartTime,jdbcType=DATE}, #{courseEndTime,jdbcType=DATE}, #{courseStatus,jdbcType=INTEGER}, 
+      #{courseStatusDesc,jdbcType=VARCHAR}, #{classId,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR}, 
+      #{classAbbreviation,jdbcType=VARCHAR}, #{teacherId,jdbcType=INTEGER}, #{teacherName,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, 
+      #{customerName,jdbcType=VARCHAR}, #{startDate,jdbcType=DATE}, #{graduateDate,jdbcType=DATE}, 
+      #{classStatus,jdbcType=INTEGER}, #{classStatusDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.interview.VCourseSchedule">
+    insert into v_course_schedule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scheduleId != null">
+        schedule_id,
+      </if>
+      <if test="scheduleStatus != null">
+        schedule_status,
+      </if>
+      <if test="scheduleStatusDesc != null">
+        schedule_status_desc,
+      </if>
+      <if test="scheduleCreateTime != null">
+        schedule_create_time,
+      </if>
+      <if test="scheduleDeactiveTime != null">
+        schedule_deactive_time,
+      </if>
+      <if test="courseId != null">
+        course_id,
+      </if>
+      <if test="courseInstanceId != null">
+        course_instance_id,
+      </if>
+      <if test="courseInstanceName != null">
+        course_instance_name,
+      </if>
+      <if test="courseStartTime != null">
+        course_start_time,
+      </if>
+      <if test="courseEndTime != null">
+        course_end_time,
+      </if>
+      <if test="courseStatus != null">
+        course_status,
+      </if>
+      <if test="courseStatusDesc != null">
+        course_status_desc,
+      </if>
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="className != null">
+        class_name,
+      </if>
+      <if test="classAbbreviation != null">
+        class_abbreviation,
+      </if>
+      <if test="teacherId != null">
+        teacher_id,
+      </if>
+      <if test="teacherName != null">
+        teacher_name,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="studentId != null">
+        student_id,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="graduateDate != null">
+        graduate_date,
+      </if>
+      <if test="classStatus != null">
+        class_status,
+      </if>
+      <if test="classStatusDesc != null">
+        class_status_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scheduleId != null">
+        #{scheduleId,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleStatus != null">
+        #{scheduleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleStatusDesc != null">
+        #{scheduleStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleCreateTime != null">
+        #{scheduleCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scheduleDeactiveTime != null">
+        #{scheduleDeactiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courseId != null">
+        #{courseId,jdbcType=INTEGER},
+      </if>
+      <if test="courseInstanceId != null">
+        #{courseInstanceId,jdbcType=INTEGER},
+      </if>
+      <if test="courseInstanceName != null">
+        #{courseInstanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseStartTime != null">
+        #{courseStartTime,jdbcType=DATE},
+      </if>
+      <if test="courseEndTime != null">
+        #{courseEndTime,jdbcType=DATE},
+      </if>
+      <if test="courseStatus != null">
+        #{courseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="courseStatusDesc != null">
+        #{courseStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="classId != null">
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="classAbbreviation != null">
+        #{classAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherId != null">
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="teacherName != null">
+        #{teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=DATE},
+      </if>
+      <if test="graduateDate != null">
+        #{graduateDate,jdbcType=DATE},
+      </if>
+      <if test="classStatus != null">
+        #{classStatus,jdbcType=INTEGER},
+      </if>
+      <if test="classStatusDesc != null">
+        #{classStatusDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.guoyasoft.bean.db.interview.VCourseScheduleExample" resultType="java.lang.Long">
+    select count(*) from v_course_schedule
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update v_course_schedule
+    <set>
+      <if test="record.scheduleId != null">
+        schedule_id = #{record.scheduleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.scheduleStatus != null">
+        schedule_status = #{record.scheduleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.scheduleStatusDesc != null">
+        schedule_status_desc = #{record.scheduleStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scheduleCreateTime != null">
+        schedule_create_time = #{record.scheduleCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.scheduleDeactiveTime != null">
+        schedule_deactive_time = #{record.scheduleDeactiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.courseId != null">
+        course_id = #{record.courseId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseInstanceId != null">
+        course_instance_id = #{record.courseInstanceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseInstanceName != null">
+        course_instance_name = #{record.courseInstanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseStartTime != null">
+        course_start_time = #{record.courseStartTime,jdbcType=DATE},
+      </if>
+      <if test="record.courseEndTime != null">
+        course_end_time = #{record.courseEndTime,jdbcType=DATE},
+      </if>
+      <if test="record.courseStatus != null">
+        course_status = #{record.courseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseStatusDesc != null">
+        course_status_desc = #{record.courseStatusDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classId != null">
+        class_id = #{record.classId,jdbcType=INTEGER},
+      </if>
+      <if test="record.className != null">
+        class_name = #{record.className,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classAbbreviation != null">
+        class_abbreviation = #{record.classAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherId != null">
+        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="record.teacherName != null">
+        teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentId != null">
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerId != null">
+        customer_id = #{record.customerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerName != null">
+        customer_name = #{record.customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startDate != null">
+        start_date = #{record.startDate,jdbcType=DATE},
+      </if>
+      <if test="record.graduateDate != null">
+        graduate_date = #{record.graduateDate,jdbcType=DATE},
+      </if>
+      <if test="record.classStatus != null">
+        class_status = #{record.classStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.classStatusDesc != null">
+        class_status_desc = #{record.classStatusDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update v_course_schedule
+    set schedule_id = #{record.scheduleId,jdbcType=INTEGER},
+      schedule_status = #{record.scheduleStatus,jdbcType=INTEGER},
+      schedule_status_desc = #{record.scheduleStatusDesc,jdbcType=VARCHAR},
+      schedule_create_time = #{record.scheduleCreateTime,jdbcType=TIMESTAMP},
+      schedule_deactive_time = #{record.scheduleDeactiveTime,jdbcType=TIMESTAMP},
+      course_id = #{record.courseId,jdbcType=INTEGER},
+      course_instance_id = #{record.courseInstanceId,jdbcType=INTEGER},
+      course_instance_name = #{record.courseInstanceName,jdbcType=VARCHAR},
+      course_start_time = #{record.courseStartTime,jdbcType=DATE},
+      course_end_time = #{record.courseEndTime,jdbcType=DATE},
+      course_status = #{record.courseStatus,jdbcType=INTEGER},
+      course_status_desc = #{record.courseStatusDesc,jdbcType=VARCHAR},
+      class_id = #{record.classId,jdbcType=INTEGER},
+      class_name = #{record.className,jdbcType=VARCHAR},
+      class_abbreviation = #{record.classAbbreviation,jdbcType=VARCHAR},
+      teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      student_id = #{record.studentId,jdbcType=INTEGER},
+      customer_id = #{record.customerId,jdbcType=INTEGER},
+      customer_name = #{record.customerName,jdbcType=VARCHAR},
+      start_date = #{record.startDate,jdbcType=DATE},
+      graduate_date = #{record.graduateDate,jdbcType=DATE},
+      class_status = #{record.classStatus,jdbcType=INTEGER},
+      class_status_desc = #{record.classStatusDesc,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
