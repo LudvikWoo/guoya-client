@@ -263,7 +263,13 @@ public class InterviewController {
 	
 	@RequestMapping(value="initAddInterview.action")
 	public String initAddInterview(HttpSession session){
-		session.setAttribute("name", "guoya");
+		
 		return "interview/addInterview";
+	}
+	
+	@RequestMapping(value="queryInterviewDetail.action")
+	public String queryInterviewDetail(String interviewId,HttpSession session){
+		session.setAttribute("interviewId",interviewId);
+		return "interview/interviewDetail";
 	}
 }

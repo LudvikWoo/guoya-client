@@ -1,45 +1,48 @@
-package com.guoyasoft.bean.api.customer;
+package com.guoyasoft.bean.api.interview.summary;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.guoyasoft.bean.api.interview.summary.Student;
-
 public class Customer {
-	private List<Student> students = new ArrayList<Student>();
-
+	
 	private Integer customerId;
 
-	private String customerName;
+    private String customerName;
 
-	private Integer customerAge;
+    private Integer customerAge;
 
-	private Date customerBirthday;
+    private Date customerBirthday;
 
-	private String customerSex;
+    private String customerSex;
 
-	private String customerProvince;
+    private String customerProvince;
 
-	private String customerCity;
+    private String customerCity;
 
-	private String customerCert;
+    private String customerCert;
 
-	private String customerCstType;
+    private String customerCstType;
 
-	private String customerCstTypeDesc;
+    private String customerPhone;
 
-	private String customerPhone;
+    private String customerWeichat;
 
-	private String customerWeichat;
+    private Integer customerStatus;
 
-	private Integer customerStatus;
+    private Date customerCreateTime;
 
-	private String customerStatusDesc;
+    private Date customerUpdateTime;
+	
+	private List<Student> students =new ArrayList<Student>();
 
-	private Date customerCreateTime;
+	public List<Student> getStudents() {
+		return students;
+	}
 
-	private Date customerUpdateTime;
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
 
 	public Integer getCustomerId() {
 		return customerId;
@@ -113,14 +116,6 @@ public class Customer {
 		this.customerCstType = customerCstType;
 	}
 
-	public String getCustomerCstTypeDesc() {
-		return customerCstTypeDesc;
-	}
-
-	public void setCustomerCstTypeDesc(String customerCstTypeDesc) {
-		this.customerCstTypeDesc = customerCstTypeDesc;
-	}
-
 	public String getCustomerPhone() {
 		return customerPhone;
 	}
@@ -145,14 +140,6 @@ public class Customer {
 		this.customerStatus = customerStatus;
 	}
 
-	public String getCustomerStatusDesc() {
-		return customerStatusDesc;
-	}
-
-	public void setCustomerStatusDesc(String customerStatusDesc) {
-		this.customerStatusDesc = customerStatusDesc;
-	}
-
 	public Date getCustomerCreateTime() {
 		return customerCreateTime;
 	}
@@ -168,29 +155,5 @@ public class Customer {
 	public void setCustomerUpdateTime(Date customerUpdateTime) {
 		this.customerUpdateTime = customerUpdateTime;
 	}
-
-	public List<Student> getStudents() {
-		return students;
-	}
-
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
-
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", customerName="
-				+ customerName + ", customerAge=" + customerAge
-				+ ", customerBirthday=" + customerBirthday + ", customerSex="
-				+ customerSex + ", customerProvince=" + customerProvince
-				+ ", customerCity=" + customerCity + ", customerCert="
-				+ customerCert + ", customerCstType=" + customerCstType
-				+ ", customerCstTypeDesc=" + customerCstTypeDesc
-				+ ", customerPhone=" + customerPhone + ", customerWeichat="
-				+ customerWeichat + ", customerStatus=" + customerStatus
-				+ ", customerStatusDesc=" + customerStatusDesc
-				+ ", customerCreateTime=" + customerCreateTime
-				+ ", customerUpdateTime=" + customerUpdateTime + "]";
-	}
-
+	
 }

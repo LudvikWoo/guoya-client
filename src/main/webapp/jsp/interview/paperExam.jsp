@@ -163,7 +163,7 @@
 										style="display: none">
 										<form class="form-horizontal group-border" role="form"
 											action="interview/addPicAnswer.action" method="post"
-											onreset="cancelAnswer(${picture.pictureId})" onsubmit="javascript:return confirm('确认提交答案吗？');">
+											onreset="cancelAnswer(${picture.pictureId})" ><!-- onsubmit="javascript:return confirm('确认提交答案吗？');" -->
 											<div hidden="hidden">
 												<div>隐藏数据：</div>
 												<div>
@@ -221,7 +221,7 @@
 																<c:forEach items="${picture.answers }" var="answer">
 																	<tr>
 																		<td>${answer.subjectIndex }</td>
-																		<td>${answer.answer }</td>
+																		<td><xmp>${answer.answer }</xmp></td>
 																		<td>${answer.authorCstName }</td>
 																		<td><a
 																			href="interview/updatePicAnswer.action?method=delete&answerId=${answer.answerId }&interviewId=${interviewId}"

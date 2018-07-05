@@ -1,0 +1,1790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.interview.VInterviewSummaryMapper">
+  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.interview.VInterviewSummary">
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="customer_age" jdbcType="INTEGER" property="customerAge" />
+    <result column="customer_birthday" jdbcType="DATE" property="customerBirthday" />
+    <result column="customer_sex" jdbcType="VARCHAR" property="customerSex" />
+    <result column="customer_province" jdbcType="VARCHAR" property="customerProvince" />
+    <result column="customer_city" jdbcType="VARCHAR" property="customerCity" />
+    <result column="customer_cert" jdbcType="VARCHAR" property="customerCert" />
+    <result column="customer_cst_type" jdbcType="VARCHAR" property="customerCstType" />
+    <result column="customer_cst_type_desc" jdbcType="CHAR" property="customerCstTypeDesc" />
+    <result column="customer_phone" jdbcType="VARCHAR" property="customerPhone" />
+    <result column="customer_weichat" jdbcType="VARCHAR" property="customerWeichat" />
+    <result column="customer_status" jdbcType="INTEGER" property="customerStatus" />
+    <result column="customer_status_desc" jdbcType="CHAR" property="customerStatusDesc" />
+    <result column="customer_create_time" jdbcType="TIMESTAMP" property="customerCreateTime" />
+    <result column="customer_update_time" jdbcType="TIMESTAMP" property="customerUpdateTime" />
+    <result column="student_id" jdbcType="INTEGER" property="studentId" />
+    <result column="student_create_time" jdbcType="TIMESTAMP" property="studentCreateTime" />
+    <result column="student_update_time" jdbcType="TIMESTAMP" property="studentUpdateTime" />
+    <result column="student_status" jdbcType="INTEGER" property="studentStatus" />
+    <result column="student_status_desc" jdbcType="CHAR" property="studentStatusDesc" />
+    <result column="student_operator" jdbcType="VARCHAR" property="studentOperator" />
+    <result column="student_active_time" jdbcType="TIMESTAMP" property="studentActiveTime" />
+    <result column="student_deactive_time" jdbcType="TIMESTAMP" property="studentDeactiveTime" />
+    <result column="student_education" jdbcType="VARCHAR" property="studentEducation" />
+    <result column="student_insurance" jdbcType="VARCHAR" property="studentInsurance" />
+    <result column="student_computor" jdbcType="VARCHAR" property="studentComputor" />
+    <result column="student_board" jdbcType="VARCHAR" property="studentBoard" />
+    <result column="student_buy_edu" jdbcType="INTEGER" property="studentBuyEdu" />
+    <result column="student_adult_edu" jdbcType="INTEGER" property="studentAdultEdu" />
+    <result column="student_introducer" jdbcType="VARCHAR" property="studentIntroducer" />
+    <result column="student_enroll_date" jdbcType="TIMESTAMP" property="studentEnrollDate" />
+    <result column="student_student_type" jdbcType="INTEGER" property="studentStudentType" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_user_name" jdbcType="VARCHAR" property="userUserName" />
+    <result column="user_pwd" jdbcType="VARCHAR" property="userPwd" />
+    <result column="user_status" jdbcType="INTEGER" property="userStatus" />
+    <result column="user_create_time" jdbcType="TIMESTAMP" property="userCreateTime" />
+    <result column="user_update_time" jdbcType="TIMESTAMP" property="userUpdateTime" />
+    <result column="user_operate_uno" jdbcType="VARCHAR" property="userOperateUno" />
+    <result column="user_active_time" jdbcType="TIMESTAMP" property="userActiveTime" />
+    <result column="user_deactive_time" jdbcType="TIMESTAMP" property="userDeactiveTime" />
+    <result column="stu_2_class_id" jdbcType="INTEGER" property="stu2ClassId" />
+    <result column="stu_2_create_time" jdbcType="TIMESTAMP" property="stu2CreateTime" />
+    <result column="stu_2_update_time" jdbcType="TIMESTAMP" property="stu2UpdateTime" />
+    <result column="stu_2_status" jdbcType="INTEGER" property="stu2Status" />
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="class_start_date" jdbcType="DATE" property="classStartDate" />
+    <result column="class_graduate_date" jdbcType="DATE" property="classGraduateDate" />
+    <result column="class_teacher_id" jdbcType="INTEGER" property="classTeacherId" />
+    <result column="class_class_abbreviation" jdbcType="VARCHAR" property="classClassAbbreviation" />
+    <result column="teacher_id" jdbcType="INTEGER" property="teacherId" />
+    <result column="teacher_status" jdbcType="VARCHAR" property="teacherStatus" />
+    <result column="teacher_create_time" jdbcType="TIMESTAMP" property="teacherCreateTime" />
+    <result column="teacher_update_time" jdbcType="TIMESTAMP" property="teacherUpdateTime" />
+    <result column="teacher_operator" jdbcType="VARCHAR" property="teacherOperator" />
+    <result column="teacher_grade" jdbcType="INTEGER" property="teacherGrade" />
+    <result column="teacher_teacher_type" jdbcType="INTEGER" property="teacherTeacherType" />
+    <result column="schedule_id" jdbcType="INTEGER" property="scheduleId" />
+    <result column="schedule_create_time" jdbcType="TIMESTAMP" property="scheduleCreateTime" />
+    <result column="schedule_status" jdbcType="INTEGER" property="scheduleStatus" />
+    <result column="schedule_active_time" jdbcType="TIMESTAMP" property="scheduleActiveTime" />
+    <result column="schedule_deactive_time" jdbcType="TIMESTAMP" property="scheduleDeactiveTime" />
+    <result column="course_instance_id" jdbcType="INTEGER" property="courseInstanceId" />
+    <result column="course_instance_name" jdbcType="VARCHAR" property="courseInstanceName" />
+    <result column="course_teacher_main_id" jdbcType="INTEGER" property="courseTeacherMainId" />
+    <result column="course_status" jdbcType="INTEGER" property="courseStatus" />
+    <result column="course_teacher_asis_id" jdbcType="INTEGER" property="courseTeacherAsisId" />
+    <result column="course_start_time" jdbcType="DATE" property="courseStartTime" />
+    <result column="course_end_time" jdbcType="DATE" property="courseEndTime" />
+    <result column="course_lecture_pkg_id" jdbcType="INTEGER" property="courseLecturePkgId" />
+    <result column="course_teacher_id" jdbcType="INTEGER" property="courseTeacherId" />
+    <result column="course_teacher_status" jdbcType="VARCHAR" property="courseTeacherStatus" />
+    <result column="course_teacher_create_time" jdbcType="TIMESTAMP" property="courseTeacherCreateTime" />
+    <result column="course_teacher_update_time" jdbcType="TIMESTAMP" property="courseTeacherUpdateTime" />
+    <result column="course_teacher_operator" jdbcType="VARCHAR" property="courseTeacherOperator" />
+    <result column="course_teacher_grade" jdbcType="INTEGER" property="courseTeacherGrade" />
+    <result column="course_teacher_teacher_type" jdbcType="INTEGER" property="courseTeacherTeacherType" />
+    <result column="interview_id" jdbcType="INTEGER" property="interviewId" />
+    <result column="interview_call_time" jdbcType="TIMESTAMP" property="interviewCallTime" />
+    <result column="interview_interview_time" jdbcType="TIMESTAMP" property="interviewInterviewTime" />
+    <result column="interview_work_time" jdbcType="DATE" property="interviewWorkTime" />
+    <result column="interview_progress" jdbcType="INTEGER" property="interviewProgress" />
+    <result column="interview_result" jdbcType="INTEGER" property="interviewResult" />
+    <result column="interview_mark" jdbcType="VARCHAR" property="interviewMark" />
+    <result column="interview_status" jdbcType="INTEGER" property="interviewStatus" />
+    <result column="interview_create_time" jdbcType="TIMESTAMP" property="interviewCreateTime" />
+    <result column="interview_is_outsource" jdbcType="INTEGER" property="interviewIsOutsource" />
+    <result column="interview_company_id" jdbcType="INTEGER" property="interviewCompanyId" />
+    <result column="interview_company_name" jdbcType="VARCHAR" property="interviewCompanyName" />
+    <result column="interview_company_addr" jdbcType="VARCHAR" property="interviewCompanyAddr" />
+    <result column="interview_company_type" jdbcType="INTEGER" property="interviewCompanyType" />
+    <result column="interview_company_desc" jdbcType="VARCHAR" property="interviewCompanyDesc" />
+    <result column="interview_company_create_time" jdbcType="TIMESTAMP" property="interviewCompanyCreateTime" />
+    <result column="interview_company_status" jdbcType="INTEGER" property="interviewCompanyStatus" />
+    <result column="interview_company_abbreviation" jdbcType="VARCHAR" property="interviewCompanyAbbreviation" />
+    <result column="interview_company_update_time" jdbcType="TIMESTAMP" property="interviewCompanyUpdateTime" />
+    <result column="interview_company_is_outsource" jdbcType="INTEGER" property="interviewCompanyIsOutsource" />
+    <result column="hr_id" jdbcType="INTEGER" property="hrId" />
+    <result column="hr_name" jdbcType="VARCHAR" property="hrName" />
+    <result column="hr_weichat" jdbcType="VARCHAR" property="hrWeichat" />
+    <result column="hr_qq" jdbcType="VARCHAR" property="hrQq" />
+    <result column="hr_mobile_phone" jdbcType="VARCHAR" property="hrMobilePhone" />
+    <result column="hr_tel_phone" jdbcType="VARCHAR" property="hrTelPhone" />
+    <result column="hr_email" jdbcType="VARCHAR" property="hrEmail" />
+    <result column="hr_hr_company_id" jdbcType="INTEGER" property="hrHrCompanyId" />
+    <result column="hr_status" jdbcType="INTEGER" property="hrStatus" />
+    <result column="hr_create_time" jdbcType="TIMESTAMP" property="hrCreateTime" />
+    <result column="hr_update_time" jdbcType="TIMESTAMP" property="hrUpdateTime" />
+    <result column="hr_company_id" jdbcType="INTEGER" property="hrCompanyId" />
+    <result column="hr_company_name" jdbcType="VARCHAR" property="hrCompanyName" />
+    <result column="hr_company_addr" jdbcType="VARCHAR" property="hrCompanyAddr" />
+    <result column="hr_company_type" jdbcType="INTEGER" property="hrCompanyType" />
+    <result column="hr_company_desc" jdbcType="VARCHAR" property="hrCompanyDesc" />
+    <result column="hr_company_create_time" jdbcType="TIMESTAMP" property="hrCompanyCreateTime" />
+    <result column="hr_company_status" jdbcType="INTEGER" property="hrCompanyStatus" />
+    <result column="hr_company_abbreviation" jdbcType="VARCHAR" property="hrCompanyAbbreviation" />
+    <result column="hr_company_update_time" jdbcType="TIMESTAMP" property="hrCompanyUpdateTime" />
+    <result column="hr_company_is_outsource" jdbcType="INTEGER" property="hrCompanyIsOutsource" />
+    <result column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="exam_create_time" jdbcType="TIMESTAMP" property="examCreateTime" />
+    <result column="exam_status" jdbcType="INTEGER" property="examStatus" />
+    <result column="exam_update_time" jdbcType="TIMESTAMP" property="examUpdateTime" />
+    <result column="ask_id" jdbcType="INTEGER" property="askId" />
+    <result column="offer_id" jdbcType="INTEGER" property="offerId" />
+    <result column="offer_salary" jdbcType="INTEGER" property="offerSalary" />
+    <result column="offer_salary_count" jdbcType="INTEGER" property="offerSalaryCount" />
+    <result column="offer_is_gross_pay" jdbcType="INTEGER" property="offerIsGrossPay" />
+    <result column="offer_probationary_period" jdbcType="INTEGER" property="offerProbationaryPeriod" />
+    <result column="offer_probationary_discount" jdbcType="INTEGER" property="offerProbationaryDiscount" />
+    <result column="offer_time" jdbcType="TIMESTAMP" property="offerTime" />
+    <result column="offer_work_time" jdbcType="TIMESTAMP" property="offerWorkTime" />
+    <result column="offer_create_time" jdbcType="TIMESTAMP" property="offerCreateTime" />
+    <result column="offer_update_time" jdbcType="TIMESTAMP" property="offerUpdateTime" />
+    <result column="offer_operator_user_id" jdbcType="INTEGER" property="offerOperatorUserId" />
+    <result column="offer_is_accept" jdbcType="INTEGER" property="offerIsAccept" />
+    <result column="offer_status" jdbcType="INTEGER" property="offerStatus" />
+    <result column="job_id" jdbcType="INTEGER" property="jobId" />
+    <result column="resume_id" jdbcType="INTEGER" property="resumeId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    customer_id, customer_name, customer_age, customer_birthday, customer_sex, customer_province, 
+    customer_city, customer_cert, customer_cst_type, customer_cst_type_desc, customer_phone, 
+    customer_weichat, customer_status, customer_status_desc, customer_create_time, customer_update_time, 
+    student_id, student_create_time, student_update_time, student_status, student_status_desc, 
+    student_operator, student_active_time, student_deactive_time, student_education, 
+    student_insurance, student_computor, student_board, student_buy_edu, student_adult_edu, 
+    student_introducer, student_enroll_date, student_student_type, user_id, user_user_name, 
+    user_pwd, user_status, user_create_time, user_update_time, user_operate_uno, user_active_time, 
+    user_deactive_time, stu_2_class_id, stu_2_create_time, stu_2_update_time, stu_2_status, 
+    class_id, class_name, class_start_date, class_graduate_date, class_teacher_id, class_class_abbreviation, 
+    teacher_id, teacher_status, teacher_create_time, teacher_update_time, teacher_operator, 
+    teacher_grade, teacher_teacher_type, schedule_id, schedule_create_time, schedule_status, 
+    schedule_active_time, schedule_deactive_time, course_instance_id, course_instance_name, 
+    course_teacher_main_id, course_status, course_teacher_asis_id, course_start_time, 
+    course_end_time, course_lecture_pkg_id, course_teacher_id, course_teacher_status, 
+    course_teacher_create_time, course_teacher_update_time, course_teacher_operator, 
+    course_teacher_grade, course_teacher_teacher_type, interview_id, interview_call_time, 
+    interview_interview_time, interview_work_time, interview_progress, interview_result, 
+    interview_mark, interview_status, interview_create_time, interview_is_outsource, 
+    interview_company_id, interview_company_name, interview_company_addr, interview_company_type, 
+    interview_company_desc, interview_company_create_time, interview_company_status, 
+    interview_company_abbreviation, interview_company_update_time, interview_company_is_outsource, 
+    hr_id, hr_name, hr_weichat, hr_qq, hr_mobile_phone, hr_tel_phone, hr_email, hr_hr_company_id, 
+    hr_status, hr_create_time, hr_update_time, hr_company_id, hr_company_name, hr_company_addr, 
+    hr_company_type, hr_company_desc, hr_company_create_time, hr_company_status, hr_company_abbreviation, 
+    hr_company_update_time, hr_company_is_outsource, exam_id, exam_create_time, exam_status, 
+    exam_update_time, ask_id, offer_id, offer_salary, offer_salary_count, offer_is_gross_pay, 
+    offer_probationary_period, offer_probationary_discount, offer_time, offer_work_time, 
+    offer_create_time, offer_update_time, offer_operator_user_id, offer_is_accept, offer_status, 
+    job_id, resume_id
+  </sql>
+  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.interview.VInterviewSummaryExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from v_interview_summary
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.guoyasoft.bean.db.interview.VInterviewSummaryExample">
+    delete from v_interview_summary
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.guoyasoft.bean.db.interview.VInterviewSummary">
+    insert into v_interview_summary (customer_id, customer_name, customer_age, 
+      customer_birthday, customer_sex, customer_province, 
+      customer_city, customer_cert, customer_cst_type, 
+      customer_cst_type_desc, customer_phone, customer_weichat, 
+      customer_status, customer_status_desc, customer_create_time, 
+      customer_update_time, student_id, student_create_time, 
+      student_update_time, student_status, student_status_desc, 
+      student_operator, student_active_time, student_deactive_time, 
+      student_education, student_insurance, student_computor, 
+      student_board, student_buy_edu, student_adult_edu, 
+      student_introducer, student_enroll_date, 
+      student_student_type, user_id, user_user_name, 
+      user_pwd, user_status, user_create_time, 
+      user_update_time, user_operate_uno, user_active_time, 
+      user_deactive_time, stu_2_class_id, stu_2_create_time, 
+      stu_2_update_time, stu_2_status, class_id, 
+      class_name, class_start_date, class_graduate_date, 
+      class_teacher_id, class_class_abbreviation, 
+      teacher_id, teacher_status, teacher_create_time, 
+      teacher_update_time, teacher_operator, teacher_grade, 
+      teacher_teacher_type, schedule_id, schedule_create_time, 
+      schedule_status, schedule_active_time, schedule_deactive_time, 
+      course_instance_id, course_instance_name, course_teacher_main_id, 
+      course_status, course_teacher_asis_id, course_start_time, 
+      course_end_time, course_lecture_pkg_id, course_teacher_id, 
+      course_teacher_status, course_teacher_create_time, 
+      course_teacher_update_time, course_teacher_operator, 
+      course_teacher_grade, course_teacher_teacher_type, 
+      interview_id, interview_call_time, interview_interview_time, 
+      interview_work_time, interview_progress, interview_result, 
+      interview_mark, interview_status, interview_create_time, 
+      interview_is_outsource, interview_company_id, 
+      interview_company_name, interview_company_addr, 
+      interview_company_type, interview_company_desc, 
+      interview_company_create_time, interview_company_status, 
+      interview_company_abbreviation, interview_company_update_time, 
+      interview_company_is_outsource, hr_id, hr_name, 
+      hr_weichat, hr_qq, hr_mobile_phone, 
+      hr_tel_phone, hr_email, hr_hr_company_id, 
+      hr_status, hr_create_time, hr_update_time, 
+      hr_company_id, hr_company_name, hr_company_addr, 
+      hr_company_type, hr_company_desc, hr_company_create_time, 
+      hr_company_status, hr_company_abbreviation, 
+      hr_company_update_time, hr_company_is_outsource, 
+      exam_id, exam_create_time, exam_status, 
+      exam_update_time, ask_id, offer_id, 
+      offer_salary, offer_salary_count, offer_is_gross_pay, 
+      offer_probationary_period, offer_probationary_discount, 
+      offer_time, offer_work_time, offer_create_time, 
+      offer_update_time, offer_operator_user_id, 
+      offer_is_accept, offer_status, job_id, 
+      resume_id)
+    values (#{customerId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customerAge,jdbcType=INTEGER}, 
+      #{customerBirthday,jdbcType=DATE}, #{customerSex,jdbcType=VARCHAR}, #{customerProvince,jdbcType=VARCHAR}, 
+      #{customerCity,jdbcType=VARCHAR}, #{customerCert,jdbcType=VARCHAR}, #{customerCstType,jdbcType=VARCHAR}, 
+      #{customerCstTypeDesc,jdbcType=CHAR}, #{customerPhone,jdbcType=VARCHAR}, #{customerWeichat,jdbcType=VARCHAR}, 
+      #{customerStatus,jdbcType=INTEGER}, #{customerStatusDesc,jdbcType=CHAR}, #{customerCreateTime,jdbcType=TIMESTAMP}, 
+      #{customerUpdateTime,jdbcType=TIMESTAMP}, #{studentId,jdbcType=INTEGER}, #{studentCreateTime,jdbcType=TIMESTAMP}, 
+      #{studentUpdateTime,jdbcType=TIMESTAMP}, #{studentStatus,jdbcType=INTEGER}, #{studentStatusDesc,jdbcType=CHAR}, 
+      #{studentOperator,jdbcType=VARCHAR}, #{studentActiveTime,jdbcType=TIMESTAMP}, #{studentDeactiveTime,jdbcType=TIMESTAMP}, 
+      #{studentEducation,jdbcType=VARCHAR}, #{studentInsurance,jdbcType=VARCHAR}, #{studentComputor,jdbcType=VARCHAR}, 
+      #{studentBoard,jdbcType=VARCHAR}, #{studentBuyEdu,jdbcType=INTEGER}, #{studentAdultEdu,jdbcType=INTEGER}, 
+      #{studentIntroducer,jdbcType=VARCHAR}, #{studentEnrollDate,jdbcType=TIMESTAMP}, 
+      #{studentStudentType,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userUserName,jdbcType=VARCHAR}, 
+      #{userPwd,jdbcType=VARCHAR}, #{userStatus,jdbcType=INTEGER}, #{userCreateTime,jdbcType=TIMESTAMP}, 
+      #{userUpdateTime,jdbcType=TIMESTAMP}, #{userOperateUno,jdbcType=VARCHAR}, #{userActiveTime,jdbcType=TIMESTAMP}, 
+      #{userDeactiveTime,jdbcType=TIMESTAMP}, #{stu2ClassId,jdbcType=INTEGER}, #{stu2CreateTime,jdbcType=TIMESTAMP}, 
+      #{stu2UpdateTime,jdbcType=TIMESTAMP}, #{stu2Status,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER}, 
+      #{className,jdbcType=VARCHAR}, #{classStartDate,jdbcType=DATE}, #{classGraduateDate,jdbcType=DATE}, 
+      #{classTeacherId,jdbcType=INTEGER}, #{classClassAbbreviation,jdbcType=VARCHAR}, 
+      #{teacherId,jdbcType=INTEGER}, #{teacherStatus,jdbcType=VARCHAR}, #{teacherCreateTime,jdbcType=TIMESTAMP}, 
+      #{teacherUpdateTime,jdbcType=TIMESTAMP}, #{teacherOperator,jdbcType=VARCHAR}, #{teacherGrade,jdbcType=INTEGER}, 
+      #{teacherTeacherType,jdbcType=INTEGER}, #{scheduleId,jdbcType=INTEGER}, #{scheduleCreateTime,jdbcType=TIMESTAMP}, 
+      #{scheduleStatus,jdbcType=INTEGER}, #{scheduleActiveTime,jdbcType=TIMESTAMP}, #{scheduleDeactiveTime,jdbcType=TIMESTAMP}, 
+      #{courseInstanceId,jdbcType=INTEGER}, #{courseInstanceName,jdbcType=VARCHAR}, #{courseTeacherMainId,jdbcType=INTEGER}, 
+      #{courseStatus,jdbcType=INTEGER}, #{courseTeacherAsisId,jdbcType=INTEGER}, #{courseStartTime,jdbcType=DATE}, 
+      #{courseEndTime,jdbcType=DATE}, #{courseLecturePkgId,jdbcType=INTEGER}, #{courseTeacherId,jdbcType=INTEGER}, 
+      #{courseTeacherStatus,jdbcType=VARCHAR}, #{courseTeacherCreateTime,jdbcType=TIMESTAMP}, 
+      #{courseTeacherUpdateTime,jdbcType=TIMESTAMP}, #{courseTeacherOperator,jdbcType=VARCHAR}, 
+      #{courseTeacherGrade,jdbcType=INTEGER}, #{courseTeacherTeacherType,jdbcType=INTEGER}, 
+      #{interviewId,jdbcType=INTEGER}, #{interviewCallTime,jdbcType=TIMESTAMP}, #{interviewInterviewTime,jdbcType=TIMESTAMP}, 
+      #{interviewWorkTime,jdbcType=DATE}, #{interviewProgress,jdbcType=INTEGER}, #{interviewResult,jdbcType=INTEGER}, 
+      #{interviewMark,jdbcType=VARCHAR}, #{interviewStatus,jdbcType=INTEGER}, #{interviewCreateTime,jdbcType=TIMESTAMP}, 
+      #{interviewIsOutsource,jdbcType=INTEGER}, #{interviewCompanyId,jdbcType=INTEGER}, 
+      #{interviewCompanyName,jdbcType=VARCHAR}, #{interviewCompanyAddr,jdbcType=VARCHAR}, 
+      #{interviewCompanyType,jdbcType=INTEGER}, #{interviewCompanyDesc,jdbcType=VARCHAR}, 
+      #{interviewCompanyCreateTime,jdbcType=TIMESTAMP}, #{interviewCompanyStatus,jdbcType=INTEGER}, 
+      #{interviewCompanyAbbreviation,jdbcType=VARCHAR}, #{interviewCompanyUpdateTime,jdbcType=TIMESTAMP}, 
+      #{interviewCompanyIsOutsource,jdbcType=INTEGER}, #{hrId,jdbcType=INTEGER}, #{hrName,jdbcType=VARCHAR}, 
+      #{hrWeichat,jdbcType=VARCHAR}, #{hrQq,jdbcType=VARCHAR}, #{hrMobilePhone,jdbcType=VARCHAR}, 
+      #{hrTelPhone,jdbcType=VARCHAR}, #{hrEmail,jdbcType=VARCHAR}, #{hrHrCompanyId,jdbcType=INTEGER}, 
+      #{hrStatus,jdbcType=INTEGER}, #{hrCreateTime,jdbcType=TIMESTAMP}, #{hrUpdateTime,jdbcType=TIMESTAMP}, 
+      #{hrCompanyId,jdbcType=INTEGER}, #{hrCompanyName,jdbcType=VARCHAR}, #{hrCompanyAddr,jdbcType=VARCHAR}, 
+      #{hrCompanyType,jdbcType=INTEGER}, #{hrCompanyDesc,jdbcType=VARCHAR}, #{hrCompanyCreateTime,jdbcType=TIMESTAMP}, 
+      #{hrCompanyStatus,jdbcType=INTEGER}, #{hrCompanyAbbreviation,jdbcType=VARCHAR}, 
+      #{hrCompanyUpdateTime,jdbcType=TIMESTAMP}, #{hrCompanyIsOutsource,jdbcType=INTEGER}, 
+      #{examId,jdbcType=INTEGER}, #{examCreateTime,jdbcType=TIMESTAMP}, #{examStatus,jdbcType=INTEGER}, 
+      #{examUpdateTime,jdbcType=TIMESTAMP}, #{askId,jdbcType=INTEGER}, #{offerId,jdbcType=INTEGER}, 
+      #{offerSalary,jdbcType=INTEGER}, #{offerSalaryCount,jdbcType=INTEGER}, #{offerIsGrossPay,jdbcType=INTEGER}, 
+      #{offerProbationaryPeriod,jdbcType=INTEGER}, #{offerProbationaryDiscount,jdbcType=INTEGER}, 
+      #{offerTime,jdbcType=TIMESTAMP}, #{offerWorkTime,jdbcType=TIMESTAMP}, #{offerCreateTime,jdbcType=TIMESTAMP}, 
+      #{offerUpdateTime,jdbcType=TIMESTAMP}, #{offerOperatorUserId,jdbcType=INTEGER}, 
+      #{offerIsAccept,jdbcType=INTEGER}, #{offerStatus,jdbcType=INTEGER}, #{jobId,jdbcType=INTEGER}, 
+      #{resumeId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.interview.VInterviewSummary">
+    insert into v_interview_summary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      <if test="customerAge != null">
+        customer_age,
+      </if>
+      <if test="customerBirthday != null">
+        customer_birthday,
+      </if>
+      <if test="customerSex != null">
+        customer_sex,
+      </if>
+      <if test="customerProvince != null">
+        customer_province,
+      </if>
+      <if test="customerCity != null">
+        customer_city,
+      </if>
+      <if test="customerCert != null">
+        customer_cert,
+      </if>
+      <if test="customerCstType != null">
+        customer_cst_type,
+      </if>
+      <if test="customerCstTypeDesc != null">
+        customer_cst_type_desc,
+      </if>
+      <if test="customerPhone != null">
+        customer_phone,
+      </if>
+      <if test="customerWeichat != null">
+        customer_weichat,
+      </if>
+      <if test="customerStatus != null">
+        customer_status,
+      </if>
+      <if test="customerStatusDesc != null">
+        customer_status_desc,
+      </if>
+      <if test="customerCreateTime != null">
+        customer_create_time,
+      </if>
+      <if test="customerUpdateTime != null">
+        customer_update_time,
+      </if>
+      <if test="studentId != null">
+        student_id,
+      </if>
+      <if test="studentCreateTime != null">
+        student_create_time,
+      </if>
+      <if test="studentUpdateTime != null">
+        student_update_time,
+      </if>
+      <if test="studentStatus != null">
+        student_status,
+      </if>
+      <if test="studentStatusDesc != null">
+        student_status_desc,
+      </if>
+      <if test="studentOperator != null">
+        student_operator,
+      </if>
+      <if test="studentActiveTime != null">
+        student_active_time,
+      </if>
+      <if test="studentDeactiveTime != null">
+        student_deactive_time,
+      </if>
+      <if test="studentEducation != null">
+        student_education,
+      </if>
+      <if test="studentInsurance != null">
+        student_insurance,
+      </if>
+      <if test="studentComputor != null">
+        student_computor,
+      </if>
+      <if test="studentBoard != null">
+        student_board,
+      </if>
+      <if test="studentBuyEdu != null">
+        student_buy_edu,
+      </if>
+      <if test="studentAdultEdu != null">
+        student_adult_edu,
+      </if>
+      <if test="studentIntroducer != null">
+        student_introducer,
+      </if>
+      <if test="studentEnrollDate != null">
+        student_enroll_date,
+      </if>
+      <if test="studentStudentType != null">
+        student_student_type,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userUserName != null">
+        user_user_name,
+      </if>
+      <if test="userPwd != null">
+        user_pwd,
+      </if>
+      <if test="userStatus != null">
+        user_status,
+      </if>
+      <if test="userCreateTime != null">
+        user_create_time,
+      </if>
+      <if test="userUpdateTime != null">
+        user_update_time,
+      </if>
+      <if test="userOperateUno != null">
+        user_operate_uno,
+      </if>
+      <if test="userActiveTime != null">
+        user_active_time,
+      </if>
+      <if test="userDeactiveTime != null">
+        user_deactive_time,
+      </if>
+      <if test="stu2ClassId != null">
+        stu_2_class_id,
+      </if>
+      <if test="stu2CreateTime != null">
+        stu_2_create_time,
+      </if>
+      <if test="stu2UpdateTime != null">
+        stu_2_update_time,
+      </if>
+      <if test="stu2Status != null">
+        stu_2_status,
+      </if>
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="className != null">
+        class_name,
+      </if>
+      <if test="classStartDate != null">
+        class_start_date,
+      </if>
+      <if test="classGraduateDate != null">
+        class_graduate_date,
+      </if>
+      <if test="classTeacherId != null">
+        class_teacher_id,
+      </if>
+      <if test="classClassAbbreviation != null">
+        class_class_abbreviation,
+      </if>
+      <if test="teacherId != null">
+        teacher_id,
+      </if>
+      <if test="teacherStatus != null">
+        teacher_status,
+      </if>
+      <if test="teacherCreateTime != null">
+        teacher_create_time,
+      </if>
+      <if test="teacherUpdateTime != null">
+        teacher_update_time,
+      </if>
+      <if test="teacherOperator != null">
+        teacher_operator,
+      </if>
+      <if test="teacherGrade != null">
+        teacher_grade,
+      </if>
+      <if test="teacherTeacherType != null">
+        teacher_teacher_type,
+      </if>
+      <if test="scheduleId != null">
+        schedule_id,
+      </if>
+      <if test="scheduleCreateTime != null">
+        schedule_create_time,
+      </if>
+      <if test="scheduleStatus != null">
+        schedule_status,
+      </if>
+      <if test="scheduleActiveTime != null">
+        schedule_active_time,
+      </if>
+      <if test="scheduleDeactiveTime != null">
+        schedule_deactive_time,
+      </if>
+      <if test="courseInstanceId != null">
+        course_instance_id,
+      </if>
+      <if test="courseInstanceName != null">
+        course_instance_name,
+      </if>
+      <if test="courseTeacherMainId != null">
+        course_teacher_main_id,
+      </if>
+      <if test="courseStatus != null">
+        course_status,
+      </if>
+      <if test="courseTeacherAsisId != null">
+        course_teacher_asis_id,
+      </if>
+      <if test="courseStartTime != null">
+        course_start_time,
+      </if>
+      <if test="courseEndTime != null">
+        course_end_time,
+      </if>
+      <if test="courseLecturePkgId != null">
+        course_lecture_pkg_id,
+      </if>
+      <if test="courseTeacherId != null">
+        course_teacher_id,
+      </if>
+      <if test="courseTeacherStatus != null">
+        course_teacher_status,
+      </if>
+      <if test="courseTeacherCreateTime != null">
+        course_teacher_create_time,
+      </if>
+      <if test="courseTeacherUpdateTime != null">
+        course_teacher_update_time,
+      </if>
+      <if test="courseTeacherOperator != null">
+        course_teacher_operator,
+      </if>
+      <if test="courseTeacherGrade != null">
+        course_teacher_grade,
+      </if>
+      <if test="courseTeacherTeacherType != null">
+        course_teacher_teacher_type,
+      </if>
+      <if test="interviewId != null">
+        interview_id,
+      </if>
+      <if test="interviewCallTime != null">
+        interview_call_time,
+      </if>
+      <if test="interviewInterviewTime != null">
+        interview_interview_time,
+      </if>
+      <if test="interviewWorkTime != null">
+        interview_work_time,
+      </if>
+      <if test="interviewProgress != null">
+        interview_progress,
+      </if>
+      <if test="interviewResult != null">
+        interview_result,
+      </if>
+      <if test="interviewMark != null">
+        interview_mark,
+      </if>
+      <if test="interviewStatus != null">
+        interview_status,
+      </if>
+      <if test="interviewCreateTime != null">
+        interview_create_time,
+      </if>
+      <if test="interviewIsOutsource != null">
+        interview_is_outsource,
+      </if>
+      <if test="interviewCompanyId != null">
+        interview_company_id,
+      </if>
+      <if test="interviewCompanyName != null">
+        interview_company_name,
+      </if>
+      <if test="interviewCompanyAddr != null">
+        interview_company_addr,
+      </if>
+      <if test="interviewCompanyType != null">
+        interview_company_type,
+      </if>
+      <if test="interviewCompanyDesc != null">
+        interview_company_desc,
+      </if>
+      <if test="interviewCompanyCreateTime != null">
+        interview_company_create_time,
+      </if>
+      <if test="interviewCompanyStatus != null">
+        interview_company_status,
+      </if>
+      <if test="interviewCompanyAbbreviation != null">
+        interview_company_abbreviation,
+      </if>
+      <if test="interviewCompanyUpdateTime != null">
+        interview_company_update_time,
+      </if>
+      <if test="interviewCompanyIsOutsource != null">
+        interview_company_is_outsource,
+      </if>
+      <if test="hrId != null">
+        hr_id,
+      </if>
+      <if test="hrName != null">
+        hr_name,
+      </if>
+      <if test="hrWeichat != null">
+        hr_weichat,
+      </if>
+      <if test="hrQq != null">
+        hr_qq,
+      </if>
+      <if test="hrMobilePhone != null">
+        hr_mobile_phone,
+      </if>
+      <if test="hrTelPhone != null">
+        hr_tel_phone,
+      </if>
+      <if test="hrEmail != null">
+        hr_email,
+      </if>
+      <if test="hrHrCompanyId != null">
+        hr_hr_company_id,
+      </if>
+      <if test="hrStatus != null">
+        hr_status,
+      </if>
+      <if test="hrCreateTime != null">
+        hr_create_time,
+      </if>
+      <if test="hrUpdateTime != null">
+        hr_update_time,
+      </if>
+      <if test="hrCompanyId != null">
+        hr_company_id,
+      </if>
+      <if test="hrCompanyName != null">
+        hr_company_name,
+      </if>
+      <if test="hrCompanyAddr != null">
+        hr_company_addr,
+      </if>
+      <if test="hrCompanyType != null">
+        hr_company_type,
+      </if>
+      <if test="hrCompanyDesc != null">
+        hr_company_desc,
+      </if>
+      <if test="hrCompanyCreateTime != null">
+        hr_company_create_time,
+      </if>
+      <if test="hrCompanyStatus != null">
+        hr_company_status,
+      </if>
+      <if test="hrCompanyAbbreviation != null">
+        hr_company_abbreviation,
+      </if>
+      <if test="hrCompanyUpdateTime != null">
+        hr_company_update_time,
+      </if>
+      <if test="hrCompanyIsOutsource != null">
+        hr_company_is_outsource,
+      </if>
+      <if test="examId != null">
+        exam_id,
+      </if>
+      <if test="examCreateTime != null">
+        exam_create_time,
+      </if>
+      <if test="examStatus != null">
+        exam_status,
+      </if>
+      <if test="examUpdateTime != null">
+        exam_update_time,
+      </if>
+      <if test="askId != null">
+        ask_id,
+      </if>
+      <if test="offerId != null">
+        offer_id,
+      </if>
+      <if test="offerSalary != null">
+        offer_salary,
+      </if>
+      <if test="offerSalaryCount != null">
+        offer_salary_count,
+      </if>
+      <if test="offerIsGrossPay != null">
+        offer_is_gross_pay,
+      </if>
+      <if test="offerProbationaryPeriod != null">
+        offer_probationary_period,
+      </if>
+      <if test="offerProbationaryDiscount != null">
+        offer_probationary_discount,
+      </if>
+      <if test="offerTime != null">
+        offer_time,
+      </if>
+      <if test="offerWorkTime != null">
+        offer_work_time,
+      </if>
+      <if test="offerCreateTime != null">
+        offer_create_time,
+      </if>
+      <if test="offerUpdateTime != null">
+        offer_update_time,
+      </if>
+      <if test="offerOperatorUserId != null">
+        offer_operator_user_id,
+      </if>
+      <if test="offerIsAccept != null">
+        offer_is_accept,
+      </if>
+      <if test="offerStatus != null">
+        offer_status,
+      </if>
+      <if test="jobId != null">
+        job_id,
+      </if>
+      <if test="resumeId != null">
+        resume_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerAge != null">
+        #{customerAge,jdbcType=INTEGER},
+      </if>
+      <if test="customerBirthday != null">
+        #{customerBirthday,jdbcType=DATE},
+      </if>
+      <if test="customerSex != null">
+        #{customerSex,jdbcType=VARCHAR},
+      </if>
+      <if test="customerProvince != null">
+        #{customerProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCity != null">
+        #{customerCity,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCert != null">
+        #{customerCert,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCstType != null">
+        #{customerCstType,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCstTypeDesc != null">
+        #{customerCstTypeDesc,jdbcType=CHAR},
+      </if>
+      <if test="customerPhone != null">
+        #{customerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="customerWeichat != null">
+        #{customerWeichat,jdbcType=VARCHAR},
+      </if>
+      <if test="customerStatus != null">
+        #{customerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="customerStatusDesc != null">
+        #{customerStatusDesc,jdbcType=CHAR},
+      </if>
+      <if test="customerCreateTime != null">
+        #{customerCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customerUpdateTime != null">
+        #{customerUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="studentCreateTime != null">
+        #{studentCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentUpdateTime != null">
+        #{studentUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentStatus != null">
+        #{studentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="studentStatusDesc != null">
+        #{studentStatusDesc,jdbcType=CHAR},
+      </if>
+      <if test="studentOperator != null">
+        #{studentOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="studentActiveTime != null">
+        #{studentActiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentDeactiveTime != null">
+        #{studentDeactiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentEducation != null">
+        #{studentEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="studentInsurance != null">
+        #{studentInsurance,jdbcType=VARCHAR},
+      </if>
+      <if test="studentComputor != null">
+        #{studentComputor,jdbcType=VARCHAR},
+      </if>
+      <if test="studentBoard != null">
+        #{studentBoard,jdbcType=VARCHAR},
+      </if>
+      <if test="studentBuyEdu != null">
+        #{studentBuyEdu,jdbcType=INTEGER},
+      </if>
+      <if test="studentAdultEdu != null">
+        #{studentAdultEdu,jdbcType=INTEGER},
+      </if>
+      <if test="studentIntroducer != null">
+        #{studentIntroducer,jdbcType=VARCHAR},
+      </if>
+      <if test="studentEnrollDate != null">
+        #{studentEnrollDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="studentStudentType != null">
+        #{studentStudentType,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userUserName != null">
+        #{userUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPwd != null">
+        #{userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userCreateTime != null">
+        #{userCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userUpdateTime != null">
+        #{userUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userOperateUno != null">
+        #{userOperateUno,jdbcType=VARCHAR},
+      </if>
+      <if test="userActiveTime != null">
+        #{userActiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userDeactiveTime != null">
+        #{userDeactiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stu2ClassId != null">
+        #{stu2ClassId,jdbcType=INTEGER},
+      </if>
+      <if test="stu2CreateTime != null">
+        #{stu2CreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stu2UpdateTime != null">
+        #{stu2UpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stu2Status != null">
+        #{stu2Status,jdbcType=INTEGER},
+      </if>
+      <if test="classId != null">
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="classStartDate != null">
+        #{classStartDate,jdbcType=DATE},
+      </if>
+      <if test="classGraduateDate != null">
+        #{classGraduateDate,jdbcType=DATE},
+      </if>
+      <if test="classTeacherId != null">
+        #{classTeacherId,jdbcType=INTEGER},
+      </if>
+      <if test="classClassAbbreviation != null">
+        #{classClassAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherId != null">
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="teacherStatus != null">
+        #{teacherStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherCreateTime != null">
+        #{teacherCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="teacherUpdateTime != null">
+        #{teacherUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="teacherOperator != null">
+        #{teacherOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherGrade != null">
+        #{teacherGrade,jdbcType=INTEGER},
+      </if>
+      <if test="teacherTeacherType != null">
+        #{teacherTeacherType,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleId != null">
+        #{scheduleId,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleCreateTime != null">
+        #{scheduleCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scheduleStatus != null">
+        #{scheduleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="scheduleActiveTime != null">
+        #{scheduleActiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scheduleDeactiveTime != null">
+        #{scheduleDeactiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courseInstanceId != null">
+        #{courseInstanceId,jdbcType=INTEGER},
+      </if>
+      <if test="courseInstanceName != null">
+        #{courseInstanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseTeacherMainId != null">
+        #{courseTeacherMainId,jdbcType=INTEGER},
+      </if>
+      <if test="courseStatus != null">
+        #{courseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="courseTeacherAsisId != null">
+        #{courseTeacherAsisId,jdbcType=INTEGER},
+      </if>
+      <if test="courseStartTime != null">
+        #{courseStartTime,jdbcType=DATE},
+      </if>
+      <if test="courseEndTime != null">
+        #{courseEndTime,jdbcType=DATE},
+      </if>
+      <if test="courseLecturePkgId != null">
+        #{courseLecturePkgId,jdbcType=INTEGER},
+      </if>
+      <if test="courseTeacherId != null">
+        #{courseTeacherId,jdbcType=INTEGER},
+      </if>
+      <if test="courseTeacherStatus != null">
+        #{courseTeacherStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="courseTeacherCreateTime != null">
+        #{courseTeacherCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courseTeacherUpdateTime != null">
+        #{courseTeacherUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="courseTeacherOperator != null">
+        #{courseTeacherOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="courseTeacherGrade != null">
+        #{courseTeacherGrade,jdbcType=INTEGER},
+      </if>
+      <if test="courseTeacherTeacherType != null">
+        #{courseTeacherTeacherType,jdbcType=INTEGER},
+      </if>
+      <if test="interviewId != null">
+        #{interviewId,jdbcType=INTEGER},
+      </if>
+      <if test="interviewCallTime != null">
+        #{interviewCallTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interviewInterviewTime != null">
+        #{interviewInterviewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interviewWorkTime != null">
+        #{interviewWorkTime,jdbcType=DATE},
+      </if>
+      <if test="interviewProgress != null">
+        #{interviewProgress,jdbcType=INTEGER},
+      </if>
+      <if test="interviewResult != null">
+        #{interviewResult,jdbcType=INTEGER},
+      </if>
+      <if test="interviewMark != null">
+        #{interviewMark,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewStatus != null">
+        #{interviewStatus,jdbcType=INTEGER},
+      </if>
+      <if test="interviewCreateTime != null">
+        #{interviewCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interviewIsOutsource != null">
+        #{interviewIsOutsource,jdbcType=INTEGER},
+      </if>
+      <if test="interviewCompanyId != null">
+        #{interviewCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="interviewCompanyName != null">
+        #{interviewCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewCompanyAddr != null">
+        #{interviewCompanyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewCompanyType != null">
+        #{interviewCompanyType,jdbcType=INTEGER},
+      </if>
+      <if test="interviewCompanyDesc != null">
+        #{interviewCompanyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewCompanyCreateTime != null">
+        #{interviewCompanyCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interviewCompanyStatus != null">
+        #{interviewCompanyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="interviewCompanyAbbreviation != null">
+        #{interviewCompanyAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewCompanyUpdateTime != null">
+        #{interviewCompanyUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="interviewCompanyIsOutsource != null">
+        #{interviewCompanyIsOutsource,jdbcType=INTEGER},
+      </if>
+      <if test="hrId != null">
+        #{hrId,jdbcType=INTEGER},
+      </if>
+      <if test="hrName != null">
+        #{hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="hrWeichat != null">
+        #{hrWeichat,jdbcType=VARCHAR},
+      </if>
+      <if test="hrQq != null">
+        #{hrQq,jdbcType=VARCHAR},
+      </if>
+      <if test="hrMobilePhone != null">
+        #{hrMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hrTelPhone != null">
+        #{hrTelPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hrEmail != null">
+        #{hrEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="hrHrCompanyId != null">
+        #{hrHrCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="hrStatus != null">
+        #{hrStatus,jdbcType=INTEGER},
+      </if>
+      <if test="hrCreateTime != null">
+        #{hrCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hrUpdateTime != null">
+        #{hrUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hrCompanyId != null">
+        #{hrCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="hrCompanyName != null">
+        #{hrCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="hrCompanyAddr != null">
+        #{hrCompanyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="hrCompanyType != null">
+        #{hrCompanyType,jdbcType=INTEGER},
+      </if>
+      <if test="hrCompanyDesc != null">
+        #{hrCompanyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="hrCompanyCreateTime != null">
+        #{hrCompanyCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hrCompanyStatus != null">
+        #{hrCompanyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="hrCompanyAbbreviation != null">
+        #{hrCompanyAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="hrCompanyUpdateTime != null">
+        #{hrCompanyUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hrCompanyIsOutsource != null">
+        #{hrCompanyIsOutsource,jdbcType=INTEGER},
+      </if>
+      <if test="examId != null">
+        #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="examCreateTime != null">
+        #{examCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="examStatus != null">
+        #{examStatus,jdbcType=INTEGER},
+      </if>
+      <if test="examUpdateTime != null">
+        #{examUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="askId != null">
+        #{askId,jdbcType=INTEGER},
+      </if>
+      <if test="offerId != null">
+        #{offerId,jdbcType=INTEGER},
+      </if>
+      <if test="offerSalary != null">
+        #{offerSalary,jdbcType=INTEGER},
+      </if>
+      <if test="offerSalaryCount != null">
+        #{offerSalaryCount,jdbcType=INTEGER},
+      </if>
+      <if test="offerIsGrossPay != null">
+        #{offerIsGrossPay,jdbcType=INTEGER},
+      </if>
+      <if test="offerProbationaryPeriod != null">
+        #{offerProbationaryPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="offerProbationaryDiscount != null">
+        #{offerProbationaryDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="offerTime != null">
+        #{offerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offerWorkTime != null">
+        #{offerWorkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offerCreateTime != null">
+        #{offerCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offerUpdateTime != null">
+        #{offerUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offerOperatorUserId != null">
+        #{offerOperatorUserId,jdbcType=INTEGER},
+      </if>
+      <if test="offerIsAccept != null">
+        #{offerIsAccept,jdbcType=INTEGER},
+      </if>
+      <if test="offerStatus != null">
+        #{offerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="jobId != null">
+        #{jobId,jdbcType=INTEGER},
+      </if>
+      <if test="resumeId != null">
+        #{resumeId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.guoyasoft.bean.db.interview.VInterviewSummaryExample" resultType="java.lang.Long">
+    select count(*) from v_interview_summary
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update v_interview_summary
+    <set>
+      <if test="record.customerId != null">
+        customer_id = #{record.customerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerName != null">
+        customer_name = #{record.customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerAge != null">
+        customer_age = #{record.customerAge,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerBirthday != null">
+        customer_birthday = #{record.customerBirthday,jdbcType=DATE},
+      </if>
+      <if test="record.customerSex != null">
+        customer_sex = #{record.customerSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerProvince != null">
+        customer_province = #{record.customerProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerCity != null">
+        customer_city = #{record.customerCity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerCert != null">
+        customer_cert = #{record.customerCert,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerCstType != null">
+        customer_cst_type = #{record.customerCstType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerCstTypeDesc != null">
+        customer_cst_type_desc = #{record.customerCstTypeDesc,jdbcType=CHAR},
+      </if>
+      <if test="record.customerPhone != null">
+        customer_phone = #{record.customerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerWeichat != null">
+        customer_weichat = #{record.customerWeichat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerStatus != null">
+        customer_status = #{record.customerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerStatusDesc != null">
+        customer_status_desc = #{record.customerStatusDesc,jdbcType=CHAR},
+      </if>
+      <if test="record.customerCreateTime != null">
+        customer_create_time = #{record.customerCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.customerUpdateTime != null">
+        customer_update_time = #{record.customerUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.studentId != null">
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentCreateTime != null">
+        student_create_time = #{record.studentCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.studentUpdateTime != null">
+        student_update_time = #{record.studentUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.studentStatus != null">
+        student_status = #{record.studentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentStatusDesc != null">
+        student_status_desc = #{record.studentStatusDesc,jdbcType=CHAR},
+      </if>
+      <if test="record.studentOperator != null">
+        student_operator = #{record.studentOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentActiveTime != null">
+        student_active_time = #{record.studentActiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.studentDeactiveTime != null">
+        student_deactive_time = #{record.studentDeactiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.studentEducation != null">
+        student_education = #{record.studentEducation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentInsurance != null">
+        student_insurance = #{record.studentInsurance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentComputor != null">
+        student_computor = #{record.studentComputor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentBoard != null">
+        student_board = #{record.studentBoard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentBuyEdu != null">
+        student_buy_edu = #{record.studentBuyEdu,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentAdultEdu != null">
+        student_adult_edu = #{record.studentAdultEdu,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentIntroducer != null">
+        student_introducer = #{record.studentIntroducer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentEnrollDate != null">
+        student_enroll_date = #{record.studentEnrollDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.studentStudentType != null">
+        student_student_type = #{record.studentStudentType,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userUserName != null">
+        user_user_name = #{record.userUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPwd != null">
+        user_pwd = #{record.userPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userStatus != null">
+        user_status = #{record.userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.userCreateTime != null">
+        user_create_time = #{record.userCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userUpdateTime != null">
+        user_update_time = #{record.userUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userOperateUno != null">
+        user_operate_uno = #{record.userOperateUno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userActiveTime != null">
+        user_active_time = #{record.userActiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userDeactiveTime != null">
+        user_deactive_time = #{record.userDeactiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.stu2ClassId != null">
+        stu_2_class_id = #{record.stu2ClassId,jdbcType=INTEGER},
+      </if>
+      <if test="record.stu2CreateTime != null">
+        stu_2_create_time = #{record.stu2CreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.stu2UpdateTime != null">
+        stu_2_update_time = #{record.stu2UpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.stu2Status != null">
+        stu_2_status = #{record.stu2Status,jdbcType=INTEGER},
+      </if>
+      <if test="record.classId != null">
+        class_id = #{record.classId,jdbcType=INTEGER},
+      </if>
+      <if test="record.className != null">
+        class_name = #{record.className,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classStartDate != null">
+        class_start_date = #{record.classStartDate,jdbcType=DATE},
+      </if>
+      <if test="record.classGraduateDate != null">
+        class_graduate_date = #{record.classGraduateDate,jdbcType=DATE},
+      </if>
+      <if test="record.classTeacherId != null">
+        class_teacher_id = #{record.classTeacherId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classClassAbbreviation != null">
+        class_class_abbreviation = #{record.classClassAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherId != null">
+        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="record.teacherStatus != null">
+        teacher_status = #{record.teacherStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherCreateTime != null">
+        teacher_create_time = #{record.teacherCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.teacherUpdateTime != null">
+        teacher_update_time = #{record.teacherUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.teacherOperator != null">
+        teacher_operator = #{record.teacherOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherGrade != null">
+        teacher_grade = #{record.teacherGrade,jdbcType=INTEGER},
+      </if>
+      <if test="record.teacherTeacherType != null">
+        teacher_teacher_type = #{record.teacherTeacherType,jdbcType=INTEGER},
+      </if>
+      <if test="record.scheduleId != null">
+        schedule_id = #{record.scheduleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.scheduleCreateTime != null">
+        schedule_create_time = #{record.scheduleCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.scheduleStatus != null">
+        schedule_status = #{record.scheduleStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.scheduleActiveTime != null">
+        schedule_active_time = #{record.scheduleActiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.scheduleDeactiveTime != null">
+        schedule_deactive_time = #{record.scheduleDeactiveTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.courseInstanceId != null">
+        course_instance_id = #{record.courseInstanceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseInstanceName != null">
+        course_instance_name = #{record.courseInstanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseTeacherMainId != null">
+        course_teacher_main_id = #{record.courseTeacherMainId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseStatus != null">
+        course_status = #{record.courseStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseTeacherAsisId != null">
+        course_teacher_asis_id = #{record.courseTeacherAsisId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseStartTime != null">
+        course_start_time = #{record.courseStartTime,jdbcType=DATE},
+      </if>
+      <if test="record.courseEndTime != null">
+        course_end_time = #{record.courseEndTime,jdbcType=DATE},
+      </if>
+      <if test="record.courseLecturePkgId != null">
+        course_lecture_pkg_id = #{record.courseLecturePkgId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseTeacherId != null">
+        course_teacher_id = #{record.courseTeacherId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseTeacherStatus != null">
+        course_teacher_status = #{record.courseTeacherStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseTeacherCreateTime != null">
+        course_teacher_create_time = #{record.courseTeacherCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.courseTeacherUpdateTime != null">
+        course_teacher_update_time = #{record.courseTeacherUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.courseTeacherOperator != null">
+        course_teacher_operator = #{record.courseTeacherOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseTeacherGrade != null">
+        course_teacher_grade = #{record.courseTeacherGrade,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseTeacherTeacherType != null">
+        course_teacher_teacher_type = #{record.courseTeacherTeacherType,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewId != null">
+        interview_id = #{record.interviewId,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewCallTime != null">
+        interview_call_time = #{record.interviewCallTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.interviewInterviewTime != null">
+        interview_interview_time = #{record.interviewInterviewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.interviewWorkTime != null">
+        interview_work_time = #{record.interviewWorkTime,jdbcType=DATE},
+      </if>
+      <if test="record.interviewProgress != null">
+        interview_progress = #{record.interviewProgress,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewResult != null">
+        interview_result = #{record.interviewResult,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewMark != null">
+        interview_mark = #{record.interviewMark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interviewStatus != null">
+        interview_status = #{record.interviewStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewCreateTime != null">
+        interview_create_time = #{record.interviewCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.interviewIsOutsource != null">
+        interview_is_outsource = #{record.interviewIsOutsource,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewCompanyId != null">
+        interview_company_id = #{record.interviewCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewCompanyName != null">
+        interview_company_name = #{record.interviewCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interviewCompanyAddr != null">
+        interview_company_addr = #{record.interviewCompanyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interviewCompanyType != null">
+        interview_company_type = #{record.interviewCompanyType,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewCompanyDesc != null">
+        interview_company_desc = #{record.interviewCompanyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interviewCompanyCreateTime != null">
+        interview_company_create_time = #{record.interviewCompanyCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.interviewCompanyStatus != null">
+        interview_company_status = #{record.interviewCompanyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewCompanyAbbreviation != null">
+        interview_company_abbreviation = #{record.interviewCompanyAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interviewCompanyUpdateTime != null">
+        interview_company_update_time = #{record.interviewCompanyUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.interviewCompanyIsOutsource != null">
+        interview_company_is_outsource = #{record.interviewCompanyIsOutsource,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrId != null">
+        hr_id = #{record.hrId,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrName != null">
+        hr_name = #{record.hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrWeichat != null">
+        hr_weichat = #{record.hrWeichat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrQq != null">
+        hr_qq = #{record.hrQq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrMobilePhone != null">
+        hr_mobile_phone = #{record.hrMobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrTelPhone != null">
+        hr_tel_phone = #{record.hrTelPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrEmail != null">
+        hr_email = #{record.hrEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrHrCompanyId != null">
+        hr_hr_company_id = #{record.hrHrCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrStatus != null">
+        hr_status = #{record.hrStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrCreateTime != null">
+        hr_create_time = #{record.hrCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hrUpdateTime != null">
+        hr_update_time = #{record.hrUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hrCompanyId != null">
+        hr_company_id = #{record.hrCompanyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrCompanyName != null">
+        hr_company_name = #{record.hrCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrCompanyAddr != null">
+        hr_company_addr = #{record.hrCompanyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrCompanyType != null">
+        hr_company_type = #{record.hrCompanyType,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrCompanyDesc != null">
+        hr_company_desc = #{record.hrCompanyDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrCompanyCreateTime != null">
+        hr_company_create_time = #{record.hrCompanyCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hrCompanyStatus != null">
+        hr_company_status = #{record.hrCompanyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.hrCompanyAbbreviation != null">
+        hr_company_abbreviation = #{record.hrCompanyAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrCompanyUpdateTime != null">
+        hr_company_update_time = #{record.hrCompanyUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hrCompanyIsOutsource != null">
+        hr_company_is_outsource = #{record.hrCompanyIsOutsource,jdbcType=INTEGER},
+      </if>
+      <if test="record.examId != null">
+        exam_id = #{record.examId,jdbcType=INTEGER},
+      </if>
+      <if test="record.examCreateTime != null">
+        exam_create_time = #{record.examCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.examStatus != null">
+        exam_status = #{record.examStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.examUpdateTime != null">
+        exam_update_time = #{record.examUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.askId != null">
+        ask_id = #{record.askId,jdbcType=INTEGER},
+      </if>
+      <if test="record.offerId != null">
+        offer_id = #{record.offerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.offerSalary != null">
+        offer_salary = #{record.offerSalary,jdbcType=INTEGER},
+      </if>
+      <if test="record.offerSalaryCount != null">
+        offer_salary_count = #{record.offerSalaryCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.offerIsGrossPay != null">
+        offer_is_gross_pay = #{record.offerIsGrossPay,jdbcType=INTEGER},
+      </if>
+      <if test="record.offerProbationaryPeriod != null">
+        offer_probationary_period = #{record.offerProbationaryPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="record.offerProbationaryDiscount != null">
+        offer_probationary_discount = #{record.offerProbationaryDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="record.offerTime != null">
+        offer_time = #{record.offerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.offerWorkTime != null">
+        offer_work_time = #{record.offerWorkTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.offerCreateTime != null">
+        offer_create_time = #{record.offerCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.offerUpdateTime != null">
+        offer_update_time = #{record.offerUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.offerOperatorUserId != null">
+        offer_operator_user_id = #{record.offerOperatorUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.offerIsAccept != null">
+        offer_is_accept = #{record.offerIsAccept,jdbcType=INTEGER},
+      </if>
+      <if test="record.offerStatus != null">
+        offer_status = #{record.offerStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.jobId != null">
+        job_id = #{record.jobId,jdbcType=INTEGER},
+      </if>
+      <if test="record.resumeId != null">
+        resume_id = #{record.resumeId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update v_interview_summary
+    set customer_id = #{record.customerId,jdbcType=INTEGER},
+      customer_name = #{record.customerName,jdbcType=VARCHAR},
+      customer_age = #{record.customerAge,jdbcType=INTEGER},
+      customer_birthday = #{record.customerBirthday,jdbcType=DATE},
+      customer_sex = #{record.customerSex,jdbcType=VARCHAR},
+      customer_province = #{record.customerProvince,jdbcType=VARCHAR},
+      customer_city = #{record.customerCity,jdbcType=VARCHAR},
+      customer_cert = #{record.customerCert,jdbcType=VARCHAR},
+      customer_cst_type = #{record.customerCstType,jdbcType=VARCHAR},
+      customer_cst_type_desc = #{record.customerCstTypeDesc,jdbcType=CHAR},
+      customer_phone = #{record.customerPhone,jdbcType=VARCHAR},
+      customer_weichat = #{record.customerWeichat,jdbcType=VARCHAR},
+      customer_status = #{record.customerStatus,jdbcType=INTEGER},
+      customer_status_desc = #{record.customerStatusDesc,jdbcType=CHAR},
+      customer_create_time = #{record.customerCreateTime,jdbcType=TIMESTAMP},
+      customer_update_time = #{record.customerUpdateTime,jdbcType=TIMESTAMP},
+      student_id = #{record.studentId,jdbcType=INTEGER},
+      student_create_time = #{record.studentCreateTime,jdbcType=TIMESTAMP},
+      student_update_time = #{record.studentUpdateTime,jdbcType=TIMESTAMP},
+      student_status = #{record.studentStatus,jdbcType=INTEGER},
+      student_status_desc = #{record.studentStatusDesc,jdbcType=CHAR},
+      student_operator = #{record.studentOperator,jdbcType=VARCHAR},
+      student_active_time = #{record.studentActiveTime,jdbcType=TIMESTAMP},
+      student_deactive_time = #{record.studentDeactiveTime,jdbcType=TIMESTAMP},
+      student_education = #{record.studentEducation,jdbcType=VARCHAR},
+      student_insurance = #{record.studentInsurance,jdbcType=VARCHAR},
+      student_computor = #{record.studentComputor,jdbcType=VARCHAR},
+      student_board = #{record.studentBoard,jdbcType=VARCHAR},
+      student_buy_edu = #{record.studentBuyEdu,jdbcType=INTEGER},
+      student_adult_edu = #{record.studentAdultEdu,jdbcType=INTEGER},
+      student_introducer = #{record.studentIntroducer,jdbcType=VARCHAR},
+      student_enroll_date = #{record.studentEnrollDate,jdbcType=TIMESTAMP},
+      student_student_type = #{record.studentStudentType,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      user_user_name = #{record.userUserName,jdbcType=VARCHAR},
+      user_pwd = #{record.userPwd,jdbcType=VARCHAR},
+      user_status = #{record.userStatus,jdbcType=INTEGER},
+      user_create_time = #{record.userCreateTime,jdbcType=TIMESTAMP},
+      user_update_time = #{record.userUpdateTime,jdbcType=TIMESTAMP},
+      user_operate_uno = #{record.userOperateUno,jdbcType=VARCHAR},
+      user_active_time = #{record.userActiveTime,jdbcType=TIMESTAMP},
+      user_deactive_time = #{record.userDeactiveTime,jdbcType=TIMESTAMP},
+      stu_2_class_id = #{record.stu2ClassId,jdbcType=INTEGER},
+      stu_2_create_time = #{record.stu2CreateTime,jdbcType=TIMESTAMP},
+      stu_2_update_time = #{record.stu2UpdateTime,jdbcType=TIMESTAMP},
+      stu_2_status = #{record.stu2Status,jdbcType=INTEGER},
+      class_id = #{record.classId,jdbcType=INTEGER},
+      class_name = #{record.className,jdbcType=VARCHAR},
+      class_start_date = #{record.classStartDate,jdbcType=DATE},
+      class_graduate_date = #{record.classGraduateDate,jdbcType=DATE},
+      class_teacher_id = #{record.classTeacherId,jdbcType=INTEGER},
+      class_class_abbreviation = #{record.classClassAbbreviation,jdbcType=VARCHAR},
+      teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      teacher_status = #{record.teacherStatus,jdbcType=VARCHAR},
+      teacher_create_time = #{record.teacherCreateTime,jdbcType=TIMESTAMP},
+      teacher_update_time = #{record.teacherUpdateTime,jdbcType=TIMESTAMP},
+      teacher_operator = #{record.teacherOperator,jdbcType=VARCHAR},
+      teacher_grade = #{record.teacherGrade,jdbcType=INTEGER},
+      teacher_teacher_type = #{record.teacherTeacherType,jdbcType=INTEGER},
+      schedule_id = #{record.scheduleId,jdbcType=INTEGER},
+      schedule_create_time = #{record.scheduleCreateTime,jdbcType=TIMESTAMP},
+      schedule_status = #{record.scheduleStatus,jdbcType=INTEGER},
+      schedule_active_time = #{record.scheduleActiveTime,jdbcType=TIMESTAMP},
+      schedule_deactive_time = #{record.scheduleDeactiveTime,jdbcType=TIMESTAMP},
+      course_instance_id = #{record.courseInstanceId,jdbcType=INTEGER},
+      course_instance_name = #{record.courseInstanceName,jdbcType=VARCHAR},
+      course_teacher_main_id = #{record.courseTeacherMainId,jdbcType=INTEGER},
+      course_status = #{record.courseStatus,jdbcType=INTEGER},
+      course_teacher_asis_id = #{record.courseTeacherAsisId,jdbcType=INTEGER},
+      course_start_time = #{record.courseStartTime,jdbcType=DATE},
+      course_end_time = #{record.courseEndTime,jdbcType=DATE},
+      course_lecture_pkg_id = #{record.courseLecturePkgId,jdbcType=INTEGER},
+      course_teacher_id = #{record.courseTeacherId,jdbcType=INTEGER},
+      course_teacher_status = #{record.courseTeacherStatus,jdbcType=VARCHAR},
+      course_teacher_create_time = #{record.courseTeacherCreateTime,jdbcType=TIMESTAMP},
+      course_teacher_update_time = #{record.courseTeacherUpdateTime,jdbcType=TIMESTAMP},
+      course_teacher_operator = #{record.courseTeacherOperator,jdbcType=VARCHAR},
+      course_teacher_grade = #{record.courseTeacherGrade,jdbcType=INTEGER},
+      course_teacher_teacher_type = #{record.courseTeacherTeacherType,jdbcType=INTEGER},
+      interview_id = #{record.interviewId,jdbcType=INTEGER},
+      interview_call_time = #{record.interviewCallTime,jdbcType=TIMESTAMP},
+      interview_interview_time = #{record.interviewInterviewTime,jdbcType=TIMESTAMP},
+      interview_work_time = #{record.interviewWorkTime,jdbcType=DATE},
+      interview_progress = #{record.interviewProgress,jdbcType=INTEGER},
+      interview_result = #{record.interviewResult,jdbcType=INTEGER},
+      interview_mark = #{record.interviewMark,jdbcType=VARCHAR},
+      interview_status = #{record.interviewStatus,jdbcType=INTEGER},
+      interview_create_time = #{record.interviewCreateTime,jdbcType=TIMESTAMP},
+      interview_is_outsource = #{record.interviewIsOutsource,jdbcType=INTEGER},
+      interview_company_id = #{record.interviewCompanyId,jdbcType=INTEGER},
+      interview_company_name = #{record.interviewCompanyName,jdbcType=VARCHAR},
+      interview_company_addr = #{record.interviewCompanyAddr,jdbcType=VARCHAR},
+      interview_company_type = #{record.interviewCompanyType,jdbcType=INTEGER},
+      interview_company_desc = #{record.interviewCompanyDesc,jdbcType=VARCHAR},
+      interview_company_create_time = #{record.interviewCompanyCreateTime,jdbcType=TIMESTAMP},
+      interview_company_status = #{record.interviewCompanyStatus,jdbcType=INTEGER},
+      interview_company_abbreviation = #{record.interviewCompanyAbbreviation,jdbcType=VARCHAR},
+      interview_company_update_time = #{record.interviewCompanyUpdateTime,jdbcType=TIMESTAMP},
+      interview_company_is_outsource = #{record.interviewCompanyIsOutsource,jdbcType=INTEGER},
+      hr_id = #{record.hrId,jdbcType=INTEGER},
+      hr_name = #{record.hrName,jdbcType=VARCHAR},
+      hr_weichat = #{record.hrWeichat,jdbcType=VARCHAR},
+      hr_qq = #{record.hrQq,jdbcType=VARCHAR},
+      hr_mobile_phone = #{record.hrMobilePhone,jdbcType=VARCHAR},
+      hr_tel_phone = #{record.hrTelPhone,jdbcType=VARCHAR},
+      hr_email = #{record.hrEmail,jdbcType=VARCHAR},
+      hr_hr_company_id = #{record.hrHrCompanyId,jdbcType=INTEGER},
+      hr_status = #{record.hrStatus,jdbcType=INTEGER},
+      hr_create_time = #{record.hrCreateTime,jdbcType=TIMESTAMP},
+      hr_update_time = #{record.hrUpdateTime,jdbcType=TIMESTAMP},
+      hr_company_id = #{record.hrCompanyId,jdbcType=INTEGER},
+      hr_company_name = #{record.hrCompanyName,jdbcType=VARCHAR},
+      hr_company_addr = #{record.hrCompanyAddr,jdbcType=VARCHAR},
+      hr_company_type = #{record.hrCompanyType,jdbcType=INTEGER},
+      hr_company_desc = #{record.hrCompanyDesc,jdbcType=VARCHAR},
+      hr_company_create_time = #{record.hrCompanyCreateTime,jdbcType=TIMESTAMP},
+      hr_company_status = #{record.hrCompanyStatus,jdbcType=INTEGER},
+      hr_company_abbreviation = #{record.hrCompanyAbbreviation,jdbcType=VARCHAR},
+      hr_company_update_time = #{record.hrCompanyUpdateTime,jdbcType=TIMESTAMP},
+      hr_company_is_outsource = #{record.hrCompanyIsOutsource,jdbcType=INTEGER},
+      exam_id = #{record.examId,jdbcType=INTEGER},
+      exam_create_time = #{record.examCreateTime,jdbcType=TIMESTAMP},
+      exam_status = #{record.examStatus,jdbcType=INTEGER},
+      exam_update_time = #{record.examUpdateTime,jdbcType=TIMESTAMP},
+      ask_id = #{record.askId,jdbcType=INTEGER},
+      offer_id = #{record.offerId,jdbcType=INTEGER},
+      offer_salary = #{record.offerSalary,jdbcType=INTEGER},
+      offer_salary_count = #{record.offerSalaryCount,jdbcType=INTEGER},
+      offer_is_gross_pay = #{record.offerIsGrossPay,jdbcType=INTEGER},
+      offer_probationary_period = #{record.offerProbationaryPeriod,jdbcType=INTEGER},
+      offer_probationary_discount = #{record.offerProbationaryDiscount,jdbcType=INTEGER},
+      offer_time = #{record.offerTime,jdbcType=TIMESTAMP},
+      offer_work_time = #{record.offerWorkTime,jdbcType=TIMESTAMP},
+      offer_create_time = #{record.offerCreateTime,jdbcType=TIMESTAMP},
+      offer_update_time = #{record.offerUpdateTime,jdbcType=TIMESTAMP},
+      offer_operator_user_id = #{record.offerOperatorUserId,jdbcType=INTEGER},
+      offer_is_accept = #{record.offerIsAccept,jdbcType=INTEGER},
+      offer_status = #{record.offerStatus,jdbcType=INTEGER},
+      job_id = #{record.jobId,jdbcType=INTEGER},
+      resume_id = #{record.resumeId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

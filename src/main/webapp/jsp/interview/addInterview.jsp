@@ -87,6 +87,7 @@
 				</div>
 			</div>
 		</form>
+		
 	</div>
 	<jsp:include page="../commons/footPub.jsp" flush="true"></jsp:include>
 </body>
