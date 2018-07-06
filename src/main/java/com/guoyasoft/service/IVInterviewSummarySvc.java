@@ -1,5 +1,9 @@
 package com.guoyasoft.service;
 
-public interface IVInterviewSummarySvc {
+import java.util.List;
 
+import com.guoyasoft.bean.db.interview.VInterviewSummary;
+
+public interface IVInterviewSummarySvc {
+	public List<VInterviewSummary> queryInterviewSummaries();
 }

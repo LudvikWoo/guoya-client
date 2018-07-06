@@ -1,196 +1,168 @@
 package com.guoyasoft.bean.api.customer;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
-import com.guoyasoft.bean.api.interview.summary.Student;
 
 public class Customer {
-	private List<Student> students = new ArrayList<Student>();
-
-	private Integer customerId;
-
-	private String customerName;
-
-	private Integer customerAge;
-
-	private Date customerBirthday;
-
-	private String customerSex;
-
-	private String customerProvince;
-
-	private String customerCity;
-
-	private String customerCert;
-
-	private String customerCstType;
-
-	private String customerCstTypeDesc;
-
-	private String customerPhone;
-
-	private String customerWeichat;
-
-	private Integer customerStatus;
-
-	private String customerStatusDesc;
-
-	private Date customerCreateTime;
-
-	private Date customerUpdateTime;
-
-	public Integer getCustomerId() {
-		return customerId;
+	
+	private String cno         ;
+	
+	private String cname       ;
+	private String cstType;
+	
+	private String age         ;
+	
+	private String birthday    ;
+	private String enrollDate  ;
+	private String cert        ;
+	
+	private String sex         ;
+	private String education   ;
+	private String buyEdu;
+	private String adultEdu;
+	private String insurance   ;
+	private String computor     ;
+	private String board       ;
+	private String phone       ;
+	private String weichat     ;
+	private String introducer  ;
+	private String status      ;
+	
+	private String province    ;
+	private String city        ;
+	
+	public String getCstType() {
+		return cstType;
 	}
-
-	public void setCustomerId(Integer customerId) {
-		this.customerId = customerId;
+	public void setCstType(String cstType) {
+		this.cstType = cstType;
 	}
-
-	public String getCustomerName() {
-		return customerName;
+	public String getCno() {
+		return cno;
 	}
-
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setCno(String cno) {
+		this.cno = cno;
 	}
-
-	public Integer getCustomerAge() {
-		return customerAge;
+	public String getCname() {
+		return cname;
 	}
-
-	public void setCustomerAge(Integer customerAge) {
-		this.customerAge = customerAge;
+	public void setCname(String cname) {
+		this.cname = cname;
 	}
-
-	public Date getCustomerBirthday() {
-		return customerBirthday;
+	public String getAge() {
+		return age;
 	}
-
-	public void setCustomerBirthday(Date customerBirthday) {
-		this.customerBirthday = customerBirthday;
+	public void setAge(String age) {
+		this.age = age;
 	}
-
-	public String getCustomerSex() {
-		return customerSex;
+	public String getBirthday() {
+		return birthday;
 	}
-
-	public void setCustomerSex(String customerSex) {
-		this.customerSex = customerSex;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
-
-	public String getCustomerProvince() {
-		return customerProvince;
+	public String getEnrollDate() {
+		return enrollDate;
 	}
-
-	public void setCustomerProvince(String customerProvince) {
-		this.customerProvince = customerProvince;
+	public void setEnrollDate(String enrollDate) {
+		this.enrollDate = enrollDate;
 	}
-
-	public String getCustomerCity() {
-		return customerCity;
+	public String getCert() {
+		return cert;
 	}
-
-	public void setCustomerCity(String customerCity) {
-		this.customerCity = customerCity;
+	public void setCert(String cert) {
+		this.cert = cert;
 	}
-
-	public String getCustomerCert() {
-		return customerCert;
+	public String getSex() {
+		return sex;
 	}
-
-	public void setCustomerCert(String customerCert) {
-		this.customerCert = customerCert;
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
-
-	public String getCustomerCstType() {
-		return customerCstType;
+	public String getEducation() {
+		return education;
 	}
-
-	public void setCustomerCstType(String customerCstType) {
-		this.customerCstType = customerCstType;
+	public void setEducation(String education) {
+		this.education = education;
 	}
-
-	public String getCustomerCstTypeDesc() {
-		return customerCstTypeDesc;
+	public String getInsurance() {
+		return insurance;
 	}
-
-	public void setCustomerCstTypeDesc(String customerCstTypeDesc) {
-		this.customerCstTypeDesc = customerCstTypeDesc;
+	public void setInsurance(String insurance) {
+		this.insurance = insurance;
 	}
-
-	public String getCustomerPhone() {
-		return customerPhone;
+	
+	public String getComputor() {
+		return computor;
 	}
-
-	public void setCustomerPhone(String customerPhone) {
-		this.customerPhone = customerPhone;
+	public void setComputor(String computor) {
+		this.computor = computor;
 	}
-
-	public String getCustomerWeichat() {
-		return customerWeichat;
+	public String getBoard() {
+		return board;
 	}
-
-	public void setCustomerWeichat(String customerWeichat) {
-		this.customerWeichat = customerWeichat;
+	public void setBoard(String board) {
+		this.board = board;
 	}
-
-	public Integer getCustomerStatus() {
-		return customerStatus;
+	public String getPhone() {
+		return phone;
 	}
-
-	public void setCustomerStatus(Integer customerStatus) {
-		this.customerStatus = customerStatus;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-
-	public String getCustomerStatusDesc() {
-		return customerStatusDesc;
+	public String getWeichat() {
+		return weichat;
 	}
-
-	public void setCustomerStatusDesc(String customerStatusDesc) {
-		this.customerStatusDesc = customerStatusDesc;
+	public void setWeichat(String weichat) {
+		this.weichat = weichat;
 	}
-
-	public Date getCustomerCreateTime() {
-		return customerCreateTime;
+	public String getIntroducer() {
+		return introducer;
 	}
-
-	public void setCustomerCreateTime(Date customerCreateTime) {
-		this.customerCreateTime = customerCreateTime;
+	public void setIntroducer(String introducer) {
+		this.introducer = introducer;
 	}
-
-	public Date getCustomerUpdateTime() {
-		return customerUpdateTime;
+	public String getStatus() {
+		return status;
 	}
-
-	public void setCustomerUpdateTime(Date customerUpdateTime) {
-		this.customerUpdateTime = customerUpdateTime;
+	public void setStatus(String status) {
+		this.status = status;
 	}
-
-	public List<Student> getStudents() {
-		return students;
+	public String getProvince() {
+		return province;
 	}
-
-	public void setStudents(List<Student> students) {
-		this.students = students;
+	public void setProvince(String province) {
+		this.province = province;
 	}
-
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	
+	public String getBuyEdu() {
+		return buyEdu;
+	}
+	public void setBuyEdu(String buyEdu) {
+		this.buyEdu = buyEdu;
+	}
+	public String getAdultEdu() {
+		return adultEdu;
+	}
+	public void setAdultEdu(String adultEdu) {
+		this.adultEdu = adultEdu;
+	}
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", customerName="
-				+ customerName + ", customerAge=" + customerAge
-				+ ", customerBirthday=" + customerBirthday + ", customerSex="
-				+ customerSex + ", customerProvince=" + customerProvince
-				+ ", customerCity=" + customerCity + ", customerCert="
-				+ customerCert + ", customerCstType=" + customerCstType
-				+ ", customerCstTypeDesc=" + customerCstTypeDesc
-				+ ", customerPhone=" + customerPhone + ", customerWeichat="
-				+ customerWeichat + ", customerStatus=" + customerStatus
-				+ ", customerStatusDesc=" + customerStatusDesc
-				+ ", customerCreateTime=" + customerCreateTime
-				+ ", customerUpdateTime=" + customerUpdateTime + "]";
+		return "Customer [cno=" + cno + ", cname=" + cname + ", age=" + age
+				+ ", birthday=" + birthday + ", enrollDate=" + enrollDate
+				+ ", cert=" + cert + ", sex=" + sex + ", education="
+				+ education + ", insurance=" + insurance + ", computor="
+				+ computor + ", board=" + board + ", phone=" + phone
+				+ ", weichat=" + weichat + ", introducer=" + introducer
+				+ ", status=" + status + ", province=" + province + ", city="
+				+ city + "]";
 	}
-
+	
+	
 }

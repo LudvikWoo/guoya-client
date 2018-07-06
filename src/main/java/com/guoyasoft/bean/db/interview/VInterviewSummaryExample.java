@@ -452,6 +452,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andCustomerSexDescIsNull() {
+            addCriterion("customer_sex_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescIsNotNull() {
+            addCriterion("customer_sex_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescEqualTo(String value) {
+            addCriterion("customer_sex_desc =", value, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescNotEqualTo(String value) {
+            addCriterion("customer_sex_desc <>", value, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescGreaterThan(String value) {
+            addCriterion("customer_sex_desc >", value, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescGreaterThanOrEqualTo(String value) {
+            addCriterion("customer_sex_desc >=", value, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescLessThan(String value) {
+            addCriterion("customer_sex_desc <", value, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescLessThanOrEqualTo(String value) {
+            addCriterion("customer_sex_desc <=", value, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescLike(String value) {
+            addCriterion("customer_sex_desc like", value, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescNotLike(String value) {
+            addCriterion("customer_sex_desc not like", value, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescIn(List<String> values) {
+            addCriterion("customer_sex_desc in", values, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescNotIn(List<String> values) {
+            addCriterion("customer_sex_desc not in", values, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescBetween(String value1, String value2) {
+            addCriterion("customer_sex_desc between", value1, value2, "customerSexDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCustomerSexDescNotBetween(String value1, String value2) {
+            addCriterion("customer_sex_desc not between", value1, value2, "customerSexDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andCustomerProvinceIsNull() {
             addCriterion("customer_province is null");
             return (Criteria) this;
@@ -1762,6 +1832,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andStudentEducationDescIsNull() {
+            addCriterion("student_education_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescIsNotNull() {
+            addCriterion("student_education_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescEqualTo(String value) {
+            addCriterion("student_education_desc =", value, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescNotEqualTo(String value) {
+            addCriterion("student_education_desc <>", value, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescGreaterThan(String value) {
+            addCriterion("student_education_desc >", value, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescGreaterThanOrEqualTo(String value) {
+            addCriterion("student_education_desc >=", value, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescLessThan(String value) {
+            addCriterion("student_education_desc <", value, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescLessThanOrEqualTo(String value) {
+            addCriterion("student_education_desc <=", value, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescLike(String value) {
+            addCriterion("student_education_desc like", value, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescNotLike(String value) {
+            addCriterion("student_education_desc not like", value, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescIn(List<String> values) {
+            addCriterion("student_education_desc in", values, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescNotIn(List<String> values) {
+            addCriterion("student_education_desc not in", values, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescBetween(String value1, String value2) {
+            addCriterion("student_education_desc between", value1, value2, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentEducationDescNotBetween(String value1, String value2) {
+            addCriterion("student_education_desc not between", value1, value2, "studentEducationDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andStudentInsuranceIsNull() {
             addCriterion("student_insurance is null");
             return (Criteria) this;
@@ -1829,6 +1969,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andStudentInsuranceNotBetween(String value1, String value2) {
             addCriterion("student_insurance not between", value1, value2, "studentInsurance");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescIsNull() {
+            addCriterion("student_insurance_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescIsNotNull() {
+            addCriterion("student_insurance_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescEqualTo(String value) {
+            addCriterion("student_insurance_desc =", value, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescNotEqualTo(String value) {
+            addCriterion("student_insurance_desc <>", value, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescGreaterThan(String value) {
+            addCriterion("student_insurance_desc >", value, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescGreaterThanOrEqualTo(String value) {
+            addCriterion("student_insurance_desc >=", value, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescLessThan(String value) {
+            addCriterion("student_insurance_desc <", value, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescLessThanOrEqualTo(String value) {
+            addCriterion("student_insurance_desc <=", value, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescLike(String value) {
+            addCriterion("student_insurance_desc like", value, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescNotLike(String value) {
+            addCriterion("student_insurance_desc not like", value, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescIn(List<String> values) {
+            addCriterion("student_insurance_desc in", values, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescNotIn(List<String> values) {
+            addCriterion("student_insurance_desc not in", values, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescBetween(String value1, String value2) {
+            addCriterion("student_insurance_desc between", value1, value2, "studentInsuranceDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentInsuranceDescNotBetween(String value1, String value2) {
+            addCriterion("student_insurance_desc not between", value1, value2, "studentInsuranceDesc");
             return (Criteria) this;
         }
 
@@ -1902,6 +2112,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andStudentComputorDescIsNull() {
+            addCriterion("student_computor_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescIsNotNull() {
+            addCriterion("student_computor_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescEqualTo(String value) {
+            addCriterion("student_computor_desc =", value, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescNotEqualTo(String value) {
+            addCriterion("student_computor_desc <>", value, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescGreaterThan(String value) {
+            addCriterion("student_computor_desc >", value, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescGreaterThanOrEqualTo(String value) {
+            addCriterion("student_computor_desc >=", value, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescLessThan(String value) {
+            addCriterion("student_computor_desc <", value, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescLessThanOrEqualTo(String value) {
+            addCriterion("student_computor_desc <=", value, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescLike(String value) {
+            addCriterion("student_computor_desc like", value, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescNotLike(String value) {
+            addCriterion("student_computor_desc not like", value, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescIn(List<String> values) {
+            addCriterion("student_computor_desc in", values, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescNotIn(List<String> values) {
+            addCriterion("student_computor_desc not in", values, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescBetween(String value1, String value2) {
+            addCriterion("student_computor_desc between", value1, value2, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentComputorDescNotBetween(String value1, String value2) {
+            addCriterion("student_computor_desc not between", value1, value2, "studentComputorDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andStudentBoardIsNull() {
             addCriterion("student_board is null");
             return (Criteria) this;
@@ -1972,6 +2252,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andStudentBoardDescIsNull() {
+            addCriterion("student_board_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescIsNotNull() {
+            addCriterion("student_board_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescEqualTo(String value) {
+            addCriterion("student_board_desc =", value, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescNotEqualTo(String value) {
+            addCriterion("student_board_desc <>", value, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescGreaterThan(String value) {
+            addCriterion("student_board_desc >", value, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescGreaterThanOrEqualTo(String value) {
+            addCriterion("student_board_desc >=", value, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescLessThan(String value) {
+            addCriterion("student_board_desc <", value, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescLessThanOrEqualTo(String value) {
+            addCriterion("student_board_desc <=", value, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescLike(String value) {
+            addCriterion("student_board_desc like", value, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescNotLike(String value) {
+            addCriterion("student_board_desc not like", value, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescIn(List<String> values) {
+            addCriterion("student_board_desc in", values, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescNotIn(List<String> values) {
+            addCriterion("student_board_desc not in", values, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescBetween(String value1, String value2) {
+            addCriterion("student_board_desc between", value1, value2, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBoardDescNotBetween(String value1, String value2) {
+            addCriterion("student_board_desc not between", value1, value2, "studentBoardDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andStudentBuyEduIsNull() {
             addCriterion("student_buy_edu is null");
             return (Criteria) this;
@@ -2032,6 +2382,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andStudentBuyEduDescIsNull() {
+            addCriterion("student_buy_edu_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescIsNotNull() {
+            addCriterion("student_buy_edu_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescEqualTo(String value) {
+            addCriterion("student_buy_edu_desc =", value, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescNotEqualTo(String value) {
+            addCriterion("student_buy_edu_desc <>", value, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescGreaterThan(String value) {
+            addCriterion("student_buy_edu_desc >", value, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescGreaterThanOrEqualTo(String value) {
+            addCriterion("student_buy_edu_desc >=", value, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescLessThan(String value) {
+            addCriterion("student_buy_edu_desc <", value, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescLessThanOrEqualTo(String value) {
+            addCriterion("student_buy_edu_desc <=", value, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescLike(String value) {
+            addCriterion("student_buy_edu_desc like", value, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescNotLike(String value) {
+            addCriterion("student_buy_edu_desc not like", value, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescIn(List<String> values) {
+            addCriterion("student_buy_edu_desc in", values, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescNotIn(List<String> values) {
+            addCriterion("student_buy_edu_desc not in", values, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescBetween(String value1, String value2) {
+            addCriterion("student_buy_edu_desc between", value1, value2, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentBuyEduDescNotBetween(String value1, String value2) {
+            addCriterion("student_buy_edu_desc not between", value1, value2, "studentBuyEduDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andStudentAdultEduIsNull() {
             addCriterion("student_adult_edu is null");
             return (Criteria) this;
@@ -2089,6 +2509,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andStudentAdultEduNotBetween(Integer value1, Integer value2) {
             addCriterion("student_adult_edu not between", value1, value2, "studentAdultEdu");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescIsNull() {
+            addCriterion("student_adult_edu_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescIsNotNull() {
+            addCriterion("student_adult_edu_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescEqualTo(String value) {
+            addCriterion("student_adult_edu_desc =", value, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescNotEqualTo(String value) {
+            addCriterion("student_adult_edu_desc <>", value, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescGreaterThan(String value) {
+            addCriterion("student_adult_edu_desc >", value, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescGreaterThanOrEqualTo(String value) {
+            addCriterion("student_adult_edu_desc >=", value, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescLessThan(String value) {
+            addCriterion("student_adult_edu_desc <", value, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescLessThanOrEqualTo(String value) {
+            addCriterion("student_adult_edu_desc <=", value, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescLike(String value) {
+            addCriterion("student_adult_edu_desc like", value, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescNotLike(String value) {
+            addCriterion("student_adult_edu_desc not like", value, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescIn(List<String> values) {
+            addCriterion("student_adult_edu_desc in", values, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescNotIn(List<String> values) {
+            addCriterion("student_adult_edu_desc not in", values, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescBetween(String value1, String value2) {
+            addCriterion("student_adult_edu_desc between", value1, value2, "studentAdultEduDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentAdultEduDescNotBetween(String value1, String value2) {
+            addCriterion("student_adult_edu_desc not between", value1, value2, "studentAdultEduDesc");
             return (Criteria) this;
         }
 
@@ -2159,6 +2649,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andStudentIntroducerNotBetween(String value1, String value2) {
             addCriterion("student_introducer not between", value1, value2, "studentIntroducer");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameIsNull() {
+            addCriterion("student_introducer_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameIsNotNull() {
+            addCriterion("student_introducer_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameEqualTo(String value) {
+            addCriterion("student_introducer_name =", value, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameNotEqualTo(String value) {
+            addCriterion("student_introducer_name <>", value, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameGreaterThan(String value) {
+            addCriterion("student_introducer_name >", value, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameGreaterThanOrEqualTo(String value) {
+            addCriterion("student_introducer_name >=", value, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameLessThan(String value) {
+            addCriterion("student_introducer_name <", value, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameLessThanOrEqualTo(String value) {
+            addCriterion("student_introducer_name <=", value, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameLike(String value) {
+            addCriterion("student_introducer_name like", value, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameNotLike(String value) {
+            addCriterion("student_introducer_name not like", value, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameIn(List<String> values) {
+            addCriterion("student_introducer_name in", values, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameNotIn(List<String> values) {
+            addCriterion("student_introducer_name not in", values, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameBetween(String value1, String value2) {
+            addCriterion("student_introducer_name between", value1, value2, "studentIntroducerName");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentIntroducerNameNotBetween(String value1, String value2) {
+            addCriterion("student_introducer_name not between", value1, value2, "studentIntroducerName");
             return (Criteria) this;
         }
 
@@ -2279,6 +2839,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andStudentStudentTypeNotBetween(Integer value1, Integer value2) {
             addCriterion("student_student_type not between", value1, value2, "studentStudentType");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescIsNull() {
+            addCriterion("student_student_type_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescIsNotNull() {
+            addCriterion("student_student_type_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescEqualTo(String value) {
+            addCriterion("student_student_type_desc =", value, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescNotEqualTo(String value) {
+            addCriterion("student_student_type_desc <>", value, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescGreaterThan(String value) {
+            addCriterion("student_student_type_desc >", value, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescGreaterThanOrEqualTo(String value) {
+            addCriterion("student_student_type_desc >=", value, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescLessThan(String value) {
+            addCriterion("student_student_type_desc <", value, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescLessThanOrEqualTo(String value) {
+            addCriterion("student_student_type_desc <=", value, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescLike(String value) {
+            addCriterion("student_student_type_desc like", value, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescNotLike(String value) {
+            addCriterion("student_student_type_desc not like", value, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescIn(List<String> values) {
+            addCriterion("student_student_type_desc in", values, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescNotIn(List<String> values) {
+            addCriterion("student_student_type_desc not in", values, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescBetween(String value1, String value2) {
+            addCriterion("student_student_type_desc between", value1, value2, "studentStudentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStudentStudentTypeDescNotBetween(String value1, String value2) {
+            addCriterion("student_student_type_desc not between", value1, value2, "studentStudentTypeDesc");
             return (Criteria) this;
         }
 
@@ -2539,6 +3169,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andUserStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("user_status not between", value1, value2, "userStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescIsNull() {
+            addCriterion("user_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescIsNotNull() {
+            addCriterion("user_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescEqualTo(String value) {
+            addCriterion("user_status_desc =", value, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescNotEqualTo(String value) {
+            addCriterion("user_status_desc <>", value, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescGreaterThan(String value) {
+            addCriterion("user_status_desc >", value, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("user_status_desc >=", value, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescLessThan(String value) {
+            addCriterion("user_status_desc <", value, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("user_status_desc <=", value, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescLike(String value) {
+            addCriterion("user_status_desc like", value, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescNotLike(String value) {
+            addCriterion("user_status_desc not like", value, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescIn(List<String> values) {
+            addCriterion("user_status_desc in", values, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescNotIn(List<String> values) {
+            addCriterion("user_status_desc not in", values, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescBetween(String value1, String value2) {
+            addCriterion("user_status_desc between", value1, value2, "userStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStatusDescNotBetween(String value1, String value2) {
+            addCriterion("user_status_desc not between", value1, value2, "userStatusDesc");
             return (Criteria) this;
         }
 
@@ -3092,6 +3792,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andStu2StatusDescIsNull() {
+            addCriterion("stu_2_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescIsNotNull() {
+            addCriterion("stu_2_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescEqualTo(String value) {
+            addCriterion("stu_2_status_desc =", value, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescNotEqualTo(String value) {
+            addCriterion("stu_2_status_desc <>", value, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescGreaterThan(String value) {
+            addCriterion("stu_2_status_desc >", value, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("stu_2_status_desc >=", value, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescLessThan(String value) {
+            addCriterion("stu_2_status_desc <", value, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescLessThanOrEqualTo(String value) {
+            addCriterion("stu_2_status_desc <=", value, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescLike(String value) {
+            addCriterion("stu_2_status_desc like", value, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescNotLike(String value) {
+            addCriterion("stu_2_status_desc not like", value, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescIn(List<String> values) {
+            addCriterion("stu_2_status_desc in", values, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescNotIn(List<String> values) {
+            addCriterion("stu_2_status_desc not in", values, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescBetween(String value1, String value2) {
+            addCriterion("stu_2_status_desc between", value1, value2, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andStu2StatusDescNotBetween(String value1, String value2) {
+            addCriterion("stu_2_status_desc not between", value1, value2, "stu2StatusDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andClassIdIsNull() {
             addCriterion("class_id is null");
             return (Criteria) this;
@@ -3602,6 +4372,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andTeacherStatusDescIsNull() {
+            addCriterion("teacher_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescIsNotNull() {
+            addCriterion("teacher_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescEqualTo(String value) {
+            addCriterion("teacher_status_desc =", value, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescNotEqualTo(String value) {
+            addCriterion("teacher_status_desc <>", value, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescGreaterThan(String value) {
+            addCriterion("teacher_status_desc >", value, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("teacher_status_desc >=", value, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescLessThan(String value) {
+            addCriterion("teacher_status_desc <", value, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("teacher_status_desc <=", value, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescLike(String value) {
+            addCriterion("teacher_status_desc like", value, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescNotLike(String value) {
+            addCriterion("teacher_status_desc not like", value, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescIn(List<String> values) {
+            addCriterion("teacher_status_desc in", values, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescNotIn(List<String> values) {
+            addCriterion("teacher_status_desc not in", values, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescBetween(String value1, String value2) {
+            addCriterion("teacher_status_desc between", value1, value2, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherStatusDescNotBetween(String value1, String value2) {
+            addCriterion("teacher_status_desc not between", value1, value2, "teacherStatusDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andTeacherCreateTimeIsNull() {
             addCriterion("teacher_create_time is null");
             return (Criteria) this;
@@ -3852,63 +4692,203 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeIsNull() {
-            addCriterion("teacher_teacher_type is null");
+        public Criteria andTeacherGradeDescIsNull() {
+            addCriterion("teacher_grade_desc is null");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeIsNotNull() {
-            addCriterion("teacher_teacher_type is not null");
+        public Criteria andTeacherGradeDescIsNotNull() {
+            addCriterion("teacher_grade_desc is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeEqualTo(Integer value) {
-            addCriterion("teacher_teacher_type =", value, "teacherTeacherType");
+        public Criteria andTeacherGradeDescEqualTo(String value) {
+            addCriterion("teacher_grade_desc =", value, "teacherGradeDesc");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeNotEqualTo(Integer value) {
-            addCriterion("teacher_teacher_type <>", value, "teacherTeacherType");
+        public Criteria andTeacherGradeDescNotEqualTo(String value) {
+            addCriterion("teacher_grade_desc <>", value, "teacherGradeDesc");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeGreaterThan(Integer value) {
-            addCriterion("teacher_teacher_type >", value, "teacherTeacherType");
+        public Criteria andTeacherGradeDescGreaterThan(String value) {
+            addCriterion("teacher_grade_desc >", value, "teacherGradeDesc");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("teacher_teacher_type >=", value, "teacherTeacherType");
+        public Criteria andTeacherGradeDescGreaterThanOrEqualTo(String value) {
+            addCriterion("teacher_grade_desc >=", value, "teacherGradeDesc");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeLessThan(Integer value) {
-            addCriterion("teacher_teacher_type <", value, "teacherTeacherType");
+        public Criteria andTeacherGradeDescLessThan(String value) {
+            addCriterion("teacher_grade_desc <", value, "teacherGradeDesc");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("teacher_teacher_type <=", value, "teacherTeacherType");
+        public Criteria andTeacherGradeDescLessThanOrEqualTo(String value) {
+            addCriterion("teacher_grade_desc <=", value, "teacherGradeDesc");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeIn(List<Integer> values) {
-            addCriterion("teacher_teacher_type in", values, "teacherTeacherType");
+        public Criteria andTeacherGradeDescLike(String value) {
+            addCriterion("teacher_grade_desc like", value, "teacherGradeDesc");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeNotIn(List<Integer> values) {
-            addCriterion("teacher_teacher_type not in", values, "teacherTeacherType");
+        public Criteria andTeacherGradeDescNotLike(String value) {
+            addCriterion("teacher_grade_desc not like", value, "teacherGradeDesc");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeBetween(Integer value1, Integer value2) {
-            addCriterion("teacher_teacher_type between", value1, value2, "teacherTeacherType");
+        public Criteria andTeacherGradeDescIn(List<String> values) {
+            addCriterion("teacher_grade_desc in", values, "teacherGradeDesc");
             return (Criteria) this;
         }
 
-        public Criteria andTeacherTeacherTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("teacher_teacher_type not between", value1, value2, "teacherTeacherType");
+        public Criteria andTeacherGradeDescNotIn(List<String> values) {
+            addCriterion("teacher_grade_desc not in", values, "teacherGradeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherGradeDescBetween(String value1, String value2) {
+            addCriterion("teacher_grade_desc between", value1, value2, "teacherGradeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherGradeDescNotBetween(String value1, String value2) {
+            addCriterion("teacher_grade_desc not between", value1, value2, "teacherGradeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeIsNull() {
+            addCriterion("teacher_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeIsNotNull() {
+            addCriterion("teacher_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeEqualTo(Integer value) {
+            addCriterion("teacher_type =", value, "teacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeNotEqualTo(Integer value) {
+            addCriterion("teacher_type <>", value, "teacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeGreaterThan(Integer value) {
+            addCriterion("teacher_type >", value, "teacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("teacher_type >=", value, "teacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeLessThan(Integer value) {
+            addCriterion("teacher_type <", value, "teacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("teacher_type <=", value, "teacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeIn(List<Integer> values) {
+            addCriterion("teacher_type in", values, "teacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeNotIn(List<Integer> values) {
+            addCriterion("teacher_type not in", values, "teacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeBetween(Integer value1, Integer value2) {
+            addCriterion("teacher_type between", value1, value2, "teacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("teacher_type not between", value1, value2, "teacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescIsNull() {
+            addCriterion("teacher_type_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescIsNotNull() {
+            addCriterion("teacher_type_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescEqualTo(String value) {
+            addCriterion("teacher_type_desc =", value, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescNotEqualTo(String value) {
+            addCriterion("teacher_type_desc <>", value, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescGreaterThan(String value) {
+            addCriterion("teacher_type_desc >", value, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescGreaterThanOrEqualTo(String value) {
+            addCriterion("teacher_type_desc >=", value, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescLessThan(String value) {
+            addCriterion("teacher_type_desc <", value, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescLessThanOrEqualTo(String value) {
+            addCriterion("teacher_type_desc <=", value, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescLike(String value) {
+            addCriterion("teacher_type_desc like", value, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescNotLike(String value) {
+            addCriterion("teacher_type_desc not like", value, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescIn(List<String> values) {
+            addCriterion("teacher_type_desc in", values, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescNotIn(List<String> values) {
+            addCriterion("teacher_type_desc not in", values, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescBetween(String value1, String value2) {
+            addCriterion("teacher_type_desc between", value1, value2, "teacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeacherTypeDescNotBetween(String value1, String value2) {
+            addCriterion("teacher_type_desc not between", value1, value2, "teacherTypeDesc");
             return (Criteria) this;
         }
 
@@ -4089,6 +5069,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andScheduleStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("schedule_status not between", value1, value2, "scheduleStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescIsNull() {
+            addCriterion("schedule_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescIsNotNull() {
+            addCriterion("schedule_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescEqualTo(String value) {
+            addCriterion("schedule_status_desc =", value, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescNotEqualTo(String value) {
+            addCriterion("schedule_status_desc <>", value, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescGreaterThan(String value) {
+            addCriterion("schedule_status_desc >", value, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("schedule_status_desc >=", value, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescLessThan(String value) {
+            addCriterion("schedule_status_desc <", value, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("schedule_status_desc <=", value, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescLike(String value) {
+            addCriterion("schedule_status_desc like", value, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescNotLike(String value) {
+            addCriterion("schedule_status_desc not like", value, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescIn(List<String> values) {
+            addCriterion("schedule_status_desc in", values, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescNotIn(List<String> values) {
+            addCriterion("schedule_status_desc not in", values, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescBetween(String value1, String value2) {
+            addCriterion("schedule_status_desc between", value1, value2, "scheduleStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andScheduleStatusDescNotBetween(String value1, String value2) {
+            addCriterion("schedule_status_desc not between", value1, value2, "scheduleStatusDesc");
             return (Criteria) this;
         }
 
@@ -4402,6 +5452,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andCourseTeacherMainNameIsNull() {
+            addCriterion("course_teacher_main_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameIsNotNull() {
+            addCriterion("course_teacher_main_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameEqualTo(String value) {
+            addCriterion("course_teacher_main_name =", value, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameNotEqualTo(String value) {
+            addCriterion("course_teacher_main_name <>", value, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameGreaterThan(String value) {
+            addCriterion("course_teacher_main_name >", value, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameGreaterThanOrEqualTo(String value) {
+            addCriterion("course_teacher_main_name >=", value, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameLessThan(String value) {
+            addCriterion("course_teacher_main_name <", value, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameLessThanOrEqualTo(String value) {
+            addCriterion("course_teacher_main_name <=", value, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameLike(String value) {
+            addCriterion("course_teacher_main_name like", value, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameNotLike(String value) {
+            addCriterion("course_teacher_main_name not like", value, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameIn(List<String> values) {
+            addCriterion("course_teacher_main_name in", values, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameNotIn(List<String> values) {
+            addCriterion("course_teacher_main_name not in", values, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameBetween(String value1, String value2) {
+            addCriterion("course_teacher_main_name between", value1, value2, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherMainNameNotBetween(String value1, String value2) {
+            addCriterion("course_teacher_main_name not between", value1, value2, "courseTeacherMainName");
+            return (Criteria) this;
+        }
+
         public Criteria andCourseStatusIsNull() {
             addCriterion("course_status is null");
             return (Criteria) this;
@@ -4459,6 +5579,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andCourseStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("course_status not between", value1, value2, "courseStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescIsNull() {
+            addCriterion("course_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescIsNotNull() {
+            addCriterion("course_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescEqualTo(String value) {
+            addCriterion("course_status_desc =", value, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescNotEqualTo(String value) {
+            addCriterion("course_status_desc <>", value, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescGreaterThan(String value) {
+            addCriterion("course_status_desc >", value, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("course_status_desc >=", value, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescLessThan(String value) {
+            addCriterion("course_status_desc <", value, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("course_status_desc <=", value, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescLike(String value) {
+            addCriterion("course_status_desc like", value, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescNotLike(String value) {
+            addCriterion("course_status_desc not like", value, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescIn(List<String> values) {
+            addCriterion("course_status_desc in", values, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescNotIn(List<String> values) {
+            addCriterion("course_status_desc not in", values, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescBetween(String value1, String value2) {
+            addCriterion("course_status_desc between", value1, value2, "courseStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseStatusDescNotBetween(String value1, String value2) {
+            addCriterion("course_status_desc not between", value1, value2, "courseStatusDesc");
             return (Criteria) this;
         }
 
@@ -4762,6 +5952,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andCourseTeacherNameIsNull() {
+            addCriterion("course_teacher_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameIsNotNull() {
+            addCriterion("course_teacher_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameEqualTo(String value) {
+            addCriterion("course_teacher_name =", value, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameNotEqualTo(String value) {
+            addCriterion("course_teacher_name <>", value, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameGreaterThan(String value) {
+            addCriterion("course_teacher_name >", value, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameGreaterThanOrEqualTo(String value) {
+            addCriterion("course_teacher_name >=", value, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameLessThan(String value) {
+            addCriterion("course_teacher_name <", value, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameLessThanOrEqualTo(String value) {
+            addCriterion("course_teacher_name <=", value, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameLike(String value) {
+            addCriterion("course_teacher_name like", value, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameNotLike(String value) {
+            addCriterion("course_teacher_name not like", value, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameIn(List<String> values) {
+            addCriterion("course_teacher_name in", values, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameNotIn(List<String> values) {
+            addCriterion("course_teacher_name not in", values, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameBetween(String value1, String value2) {
+            addCriterion("course_teacher_name between", value1, value2, "courseTeacherName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherNameNotBetween(String value1, String value2) {
+            addCriterion("course_teacher_name not between", value1, value2, "courseTeacherName");
+            return (Criteria) this;
+        }
+
         public Criteria andCourseTeacherStatusIsNull() {
             addCriterion("course_teacher_status is null");
             return (Criteria) this;
@@ -4829,6 +6089,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andCourseTeacherStatusNotBetween(String value1, String value2) {
             addCriterion("course_teacher_status not between", value1, value2, "courseTeacherStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescIsNull() {
+            addCriterion("course_teacher_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescIsNotNull() {
+            addCriterion("course_teacher_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescEqualTo(String value) {
+            addCriterion("course_teacher_status_desc =", value, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescNotEqualTo(String value) {
+            addCriterion("course_teacher_status_desc <>", value, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescGreaterThan(String value) {
+            addCriterion("course_teacher_status_desc >", value, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("course_teacher_status_desc >=", value, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescLessThan(String value) {
+            addCriterion("course_teacher_status_desc <", value, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("course_teacher_status_desc <=", value, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescLike(String value) {
+            addCriterion("course_teacher_status_desc like", value, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescNotLike(String value) {
+            addCriterion("course_teacher_status_desc not like", value, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescIn(List<String> values) {
+            addCriterion("course_teacher_status_desc in", values, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescNotIn(List<String> values) {
+            addCriterion("course_teacher_status_desc not in", values, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescBetween(String value1, String value2) {
+            addCriterion("course_teacher_status_desc between", value1, value2, "courseTeacherStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherStatusDescNotBetween(String value1, String value2) {
+            addCriterion("course_teacher_status_desc not between", value1, value2, "courseTeacherStatusDesc");
             return (Criteria) this;
         }
 
@@ -5082,63 +6412,123 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeIsNull() {
-            addCriterion("course_teacher_teacher_type is null");
+        public Criteria andCourseTeacherTypeIsNull() {
+            addCriterion("course_teacher_type is null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeIsNotNull() {
-            addCriterion("course_teacher_teacher_type is not null");
+        public Criteria andCourseTeacherTypeIsNotNull() {
+            addCriterion("course_teacher_type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeEqualTo(Integer value) {
-            addCriterion("course_teacher_teacher_type =", value, "courseTeacherTeacherType");
+        public Criteria andCourseTeacherTypeEqualTo(Integer value) {
+            addCriterion("course_teacher_type =", value, "courseTeacherType");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeNotEqualTo(Integer value) {
-            addCriterion("course_teacher_teacher_type <>", value, "courseTeacherTeacherType");
+        public Criteria andCourseTeacherTypeNotEqualTo(Integer value) {
+            addCriterion("course_teacher_type <>", value, "courseTeacherType");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeGreaterThan(Integer value) {
-            addCriterion("course_teacher_teacher_type >", value, "courseTeacherTeacherType");
+        public Criteria andCourseTeacherTypeGreaterThan(Integer value) {
+            addCriterion("course_teacher_type >", value, "courseTeacherType");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("course_teacher_teacher_type >=", value, "courseTeacherTeacherType");
+        public Criteria andCourseTeacherTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("course_teacher_type >=", value, "courseTeacherType");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeLessThan(Integer value) {
-            addCriterion("course_teacher_teacher_type <", value, "courseTeacherTeacherType");
+        public Criteria andCourseTeacherTypeLessThan(Integer value) {
+            addCriterion("course_teacher_type <", value, "courseTeacherType");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("course_teacher_teacher_type <=", value, "courseTeacherTeacherType");
+        public Criteria andCourseTeacherTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("course_teacher_type <=", value, "courseTeacherType");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeIn(List<Integer> values) {
-            addCriterion("course_teacher_teacher_type in", values, "courseTeacherTeacherType");
+        public Criteria andCourseTeacherTypeIn(List<Integer> values) {
+            addCriterion("course_teacher_type in", values, "courseTeacherType");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeNotIn(List<Integer> values) {
-            addCriterion("course_teacher_teacher_type not in", values, "courseTeacherTeacherType");
+        public Criteria andCourseTeacherTypeNotIn(List<Integer> values) {
+            addCriterion("course_teacher_type not in", values, "courseTeacherType");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeBetween(Integer value1, Integer value2) {
-            addCriterion("course_teacher_teacher_type between", value1, value2, "courseTeacherTeacherType");
+        public Criteria andCourseTeacherTypeBetween(Integer value1, Integer value2) {
+            addCriterion("course_teacher_type between", value1, value2, "courseTeacherType");
             return (Criteria) this;
         }
 
-        public Criteria andCourseTeacherTeacherTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("course_teacher_teacher_type not between", value1, value2, "courseTeacherTeacherType");
+        public Criteria andCourseTeacherTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("course_teacher_type not between", value1, value2, "courseTeacherType");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescIsNull() {
+            addCriterion("course_teacher_type_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescIsNotNull() {
+            addCriterion("course_teacher_type_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescEqualTo(Integer value) {
+            addCriterion("course_teacher_type_desc =", value, "courseTeacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescNotEqualTo(Integer value) {
+            addCriterion("course_teacher_type_desc <>", value, "courseTeacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescGreaterThan(Integer value) {
+            addCriterion("course_teacher_type_desc >", value, "courseTeacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescGreaterThanOrEqualTo(Integer value) {
+            addCriterion("course_teacher_type_desc >=", value, "courseTeacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescLessThan(Integer value) {
+            addCriterion("course_teacher_type_desc <", value, "courseTeacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescLessThanOrEqualTo(Integer value) {
+            addCriterion("course_teacher_type_desc <=", value, "courseTeacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescIn(List<Integer> values) {
+            addCriterion("course_teacher_type_desc in", values, "courseTeacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescNotIn(List<Integer> values) {
+            addCriterion("course_teacher_type_desc not in", values, "courseTeacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescBetween(Integer value1, Integer value2) {
+            addCriterion("course_teacher_type_desc between", value1, value2, "courseTeacherTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseTeacherTypeDescNotBetween(Integer value1, Integer value2) {
+            addCriterion("course_teacher_type_desc not between", value1, value2, "courseTeacherTypeDesc");
             return (Criteria) this;
         }
 
@@ -5502,6 +6892,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andInterviewResultDescIsNull() {
+            addCriterion("interview_result_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescIsNotNull() {
+            addCriterion("interview_result_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescEqualTo(String value) {
+            addCriterion("interview_result_desc =", value, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescNotEqualTo(String value) {
+            addCriterion("interview_result_desc <>", value, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescGreaterThan(String value) {
+            addCriterion("interview_result_desc >", value, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescGreaterThanOrEqualTo(String value) {
+            addCriterion("interview_result_desc >=", value, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescLessThan(String value) {
+            addCriterion("interview_result_desc <", value, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescLessThanOrEqualTo(String value) {
+            addCriterion("interview_result_desc <=", value, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescLike(String value) {
+            addCriterion("interview_result_desc like", value, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescNotLike(String value) {
+            addCriterion("interview_result_desc not like", value, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescIn(List<String> values) {
+            addCriterion("interview_result_desc in", values, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescNotIn(List<String> values) {
+            addCriterion("interview_result_desc not in", values, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescBetween(String value1, String value2) {
+            addCriterion("interview_result_desc between", value1, value2, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewResultDescNotBetween(String value1, String value2) {
+            addCriterion("interview_result_desc not between", value1, value2, "interviewResultDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andInterviewMarkIsNull() {
             addCriterion("interview_mark is null");
             return (Criteria) this;
@@ -5629,6 +7089,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andInterviewStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("interview_status not between", value1, value2, "interviewStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescIsNull() {
+            addCriterion("interview_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescIsNotNull() {
+            addCriterion("interview_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescEqualTo(String value) {
+            addCriterion("interview_status_desc =", value, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescNotEqualTo(String value) {
+            addCriterion("interview_status_desc <>", value, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescGreaterThan(String value) {
+            addCriterion("interview_status_desc >", value, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("interview_status_desc >=", value, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescLessThan(String value) {
+            addCriterion("interview_status_desc <", value, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("interview_status_desc <=", value, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescLike(String value) {
+            addCriterion("interview_status_desc like", value, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescNotLike(String value) {
+            addCriterion("interview_status_desc not like", value, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescIn(List<String> values) {
+            addCriterion("interview_status_desc in", values, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescNotIn(List<String> values) {
+            addCriterion("interview_status_desc not in", values, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescBetween(String value1, String value2) {
+            addCriterion("interview_status_desc between", value1, value2, "interviewStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewStatusDescNotBetween(String value1, String value2) {
+            addCriterion("interview_status_desc not between", value1, value2, "interviewStatusDesc");
             return (Criteria) this;
         }
 
@@ -6199,6 +7729,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andInterviewCompanyStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("interview_company_status not between", value1, value2, "interviewCompanyStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescIsNull() {
+            addCriterion("interview_company_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescIsNotNull() {
+            addCriterion("interview_company_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescEqualTo(String value) {
+            addCriterion("interview_company_status_desc =", value, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescNotEqualTo(String value) {
+            addCriterion("interview_company_status_desc <>", value, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescGreaterThan(String value) {
+            addCriterion("interview_company_status_desc >", value, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("interview_company_status_desc >=", value, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescLessThan(String value) {
+            addCriterion("interview_company_status_desc <", value, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("interview_company_status_desc <=", value, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescLike(String value) {
+            addCriterion("interview_company_status_desc like", value, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescNotLike(String value) {
+            addCriterion("interview_company_status_desc not like", value, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescIn(List<String> values) {
+            addCriterion("interview_company_status_desc in", values, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescNotIn(List<String> values) {
+            addCriterion("interview_company_status_desc not in", values, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescBetween(String value1, String value2) {
+            addCriterion("interview_company_status_desc between", value1, value2, "interviewCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andInterviewCompanyStatusDescNotBetween(String value1, String value2) {
+            addCriterion("interview_company_status_desc not between", value1, value2, "interviewCompanyStatusDesc");
             return (Criteria) this;
         }
 
@@ -6992,6 +8592,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andHrStatusDescIsNull() {
+            addCriterion("hr_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescIsNotNull() {
+            addCriterion("hr_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescEqualTo(String value) {
+            addCriterion("hr_status_desc =", value, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescNotEqualTo(String value) {
+            addCriterion("hr_status_desc <>", value, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescGreaterThan(String value) {
+            addCriterion("hr_status_desc >", value, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("hr_status_desc >=", value, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescLessThan(String value) {
+            addCriterion("hr_status_desc <", value, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("hr_status_desc <=", value, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescLike(String value) {
+            addCriterion("hr_status_desc like", value, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescNotLike(String value) {
+            addCriterion("hr_status_desc not like", value, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescIn(List<String> values) {
+            addCriterion("hr_status_desc in", values, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescNotIn(List<String> values) {
+            addCriterion("hr_status_desc not in", values, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescBetween(String value1, String value2) {
+            addCriterion("hr_status_desc between", value1, value2, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrStatusDescNotBetween(String value1, String value2) {
+            addCriterion("hr_status_desc not between", value1, value2, "hrStatusDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andHrCreateTimeIsNull() {
             addCriterion("hr_create_time is null");
             return (Criteria) this;
@@ -7562,6 +9232,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andHrCompanyStatusDescIsNull() {
+            addCriterion("hr_company_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescIsNotNull() {
+            addCriterion("hr_company_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescEqualTo(String value) {
+            addCriterion("hr_company_status_desc =", value, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescNotEqualTo(String value) {
+            addCriterion("hr_company_status_desc <>", value, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescGreaterThan(String value) {
+            addCriterion("hr_company_status_desc >", value, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("hr_company_status_desc >=", value, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescLessThan(String value) {
+            addCriterion("hr_company_status_desc <", value, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("hr_company_status_desc <=", value, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescLike(String value) {
+            addCriterion("hr_company_status_desc like", value, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescNotLike(String value) {
+            addCriterion("hr_company_status_desc not like", value, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescIn(List<String> values) {
+            addCriterion("hr_company_status_desc in", values, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescNotIn(List<String> values) {
+            addCriterion("hr_company_status_desc not in", values, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescBetween(String value1, String value2) {
+            addCriterion("hr_company_status_desc between", value1, value2, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andHrCompanyStatusDescNotBetween(String value1, String value2) {
+            addCriterion("hr_company_status_desc not between", value1, value2, "hrCompanyStatusDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andHrCompanyAbbreviationIsNull() {
             addCriterion("hr_company_abbreviation is null");
             return (Criteria) this;
@@ -7932,6 +9672,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andExamStatusDescIsNull() {
+            addCriterion("exam_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescIsNotNull() {
+            addCriterion("exam_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescEqualTo(String value) {
+            addCriterion("exam_status_desc =", value, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescNotEqualTo(String value) {
+            addCriterion("exam_status_desc <>", value, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescGreaterThan(String value) {
+            addCriterion("exam_status_desc >", value, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("exam_status_desc >=", value, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescLessThan(String value) {
+            addCriterion("exam_status_desc <", value, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("exam_status_desc <=", value, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescLike(String value) {
+            addCriterion("exam_status_desc like", value, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescNotLike(String value) {
+            addCriterion("exam_status_desc not like", value, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescIn(List<String> values) {
+            addCriterion("exam_status_desc in", values, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescNotIn(List<String> values) {
+            addCriterion("exam_status_desc not in", values, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescBetween(String value1, String value2) {
+            addCriterion("exam_status_desc between", value1, value2, "examStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andExamStatusDescNotBetween(String value1, String value2) {
+            addCriterion("exam_status_desc not between", value1, value2, "examStatusDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andExamUpdateTimeIsNull() {
             addCriterion("exam_update_time is null");
             return (Criteria) this;
@@ -8289,6 +10099,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andOfferIsGrossPayNotBetween(Integer value1, Integer value2) {
             addCriterion("offer_is_gross_pay not between", value1, value2, "offerIsGrossPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescIsNull() {
+            addCriterion("offer_is_gross_pay_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescIsNotNull() {
+            addCriterion("offer_is_gross_pay_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescEqualTo(String value) {
+            addCriterion("offer_is_gross_pay_desc =", value, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescNotEqualTo(String value) {
+            addCriterion("offer_is_gross_pay_desc <>", value, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescGreaterThan(String value) {
+            addCriterion("offer_is_gross_pay_desc >", value, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescGreaterThanOrEqualTo(String value) {
+            addCriterion("offer_is_gross_pay_desc >=", value, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescLessThan(String value) {
+            addCriterion("offer_is_gross_pay_desc <", value, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescLessThanOrEqualTo(String value) {
+            addCriterion("offer_is_gross_pay_desc <=", value, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescLike(String value) {
+            addCriterion("offer_is_gross_pay_desc like", value, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescNotLike(String value) {
+            addCriterion("offer_is_gross_pay_desc not like", value, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescIn(List<String> values) {
+            addCriterion("offer_is_gross_pay_desc in", values, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescNotIn(List<String> values) {
+            addCriterion("offer_is_gross_pay_desc not in", values, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescBetween(String value1, String value2) {
+            addCriterion("offer_is_gross_pay_desc between", value1, value2, "offerIsGrossPayDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsGrossPayDescNotBetween(String value1, String value2) {
+            addCriterion("offer_is_gross_pay_desc not between", value1, value2, "offerIsGrossPayDesc");
             return (Criteria) this;
         }
 
@@ -8772,6 +10652,76 @@ public class VInterviewSummaryExample {
             return (Criteria) this;
         }
 
+        public Criteria andOfferIsAcceptDescIsNull() {
+            addCriterion("offer_is_accept_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescIsNotNull() {
+            addCriterion("offer_is_accept_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescEqualTo(String value) {
+            addCriterion("offer_is_accept_desc =", value, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescNotEqualTo(String value) {
+            addCriterion("offer_is_accept_desc <>", value, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescGreaterThan(String value) {
+            addCriterion("offer_is_accept_desc >", value, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescGreaterThanOrEqualTo(String value) {
+            addCriterion("offer_is_accept_desc >=", value, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescLessThan(String value) {
+            addCriterion("offer_is_accept_desc <", value, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescLessThanOrEqualTo(String value) {
+            addCriterion("offer_is_accept_desc <=", value, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescLike(String value) {
+            addCriterion("offer_is_accept_desc like", value, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescNotLike(String value) {
+            addCriterion("offer_is_accept_desc not like", value, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescIn(List<String> values) {
+            addCriterion("offer_is_accept_desc in", values, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescNotIn(List<String> values) {
+            addCriterion("offer_is_accept_desc not in", values, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescBetween(String value1, String value2) {
+            addCriterion("offer_is_accept_desc between", value1, value2, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferIsAcceptDescNotBetween(String value1, String value2) {
+            addCriterion("offer_is_accept_desc not between", value1, value2, "offerIsAcceptDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andOfferStatusIsNull() {
             addCriterion("offer_status is null");
             return (Criteria) this;
@@ -8829,6 +10779,76 @@ public class VInterviewSummaryExample {
 
         public Criteria andOfferStatusNotBetween(Integer value1, Integer value2) {
             addCriterion("offer_status not between", value1, value2, "offerStatus");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescIsNull() {
+            addCriterion("offer_status_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescIsNotNull() {
+            addCriterion("offer_status_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescEqualTo(String value) {
+            addCriterion("offer_status_desc =", value, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescNotEqualTo(String value) {
+            addCriterion("offer_status_desc <>", value, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescGreaterThan(String value) {
+            addCriterion("offer_status_desc >", value, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescGreaterThanOrEqualTo(String value) {
+            addCriterion("offer_status_desc >=", value, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescLessThan(String value) {
+            addCriterion("offer_status_desc <", value, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescLessThanOrEqualTo(String value) {
+            addCriterion("offer_status_desc <=", value, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescLike(String value) {
+            addCriterion("offer_status_desc like", value, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescNotLike(String value) {
+            addCriterion("offer_status_desc not like", value, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescIn(List<String> values) {
+            addCriterion("offer_status_desc in", values, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescNotIn(List<String> values) {
+            addCriterion("offer_status_desc not in", values, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescBetween(String value1, String value2) {
+            addCriterion("offer_status_desc between", value1, value2, "offerStatusDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andOfferStatusDescNotBetween(String value1, String value2) {
+            addCriterion("offer_status_desc not between", value1, value2, "offerStatusDesc");
             return (Criteria) this;
         }
 

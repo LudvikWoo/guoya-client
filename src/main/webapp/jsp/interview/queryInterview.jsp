@@ -21,6 +21,14 @@
 <link href="/guoya-client/assets/css/bootstrap.css" rel="stylesheet" />
 <!-- 时间控件-->
 <link href="/guoya-client/assets/css/plugins.css" rel="stylesheet" />
+
+<script type="text/javascript">
+	window.onload=function(){
+		if(<%=session.getAttribute("initQuery") %> == true){
+			document.getElementById("form").submit();
+		}
+	};
+</script>
 </head>
 
 <body>
@@ -37,14 +45,14 @@
 						<h3 class="panel-title">查询条件</h3>
 					</div>
 					<div class="panel-body">
-						<form action="interview/queryInterview.action" target="result"
+						<form id="form" action="interview/queryInterview.action" target="result"
 							method="post" class="form-horizontal group-border hover-stripped"
 							role="form">
 							<div class="form-group">
 
 								<label class="col-lg-1 col-md-1 col-sm-2 control-label">学生姓名</label>
 								<div class="col-lg-2 col-md-2 col-sm-4">
-									<input type="text" name="custmerName" class="form-control">
+									<input type="text" name="custmerName" class="form-control" value="${studentName }">
 								</div>
 
 								<label class="col-lg-1 col-md-1 col-sm-2 control-label">所属班级</label>

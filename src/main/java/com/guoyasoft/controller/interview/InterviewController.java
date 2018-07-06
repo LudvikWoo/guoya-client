@@ -46,11 +46,18 @@ public class InterviewController {
 	private IInterviewSvc interviewSvc;
 
 	@RequestMapping("initInterviewQuery.action")
-	public String initInterviewQuery(HttpSession session) {
+	public String initInterviewQuery(String studentName,String classId,HttpSession session) {
 		InterviewQueryInitBean init = new InterviewQueryInitBean();
 		init.getClassSelect().add(new SelectOption("", "--请选择--", false));
 		init.getClassSelect().add(new SelectOption("2", "测试基础班1805", false));
 		init.getClassSelect().add(new SelectOption("9", "测试中级班1806", false));
+		
+		for(int i=0;i<init.getClassSelect().size();i++){
+			SelectOption s=init.getClassSelect().get(i);
+			if(s.getValue().equals(classId)){
+				init.getClassSelect().get(i).setSelected(true);;
+			}
+		}
 
 		init.getProgressSelect().add(new SelectOption("", "--请选择--", false));
 		init.getProgressSelect().add(new SelectOption("0", "未开始", false));
@@ -63,7 +70,10 @@ public class InterviewController {
 		init.getResultSelect().add(new SelectOption("2", "未通过", false));
 /*		init.getResultSelect().add(new SelectOption("3", "拒绝offer", false));
 		init.getResultSelect().add(new SelectOption("4", "入职", false));*/
-
+		if(StringTools.isNotBlank(studentName) || StringTools.isNotBlank(classId)){
+			session.setAttribute("initQuery", true);
+		}
+		session.setAttribute("studentName", studentName);
 		session.setAttribute("initObj", init);
 		return "interview/queryInterview";
 	}
@@ -109,7 +119,7 @@ public class InterviewController {
 			if (StringTools.isNotBlank(params.getResult())) {
 				criteria.andResultEqualTo(Integer.parseInt(params.getResult().trim()));
 			}
-
+			example.setOrderByClause("interview_id");
 			List<VInterviewInterview> result = vInterViewMapper.selectByExample(example);
 
 			List<InterviewQueryResultBean> list = new ArrayList<InterviewQueryResultBean>();
@@ -257,7 +267,7 @@ public class InterviewController {
 	public String addInterview(InterviewAddBean interview,HttpSession session){
 		TInterviewInterview newInterview=interviewSvc.addInterview(interview);
 		int count=interviewSvc.addInterviewExam(newInterview);
-		String result=initInterviewQuery(session);
+		String result=initInterviewQuery(null,null,session);
 		return result;
 	}
 	

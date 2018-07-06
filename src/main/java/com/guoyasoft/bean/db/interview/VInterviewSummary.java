@@ -13,6 +13,8 @@ public class VInterviewSummary {
 
     private String customerSex;
 
+    private String customerSexDesc;
+
     private String customerProvince;
 
     private String customerCity;
@@ -53,21 +55,37 @@ public class VInterviewSummary {
 
     private String studentEducation;
 
+    private String studentEducationDesc;
+
     private String studentInsurance;
+
+    private String studentInsuranceDesc;
 
     private String studentComputor;
 
+    private String studentComputorDesc;
+
     private String studentBoard;
+
+    private String studentBoardDesc;
 
     private Integer studentBuyEdu;
 
+    private String studentBuyEduDesc;
+
     private Integer studentAdultEdu;
 
+    private String studentAdultEduDesc;
+
     private String studentIntroducer;
+
+    private String studentIntroducerName;
 
     private Date studentEnrollDate;
 
     private Integer studentStudentType;
+
+    private String studentStudentTypeDesc;
 
     private Integer userId;
 
@@ -76,6 +94,8 @@ public class VInterviewSummary {
     private String userPwd;
 
     private Integer userStatus;
+
+    private String userStatusDesc;
 
     private Date userCreateTime;
 
@@ -95,6 +115,8 @@ public class VInterviewSummary {
 
     private Integer stu2Status;
 
+    private String stu2StatusDesc;
+
     private Integer classId;
 
     private String className;
@@ -111,6 +133,8 @@ public class VInterviewSummary {
 
     private String teacherStatus;
 
+    private String teacherStatusDesc;
+
     private Date teacherCreateTime;
 
     private Date teacherUpdateTime;
@@ -119,13 +143,19 @@ public class VInterviewSummary {
 
     private Integer teacherGrade;
 
-    private Integer teacherTeacherType;
+    private String teacherGradeDesc;
+
+    private Integer teacherType;
+
+    private String teacherTypeDesc;
 
     private Integer scheduleId;
 
     private Date scheduleCreateTime;
 
     private Integer scheduleStatus;
+
+    private String scheduleStatusDesc;
 
     private Date scheduleActiveTime;
 
@@ -137,7 +167,11 @@ public class VInterviewSummary {
 
     private Integer courseTeacherMainId;
 
+    private String courseTeacherMainName;
+
     private Integer courseStatus;
+
+    private String courseStatusDesc;
 
     private Integer courseTeacherAsisId;
 
@@ -149,7 +183,11 @@ public class VInterviewSummary {
 
     private Integer courseTeacherId;
 
+    private String courseTeacherName;
+
     private String courseTeacherStatus;
+
+    private String courseTeacherStatusDesc;
 
     private Date courseTeacherCreateTime;
 
@@ -159,7 +197,9 @@ public class VInterviewSummary {
 
     private Integer courseTeacherGrade;
 
-    private Integer courseTeacherTeacherType;
+    private Integer courseTeacherType;
+
+    private Integer courseTeacherTypeDesc;
 
     private Integer interviewId;
 
@@ -173,9 +213,13 @@ public class VInterviewSummary {
 
     private Integer interviewResult;
 
+    private String interviewResultDesc;
+
     private String interviewMark;
 
     private Integer interviewStatus;
+
+    private String interviewStatusDesc;
 
     private Date interviewCreateTime;
 
@@ -194,6 +238,8 @@ public class VInterviewSummary {
     private Date interviewCompanyCreateTime;
 
     private Integer interviewCompanyStatus;
+
+    private String interviewCompanyStatusDesc;
 
     private String interviewCompanyAbbreviation;
 
@@ -219,6 +265,8 @@ public class VInterviewSummary {
 
     private Integer hrStatus;
 
+    private String hrStatusDesc;
+
     private Date hrCreateTime;
 
     private Date hrUpdateTime;
@@ -237,6 +285,8 @@ public class VInterviewSummary {
 
     private Integer hrCompanyStatus;
 
+    private String hrCompanyStatusDesc;
+
     private String hrCompanyAbbreviation;
 
     private Date hrCompanyUpdateTime;
@@ -249,6 +299,8 @@ public class VInterviewSummary {
 
     private Integer examStatus;
 
+    private String examStatusDesc;
+
     private Date examUpdateTime;
 
     private Integer askId;
@@ -260,6 +312,8 @@ public class VInterviewSummary {
     private Integer offerSalaryCount;
 
     private Integer offerIsGrossPay;
+
+    private String offerIsGrossPayDesc;
 
     private Integer offerProbationaryPeriod;
 
@@ -277,7 +331,11 @@ public class VInterviewSummary {
 
     private Integer offerIsAccept;
 
+    private String offerIsAcceptDesc;
+
     private Integer offerStatus;
+
+    private String offerStatusDesc;
 
     private Integer jobId;
 
@@ -321,6 +379,14 @@ public class VInterviewSummary {
 
     public void setCustomerSex(String customerSex) {
         this.customerSex = customerSex == null ? null : customerSex.trim();
+    }
+
+    public String getCustomerSexDesc() {
+        return customerSexDesc;
+    }
+
+    public void setCustomerSexDesc(String customerSexDesc) {
+        this.customerSexDesc = customerSexDesc == null ? null : customerSexDesc.trim();
     }
 
     public String getCustomerProvince() {
@@ -483,12 +549,28 @@ public class VInterviewSummary {
         this.studentEducation = studentEducation == null ? null : studentEducation.trim();
     }
 
+    public String getStudentEducationDesc() {
+        return studentEducationDesc;
+    }
+
+    public void setStudentEducationDesc(String studentEducationDesc) {
+        this.studentEducationDesc = studentEducationDesc == null ? null : studentEducationDesc.trim();
+    }
+
     public String getStudentInsurance() {
         return studentInsurance;
     }
 
     public void setStudentInsurance(String studentInsurance) {
         this.studentInsurance = studentInsurance == null ? null : studentInsurance.trim();
+    }
+
+    public String getStudentInsuranceDesc() {
+        return studentInsuranceDesc;
+    }
+
+    public void setStudentInsuranceDesc(String studentInsuranceDesc) {
+        this.studentInsuranceDesc = studentInsuranceDesc == null ? null : studentInsuranceDesc.trim();
     }
 
     public String getStudentComputor() {
@@ -499,12 +581,28 @@ public class VInterviewSummary {
         this.studentComputor = studentComputor == null ? null : studentComputor.trim();
     }
 
+    public String getStudentComputorDesc() {
+        return studentComputorDesc;
+    }
+
+    public void setStudentComputorDesc(String studentComputorDesc) {
+        this.studentComputorDesc = studentComputorDesc == null ? null : studentComputorDesc.trim();
+    }
+
     public String getStudentBoard() {
         return studentBoard;
     }
 
     public void setStudentBoard(String studentBoard) {
         this.studentBoard = studentBoard == null ? null : studentBoard.trim();
+    }
+
+    public String getStudentBoardDesc() {
+        return studentBoardDesc;
+    }
+
+    public void setStudentBoardDesc(String studentBoardDesc) {
+        this.studentBoardDesc = studentBoardDesc == null ? null : studentBoardDesc.trim();
     }
 
     public Integer getStudentBuyEdu() {
@@ -515,6 +613,14 @@ public class VInterviewSummary {
         this.studentBuyEdu = studentBuyEdu;
     }
 
+    public String getStudentBuyEduDesc() {
+        return studentBuyEduDesc;
+    }
+
+    public void setStudentBuyEduDesc(String studentBuyEduDesc) {
+        this.studentBuyEduDesc = studentBuyEduDesc == null ? null : studentBuyEduDesc.trim();
+    }
+
     public Integer getStudentAdultEdu() {
         return studentAdultEdu;
     }
@@ -523,12 +629,28 @@ public class VInterviewSummary {
         this.studentAdultEdu = studentAdultEdu;
     }
 
+    public String getStudentAdultEduDesc() {
+        return studentAdultEduDesc;
+    }
+
+    public void setStudentAdultEduDesc(String studentAdultEduDesc) {
+        this.studentAdultEduDesc = studentAdultEduDesc == null ? null : studentAdultEduDesc.trim();
+    }
+
     public String getStudentIntroducer() {
         return studentIntroducer;
     }
 
     public void setStudentIntroducer(String studentIntroducer) {
         this.studentIntroducer = studentIntroducer == null ? null : studentIntroducer.trim();
+    }
+
+    public String getStudentIntroducerName() {
+        return studentIntroducerName;
+    }
+
+    public void setStudentIntroducerName(String studentIntroducerName) {
+        this.studentIntroducerName = studentIntroducerName == null ? null : studentIntroducerName.trim();
     }
 
     public Date getStudentEnrollDate() {
@@ -545,6 +667,14 @@ public class VInterviewSummary {
 
     public void setStudentStudentType(Integer studentStudentType) {
         this.studentStudentType = studentStudentType;
+    }
+
+    public String getStudentStudentTypeDesc() {
+        return studentStudentTypeDesc;
+    }
+
+    public void setStudentStudentTypeDesc(String studentStudentTypeDesc) {
+        this.studentStudentTypeDesc = studentStudentTypeDesc == null ? null : studentStudentTypeDesc.trim();
     }
 
     public Integer getUserId() {
@@ -577,6 +707,14 @@ public class VInterviewSummary {
 
     public void setUserStatus(Integer userStatus) {
         this.userStatus = userStatus;
+    }
+
+    public String getUserStatusDesc() {
+        return userStatusDesc;
+    }
+
+    public void setUserStatusDesc(String userStatusDesc) {
+        this.userStatusDesc = userStatusDesc == null ? null : userStatusDesc.trim();
     }
 
     public Date getUserCreateTime() {
@@ -651,6 +789,14 @@ public class VInterviewSummary {
         this.stu2Status = stu2Status;
     }
 
+    public String getStu2StatusDesc() {
+        return stu2StatusDesc;
+    }
+
+    public void setStu2StatusDesc(String stu2StatusDesc) {
+        this.stu2StatusDesc = stu2StatusDesc == null ? null : stu2StatusDesc.trim();
+    }
+
     public Integer getClassId() {
         return classId;
     }
@@ -715,6 +861,14 @@ public class VInterviewSummary {
         this.teacherStatus = teacherStatus == null ? null : teacherStatus.trim();
     }
 
+    public String getTeacherStatusDesc() {
+        return teacherStatusDesc;
+    }
+
+    public void setTeacherStatusDesc(String teacherStatusDesc) {
+        this.teacherStatusDesc = teacherStatusDesc == null ? null : teacherStatusDesc.trim();
+    }
+
     public Date getTeacherCreateTime() {
         return teacherCreateTime;
     }
@@ -747,12 +901,28 @@ public class VInterviewSummary {
         this.teacherGrade = teacherGrade;
     }
 
-    public Integer getTeacherTeacherType() {
-        return teacherTeacherType;
+    public String getTeacherGradeDesc() {
+        return teacherGradeDesc;
     }
 
-    public void setTeacherTeacherType(Integer teacherTeacherType) {
-        this.teacherTeacherType = teacherTeacherType;
+    public void setTeacherGradeDesc(String teacherGradeDesc) {
+        this.teacherGradeDesc = teacherGradeDesc == null ? null : teacherGradeDesc.trim();
+    }
+
+    public Integer getTeacherType() {
+        return teacherType;
+    }
+
+    public void setTeacherType(Integer teacherType) {
+        this.teacherType = teacherType;
+    }
+
+    public String getTeacherTypeDesc() {
+        return teacherTypeDesc;
+    }
+
+    public void setTeacherTypeDesc(String teacherTypeDesc) {
+        this.teacherTypeDesc = teacherTypeDesc == null ? null : teacherTypeDesc.trim();
     }
 
     public Integer getScheduleId() {
@@ -777,6 +947,14 @@ public class VInterviewSummary {
 
     public void setScheduleStatus(Integer scheduleStatus) {
         this.scheduleStatus = scheduleStatus;
+    }
+
+    public String getScheduleStatusDesc() {
+        return scheduleStatusDesc;
+    }
+
+    public void setScheduleStatusDesc(String scheduleStatusDesc) {
+        this.scheduleStatusDesc = scheduleStatusDesc == null ? null : scheduleStatusDesc.trim();
     }
 
     public Date getScheduleActiveTime() {
@@ -819,12 +997,28 @@ public class VInterviewSummary {
         this.courseTeacherMainId = courseTeacherMainId;
     }
 
+    public String getCourseTeacherMainName() {
+        return courseTeacherMainName;
+    }
+
+    public void setCourseTeacherMainName(String courseTeacherMainName) {
+        this.courseTeacherMainName = courseTeacherMainName == null ? null : courseTeacherMainName.trim();
+    }
+
     public Integer getCourseStatus() {
         return courseStatus;
     }
 
     public void setCourseStatus(Integer courseStatus) {
         this.courseStatus = courseStatus;
+    }
+
+    public String getCourseStatusDesc() {
+        return courseStatusDesc;
+    }
+
+    public void setCourseStatusDesc(String courseStatusDesc) {
+        this.courseStatusDesc = courseStatusDesc == null ? null : courseStatusDesc.trim();
     }
 
     public Integer getCourseTeacherAsisId() {
@@ -867,12 +1061,28 @@ public class VInterviewSummary {
         this.courseTeacherId = courseTeacherId;
     }
 
+    public String getCourseTeacherName() {
+        return courseTeacherName;
+    }
+
+    public void setCourseTeacherName(String courseTeacherName) {
+        this.courseTeacherName = courseTeacherName == null ? null : courseTeacherName.trim();
+    }
+
     public String getCourseTeacherStatus() {
         return courseTeacherStatus;
     }
 
     public void setCourseTeacherStatus(String courseTeacherStatus) {
         this.courseTeacherStatus = courseTeacherStatus == null ? null : courseTeacherStatus.trim();
+    }
+
+    public String getCourseTeacherStatusDesc() {
+        return courseTeacherStatusDesc;
+    }
+
+    public void setCourseTeacherStatusDesc(String courseTeacherStatusDesc) {
+        this.courseTeacherStatusDesc = courseTeacherStatusDesc == null ? null : courseTeacherStatusDesc.trim();
     }
 
     public Date getCourseTeacherCreateTime() {
@@ -907,12 +1117,20 @@ public class VInterviewSummary {
         this.courseTeacherGrade = courseTeacherGrade;
     }
 
-    public Integer getCourseTeacherTeacherType() {
-        return courseTeacherTeacherType;
+    public Integer getCourseTeacherType() {
+        return courseTeacherType;
     }
 
-    public void setCourseTeacherTeacherType(Integer courseTeacherTeacherType) {
-        this.courseTeacherTeacherType = courseTeacherTeacherType;
+    public void setCourseTeacherType(Integer courseTeacherType) {
+        this.courseTeacherType = courseTeacherType;
+    }
+
+    public Integer getCourseTeacherTypeDesc() {
+        return courseTeacherTypeDesc;
+    }
+
+    public void setCourseTeacherTypeDesc(Integer courseTeacherTypeDesc) {
+        this.courseTeacherTypeDesc = courseTeacherTypeDesc;
     }
 
     public Integer getInterviewId() {
@@ -963,6 +1181,14 @@ public class VInterviewSummary {
         this.interviewResult = interviewResult;
     }
 
+    public String getInterviewResultDesc() {
+        return interviewResultDesc;
+    }
+
+    public void setInterviewResultDesc(String interviewResultDesc) {
+        this.interviewResultDesc = interviewResultDesc == null ? null : interviewResultDesc.trim();
+    }
+
     public String getInterviewMark() {
         return interviewMark;
     }
@@ -977,6 +1203,14 @@ public class VInterviewSummary {
 
     public void setInterviewStatus(Integer interviewStatus) {
         this.interviewStatus = interviewStatus;
+    }
+
+    public String getInterviewStatusDesc() {
+        return interviewStatusDesc;
+    }
+
+    public void setInterviewStatusDesc(String interviewStatusDesc) {
+        this.interviewStatusDesc = interviewStatusDesc == null ? null : interviewStatusDesc.trim();
     }
 
     public Date getInterviewCreateTime() {
@@ -1049,6 +1283,14 @@ public class VInterviewSummary {
 
     public void setInterviewCompanyStatus(Integer interviewCompanyStatus) {
         this.interviewCompanyStatus = interviewCompanyStatus;
+    }
+
+    public String getInterviewCompanyStatusDesc() {
+        return interviewCompanyStatusDesc;
+    }
+
+    public void setInterviewCompanyStatusDesc(String interviewCompanyStatusDesc) {
+        this.interviewCompanyStatusDesc = interviewCompanyStatusDesc == null ? null : interviewCompanyStatusDesc.trim();
     }
 
     public String getInterviewCompanyAbbreviation() {
@@ -1147,6 +1389,14 @@ public class VInterviewSummary {
         this.hrStatus = hrStatus;
     }
 
+    public String getHrStatusDesc() {
+        return hrStatusDesc;
+    }
+
+    public void setHrStatusDesc(String hrStatusDesc) {
+        this.hrStatusDesc = hrStatusDesc == null ? null : hrStatusDesc.trim();
+    }
+
     public Date getHrCreateTime() {
         return hrCreateTime;
     }
@@ -1219,6 +1469,14 @@ public class VInterviewSummary {
         this.hrCompanyStatus = hrCompanyStatus;
     }
 
+    public String getHrCompanyStatusDesc() {
+        return hrCompanyStatusDesc;
+    }
+
+    public void setHrCompanyStatusDesc(String hrCompanyStatusDesc) {
+        this.hrCompanyStatusDesc = hrCompanyStatusDesc == null ? null : hrCompanyStatusDesc.trim();
+    }
+
     public String getHrCompanyAbbreviation() {
         return hrCompanyAbbreviation;
     }
@@ -1267,6 +1525,14 @@ public class VInterviewSummary {
         this.examStatus = examStatus;
     }
 
+    public String getExamStatusDesc() {
+        return examStatusDesc;
+    }
+
+    public void setExamStatusDesc(String examStatusDesc) {
+        this.examStatusDesc = examStatusDesc == null ? null : examStatusDesc.trim();
+    }
+
     public Date getExamUpdateTime() {
         return examUpdateTime;
     }
@@ -1313,6 +1579,14 @@ public class VInterviewSummary {
 
     public void setOfferIsGrossPay(Integer offerIsGrossPay) {
         this.offerIsGrossPay = offerIsGrossPay;
+    }
+
+    public String getOfferIsGrossPayDesc() {
+        return offerIsGrossPayDesc;
+    }
+
+    public void setOfferIsGrossPayDesc(String offerIsGrossPayDesc) {
+        this.offerIsGrossPayDesc = offerIsGrossPayDesc == null ? null : offerIsGrossPayDesc.trim();
     }
 
     public Integer getOfferProbationaryPeriod() {
@@ -1379,12 +1653,28 @@ public class VInterviewSummary {
         this.offerIsAccept = offerIsAccept;
     }
 
+    public String getOfferIsAcceptDesc() {
+        return offerIsAcceptDesc;
+    }
+
+    public void setOfferIsAcceptDesc(String offerIsAcceptDesc) {
+        this.offerIsAcceptDesc = offerIsAcceptDesc == null ? null : offerIsAcceptDesc.trim();
+    }
+
     public Integer getOfferStatus() {
         return offerStatus;
     }
 
     public void setOfferStatus(Integer offerStatus) {
         this.offerStatus = offerStatus;
+    }
+
+    public String getOfferStatusDesc() {
+        return offerStatusDesc;
+    }
+
+    public void setOfferStatusDesc(String offerStatusDesc) {
+        this.offerStatusDesc = offerStatusDesc == null ? null : offerStatusDesc.trim();
     }
 
     public Integer getJobId() {

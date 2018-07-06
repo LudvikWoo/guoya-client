@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.interview.SInterviewStatisticMapper">
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value}
+									and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem"
+										open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value}
+									and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem"
+										open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+
+	<select id="selectInterviewStatistic" parameterType="com.guoyasoft.bean.api.interview.StatisticQueryBean"
+		resultType="com.guoyasoft.bean.api.interview.SInterviewStatistic">
+		SELECT
+		*
+		FROM
+		(SELECT
+		a.customer_id,
+		a.customer_name,
+		a.`student_education`,
+		a.`student_education_desc`,
+		a.`customer_age`,
+		a.student_id,
+		a.user_id,
+		a.class_id,
+		a.class_name,
+		a.`course_instance_id`,
+		a.`course_instance_name`,
+		a.`course_teacher_main_id`,
+		a.`course_teacher_main_name`,
+		a.interview_count,
+		IFNULL(c.interview_finish_count, 0) finish_count,
+		IFNULL(b.interview_pass_count, 0) pass_count,
+		IFNULL(interview_job_count, 0) job_count
+		FROM
+
+		(SELECT
+		t.customer_id,
+		t.`customer_name`,
+		t.`customer_age`,
+		t.`student_education`,
+		t.`student_education_desc`,
+		t.`student_id`,
+		t.`user_id`,
+		t.`class_id`,
+		t.`class_name`,
+		t.`class_teacher_id`,
+		t.`class_teacher_name`,
+		t.`course_instance_id`,
+		t.`course_instance_name`,
+		t.`course_teacher_main_id`,
+		t.`course_teacher_main_name`,
+		COUNT(*) AS interview_count
+		FROM
+		v_interview_summary t
+		WHERE 1 = 1
+		AND t.`interview_id` IS NOT NULL
+		GROUP BY t.customer_id,
+		t.`customer_name`,
+		t.`customer_age`,
+		t.`student_education`,
+		t.`student_education_desc`,
+		t.`student_id`,
+		t.`user_id`,
+		t.`class_id`,
+		t.`class_name`,
+		t.`class_teacher_id`,
+		t.`class_teacher_name`
+		UNION
+
+		SELECT
+		t.customer_id,
+		t.`customer_name`,
+		t.`customer_age`,
+		t.`student_education`,
+		t.`student_education_desc`,
+		t.`student_id`,
+		t.`user_id`,
+		t.`class_id`,
+		t.`class_name`,
+		t.`class_teacher_id`,
+		t.`class_teacher_name`,
+		t.`course_instance_id`,
+		t.`course_instance_name`,
+		t.`course_teacher_main_id`,
+		t.`course_teacher_main_name`,
+		0 AS interview_count
+		FROM
+		v_interview_summary t
+		WHERE 1 = 1
+		AND t.`interview_id` IS NULL
+		GROUP BY t.customer_id,
+		t.`customer_name`,
+		t.`customer_age`,
+		t.`student_education`,
+		t.`student_education_desc`,
+		t.`student_id`,
+		t.`user_id`,
+		t.`class_id`,
+		t.`class_name`,
+		t.`class_teacher_id`,
+		t.`class_teacher_name`) a
+		LEFT JOIN
+		(SELECT
+		t.customer_id,
+		t.`student_id`,
+		t.`class_id`,
+		COUNT(*) AS interview_pass_count
+		FROM
+		v_interview_summary t
+		WHERE 1 = 1
+		AND t.`interview_id` IS NOT NULL
+		AND t.`interview_result` = 1
+		GROUP BY t.customer_id,
+		t.`customer_name`,
+		t.`student_id`,
+		t.`user_id`,
+		t.`class_id`,
+		t.`class_name`,
+		t.`class_teacher_id`,
+		t.`class_teacher_name`) b
+		ON a.student_id = b.student_id
+		AND a.customer_id = b.customer_id
+		AND a.class_id = b.class_id
+		LEFT JOIN
+		(SELECT
+		t.customer_id,
+		t.`student_id`,
+		t.`class_id`,
+		COUNT(*) AS interview_finish_count
+		FROM
+		v_interview_summary t
+		WHERE 1 = 1
+		AND t.`interview_id` IS NOT NULL
+		AND t.`interview_progress` = 1
+		GROUP BY t.customer_id,
+		t.`customer_name`,
+		t.`student_id`,
+		t.`user_id`,
+		t.`class_id`,
+		t.`class_name`,
+		t.`class_teacher_id`,
+		t.`class_teacher_name`) c
+		ON a.student_id = c.student_id
+		AND a.customer_id = c.customer_id
+		AND a.class_id = c.class_id
+		LEFT JOIN
+		(SELECT
+		t.customer_id,
+		t.`student_id`,
+		t.`class_id`,
+		COUNT(*) AS interview_job_count
+		FROM
+		v_interview_summary t
+		WHERE 1 = 1
+		AND t.`interview_id` IS NOT NULL
+		AND t.`job_id` IS NOT NULL
+		GROUP BY t.customer_id,
+		t.`customer_name`,
+		t.`student_id`,
+		t.`user_id`,
+		t.`class_id`,
+		t.`class_name`,
+		t.`class_teacher_id`,
+		t.`class_teacher_name`) d
+		ON a.student_id = d.student_id
+		AND a.customer_id = d.customer_id
+		AND a.class_id = d.class_id ) n
+		WHERE 1=1
+		<if test="classId != null and classId !=''">
+			AND n.class_id=#{classId,jdbcType=INTEGER}
+		</if>
+		<if test="studentName != null and studentName !=''">
+			AND n.customer_name like "%"#{studentName,jdbcType=VARCHAR}"%"
+		</if>
+		<if test="education != null and education !=''">
+			AND n.student_education=#{education,jdbcType=INTEGER}
+		</if>
+		<if test="ageMin != null and ageMin !=''">
+			AND n.customer_age >= #{ageMin,jdbcType=INTEGER}
+		</if>
+		<if test="ageMax != null and ageMax !=''">
+			AND n.customer_age &lt;= #{ageMax,jdbcType=INTEGER}
+		</if>
+		<if test="interviewCtnMin != null and interviewCtnMin !=''">
+			AND n.interview_count >= #{interviewCtnMin,jdbcType=INTEGER}
+		</if>
+		<if test="interviewCtnMax != null and interviewCtnMax !=''">
+			AND n.interview_count &lt;= #{interviewCtnMax,jdbcType=INTEGER}
+		</if>
+		<if test="finishCtnMin != null and finishCtnMin !=''">
+			AND n.finish_count >= #{finishCtnMin,jdbcType=INTEGER}
+		</if>
+		<if test="finishCtnMax != null and finishCtnMax !=''">
+			AND n.finish_count &lt;= #{finishCtnMax,jdbcType=INTEGER}
+		</if>
+		<if test="passCtnMin != null and passCtnMin !=''">
+			AND n.pass_count >= #{passCtnMin,jdbcType=INTEGER}
+		</if>
+		<if test="passCtnMax != null and passCtnMax !=''">
+			AND n.pass_count &lt;= #{passCtnMax,jdbcType=INTEGER}
+		</if>
+		<if test="hasJob != null and hasJob !=''">
+			AND n.job_count = #{hasJob,jdbcType=INTEGER}
+		</if>
+		ORDER BY student_id
+	</select>
+</mapper>
