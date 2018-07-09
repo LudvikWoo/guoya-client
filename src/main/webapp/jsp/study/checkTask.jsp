@@ -39,7 +39,7 @@ td {
 	border-bottom: 0px solid black
 }
 </style>
-<script type="text/javascript" src="js/guoya-clent.js"></script>
+<script type="text/javascript" src="js/guoya-client.js"></script>
 
 </head>
 <body>
