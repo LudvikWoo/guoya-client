@@ -27,7 +27,7 @@
 	<table border="1">
 		<thead>
 			<tr>
-				<th>学号</th>
+				<th>选课号</th>
 				<th>姓名</th>
 				<th>班级</th>
 				<th>操作</th>
