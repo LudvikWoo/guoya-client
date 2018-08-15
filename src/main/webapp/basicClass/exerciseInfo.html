@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <title>作业检查</title>
 <style>
+
 table {
 	margin: 0;
 	border-collapse: collapse;
@@ -25,14 +26,18 @@ td {
 	top: 4px ;/*靠右*/
 	background-color: #D8D8D8;
 }
+
 #nav td /*悬浮框标签*/ {
 	border-bottom: 0px solid black
 }
+
 </style>
 <script type="text/javascript" src="js/guoya.js"></script>
 
 <script type="text/javascript">
 
+	//点名：学生信息列表
+	var studentNames="";
 	window.onload = function() {
 		refresh();
 	};
@@ -60,6 +65,7 @@ td {
 		var groupIndex = 0;
 		for ( var p in student) {//遍历json数组时，这么写p为索引，0,1
 			var item = student[p];
+			studentNames+="|"+item.sname;
 			if (groupId != item.group) {
 				innerHtml = innerHtml + "			<tr>                       "
 						+ "				<td colspan=17>第" + item.group
@@ -109,12 +115,13 @@ td {
 			}
 			groupIndex = groupIndex + 1;
 		}
-
+		studentNames=studentNames.substring(1);
+		
 		var table = document.getElementById('content');
 		table.innerHTML = innerHtml + "</table>";
 		statistic();
-
 	}
+
 	function saveUrl(sno) {
 		var textarea = document.getElementById(sno + '_url');
 		var url = textarea.value;
@@ -148,7 +155,6 @@ td {
 	}
 
 	function switchStatus(sno) {
-
 		//var r = confirm("确认通过？");
 		var r = true;
 		if (r == true) {
@@ -185,6 +191,7 @@ td {
 			xmlhttp.send(JSON.stringify(json));
 		}
 	}
+
 	function statistic() {
 		var pass = 0;
 		var unPass = 0;
@@ -215,7 +222,13 @@ td {
 			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
 		}
+	}
 
+	function randSelectStudent(){
+		//alert(studentNames);
+		var students=studentNames.split("|");
+		var index=parseInt(Math.random()*(students.length+1),10);
+		alert(students[index]);
 	}
 
 	/*
@@ -250,10 +263,12 @@ td {
 					<!-- 用按钮实现超链接 --> <input type="button" value="新增学生"
 					onclick="window.open('addStudyInfo.html','right')" />
 				</td>
+				<td>
+					<input type="button" value="抽奖" onclick="randSelectStudent()" />
+				</td>
 			</tr>
 		</table>
 	</div>
-
 
 	<br><br>
 	<div id="content">
