@@ -22,23 +22,23 @@
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 		<!-- 生成实体类的包名和位置，这里配置将生成的实体类放在me.gacl.domain这个包下 -->
-		<javaModelGenerator targetPackage="com.guoyasoft.bean.db.interview"
+		<javaModelGenerator targetPackage="com.guoyasoft.bean.db.taskCheck"
 			targetProject="\\vmware-host\Shared Folders\Desktop\mybatis">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		<!-- 生成的SQL映射文件包名和位置，这里配置将生成的SQL映射文件放在me.gacl.mapping这个包下 -->
-		<sqlMapGenerator targetPackage="com.guoyasoft.mapper.interview"
+		<sqlMapGenerator targetPackage="com.guoyasoft.mapper.taskCheck"
 			targetProject="\\vmware-host\Shared Folders\Desktop\mybatis">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置，这里配置将生成的dao类放在me.gacl.dao这个包下 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.guoyasoft.dao.interview" targetProject="\\vmware-host\Shared Folders\Desktop\mybatis">
+			targetPackage="com.guoyasoft.dao.taskCheck" targetProject="\\vmware-host\Shared Folders\Desktop\mybatis">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-		<table tableName="v_interview_summary" domainObjectName="VInterviewSummary"
+		<table tableName="v_class_lesson_check" domainObjectName="VClassLessonCheck"
 			enableCountByExample="true" enableUpdateByExample="true"
 			enableDeleteByExample="true" enableSelectByExample="true"
 			selectByExampleQueryId="true" enableDeleteByPrimaryKey="true"

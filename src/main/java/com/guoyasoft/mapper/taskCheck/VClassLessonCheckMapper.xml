@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.taskCheck.VClassLessonCheckMapper">
+  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.taskCheck.VClassLessonCheck">
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+    <result column="class_abbreviation" jdbcType="VARCHAR" property="classAbbreviation" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+    <result column="class_start_date" jdbcType="DATE" property="classStartDate" />
+    <result column="graduate_date" jdbcType="DATE" property="graduateDate" />
+    <result column="teacher_id" jdbcType="INTEGER" property="teacherId" />
+    <result column="teacher_name" jdbcType="VARCHAR" property="teacherName" />
+    <result column="stu_class_id" jdbcType="INTEGER" property="stuClassId" />
+    <result column="course_instance_id" jdbcType="INTEGER" property="courseInstanceId" />
+    <result column="course_instance_name" jdbcType="VARCHAR" property="courseInstanceName" />
+    <result column="course_start_time" jdbcType="DATE" property="courseStartTime" />
+    <result column="course_end_time" jdbcType="DATE" property="courseEndTime" />
+    <result column="lecture_pkg_id" jdbcType="INTEGER" property="lecturePkgId" />
+    <result column="lecture_pkg_name" jdbcType="VARCHAR" property="lecturePkgName" />
+    <result column="relate_id" jdbcType="INTEGER" property="relateId" />
+    <result column="lecture_id" jdbcType="INTEGER" property="lectureId" />
+    <result column="lecture_name" jdbcType="VARCHAR" property="lectureName" />
+    <result column="lecture_summary" jdbcType="VARCHAR" property="lectureSummary" />
+    <result column="order_id" jdbcType="INTEGER" property="orderId" />
+    <result column="task_pkg_id" jdbcType="INTEGER" property="taskPkgId" />
+    <result column="task_pkg_name" jdbcType="VARCHAR" property="taskPkgName" />
+    <result column="pkg_summary" jdbcType="VARCHAR" property="pkgSummary" />
+    <result column="pkg_mark" jdbcType="VARCHAR" property="pkgMark" />
+    <result column="task_detail_id" jdbcType="INTEGER" property="taskDetailId" />
+    <result column="task_desc" jdbcType="VARCHAR" property="taskDesc" />
+    <result column="item_id" jdbcType="INTEGER" property="itemId" />
+    <result column="item_name" jdbcType="VARCHAR" property="itemName" />
+    <result column="item_desc" jdbcType="VARCHAR" property="itemDesc" />
+    <result column="item_mark" jdbcType="VARCHAR" property="itemMark" />
+    <result column="lesson_id" jdbcType="INTEGER" property="lessonId" />
+    <result column="lesson_start_time" jdbcType="TIME" property="lessonStartTime" />
+    <result column="lesson_end_time" jdbcType="TIME" property="lessonEndTime" />
+    <result column="attend_id" jdbcType="INTEGER" property="attendId" />
+    <result column="student_id" jdbcType="INTEGER" property="studentId" />
+    <result column="customer_id" jdbcType="INTEGER" property="customerId" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="check_id" jdbcType="INTEGER" property="checkId" />
+    <result column="task_check_status" jdbcType="DECIMAL" property="taskCheckStatus" />
+    <result column="pictures_id" jdbcType="INTEGER" property="picturesId" />
+    <result column="picture_id" jdbcType="INTEGER" property="pictureId" />
+    <result column="piture_url" jdbcType="VARCHAR" property="pitureUrl" />
+    <result column="picture_check_status" jdbcType="INTEGER" property="pictureCheckStatus" />
+    <result column="check_status_desc" jdbcType="INTEGER" property="checkStatusDesc" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    class_id, class_abbreviation, class_name, class_start_date, graduate_date, teacher_id, 
+    teacher_name, stu_class_id, course_instance_id, course_instance_name, course_start_time, 
+    course_end_time, lecture_pkg_id, lecture_pkg_name, relate_id, lecture_id, lecture_name, 
+    lecture_summary, order_id, task_pkg_id, task_pkg_name, pkg_summary, pkg_mark, task_detail_id, 
+    task_desc, item_id, item_name, item_desc, item_mark, lesson_id, lesson_start_time, 
+    lesson_end_time, attend_id, student_id, customer_id, customer_name, check_id, task_check_status, 
+    pictures_id, picture_id, piture_url, picture_check_status, check_status_desc
+  </sql>
+  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.taskCheck.VClassLessonCheckExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from v_class_lesson_check
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null and ">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.guoyasoft.bean.db.taskCheck.VClassLessonCheckExample">
+    delete from v_class_lesson_check
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.guoyasoft.bean.db.taskCheck.VClassLessonCheck">
+    insert into v_class_lesson_check (class_id, class_abbreviation, class_name, 
+      class_start_date, graduate_date, teacher_id, 
+      teacher_name, stu_class_id, course_instance_id, 
+      course_instance_name, course_start_time, course_end_time, 
+      lecture_pkg_id, lecture_pkg_name, relate_id, 
+      lecture_id, lecture_name, lecture_summary, 
+      order_id, task_pkg_id, task_pkg_name, 
+      pkg_summary, pkg_mark, task_detail_id, 
+      task_desc, item_id, item_name, 
+      item_desc, item_mark, lesson_id, 
+      lesson_start_time, lesson_end_time, attend_id, 
+      student_id, customer_id, customer_name, 
+      check_id, task_check_status, pictures_id, 
+      picture_id, piture_url, picture_check_status, 
+      check_status_desc)
+    values (#{classId,jdbcType=INTEGER}, #{classAbbreviation,jdbcType=VARCHAR}, #{className,jdbcType=VARCHAR}, 
+      #{classStartDate,jdbcType=DATE}, #{graduateDate,jdbcType=DATE}, #{teacherId,jdbcType=INTEGER}, 
+      #{teacherName,jdbcType=VARCHAR}, #{stuClassId,jdbcType=INTEGER}, #{courseInstanceId,jdbcType=INTEGER}, 
+      #{courseInstanceName,jdbcType=VARCHAR}, #{courseStartTime,jdbcType=DATE}, #{courseEndTime,jdbcType=DATE}, 
+      #{lecturePkgId,jdbcType=INTEGER}, #{lecturePkgName,jdbcType=VARCHAR}, #{relateId,jdbcType=INTEGER}, 
+      #{lectureId,jdbcType=INTEGER}, #{lectureName,jdbcType=VARCHAR}, #{lectureSummary,jdbcType=VARCHAR}, 
+      #{orderId,jdbcType=INTEGER}, #{taskPkgId,jdbcType=INTEGER}, #{taskPkgName,jdbcType=VARCHAR}, 
+      #{pkgSummary,jdbcType=VARCHAR}, #{pkgMark,jdbcType=VARCHAR}, #{taskDetailId,jdbcType=INTEGER}, 
+      #{taskDesc,jdbcType=VARCHAR}, #{itemId,jdbcType=INTEGER}, #{itemName,jdbcType=VARCHAR}, 
+      #{itemDesc,jdbcType=VARCHAR}, #{itemMark,jdbcType=VARCHAR}, #{lessonId,jdbcType=INTEGER}, 
+      #{lessonStartTime,jdbcType=TIME}, #{lessonEndTime,jdbcType=TIME}, #{attendId,jdbcType=INTEGER}, 
+      #{studentId,jdbcType=INTEGER}, #{customerId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, 
+      #{checkId,jdbcType=INTEGER}, #{taskCheckStatus,jdbcType=DECIMAL}, #{picturesId,jdbcType=INTEGER}, 
+      #{pictureId,jdbcType=INTEGER}, #{pitureUrl,jdbcType=VARCHAR}, #{pictureCheckStatus,jdbcType=INTEGER}, 
+      #{checkStatusDesc,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.taskCheck.VClassLessonCheck">
+    insert into v_class_lesson_check
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="classAbbreviation != null">
+        class_abbreviation,
+      </if>
+      <if test="className != null">
+        class_name,
+      </if>
+      <if test="classStartDate != null">
+        class_start_date,
+      </if>
+      <if test="graduateDate != null">
+        graduate_date,
+      </if>
+      <if test="teacherId != null">
+        teacher_id,
+      </if>
+      <if test="teacherName != null">
+        teacher_name,
+      </if>
+      <if test="stuClassId != null">
+        stu_class_id,
+      </if>
+      <if test="courseInstanceId != null">
+        course_instance_id,
+      </if>
+      <if test="courseInstanceName != null">
+        course_instance_name,
+      </if>
+      <if test="courseStartTime != null">
+        course_start_time,
+      </if>
+      <if test="courseEndTime != null">
+        course_end_time,
+      </if>
+      <if test="lecturePkgId != null">
+        lecture_pkg_id,
+      </if>
+      <if test="lecturePkgName != null">
+        lecture_pkg_name,
+      </if>
+      <if test="relateId != null">
+        relate_id,
+      </if>
+      <if test="lectureId != null">
+        lecture_id,
+      </if>
+      <if test="lectureName != null">
+        lecture_name,
+      </if>
+      <if test="lectureSummary != null">
+        lecture_summary,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="taskPkgId != null">
+        task_pkg_id,
+      </if>
+      <if test="taskPkgName != null">
+        task_pkg_name,
+      </if>
+      <if test="pkgSummary != null">
+        pkg_summary,
+      </if>
+      <if test="pkgMark != null">
+        pkg_mark,
+      </if>
+      <if test="taskDetailId != null">
+        task_detail_id,
+      </if>
+      <if test="taskDesc != null">
+        task_desc,
+      </if>
+      <if test="itemId != null">
+        item_id,
+      </if>
+      <if test="itemName != null">
+        item_name,
+      </if>
+      <if test="itemDesc != null">
+        item_desc,
+      </if>
+      <if test="itemMark != null">
+        item_mark,
+      </if>
+      <if test="lessonId != null">
+        lesson_id,
+      </if>
+      <if test="lessonStartTime != null">
+        lesson_start_time,
+      </if>
+      <if test="lessonEndTime != null">
+        lesson_end_time,
+      </if>
+      <if test="attendId != null">
+        attend_id,
+      </if>
+      <if test="studentId != null">
+        student_id,
+      </if>
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      <if test="checkId != null">
+        check_id,
+      </if>
+      <if test="taskCheckStatus != null">
+        task_check_status,
+      </if>
+      <if test="picturesId != null">
+        pictures_id,
+      </if>
+      <if test="pictureId != null">
+        picture_id,
+      </if>
+      <if test="pitureUrl != null">
+        piture_url,
+      </if>
+      <if test="pictureCheckStatus != null">
+        picture_check_status,
+      </if>
+      <if test="checkStatusDesc != null">
+        check_status_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="classId != null">
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="classAbbreviation != null">
+        #{classAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+      <if test="classStartDate != null">
+        #{classStartDate,jdbcType=DATE},
+      </if>
+      <if test="graduateDate != null">
+        #{graduateDate,jdbcType=DATE},
+      </if>
+      <if test="teacherId != null">
+        #{teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="teacherName != null">
+        #{teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="stuClassId != null">
+        #{stuClassId,jdbcType=INTEGER},
+      </if>
+      <if test="courseInstanceId != null">
+        #{courseInstanceId,jdbcType=INTEGER},
+      </if>
+      <if test="courseInstanceName != null">
+        #{courseInstanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseStartTime != null">
+        #{courseStartTime,jdbcType=DATE},
+      </if>
+      <if test="courseEndTime != null">
+        #{courseEndTime,jdbcType=DATE},
+      </if>
+      <if test="lecturePkgId != null">
+        #{lecturePkgId,jdbcType=INTEGER},
+      </if>
+      <if test="lecturePkgName != null">
+        #{lecturePkgName,jdbcType=VARCHAR},
+      </if>
+      <if test="relateId != null">
+        #{relateId,jdbcType=INTEGER},
+      </if>
+      <if test="lectureId != null">
+        #{lectureId,jdbcType=INTEGER},
+      </if>
+      <if test="lectureName != null">
+        #{lectureName,jdbcType=VARCHAR},
+      </if>
+      <if test="lectureSummary != null">
+        #{lectureSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="taskPkgId != null">
+        #{taskPkgId,jdbcType=INTEGER},
+      </if>
+      <if test="taskPkgName != null">
+        #{taskPkgName,jdbcType=VARCHAR},
+      </if>
+      <if test="pkgSummary != null">
+        #{pkgSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="pkgMark != null">
+        #{pkgMark,jdbcType=VARCHAR},
+      </if>
+      <if test="taskDetailId != null">
+        #{taskDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="taskDesc != null">
+        #{taskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="itemId != null">
+        #{itemId,jdbcType=INTEGER},
+      </if>
+      <if test="itemName != null">
+        #{itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="itemDesc != null">
+        #{itemDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="itemMark != null">
+        #{itemMark,jdbcType=VARCHAR},
+      </if>
+      <if test="lessonId != null">
+        #{lessonId,jdbcType=INTEGER},
+      </if>
+      <if test="lessonStartTime != null">
+        #{lessonStartTime,jdbcType=TIME},
+      </if>
+      <if test="lessonEndTime != null">
+        #{lessonEndTime,jdbcType=TIME},
+      </if>
+      <if test="attendId != null">
+        #{attendId,jdbcType=INTEGER},
+      </if>
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="customerId != null">
+        #{customerId,jdbcType=INTEGER},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="checkId != null">
+        #{checkId,jdbcType=INTEGER},
+      </if>
+      <if test="taskCheckStatus != null">
+        #{taskCheckStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="picturesId != null">
+        #{picturesId,jdbcType=INTEGER},
+      </if>
+      <if test="pictureId != null">
+        #{pictureId,jdbcType=INTEGER},
+      </if>
+      <if test="pitureUrl != null">
+        #{pitureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureCheckStatus != null">
+        #{pictureCheckStatus,jdbcType=INTEGER},
+      </if>
+      <if test="checkStatusDesc != null">
+        #{checkStatusDesc,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.guoyasoft.bean.db.taskCheck.VClassLessonCheckExample" resultType="java.lang.Long">
+    select count(*) from v_class_lesson_check
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update v_class_lesson_check
+    <set>
+      <if test="record.classId != null">
+        class_id = #{record.classId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classAbbreviation != null">
+        class_abbreviation = #{record.classAbbreviation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.className != null">
+        class_name = #{record.className,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classStartDate != null">
+        class_start_date = #{record.classStartDate,jdbcType=DATE},
+      </if>
+      <if test="record.graduateDate != null">
+        graduate_date = #{record.graduateDate,jdbcType=DATE},
+      </if>
+      <if test="record.teacherId != null">
+        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      </if>
+      <if test="record.teacherName != null">
+        teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stuClassId != null">
+        stu_class_id = #{record.stuClassId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseInstanceId != null">
+        course_instance_id = #{record.courseInstanceId,jdbcType=INTEGER},
+      </if>
+      <if test="record.courseInstanceName != null">
+        course_instance_name = #{record.courseInstanceName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.courseStartTime != null">
+        course_start_time = #{record.courseStartTime,jdbcType=DATE},
+      </if>
+      <if test="record.courseEndTime != null">
+        course_end_time = #{record.courseEndTime,jdbcType=DATE},
+      </if>
+      <if test="record.lecturePkgId != null">
+        lecture_pkg_id = #{record.lecturePkgId,jdbcType=INTEGER},
+      </if>
+      <if test="record.lecturePkgName != null">
+        lecture_pkg_name = #{record.lecturePkgName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relateId != null">
+        relate_id = #{record.relateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.lectureId != null">
+        lecture_id = #{record.lectureId,jdbcType=INTEGER},
+      </if>
+      <if test="record.lectureName != null">
+        lecture_name = #{record.lectureName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lectureSummary != null">
+        lecture_summary = #{record.lectureSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderId != null">
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taskPkgId != null">
+        task_pkg_id = #{record.taskPkgId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taskPkgName != null">
+        task_pkg_name = #{record.taskPkgName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pkgSummary != null">
+        pkg_summary = #{record.pkgSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pkgMark != null">
+        pkg_mark = #{record.pkgMark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taskDetailId != null">
+        task_detail_id = #{record.taskDetailId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taskDesc != null">
+        task_desc = #{record.taskDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.itemId != null">
+        item_id = #{record.itemId,jdbcType=INTEGER},
+      </if>
+      <if test="record.itemName != null">
+        item_name = #{record.itemName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.itemDesc != null">
+        item_desc = #{record.itemDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.itemMark != null">
+        item_mark = #{record.itemMark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lessonId != null">
+        lesson_id = #{record.lessonId,jdbcType=INTEGER},
+      </if>
+      <if test="record.lessonStartTime != null">
+        lesson_start_time = #{record.lessonStartTime,jdbcType=TIME},
+      </if>
+      <if test="record.lessonEndTime != null">
+        lesson_end_time = #{record.lessonEndTime,jdbcType=TIME},
+      </if>
+      <if test="record.attendId != null">
+        attend_id = #{record.attendId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentId != null">
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerId != null">
+        customer_id = #{record.customerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.customerName != null">
+        customer_name = #{record.customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkId != null">
+        check_id = #{record.checkId,jdbcType=INTEGER},
+      </if>
+      <if test="record.taskCheckStatus != null">
+        task_check_status = #{record.taskCheckStatus,jdbcType=DECIMAL},
+      </if>
+      <if test="record.picturesId != null">
+        pictures_id = #{record.picturesId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pictureId != null">
+        picture_id = #{record.pictureId,jdbcType=INTEGER},
+      </if>
+      <if test="record.pitureUrl != null">
+        piture_url = #{record.pitureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pictureCheckStatus != null">
+        picture_check_status = #{record.pictureCheckStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.checkStatusDesc != null">
+        check_status_desc = #{record.checkStatusDesc,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update v_class_lesson_check
+    set class_id = #{record.classId,jdbcType=INTEGER},
+      class_abbreviation = #{record.classAbbreviation,jdbcType=VARCHAR},
+      class_name = #{record.className,jdbcType=VARCHAR},
+      class_start_date = #{record.classStartDate,jdbcType=DATE},
+      graduate_date = #{record.graduateDate,jdbcType=DATE},
+      teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+      stu_class_id = #{record.stuClassId,jdbcType=INTEGER},
+      course_instance_id = #{record.courseInstanceId,jdbcType=INTEGER},
+      course_instance_name = #{record.courseInstanceName,jdbcType=VARCHAR},
+      course_start_time = #{record.courseStartTime,jdbcType=DATE},
+      course_end_time = #{record.courseEndTime,jdbcType=DATE},
+      lecture_pkg_id = #{record.lecturePkgId,jdbcType=INTEGER},
+      lecture_pkg_name = #{record.lecturePkgName,jdbcType=VARCHAR},
+      relate_id = #{record.relateId,jdbcType=INTEGER},
+      lecture_id = #{record.lectureId,jdbcType=INTEGER},
+      lecture_name = #{record.lectureName,jdbcType=VARCHAR},
+      lecture_summary = #{record.lectureSummary,jdbcType=VARCHAR},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      task_pkg_id = #{record.taskPkgId,jdbcType=INTEGER},
+      task_pkg_name = #{record.taskPkgName,jdbcType=VARCHAR},
+      pkg_summary = #{record.pkgSummary,jdbcType=VARCHAR},
+      pkg_mark = #{record.pkgMark,jdbcType=VARCHAR},
+      task_detail_id = #{record.taskDetailId,jdbcType=INTEGER},
+      task_desc = #{record.taskDesc,jdbcType=VARCHAR},
+      item_id = #{record.itemId,jdbcType=INTEGER},
+      item_name = #{record.itemName,jdbcType=VARCHAR},
+      item_desc = #{record.itemDesc,jdbcType=VARCHAR},
+      item_mark = #{record.itemMark,jdbcType=VARCHAR},
+      lesson_id = #{record.lessonId,jdbcType=INTEGER},
+      lesson_start_time = #{record.lessonStartTime,jdbcType=TIME},
+      lesson_end_time = #{record.lessonEndTime,jdbcType=TIME},
+      attend_id = #{record.attendId,jdbcType=INTEGER},
+      student_id = #{record.studentId,jdbcType=INTEGER},
+      customer_id = #{record.customerId,jdbcType=INTEGER},
+      customer_name = #{record.customerName,jdbcType=VARCHAR},
+      check_id = #{record.checkId,jdbcType=INTEGER},
+      task_check_status = #{record.taskCheckStatus,jdbcType=DECIMAL},
+      pictures_id = #{record.picturesId,jdbcType=INTEGER},
+      picture_id = #{record.pictureId,jdbcType=INTEGER},
+      piture_url = #{record.pitureUrl,jdbcType=VARCHAR},
+      picture_check_status = #{record.pictureCheckStatus,jdbcType=INTEGER},
+      check_status_desc = #{record.checkStatusDesc,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

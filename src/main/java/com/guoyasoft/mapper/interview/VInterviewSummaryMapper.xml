@@ -63,18 +63,18 @@
     <result column="class_name" jdbcType="VARCHAR" property="className" />
     <result column="class_start_date" jdbcType="DATE" property="classStartDate" />
     <result column="class_graduate_date" jdbcType="DATE" property="classGraduateDate" />
-    <result column="class_teacher_id" jdbcType="INTEGER" property="classTeacherId" />
     <result column="class_class_abbreviation" jdbcType="VARCHAR" property="classClassAbbreviation" />
-    <result column="teacher_id" jdbcType="INTEGER" property="teacherId" />
-    <result column="teacher_status" jdbcType="VARCHAR" property="teacherStatus" />
-    <result column="teacher_status_desc" jdbcType="CHAR" property="teacherStatusDesc" />
-    <result column="teacher_create_time" jdbcType="TIMESTAMP" property="teacherCreateTime" />
-    <result column="teacher_update_time" jdbcType="TIMESTAMP" property="teacherUpdateTime" />
-    <result column="teacher_operator" jdbcType="VARCHAR" property="teacherOperator" />
-    <result column="teacher_grade" jdbcType="INTEGER" property="teacherGrade" />
-    <result column="teacher_grade_desc" jdbcType="CHAR" property="teacherGradeDesc" />
-    <result column="teacher_type" jdbcType="INTEGER" property="teacherType" />
-    <result column="teacher_type_desc" jdbcType="CHAR" property="teacherTypeDesc" />
+    <result column="class_teacher_id" jdbcType="INTEGER" property="classTeacherId" />
+    <result column="class_teacher_name" jdbcType="CHAR" property="classTeacherName" />
+    <result column="class_teacher_status" jdbcType="VARCHAR" property="classTeacherStatus" />
+    <result column="class_teacher_status_desc" jdbcType="CHAR" property="classTeacherStatusDesc" />
+    <result column="class_teacher_create_time" jdbcType="TIMESTAMP" property="classTeacherCreateTime" />
+    <result column="class_teacher_update_time" jdbcType="TIMESTAMP" property="classTeacherUpdateTime" />
+    <result column="class_teacher_operator" jdbcType="VARCHAR" property="classTeacherOperator" />
+    <result column="class_teacher_grade" jdbcType="INTEGER" property="classTeacherGrade" />
+    <result column="class_teacher_grade_desc" jdbcType="CHAR" property="classTeacherGradeDesc" />
+    <result column="class_teacher_type" jdbcType="INTEGER" property="classTeacherType" />
+    <result column="class_teacher_type_desc" jdbcType="CHAR" property="classTeacherTypeDesc" />
     <result column="schedule_id" jdbcType="INTEGER" property="scheduleId" />
     <result column="schedule_create_time" jdbcType="TIMESTAMP" property="scheduleCreateTime" />
     <result column="schedule_status" jdbcType="INTEGER" property="scheduleStatus" />
@@ -106,6 +106,7 @@
     <result column="interview_interview_time" jdbcType="TIMESTAMP" property="interviewInterviewTime" />
     <result column="interview_work_time" jdbcType="DATE" property="interviewWorkTime" />
     <result column="interview_progress" jdbcType="INTEGER" property="interviewProgress" />
+    <result column="interview_progress_desc" jdbcType="CHAR" property="interviewProgressDesc" />
     <result column="interview_result" jdbcType="INTEGER" property="interviewResult" />
     <result column="interview_result_desc" jdbcType="CHAR" property="interviewResultDesc" />
     <result column="interview_mark" jdbcType="VARCHAR" property="interviewMark" />
@@ -243,30 +244,32 @@
     user_id, user_user_name, user_pwd, user_status, user_status_desc, user_create_time, 
     user_update_time, user_operate_uno, user_active_time, user_deactive_time, stu_2_class_id, 
     stu_2_create_time, stu_2_update_time, stu_2_status, stu_2_status_desc, class_id, 
-    class_name, class_start_date, class_graduate_date, class_teacher_id, class_class_abbreviation, 
-    teacher_id, teacher_status, teacher_status_desc, teacher_create_time, teacher_update_time, 
-    teacher_operator, teacher_grade, teacher_grade_desc, teacher_type, teacher_type_desc, 
-    schedule_id, schedule_create_time, schedule_status, schedule_status_desc, schedule_active_time, 
-    schedule_deactive_time, course_instance_id, course_instance_name, course_teacher_main_id, 
-    course_teacher_main_name, course_status, course_status_desc, course_teacher_asis_id, 
-    course_start_time, course_end_time, course_lecture_pkg_id, course_teacher_id, course_teacher_name, 
-    course_teacher_status, course_teacher_status_desc, course_teacher_create_time, course_teacher_update_time, 
-    course_teacher_operator, course_teacher_grade, course_teacher_type, course_teacher_type_desc, 
-    interview_id, interview_call_time, interview_interview_time, interview_work_time, 
-    interview_progress, interview_result, interview_result_desc, interview_mark, interview_status, 
-    interview_status_desc, interview_create_time, interview_is_outsource, interview_company_id, 
-    interview_company_name, interview_company_addr, interview_company_type, interview_company_desc, 
-    interview_company_create_time, interview_company_status, interview_company_status_desc, 
-    interview_company_abbreviation, interview_company_update_time, interview_company_is_outsource, 
-    hr_id, hr_name, hr_weichat, hr_qq, hr_mobile_phone, hr_tel_phone, hr_email, hr_hr_company_id, 
-    hr_status, hr_status_desc, hr_create_time, hr_update_time, hr_company_id, hr_company_name, 
-    hr_company_addr, hr_company_type, hr_company_desc, hr_company_create_time, hr_company_status, 
-    hr_company_status_desc, hr_company_abbreviation, hr_company_update_time, hr_company_is_outsource, 
-    exam_id, exam_create_time, exam_status, exam_status_desc, exam_update_time, ask_id, 
-    offer_id, offer_salary, offer_salary_count, offer_is_gross_pay, offer_is_gross_pay_desc, 
-    offer_probationary_period, offer_probationary_discount, offer_time, offer_work_time, 
-    offer_create_time, offer_update_time, offer_operator_user_id, offer_is_accept, offer_is_accept_desc, 
-    offer_status, offer_status_desc, job_id, resume_id
+    class_name, class_start_date, class_graduate_date, class_class_abbreviation, class_teacher_id, 
+    class_teacher_name, class_teacher_status, class_teacher_status_desc, class_teacher_create_time, 
+    class_teacher_update_time, class_teacher_operator, class_teacher_grade, class_teacher_grade_desc, 
+    class_teacher_type, class_teacher_type_desc, schedule_id, schedule_create_time, schedule_status, 
+    schedule_status_desc, schedule_active_time, schedule_deactive_time, course_instance_id, 
+    course_instance_name, course_teacher_main_id, course_teacher_main_name, course_status, 
+    course_status_desc, course_teacher_asis_id, course_start_time, course_end_time, course_lecture_pkg_id, 
+    course_teacher_id, course_teacher_name, course_teacher_status, course_teacher_status_desc, 
+    course_teacher_create_time, course_teacher_update_time, course_teacher_operator, 
+    course_teacher_grade, course_teacher_type, course_teacher_type_desc, interview_id, 
+    interview_call_time, interview_interview_time, interview_work_time, interview_progress, 
+    interview_progress_desc, interview_result, interview_result_desc, interview_mark, 
+    interview_status, interview_status_desc, interview_create_time, interview_is_outsource, 
+    interview_company_id, interview_company_name, interview_company_addr, interview_company_type, 
+    interview_company_desc, interview_company_create_time, interview_company_status, 
+    interview_company_status_desc, interview_company_abbreviation, interview_company_update_time, 
+    interview_company_is_outsource, hr_id, hr_name, hr_weichat, hr_qq, hr_mobile_phone, 
+    hr_tel_phone, hr_email, hr_hr_company_id, hr_status, hr_status_desc, hr_create_time, 
+    hr_update_time, hr_company_id, hr_company_name, hr_company_addr, hr_company_type, 
+    hr_company_desc, hr_company_create_time, hr_company_status, hr_company_status_desc, 
+    hr_company_abbreviation, hr_company_update_time, hr_company_is_outsource, exam_id, 
+    exam_create_time, exam_status, exam_status_desc, exam_update_time, ask_id, offer_id, 
+    offer_salary, offer_salary_count, offer_is_gross_pay, offer_is_gross_pay_desc, offer_probationary_period, 
+    offer_probationary_discount, offer_time, offer_work_time, offer_create_time, offer_update_time, 
+    offer_operator_user_id, offer_is_accept, offer_is_accept_desc, offer_status, offer_status_desc, 
+    job_id, resume_id
   </sql>
   <select id="selectByExample" parameterType="com.guoyasoft.bean.db.interview.VInterviewSummaryExample" resultMap="BaseResultMap">
     select
@@ -311,11 +314,12 @@
       user_active_time, user_deactive_time, stu_2_class_id, 
       stu_2_create_time, stu_2_update_time, stu_2_status, 
       stu_2_status_desc, class_id, class_name, 
-      class_start_date, class_graduate_date, class_teacher_id, 
-      class_class_abbreviation, teacher_id, teacher_status, 
-      teacher_status_desc, teacher_create_time, teacher_update_time, 
-      teacher_operator, teacher_grade, teacher_grade_desc, 
-      teacher_type, teacher_type_desc, schedule_id, 
+      class_start_date, class_graduate_date, class_class_abbreviation, 
+      class_teacher_id, class_teacher_name, class_teacher_status, 
+      class_teacher_status_desc, class_teacher_create_time, 
+      class_teacher_update_time, class_teacher_operator, 
+      class_teacher_grade, class_teacher_grade_desc, 
+      class_teacher_type, class_teacher_type_desc, schedule_id, 
       schedule_create_time, schedule_status, schedule_status_desc, 
       schedule_active_time, schedule_deactive_time, 
       course_instance_id, course_instance_name, course_teacher_main_id, 
@@ -327,9 +331,9 @@
       course_teacher_operator, course_teacher_grade, 
       course_teacher_type, course_teacher_type_desc, 
       interview_id, interview_call_time, interview_interview_time, 
-      interview_work_time, interview_progress, interview_result, 
-      interview_result_desc, interview_mark, interview_status, 
-      interview_status_desc, interview_create_time, 
+      interview_work_time, interview_progress, interview_progress_desc, 
+      interview_result, interview_result_desc, interview_mark, 
+      interview_status, interview_status_desc, interview_create_time, 
       interview_is_outsource, interview_company_id, 
       interview_company_name, interview_company_addr, 
       interview_company_type, interview_company_desc, 
@@ -374,11 +378,12 @@
       #{userActiveTime,jdbcType=TIMESTAMP}, #{userDeactiveTime,jdbcType=TIMESTAMP}, #{stu2ClassId,jdbcType=INTEGER}, 
       #{stu2CreateTime,jdbcType=TIMESTAMP}, #{stu2UpdateTime,jdbcType=TIMESTAMP}, #{stu2Status,jdbcType=INTEGER}, 
       #{stu2StatusDesc,jdbcType=CHAR}, #{classId,jdbcType=INTEGER}, #{className,jdbcType=VARCHAR}, 
-      #{classStartDate,jdbcType=DATE}, #{classGraduateDate,jdbcType=DATE}, #{classTeacherId,jdbcType=INTEGER}, 
-      #{classClassAbbreviation,jdbcType=VARCHAR}, #{teacherId,jdbcType=INTEGER}, #{teacherStatus,jdbcType=VARCHAR}, 
-      #{teacherStatusDesc,jdbcType=CHAR}, #{teacherCreateTime,jdbcType=TIMESTAMP}, #{teacherUpdateTime,jdbcType=TIMESTAMP}, 
-      #{teacherOperator,jdbcType=VARCHAR}, #{teacherGrade,jdbcType=INTEGER}, #{teacherGradeDesc,jdbcType=CHAR}, 
-      #{teacherType,jdbcType=INTEGER}, #{teacherTypeDesc,jdbcType=CHAR}, #{scheduleId,jdbcType=INTEGER}, 
+      #{classStartDate,jdbcType=DATE}, #{classGraduateDate,jdbcType=DATE}, #{classClassAbbreviation,jdbcType=VARCHAR}, 
+      #{classTeacherId,jdbcType=INTEGER}, #{classTeacherName,jdbcType=CHAR}, #{classTeacherStatus,jdbcType=VARCHAR}, 
+      #{classTeacherStatusDesc,jdbcType=CHAR}, #{classTeacherCreateTime,jdbcType=TIMESTAMP}, 
+      #{classTeacherUpdateTime,jdbcType=TIMESTAMP}, #{classTeacherOperator,jdbcType=VARCHAR}, 
+      #{classTeacherGrade,jdbcType=INTEGER}, #{classTeacherGradeDesc,jdbcType=CHAR}, 
+      #{classTeacherType,jdbcType=INTEGER}, #{classTeacherTypeDesc,jdbcType=CHAR}, #{scheduleId,jdbcType=INTEGER}, 
       #{scheduleCreateTime,jdbcType=TIMESTAMP}, #{scheduleStatus,jdbcType=INTEGER}, #{scheduleStatusDesc,jdbcType=CHAR}, 
       #{scheduleActiveTime,jdbcType=TIMESTAMP}, #{scheduleDeactiveTime,jdbcType=TIMESTAMP}, 
       #{courseInstanceId,jdbcType=INTEGER}, #{courseInstanceName,jdbcType=VARCHAR}, #{courseTeacherMainId,jdbcType=INTEGER}, 
@@ -390,9 +395,9 @@
       #{courseTeacherOperator,jdbcType=VARCHAR}, #{courseTeacherGrade,jdbcType=INTEGER}, 
       #{courseTeacherType,jdbcType=INTEGER}, #{courseTeacherTypeDesc,jdbcType=INTEGER}, 
       #{interviewId,jdbcType=INTEGER}, #{interviewCallTime,jdbcType=TIMESTAMP}, #{interviewInterviewTime,jdbcType=TIMESTAMP}, 
-      #{interviewWorkTime,jdbcType=DATE}, #{interviewProgress,jdbcType=INTEGER}, #{interviewResult,jdbcType=INTEGER}, 
-      #{interviewResultDesc,jdbcType=CHAR}, #{interviewMark,jdbcType=VARCHAR}, #{interviewStatus,jdbcType=INTEGER}, 
-      #{interviewStatusDesc,jdbcType=CHAR}, #{interviewCreateTime,jdbcType=TIMESTAMP}, 
+      #{interviewWorkTime,jdbcType=DATE}, #{interviewProgress,jdbcType=INTEGER}, #{interviewProgressDesc,jdbcType=CHAR}, 
+      #{interviewResult,jdbcType=INTEGER}, #{interviewResultDesc,jdbcType=CHAR}, #{interviewMark,jdbcType=VARCHAR}, 
+      #{interviewStatus,jdbcType=INTEGER}, #{interviewStatusDesc,jdbcType=CHAR}, #{interviewCreateTime,jdbcType=TIMESTAMP}, 
       #{interviewIsOutsource,jdbcType=INTEGER}, #{interviewCompanyId,jdbcType=INTEGER}, 
       #{interviewCompanyName,jdbcType=VARCHAR}, #{interviewCompanyAddr,jdbcType=VARCHAR}, 
       #{interviewCompanyType,jdbcType=INTEGER}, #{interviewCompanyDesc,jdbcType=VARCHAR}, 
@@ -603,41 +608,41 @@
       <if test="classGraduateDate != null">
         class_graduate_date,
       </if>
-      <if test="classTeacherId != null">
-        class_teacher_id,
-      </if>
       <if test="classClassAbbreviation != null">
         class_class_abbreviation,
       </if>
-      <if test="teacherId != null">
-        teacher_id,
+      <if test="classTeacherId != null">
+        class_teacher_id,
       </if>
-      <if test="teacherStatus != null">
-        teacher_status,
+      <if test="classTeacherName != null">
+        class_teacher_name,
       </if>
-      <if test="teacherStatusDesc != null">
-        teacher_status_desc,
+      <if test="classTeacherStatus != null">
+        class_teacher_status,
       </if>
-      <if test="teacherCreateTime != null">
-        teacher_create_time,
+      <if test="classTeacherStatusDesc != null">
+        class_teacher_status_desc,
       </if>
-      <if test="teacherUpdateTime != null">
-        teacher_update_time,
+      <if test="classTeacherCreateTime != null">
+        class_teacher_create_time,
       </if>
-      <if test="teacherOperator != null">
-        teacher_operator,
+      <if test="classTeacherUpdateTime != null">
+        class_teacher_update_time,
       </if>
-      <if test="teacherGrade != null">
-        teacher_grade,
+      <if test="classTeacherOperator != null">
+        class_teacher_operator,
       </if>
-      <if test="teacherGradeDesc != null">
-        teacher_grade_desc,
+      <if test="classTeacherGrade != null">
+        class_teacher_grade,
       </if>
-      <if test="teacherType != null">
-        teacher_type,
+      <if test="classTeacherGradeDesc != null">
+        class_teacher_grade_desc,
       </if>
-      <if test="teacherTypeDesc != null">
-        teacher_type_desc,
+      <if test="classTeacherType != null">
+        class_teacher_type,
+      </if>
+      <if test="classTeacherTypeDesc != null">
+        class_teacher_type_desc,
       </if>
       <if test="scheduleId != null">
         schedule_id,
@@ -731,6 +736,9 @@
       </if>
       <if test="interviewProgress != null">
         interview_progress,
+      </if>
+      <if test="interviewProgressDesc != null">
+        interview_progress_desc,
       </if>
       <if test="interviewResult != null">
         interview_result,
@@ -1112,41 +1120,41 @@
       <if test="classGraduateDate != null">
         #{classGraduateDate,jdbcType=DATE},
       </if>
-      <if test="classTeacherId != null">
-        #{classTeacherId,jdbcType=INTEGER},
-      </if>
       <if test="classClassAbbreviation != null">
         #{classClassAbbreviation,jdbcType=VARCHAR},
       </if>
-      <if test="teacherId != null">
-        #{teacherId,jdbcType=INTEGER},
+      <if test="classTeacherId != null">
+        #{classTeacherId,jdbcType=INTEGER},
       </if>
-      <if test="teacherStatus != null">
-        #{teacherStatus,jdbcType=VARCHAR},
+      <if test="classTeacherName != null">
+        #{classTeacherName,jdbcType=CHAR},
       </if>
-      <if test="teacherStatusDesc != null">
-        #{teacherStatusDesc,jdbcType=CHAR},
+      <if test="classTeacherStatus != null">
+        #{classTeacherStatus,jdbcType=VARCHAR},
       </if>
-      <if test="teacherCreateTime != null">
-        #{teacherCreateTime,jdbcType=TIMESTAMP},
+      <if test="classTeacherStatusDesc != null">
+        #{classTeacherStatusDesc,jdbcType=CHAR},
       </if>
-      <if test="teacherUpdateTime != null">
-        #{teacherUpdateTime,jdbcType=TIMESTAMP},
+      <if test="classTeacherCreateTime != null">
+        #{classTeacherCreateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="teacherOperator != null">
-        #{teacherOperator,jdbcType=VARCHAR},
+      <if test="classTeacherUpdateTime != null">
+        #{classTeacherUpdateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="teacherGrade != null">
-        #{teacherGrade,jdbcType=INTEGER},
+      <if test="classTeacherOperator != null">
+        #{classTeacherOperator,jdbcType=VARCHAR},
       </if>
-      <if test="teacherGradeDesc != null">
-        #{teacherGradeDesc,jdbcType=CHAR},
+      <if test="classTeacherGrade != null">
+        #{classTeacherGrade,jdbcType=INTEGER},
       </if>
-      <if test="teacherType != null">
-        #{teacherType,jdbcType=INTEGER},
+      <if test="classTeacherGradeDesc != null">
+        #{classTeacherGradeDesc,jdbcType=CHAR},
       </if>
-      <if test="teacherTypeDesc != null">
-        #{teacherTypeDesc,jdbcType=CHAR},
+      <if test="classTeacherType != null">
+        #{classTeacherType,jdbcType=INTEGER},
+      </if>
+      <if test="classTeacherTypeDesc != null">
+        #{classTeacherTypeDesc,jdbcType=CHAR},
       </if>
       <if test="scheduleId != null">
         #{scheduleId,jdbcType=INTEGER},
@@ -1240,6 +1248,9 @@
       </if>
       <if test="interviewProgress != null">
         #{interviewProgress,jdbcType=INTEGER},
+      </if>
+      <if test="interviewProgressDesc != null">
+        #{interviewProgressDesc,jdbcType=CHAR},
       </if>
       <if test="interviewResult != null">
         #{interviewResult,jdbcType=INTEGER},
@@ -1630,41 +1641,41 @@
       <if test="record.classGraduateDate != null">
         class_graduate_date = #{record.classGraduateDate,jdbcType=DATE},
       </if>
-      <if test="record.classTeacherId != null">
-        class_teacher_id = #{record.classTeacherId,jdbcType=INTEGER},
-      </if>
       <if test="record.classClassAbbreviation != null">
         class_class_abbreviation = #{record.classClassAbbreviation,jdbcType=VARCHAR},
       </if>
-      <if test="record.teacherId != null">
-        teacher_id = #{record.teacherId,jdbcType=INTEGER},
+      <if test="record.classTeacherId != null">
+        class_teacher_id = #{record.classTeacherId,jdbcType=INTEGER},
       </if>
-      <if test="record.teacherStatus != null">
-        teacher_status = #{record.teacherStatus,jdbcType=VARCHAR},
+      <if test="record.classTeacherName != null">
+        class_teacher_name = #{record.classTeacherName,jdbcType=CHAR},
       </if>
-      <if test="record.teacherStatusDesc != null">
-        teacher_status_desc = #{record.teacherStatusDesc,jdbcType=CHAR},
+      <if test="record.classTeacherStatus != null">
+        class_teacher_status = #{record.classTeacherStatus,jdbcType=VARCHAR},
       </if>
-      <if test="record.teacherCreateTime != null">
-        teacher_create_time = #{record.teacherCreateTime,jdbcType=TIMESTAMP},
+      <if test="record.classTeacherStatusDesc != null">
+        class_teacher_status_desc = #{record.classTeacherStatusDesc,jdbcType=CHAR},
       </if>
-      <if test="record.teacherUpdateTime != null">
-        teacher_update_time = #{record.teacherUpdateTime,jdbcType=TIMESTAMP},
+      <if test="record.classTeacherCreateTime != null">
+        class_teacher_create_time = #{record.classTeacherCreateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.teacherOperator != null">
-        teacher_operator = #{record.teacherOperator,jdbcType=VARCHAR},
+      <if test="record.classTeacherUpdateTime != null">
+        class_teacher_update_time = #{record.classTeacherUpdateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.teacherGrade != null">
-        teacher_grade = #{record.teacherGrade,jdbcType=INTEGER},
+      <if test="record.classTeacherOperator != null">
+        class_teacher_operator = #{record.classTeacherOperator,jdbcType=VARCHAR},
       </if>
-      <if test="record.teacherGradeDesc != null">
-        teacher_grade_desc = #{record.teacherGradeDesc,jdbcType=CHAR},
+      <if test="record.classTeacherGrade != null">
+        class_teacher_grade = #{record.classTeacherGrade,jdbcType=INTEGER},
       </if>
-      <if test="record.teacherType != null">
-        teacher_type = #{record.teacherType,jdbcType=INTEGER},
+      <if test="record.classTeacherGradeDesc != null">
+        class_teacher_grade_desc = #{record.classTeacherGradeDesc,jdbcType=CHAR},
       </if>
-      <if test="record.teacherTypeDesc != null">
-        teacher_type_desc = #{record.teacherTypeDesc,jdbcType=CHAR},
+      <if test="record.classTeacherType != null">
+        class_teacher_type = #{record.classTeacherType,jdbcType=INTEGER},
+      </if>
+      <if test="record.classTeacherTypeDesc != null">
+        class_teacher_type_desc = #{record.classTeacherTypeDesc,jdbcType=CHAR},
       </if>
       <if test="record.scheduleId != null">
         schedule_id = #{record.scheduleId,jdbcType=INTEGER},
@@ -1758,6 +1769,9 @@
       </if>
       <if test="record.interviewProgress != null">
         interview_progress = #{record.interviewProgress,jdbcType=INTEGER},
+      </if>
+      <if test="record.interviewProgressDesc != null">
+        interview_progress_desc = #{record.interviewProgressDesc,jdbcType=CHAR},
       </if>
       <if test="record.interviewResult != null">
         interview_result = #{record.interviewResult,jdbcType=INTEGER},
@@ -2022,18 +2036,18 @@
       class_name = #{record.className,jdbcType=VARCHAR},
       class_start_date = #{record.classStartDate,jdbcType=DATE},
       class_graduate_date = #{record.classGraduateDate,jdbcType=DATE},
-      class_teacher_id = #{record.classTeacherId,jdbcType=INTEGER},
       class_class_abbreviation = #{record.classClassAbbreviation,jdbcType=VARCHAR},
-      teacher_id = #{record.teacherId,jdbcType=INTEGER},
-      teacher_status = #{record.teacherStatus,jdbcType=VARCHAR},
-      teacher_status_desc = #{record.teacherStatusDesc,jdbcType=CHAR},
-      teacher_create_time = #{record.teacherCreateTime,jdbcType=TIMESTAMP},
-      teacher_update_time = #{record.teacherUpdateTime,jdbcType=TIMESTAMP},
-      teacher_operator = #{record.teacherOperator,jdbcType=VARCHAR},
-      teacher_grade = #{record.teacherGrade,jdbcType=INTEGER},
-      teacher_grade_desc = #{record.teacherGradeDesc,jdbcType=CHAR},
-      teacher_type = #{record.teacherType,jdbcType=INTEGER},
-      teacher_type_desc = #{record.teacherTypeDesc,jdbcType=CHAR},
+      class_teacher_id = #{record.classTeacherId,jdbcType=INTEGER},
+      class_teacher_name = #{record.classTeacherName,jdbcType=CHAR},
+      class_teacher_status = #{record.classTeacherStatus,jdbcType=VARCHAR},
+      class_teacher_status_desc = #{record.classTeacherStatusDesc,jdbcType=CHAR},
+      class_teacher_create_time = #{record.classTeacherCreateTime,jdbcType=TIMESTAMP},
+      class_teacher_update_time = #{record.classTeacherUpdateTime,jdbcType=TIMESTAMP},
+      class_teacher_operator = #{record.classTeacherOperator,jdbcType=VARCHAR},
+      class_teacher_grade = #{record.classTeacherGrade,jdbcType=INTEGER},
+      class_teacher_grade_desc = #{record.classTeacherGradeDesc,jdbcType=CHAR},
+      class_teacher_type = #{record.classTeacherType,jdbcType=INTEGER},
+      class_teacher_type_desc = #{record.classTeacherTypeDesc,jdbcType=CHAR},
       schedule_id = #{record.scheduleId,jdbcType=INTEGER},
       schedule_create_time = #{record.scheduleCreateTime,jdbcType=TIMESTAMP},
       schedule_status = #{record.scheduleStatus,jdbcType=INTEGER},
@@ -2065,6 +2079,7 @@
       interview_interview_time = #{record.interviewInterviewTime,jdbcType=TIMESTAMP},
       interview_work_time = #{record.interviewWorkTime,jdbcType=DATE},
       interview_progress = #{record.interviewProgress,jdbcType=INTEGER},
+      interview_progress_desc = #{record.interviewProgressDesc,jdbcType=CHAR},
       interview_result = #{record.interviewResult,jdbcType=INTEGER},
       interview_result_desc = #{record.interviewResultDesc,jdbcType=CHAR},
       interview_mark = #{record.interviewMark,jdbcType=VARCHAR},

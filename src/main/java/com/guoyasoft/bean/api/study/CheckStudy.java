@@ -1,7 +1,11 @@
 package com.guoyasoft.bean.api.study;
 
 import java.util.Date;
-
+/**
+ * 新功能上线后删除
+ * @author Administrator
+ *
+ */
 public class CheckStudy {
 	private int rn;
 

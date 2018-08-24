@@ -125,29 +125,29 @@ public class VInterviewSummary {
 
     private Date classGraduateDate;
 
-    private Integer classTeacherId;
-
     private String classClassAbbreviation;
 
-    private Integer teacherId;
+    private Integer classTeacherId;
 
-    private String teacherStatus;
+    private String classTeacherName;
 
-    private String teacherStatusDesc;
+    private String classTeacherStatus;
 
-    private Date teacherCreateTime;
+    private String classTeacherStatusDesc;
 
-    private Date teacherUpdateTime;
+    private Date classTeacherCreateTime;
 
-    private String teacherOperator;
+    private Date classTeacherUpdateTime;
 
-    private Integer teacherGrade;
+    private String classTeacherOperator;
 
-    private String teacherGradeDesc;
+    private Integer classTeacherGrade;
 
-    private Integer teacherType;
+    private String classTeacherGradeDesc;
 
-    private String teacherTypeDesc;
+    private Integer classTeacherType;
+
+    private String classTeacherTypeDesc;
 
     private Integer scheduleId;
 
@@ -210,6 +210,8 @@ public class VInterviewSummary {
     private Date interviewWorkTime;
 
     private Integer interviewProgress;
+
+    private String interviewProgressDesc;
 
     private Integer interviewResult;
 
@@ -829,14 +831,6 @@ public class VInterviewSummary {
         this.classGraduateDate = classGraduateDate;
     }
 
-    public Integer getClassTeacherId() {
-        return classTeacherId;
-    }
-
-    public void setClassTeacherId(Integer classTeacherId) {
-        this.classTeacherId = classTeacherId;
-    }
-
     public String getClassClassAbbreviation() {
         return classClassAbbreviation;
     }
@@ -845,84 +839,92 @@ public class VInterviewSummary {
         this.classClassAbbreviation = classClassAbbreviation == null ? null : classClassAbbreviation.trim();
     }
 
-    public Integer getTeacherId() {
-        return teacherId;
+    public Integer getClassTeacherId() {
+        return classTeacherId;
     }
 
-    public void setTeacherId(Integer teacherId) {
-        this.teacherId = teacherId;
+    public void setClassTeacherId(Integer classTeacherId) {
+        this.classTeacherId = classTeacherId;
     }
 
-    public String getTeacherStatus() {
-        return teacherStatus;
+    public String getClassTeacherName() {
+        return classTeacherName;
     }
 
-    public void setTeacherStatus(String teacherStatus) {
-        this.teacherStatus = teacherStatus == null ? null : teacherStatus.trim();
+    public void setClassTeacherName(String classTeacherName) {
+        this.classTeacherName = classTeacherName == null ? null : classTeacherName.trim();
     }
 
-    public String getTeacherStatusDesc() {
-        return teacherStatusDesc;
+    public String getClassTeacherStatus() {
+        return classTeacherStatus;
     }
 
-    public void setTeacherStatusDesc(String teacherStatusDesc) {
-        this.teacherStatusDesc = teacherStatusDesc == null ? null : teacherStatusDesc.trim();
+    public void setClassTeacherStatus(String classTeacherStatus) {
+        this.classTeacherStatus = classTeacherStatus == null ? null : classTeacherStatus.trim();
     }
 
-    public Date getTeacherCreateTime() {
-        return teacherCreateTime;
+    public String getClassTeacherStatusDesc() {
+        return classTeacherStatusDesc;
     }
 
-    public void setTeacherCreateTime(Date teacherCreateTime) {
-        this.teacherCreateTime = teacherCreateTime;
+    public void setClassTeacherStatusDesc(String classTeacherStatusDesc) {
+        this.classTeacherStatusDesc = classTeacherStatusDesc == null ? null : classTeacherStatusDesc.trim();
     }
 
-    public Date getTeacherUpdateTime() {
-        return teacherUpdateTime;
+    public Date getClassTeacherCreateTime() {
+        return classTeacherCreateTime;
     }
 
-    public void setTeacherUpdateTime(Date teacherUpdateTime) {
-        this.teacherUpdateTime = teacherUpdateTime;
+    public void setClassTeacherCreateTime(Date classTeacherCreateTime) {
+        this.classTeacherCreateTime = classTeacherCreateTime;
     }
 
-    public String getTeacherOperator() {
-        return teacherOperator;
+    public Date getClassTeacherUpdateTime() {
+        return classTeacherUpdateTime;
     }
 
-    public void setTeacherOperator(String teacherOperator) {
-        this.teacherOperator = teacherOperator == null ? null : teacherOperator.trim();
+    public void setClassTeacherUpdateTime(Date classTeacherUpdateTime) {
+        this.classTeacherUpdateTime = classTeacherUpdateTime;
     }
 
-    public Integer getTeacherGrade() {
-        return teacherGrade;
+    public String getClassTeacherOperator() {
+        return classTeacherOperator;
     }
 
-    public void setTeacherGrade(Integer teacherGrade) {
-        this.teacherGrade = teacherGrade;
+    public void setClassTeacherOperator(String classTeacherOperator) {
+        this.classTeacherOperator = classTeacherOperator == null ? null : classTeacherOperator.trim();
     }
 
-    public String getTeacherGradeDesc() {
-        return teacherGradeDesc;
+    public Integer getClassTeacherGrade() {
+        return classTeacherGrade;
     }
 
-    public void setTeacherGradeDesc(String teacherGradeDesc) {
-        this.teacherGradeDesc = teacherGradeDesc == null ? null : teacherGradeDesc.trim();
+    public void setClassTeacherGrade(Integer classTeacherGrade) {
+        this.classTeacherGrade = classTeacherGrade;
     }
 
-    public Integer getTeacherType() {
-        return teacherType;
+    public String getClassTeacherGradeDesc() {
+        return classTeacherGradeDesc;
     }
 
-    public void setTeacherType(Integer teacherType) {
-        this.teacherType = teacherType;
+    public void setClassTeacherGradeDesc(String classTeacherGradeDesc) {
+        this.classTeacherGradeDesc = classTeacherGradeDesc == null ? null : classTeacherGradeDesc.trim();
     }
 
-    public String getTeacherTypeDesc() {
-        return teacherTypeDesc;
+    public Integer getClassTeacherType() {
+        return classTeacherType;
     }
 
-    public void setTeacherTypeDesc(String teacherTypeDesc) {
-        this.teacherTypeDesc = teacherTypeDesc == null ? null : teacherTypeDesc.trim();
+    public void setClassTeacherType(Integer classTeacherType) {
+        this.classTeacherType = classTeacherType;
+    }
+
+    public String getClassTeacherTypeDesc() {
+        return classTeacherTypeDesc;
+    }
+
+    public void setClassTeacherTypeDesc(String classTeacherTypeDesc) {
+        this.classTeacherTypeDesc = classTeacherTypeDesc == null ? null : classTeacherTypeDesc.trim();
     }
 
     public Integer getScheduleId() {
@@ -1171,6 +1173,14 @@ public class VInterviewSummary {
 
     public void setInterviewProgress(Integer interviewProgress) {
         this.interviewProgress = interviewProgress;
+    }
+
+    public String getInterviewProgressDesc() {
+        return interviewProgressDesc;
+    }
+
+    public void setInterviewProgressDesc(String interviewProgressDesc) {
+        this.interviewProgressDesc = interviewProgressDesc == null ? null : interviewProgressDesc.trim();
     }
 
     public Integer getInterviewResult() {

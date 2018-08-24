@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.taskCheck.CheckStudyMapper">
+	<select id="selectClass" parameterType="com.guoyasoft.bean.api.study.QueryClassBean"
+		resultType="com.guoyasoft.bean.api.study.QueryClassBean">
+		SELECT
+		DISTINCT
+		t.`class_id` AS classId,
+		t.`class_abbreviation` AS
+		classAbbreviation,
+		t.`class_name` className,
+		t.`class_start_date` AS
+		classStartDate,
+		t.`graduate_date` AS graduateDate,
+		t.`teacher_id` AS
+		teacherId,
+		t.`teacher_name` AS teacherName,
+		(SELECT COUNT(*) FROM
+		t_class_stu_2_class WHERE class_id=t.`class_id` AND
+		STATUS=0) AS
+		classStuCtn
+		FROM
+		v_class_lesson_check t
+		WHERE 1=1
+		<if test="className != null and className !=''">
+			AND t.`class_name` LIKE '%${className}%'
+		</if>
+		<if test="teacherName != null and teacherName !=''">
+			AND t.`teacher_name` LIKE '%${teacherName}%'
+		</if>
+		order by class_name desc
+	</select>
+
+	<!--查询班级的所有课程信息 -->
+	<select id="selectCourse" parameterType="com.guoyasoft.bean.api.study.QueryCourseBean"
+		resultType="com.guoyasoft.bean.api.study.QueryCourseBean">
+		SELECT
+		DISTINCT
+		t.`class_id` as classId,
+		t.`class_name` as className,
+		t.`course_instance_id` as courseInstanceId,
+		t.`course_instance_name` as
+		courseInstanceName,
+		t.`course_start_time` as courseStartTime,
+		t.`course_end_time` as courseEndTime,
+		t.`teacher_id` as teacherId,
+		t.`teacher_name` as teacherName,
+		t.`lecture_pkg_id` as lecturePkgId,
+		t.`lecture_pkg_name` as lecturePkgName
+		FROM
+		v_class_lesson_check t
+		WHERE
+		1=1
+		<if test="classId !=null and classId !=''">
+			AND t.`class_id`=${classId}
+		</if>
+	</select>
+
+	<!--查询课程大纲 -->
+	<select id="selectLecturePkg" parameterType="com.guoyasoft.bean.api.study.QueryLecturePkgBean"
+		resultType="com.guoyasoft.bean.api.study.QueryLecturePkgBean">
+		SELECT
+		DISTINCT
+		t.`lecture_pkg_id` as lecturePkgId,
+		t.`lecture_id` as
+		lectureId,
+		t.`lecture_name` as lectureName,
+		t.`lecture_summary` as
+		lectureSummary,
+		t.`class_id` AS classId
+		FROM
+		v_class_lesson_check t
+		WHERE
+		1=1
+		<if test="lecturePkgId !=null and lecturePkgId !=''">
+			AND t.`lecture_pkg_id`=${lecturePkgId}
+		</if>
+		<if test="classId !=null and classId !=''">
+			AND t.`class_id`=${classId}
+		</if>
+		ORDER BY t.`lecture_id`
+	</select>
+
+	<!-- 查询备课任务列表 -->
+	<select id="selectLectureTask" parameterType="com.guoyasoft.bean.api.study.QueryLectureTaskBean"
+		resultType="com.guoyasoft.bean.api.study.QueryLectureTaskBean">
+		SELECT
+		DISTINCT
+		t.`lecture_id` AS lectureId ,
+		t.`lecture_name` AS
+		lectureName,
+		t.`lecture_summary` AS lectureSummary,
+		t.`order_id` AS
+		orderId,
+		t.`task_pkg_id` AS taskPkgId,
+		t.`task_pkg_name` AS taskPkgName,
+		t.`summary` AS summary,
+		t.`item_id` AS itemId,
+		t.`item_name` AS
+		itemName,
+		t.`item_desc` AS
+		itemDesc,
+		t.`item_mark` AS itemMark,
+		t.`class_id` AS classId,
+		t.`lesson_id` AS lessonId
+		FROM
+		v_class_lesson_check t
+		WHERE 1=1
+		<if test="lectureId !=null and lectureId !=''">
+			AND t.`lecture_id`=${lectureId}
+		</if>
+		<if test="classId !=null and classId !=''">
+			AND t.`class_id`=${classId}
+		</if>
+		ORDER BY t.`task_pkg_id`
+	</select>
+
+	<!-- 查询lesson数量 -->
+	<select id="selectLessonCtn" parameterType="com.guoyasoft.bean.api.study.QueryLectureTaskBean"
+		resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM t_study_lesson t WHERE 1=1
+		<if test="lectureId !=null and lectureId !=''">
+			AND t.`lecture_id`=${lectureId}
+		</if>
+		<if test="classId !=null and classId !=''">
+			AND t.`class_id`=${classId}
+		</if>
+	</select>
+	<!-- 新增lesson -->
+	<insert id="insertLesson" parameterType="com.guoyasoft.bean.api.study.QueryLectureTaskBean"
+		useGeneratedKeys="true" keyProperty="lessonId">
+		INSERT INTO t_study_lesson(lecture_id,teacher_id,class_id)
+		SELECT
+		DISTINCT t.`lecture_id`,t.`teacher_id`,t.`class_id` FROM
+		v_class_lesson_check t WHERE 1=1
+		<if test="lectureId !=null and lectureId !=''">
+			AND t.`lecture_id`=${lectureId}
+		</if>
+		<if test="classId !=null and classId !=''">
+			AND t.`class_id`=${classId}
+		</if>
+		<!-- <selectKey resultType="long" order="AFTER" keyProperty="lessonId"> 
+			SELECT LAST_INSERT_ID() AS lessonId </selectKey> -->
+	</insert>
+	<!-- 新增课堂学生表 -->
+	<insert id="insertLessonStudent" parameterType="com.guoyasoft.bean.api.study.QueryLectureTaskBean">
+		INSERT INTO
+		t_study_lesson_2_student (lesson_id, student_id)
+		SELECT DISTINCT
+		${lessonId},
+		a.`student_id`
+		FROM
+		t_class_stu_2_class a
+		WHERE a.`class_id`
+		= ${classId}
+		AND a.`status` = 0
+	</insert>
+	<!-- 检查任务的作业检查记录 -->
+	<select id="selectTaskCheckCount" parameterType="com.guoyasoft.bean.api.study.QueryLectureTaskBean"
+		resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM t_study_lesson_2_student a INNER JOIN
+		t_study_lesson_task_check b ON a.`attend_id`=b.`attend_id` INNER JOIN
+		t_study_task_package c ON b.`task_pkg_id`=c.`task_pkg_id`
+		WHERE 1=1
+		AND
+		a.`lesson_id`=${lessonId}
+		AND c.`task_pkg_id`=${taskPkgId}
+	</select>
+	<!-- 新增任务的作业检查 -->
+	<insert id="insertTaskCheck" parameterType="com.guoyasoft.bean.api.study.QueryLectureTaskBean">
+		INSERT INTO
+		t_study_lesson_task_check(attend_id,task_pkg_id,group_id,seat_id)
+		SELECT
+		DISTINCT
+		a.`attend_id`,
+		${taskPkgId} ,
+		c.`group_id`,
+		c.`seat_id`
+		FROM
+		t_study_lesson_2_student a
+		LEFT JOIN t_class_stu_2_class b ON
+		a.`student_id`=b.`student_id`
+		LEFT JOIN t_class_seat c ON
+		b.`id`=c.`stu_class_id`
+		WHERE 1=1
+		AND a.lesson_id=${lessonId}
+	</insert>
+
+	<!-- 查询作业检查列表 -->
+	<select id="selectTaskCheckes" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean"
+		resultType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		SELECT
+		DISTINCT
+		d.`customer_id` AS customerId,
+		d.`customer_name` AS
+		customerName,
+		c.`student_id` AS studentId,
+		(SELECT picture_addr FROM
+		t_user_customer_pictures t WHERE
+		t.customer_id=d.`customer_id` AND
+		t.status=0) AS pictureAddr ,
+		b.`lesson_id` AS lessonId,
+		a.`attend_id` AS
+		attendId,
+		a.`check_id` AS checkId,
+		a.`check_status` AS checkStatus,
+		a.`net_url` AS netUrl,
+		a.`group_id` AS groupId,
+		a.`seat_id` AS seatId
+		FROM
+		t_study_lesson_task_check a LEFT JOIN
+		t_study_lesson_2_student b ON
+		a.`attend_id`=b.`attend_id` LEFT JOIN
+		t_user_student c ON
+		b.`student_id`=c.`student_id` LEFT JOIN
+		t_user_customer d ON
+		c.`customer_id`=d.`customer_id`
+		WHERE 1=1
+		AND a.`effect_status`=0
+		<if test="lessonId !=null and lessonId !=''">
+			AND b.`lesson_id`=${lessonId}
+		</if>
+		<if test="taskPkgId !=null and taskPkgId !=''">
+			AND a.task_pkg_id=${taskPkgId}
+		</if>
+		order by a.`group_id` , a.`seat_id`
+	</select>
+
+	<!-- 重置作业检查状态 -->
+	<update id="resetCheckStatus" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		UPDATE
+		t_study_lesson_task_check t
+		SET
+		t.`check_status` = 0,
+		t.`update_time`=NOW()
+		WHERE
+		t.`task_pkg_id` = ${taskPkgId}
+		AND
+		t.`attend_id` IN
+		(SELECT
+		a.attend_id
+		FROM
+		t_study_lesson_2_student a
+		WHERE
+		a.`lesson_id` = ${lessonId})
+	</update>
+
+	<!-- 更新单个检查作业状态 -->
+	<update id="updateCheckStatus" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		UPDATE
+		t_study_lesson_task_check t
+		SET
+		t.`check_status` = ${checkStatus},
+		t.`update_time`=NOW()
+		WHERE t.`check_id`=${checkId}
+	</update>
+
+	<!-- 查询作业检查学生列表 -->
+	<select id="selectCheckStudents" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean"
+		resultType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		SELECT
+		a.`check_id` AS checkId,
+		b.`task_pkg_id` AS taskPkgId,
+		c.`lesson_id` AS lessonId,
+		d.`student_id` AS studentId,
+		e.`customer_id` AS customerId,
+		e.`customer_name` AS customerName,
+		g.`group_id` AS groupId,
+		g.`seat_id` AS seatId
+		FROM t_study_lesson_task_check a INNER JOIN
+		t_study_task_package b ON a.`task_pkg_id`=b.`task_pkg_id` INNER JOIN
+		t_study_lesson_2_student c ON a.`attend_id`=c.`attend_id` INNER JOIN
+		t_user_student d ON c.`student_id`=d.`student_id` INNER JOIN
+		t_user_customer e ON d.`customer_id`=e.`customer_id` INNER JOIN
+		t_class_stu_2_class f ON d.`student_id`=f.`student_id` INNER JOIN
+		t_class_seat g ON f.`id`=g.`stu_class_id`
+		WHERE 1=1
+		AND c.`status` = 0
+		<if test="lessonId !=null and lessonId !=''">
+			AND c.`lesson_id`=${lessonId}
+		</if>
+		<if test="taskPkgId !=null and taskPkgId !=''">
+			AND b.`task_pkg_id`=${taskPkgId}
+		</if>
+		ORDER BY g.`group_id`,
+		g.`seat_id`
+	</select>
+
+	<select id="selectPkgName" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean"
+		resultType="java.lang.String">
+		SELECT t.`task_pkg_name` FROM t_study_task_package t WHERE
+		t.`task_pkg_id`=${taskPkgId}
+	</select>
+
+	<insert id="insertLessonPictures" useGeneratedKeys="true"
+		keyProperty="picturesId" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		INSERT INTO
+		t_study_lesson_pictures (check_id)VALUES(${checkId})
+	</insert>
+	<insert id="insertLessonPictureDetail" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		INSERT INTO
+		t_study_lesson_picture_detail
+		(pictures_id,picture_url)VALUES(${picturesId},'${pictureUrl}')
+	</insert>
+
+	<!-- 查询作业检查照片 -->
+	<select id="queryCheckPictures" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean"
+		resultType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		SELECT
+		a.`check_id` AS checkId,
+		c.`picture_id` AS pictureId,
+		c.`picture_url` AS pictureUrl,
+		c.`check_status` AS checkStatus ,
+		f.`customer_name` AS customerName
+		FROM
+		t_study_lesson_task_check a
+		INNER
+		JOIN t_study_lesson_pictures b
+		ON a.`check_id` = b.`check_id`
+		INNER JOIN
+		t_study_lesson_picture_detail c
+		ON b.`pictures_id` = c.`pictures_id`
+		INNER JOIN
+		t_study_lesson_2_student d ON a.`attend_id`=d.`attend_id`
+		INNER JOIN t_user_student e ON d.`student_id`=e.`student_id`
+		INNER JOIN
+		t_user_customer f ON e.`customer_id`=f.`customer_id`
+		WHERE 1 = 1
+		<if test="checkId !=null and checkId !=-1 and checkId !='' ">
+			AND a.`check_id`=${checkId}
+		</if>
+		<if test="groupId !=null and groupId !=-1 and groupId !=''  ">
+			AND a.`group_id`=${groupId}
+		</if>
+		<if test="seatId !=null and seatId !=-1 and seatId !='' ">
+			AND a.`seat_id`=${seatId}
+		</if>
+		<if test="seatId !=null and seatId !=-1  and seatId !='' ">
+			AND a.`create_time`=STR_TO_DATE('${uploadPicDate}',
+			'%Y-%m-%d')
+		</if>
+	</select>
+
+	<delete id="deleteCheckPicture" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		DELETE FROM
+		t_study_lesson_picture_detail WHERE picture_id=${pictureId}
+	</delete>
+
+	<update id="updateCheckPictureStatus" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		UPDATE
+		t_study_lesson_picture_detail t SET t.`check_status`=${checkStatus}
+		WHERE picture_id=${pictureId}
+	</update>
+</mapper>
