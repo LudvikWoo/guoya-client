@@ -36,7 +36,7 @@ public interface CheckStudyMapper {
 
 	List<CheckTaskBean> selectCheckStudents(CheckTaskBean bean);
 
-	String selectPkgName(CheckTaskBean bean);
+	CheckTaskBean selectCheckPakageInfo(CheckTaskBean bean);
 
 	int insertLessonPictures(CheckTaskBean bean);
 
@@ -47,5 +47,9 @@ public interface CheckStudyMapper {
 	int deleteCheckPicture(CheckTaskBean bean);
 
 	int updateCheckPictureStatus(CheckTaskBean bean);
+
+	int operateTaskCheckStatus(CheckTaskBean bean);
+
+	CheckTaskBean selectTaskPkgInfo(CheckTaskBean bean);
 
 }

@@ -263,13 +263,18 @@
 		b.`task_pkg_id` AS taskPkgId,
 		c.`lesson_id` AS lessonId,
 		d.`student_id` AS studentId,
-		e.`customer_id` AS customerId,
+		e.`customer_id`
+		AS customerId,
 		e.`customer_name` AS customerName,
-		g.`group_id` AS groupId,
+		g.`group_id` AS
+		groupId,
 		g.`seat_id` AS seatId
-		FROM t_study_lesson_task_check a INNER JOIN
-		t_study_task_package b ON a.`task_pkg_id`=b.`task_pkg_id` INNER JOIN
-		t_study_lesson_2_student c ON a.`attend_id`=c.`attend_id` INNER JOIN
+		FROM t_study_lesson_task_check a INNER
+		JOIN
+		t_study_task_package b ON a.`task_pkg_id`=b.`task_pkg_id` INNER
+		JOIN
+		t_study_lesson_2_student c ON a.`attend_id`=c.`attend_id` INNER
+		JOIN
 		t_user_student d ON c.`student_id`=d.`student_id` INNER JOIN
 		t_user_customer e ON d.`customer_id`=e.`customer_id` INNER JOIN
 		t_class_stu_2_class f ON d.`student_id`=f.`student_id` INNER JOIN
@@ -286,10 +291,33 @@
 		g.`seat_id`
 	</select>
 
-	<select id="selectPkgName" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean"
-		resultType="java.lang.String">
-		SELECT t.`task_pkg_name` FROM t_study_task_package t WHERE
-		t.`task_pkg_id`=${taskPkgId}
+	<select id="selectCheckPakageInfo" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean"
+		resultType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		SELECT
+		a.`task_pkg_id` AS taskPkgId,
+		a.`task_pkg_name` AS
+		taskPkgName,
+		b.`check_id` AS checkId,
+		b.`check_status` AS checkStatus,
+		(SELECT
+		colum_value_desc
+		FROM
+		sys_tbl_col_value
+		WHERE table_name =
+		't_study_lesson_task_check'
+		AND column_name = 'check_status'
+		AND
+		column_value = b.`check_status`) checkStatusDesc,
+		b.`attend_id` AS
+		attendId
+		FROM
+		t_study_task_package a
+		INNER JOIN t_study_lesson_task_check
+		b
+		ON a.`task_pkg_id` = b.`task_pkg_id`
+		AND b.`check_id` = ${checkId}
+		AND
+		a.`task_pkg_id` = ${taskPkgId}
 	</select>
 
 	<insert id="insertLessonPictures" useGeneratedKeys="true"
@@ -351,4 +379,24 @@
 		t_study_lesson_picture_detail t SET t.`check_status`=${checkStatus}
 		WHERE picture_id=${pictureId}
 	</update>
+
+	<update id="operateTaskCheckStatus" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		UPDATE
+		t_study_lesson_task_check t
+		SET
+		t.`check_status` = ${checkStatus}
+		WHERE
+		t.`check_id` = ${checkId}
+	</update>
+
+	<select id="selectTaskPkgInfo" parameterType="com.guoyasoft.bean.api.study.CheckTaskBean"
+		resultType="com.guoyasoft.bean.api.study.CheckTaskBean">
+		SELECT
+		t.`task_pkg_id` as taskPkgId,
+		t.`task_pkg_name` as taskPkgName,
+		t.`mark` as mark
+		FROM
+		t_study_task_package t
+		WHERE t.`task_pkg_id` = ${taskPkgId}
+	</select>
 </mapper>

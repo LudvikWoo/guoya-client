@@ -94,6 +94,26 @@ public class LessonCheckController {
 		request.setAttribute("list", result);
 		request.setAttribute("lessonId", bean.getLessonId());
 		request.setAttribute("taskPkgId", bean.getTaskPkgId());
+		CheckTaskBean taskPkgInfo=checkStudyMapper.selectTaskPkgInfo(bean);
+		request.setAttribute("taskPkgInfo", taskPkgInfo);
+		
+		int passCtn=0;
+		int unpassCtn=0;
+		int uncheckCtn=0;
+		int totalCtn=result.size();
+		for(CheckTaskBean item:result){
+			if(item.getCheckStatus()==0){
+				uncheckCtn++;
+			}else if(item.getCheckStatus()==1){
+				passCtn++;
+			}else if(item.getCheckStatus()==2){
+				unpassCtn++;
+			}
+		}
+		request.setAttribute("passCtn", passCtn);
+		request.setAttribute("unpassCtn", unpassCtn);
+		request.setAttribute("uncheckCtn", uncheckCtn);
+		request.setAttribute("totalCtn", totalCtn);
 		return "study/lesson/checkTask";
 	}
 
@@ -117,11 +137,10 @@ public class LessonCheckController {
 	public String uploadExercise(CheckTaskBean bean, HttpServletRequest request) {
 		List<CheckTaskBean> students = checkStudyMapper
 				.selectCheckStudents(bean);
-		String taskPkgName = checkStudyMapper.selectPkgName(bean);
+		CheckTaskBean submitInfo = checkStudyMapper.selectCheckPakageInfo(bean);
 		request.setAttribute("lessonStudent", students);
-		request.setAttribute("taskPkgName", taskPkgName);
+		request.setAttribute("submitInfo", submitInfo);
 		request.setAttribute("customerName", bean.getCustomerName());
-		request.setAttribute("checkId", bean.getCheckId());
 		return "study/lesson/summarizeInfo";
 	}
 
@@ -184,5 +203,16 @@ public class LessonCheckController {
 			return "9999";
 		}
 		
+	}
+	
+	@RequestMapping("operateTaskCheckStatus.do")
+	@ResponseBody
+	public String operateTaskCheckStatus(CheckTaskBean bean){
+		int count=checkStudyMapper.operateTaskCheckStatus(bean);
+		if(count==1){
+			return "0000";
+		}else{
+			return "0000";
+		}
 	}
 }

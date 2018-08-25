@@ -222,15 +222,18 @@ function displayImgs(data) {
 		if (r == true) {
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "<%=basePath%>lessonCheck/operateTaskCheckStatus.do?checkId="
-							+ checkId+"&taskCheckStatus="+status);
+							+ checkId+"&checkStatus="+status);
 			xhr.send();
 			xhr.onreadystatechange = function() {
 				if (xhr.readyState == 4 && xhr.status == 200) {
 					var result = xhr.responseText;
-					querySummaries();
+					location.reload();
 				}
 			};
 		} 
+	}
+	window.onload=function(){
+		querySummaries();
 	}
 </script>
 </head>
@@ -248,10 +251,10 @@ function displayImgs(data) {
 							<option value="" >——请选择——</option>
 							<c:forEach items="${lessonStudent }" var="var">
 								
-								<c:if test="${var.checkId ==  checkId }">
+								<c:if test="${var.checkId ==  submitInfo.checkId }">
 									<option selected="selected" value="${var.checkId }">${var.groupId}组-${var.seatId}号-${var.customerName }</option>
 								</c:if>
-								<c:if test="${var.checkId !=  checkId }">
+								<c:if test="${var.checkId !=  submitInfo.checkId }">
 									<option value="${var.checkId }">${var.groupId}组-${var.seatId}号-${var.customerName }</option>
 								</c:if>
 							</c:forEach>
@@ -296,26 +299,34 @@ function displayImgs(data) {
 		<form id="submit_summary_form">
 			<table>
 				<tr>
-					<td class="search_name_td">任务包：</td>
-					<td style="width:20%;">${taskPkgName }</td>
-
-					<td class="search_name_td">检查状态：</td>
-					<td style="width:20%;">${taskCheckStatus }</td>
-					
 					<td class="search_name_td">姓名：</td>
-					<td style="width:20%;">${customerName }</td>
+					<td style="width:5%;">${customerName }</td>
 					<input type="text" name="checkId" id="checkId" hidden="hidden"
-						value="${checkId }">
+						value="${submitInfo.checkId }">
+						
+					<td class="search_name_td">检查状态：</td>
+					<td style="width:5%;">${submitInfo.checkStatusDesc }</td>
+					
+					<td class="search_name_td">任务包：</td>
+					<td style="width:20%;">${submitInfo.taskPkgName }</td>
 
 					<td class="search_name_td">拍照：</td>
-					<td style="width:20%;"><input style="width:80%" type="file"
+					<td style="width:10%;"><input style="width:80%" type="file"
 						id="postFild" name="userfile" /></td>
 
-					<td style="text-align:center;width:10%;"><input
+					<td style="text-align:center;width:5%;"><input
 						id="uploadFileBtn" type="button" value="上传总结"
 						onclick="uploadFile();" /></td>
-					<td style="text-align:right;width:10%;"><input type="button"
-						value="通过" onclick="checkPicturePass(${checkId },1)"/></td>
+					<td style="text-align:left;width:10%;">
+						<c:if test="${submitInfo.checkStatus==0 || submitInfo.checkStatus ==2 }">
+							<input type="button"
+								value="通过" onclick="checkPicturePass(${submitInfo.checkId },1)"/>
+						</c:if>
+						<c:if test="${submitInfo.checkStatus==0 || submitInfo.checkStatus ==1 }">
+							<input type="button"
+								value="未通过" onclick="checkPicturePass(${submitInfo.checkId },2)"/>
+						</c:if>
+					</td>
 				</tr>
 			</table>
 		</form>

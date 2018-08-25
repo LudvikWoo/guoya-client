@@ -32,6 +32,13 @@ td {
 #nav td /*悬浮框标签*/ {
 	border-bottom: 0px solid black
 }
+
+#header{
+	position: fixed; /*浮窗位置*/
+	left: 40%;
+	top: 4px; /*靠右*/
+	background-color: white;
+}
 </style>
 <script type="text/javascript" src="js/guoya-client.js"></script>
 <script type="text/javascript">
@@ -84,14 +91,17 @@ td {
 		<table>
 			<tr>
 				<td>统计：</td>
-				<td id="report">完成<span style="color:red" id="pass">0</span>人，未完成<span
-					style="color:red" id="unPass">0</span>人
+				<td id="report">总数：<span style="color:red">${totalCtn }</span>人，待检查：<span 
+				style="color:red" >${uncheckCtn }</span>，通过<span
+					style="color:red" >${passCtn }</span>，未通过：<span 
+					style="color:red">${unpassCtn }</span>
 				</td>
 				<td><input type="button" value="刷新" onclick="refresh()"></td>
 				<td><input type="button" value="重新开始" onclick="restart(${lessonId},${taskPkgId })"></td>
 			</tr>
 		</table>
 	</div>
+	<div id="header"><h3>${taskPkgInfo.taskPkgName }</h3></div>
 
 	<br>
 	<br>
@@ -122,10 +132,13 @@ td {
 			<div>${var.customerName }</div>
 			<div>
 				<c:if test="${var.checkStatus == 0 }">
+					<img src="/guoya-client/img/icon/lock.png" height="20px" onclick="switchStatus(${var.checkId},1)">
+				</c:if>
+				<c:if test="${var.checkStatus == 2 }">
 					<img src="/guoya-client/img/icon/cross.jpg" height="20px" onclick="switchStatus(${var.checkId},1)">
 				</c:if>
 				<c:if test="${var.checkStatus == 1 }">
-					<img src="/guoya-client/img/icon/tick.jpg" height="20px" onclick="switchStatus(${var.checkId},0)">
+					<img src="/guoya-client/img/icon/tick.jpg" height="20px" onclick="switchStatus(${var.checkId},2)">
 				</c:if>
 			</div>
 		</div>

@@ -29,17 +29,31 @@ public class CheckTaskBean {
 	private int attendId;
 	private int checkId;
 	private int checkStatus;
+	private String checkStatusDesc;
 	private String netUrl;
 	private int groupId;
 	private int seatId;
-	private int taskCheckStatus;
+	private String taskPkgName;
+	private String mark;
 	
 	
-	public int getTaskCheckStatus() {
-		return taskCheckStatus;
+	public String getMark() {
+		return mark;
 	}
-	public void setTaskCheckStatus(int taskCheckStatus) {
-		this.taskCheckStatus = taskCheckStatus;
+	public void setMark(String mark) {
+		this.mark = mark;
+	}
+	public String getTaskPkgName() {
+		return taskPkgName;
+	}
+	public void setTaskPkgName(String taskPkgName) {
+		this.taskPkgName = taskPkgName;
+	}
+	public String getCheckStatusDesc() {
+		return checkStatusDesc;
+	}
+	public void setCheckStatusDesc(String checkStatusDesc) {
+		this.checkStatusDesc = checkStatusDesc;
 	}
 	public int getOptType() {
 		return optType;
