@@ -40,7 +40,7 @@
 					<td><fmt:formatDate value="${var.graduateDate }" pattern="yyyy年MM月dd日"/></td>
 					<td>${var.classStuCtn }</td>
 					<td><a href="lessonCheck/queryCourse.do?classId=${var.classId }"
-						target="_blank">课程列表</a></td>
+						target="_parent">课程列表</a></td>
 				</tr>
 			</c:forEach>
 

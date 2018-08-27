@@ -15,13 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.guoyasoft.bean.api.study.CheckTaskBean;
 import com.guoyasoft.bean.api.study.QueryClassBean;
 import com.guoyasoft.bean.api.study.QueryCourseBean;
 import com.guoyasoft.bean.api.study.QueryLecturePkgBean;
 import com.guoyasoft.bean.api.study.QueryLectureTaskBean;
+import com.guoyasoft.bean.db.taskCheck.TUserCustomerPictures;
+import com.guoyasoft.bean.db.taskCheck.TUserCustomerPicturesExample;
 import com.guoyasoft.dao.taskCheck.CheckStudyMapper;
+import com.guoyasoft.dao.taskCheck.TUserCustomerPicturesMapper;
 import com.guoyasoft.dao.taskCheck.VClassLessonCheckMapper;
 import com.guoyasoft.tools.DateTools;
 import com.guoyasoft.tools.FileUpload;
@@ -34,6 +36,9 @@ public class LessonCheckController {
 
 	@Autowired
 	CheckStudyMapper checkStudyMapper;
+	
+	@Autowired
+	TUserCustomerPicturesMapper cstPicMapper;
 
 	@RequestMapping("queryClass.do")
 	public String queryClass(QueryClassBean bean, HttpServletRequest request) {
@@ -213,6 +218,45 @@ public class LessonCheckController {
 			return "0000";
 		}else{
 			return "0000";
+		}
+	}
+	
+	@RequestMapping("uploadProfilePicture.do")
+	@ResponseBody
+	public String uploadProfilePicture(int customerId,HttpServletRequest request) {
+		try{
+			System.out.println("开始接收文件：");
+			String contextPath=request.getServletContext().getRealPath("/").replace("guoya-client", "guoya-data");
+			String savePath=contextPath+"profilePictures/"+customerId;
+			System.out.println("正式存放路径："+savePath);
+			HashMap<String, Object> map = FileUpload.fileupload(request,savePath);
+			List<String> filePathes = (List<String>)map.get("filePathes");
+			for(String s:filePathes){
+				System.out.println("图片保存路径：" + s);
+				System.out.println("--------------图片地址插入数据库成功----------------------");
+				TUserCustomerPicturesExample example=new TUserCustomerPicturesExample();
+				com.guoyasoft.bean.db.taskCheck.TUserCustomerPicturesExample.Criteria criteria = example.createCriteria();
+				criteria.andCustomerIdEqualTo(customerId);
+				List<TUserCustomerPictures> pictures=cstPicMapper.selectByExample(example);
+				if(pictures.size()>0){
+					pictures.get(0).setPictureAddr(s);
+					cstPicMapper.updateByExample(pictures.get(0), example);
+				}else {
+					TUserCustomerPictures record=new TUserCustomerPictures();
+					record.setCustomerId(customerId);
+					record.setPictureAddr(s);
+					record.setPictureType(1);
+					record.setStatus(0);
+					record.setUpdateTime(new Date());
+					record.setCreateTime(new Date());
+					cstPicMapper.insert(record);
+				}
+				return "0000";
+			}
+			return "9999,上传失败！";
+		}catch(Exception e){
+			e.printStackTrace();
+			return "9999,上传失败！";
 		}
 	}
 }

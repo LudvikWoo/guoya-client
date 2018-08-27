@@ -211,7 +211,7 @@ table {
 		<div class="main_div">
 			<ul>
 				<li><a href="jsp/study/class/queryClass.jsp" target="right">课程查询</a></li>
-				<li><a href="basicClass/exerciseInfo.html" target="right">作业检查</a></li>
+				<!-- <li><a href="basicClass/exerciseInfo.html" target="right">作业检查</a></li>
 				<li><a href="basicClass/summarizeInfo.html" target="right">上传总结</a></li>
 				<li><a href="jsp/interview/statistic/statisticQuery.jsp" target="right">面试统计</a></li>
 				<li><a href="jsp/interview/addInterview.jsp" target="right">面试登记</a></li>
@@ -240,7 +240,7 @@ table {
 				<li><a href="jsp/statistic/total.jsp" target="right">统计分析</a></li>
 				<li><a href="basicClass/navigateInfo.html" target="right">资料汇总</a></li>
 				<li><a href="basicClass/taskInfo.html" target="right">任务列表</a></li>
-				<li><a href="basicClass/courses/courseAuto.html" target="right">课件讲解</a></li>
+				<li><a href="basicClass/courses/courseAuto.html" target="right">课件讲解</a></li> -->
 				<!-- <li><a href="http://www.runoob.com/" target="right">菜鸟教程</a></li>
 				<li><a href="http://www.w3school.com.cn/" target="right">W3school</a></li>
 				<li><a href="https://www.bejson.com/xml2json/" target="right">xml转json</a></li>

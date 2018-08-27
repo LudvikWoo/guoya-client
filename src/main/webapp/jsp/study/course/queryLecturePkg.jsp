@@ -39,7 +39,7 @@
 					<td><fmt:formatDate value="${var.lessonEndTime }" pattern="yyyy年MM月dd日"/></td>
 					<td>0/30</td>
 					<td><a href="lessonCheck/initLesson.do?lectureId=${var.lectureId }&classId=${var.classId}";
-						target="_blank">上课</a></td>
+						target="_self">上课</a></td>
 				</tr>
 			</c:forEach>
 

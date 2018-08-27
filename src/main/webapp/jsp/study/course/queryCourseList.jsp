@@ -37,7 +37,7 @@
 					<td>${var.lecturePkgName }</td>
 					<td>5/5</td>
 					<td><a href="lessonCheck/queryLecturePkg.do?lecturePkgId=${var.lecturePkgId }&classId=${var.classId}"
-						target="_blank">课程大纲</a></td>
+						target="_self">课程大纲</a></td>
 				</tr>
 			</c:forEach>
 
