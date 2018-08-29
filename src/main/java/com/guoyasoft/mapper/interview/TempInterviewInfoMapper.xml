@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.interview.TempInterviewInfoMapper">
+  <resultMap id="BaseResultMap" type="com.guoyasoft.bean.db.interview.TempInterviewInfo">
+    <id column="interview_id" jdbcType="INTEGER" property="interviewId" />
+    <result column="progress_id" jdbcType="INTEGER" property="progressId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_jian" jdbcType="VARCHAR" property="companyJian" />
+    <result column="company_addr" jdbcType="VARCHAR" property="companyAddr" />
+    <result column="out_company_name" jdbcType="VARCHAR" property="outCompanyName" />
+    <result column="out_company_jian" jdbcType="VARCHAR" property="outCompanyJian" />
+    <result column="out_company_addr" jdbcType="VARCHAR" property="outCompanyAddr" />
+    <result column="hr_name" jdbcType="VARCHAR" property="hrName" />
+    <result column="hr_weichat" jdbcType="VARCHAR" property="hrWeichat" />
+    <result column="hr_phone" jdbcType="VARCHAR" property="hrPhone" />
+    <result column="hr_tell" jdbcType="VARCHAR" property="hrTell" />
+    <result column="interview_date" jdbcType="DATE" property="interviewDate" />
+    <result column="interview_time" jdbcType="TIME" property="interviewTime" />
+    <result column="has_exam" jdbcType="VARCHAR" property="hasExam" />
+    <result column="has_exam_file" jdbcType="VARCHAR" property="hasExamFile" />
+    <result column="has_audio" jdbcType="VARCHAR" property="hasAudio" />
+    <result column="has_audio_file" jdbcType="VARCHAR" property="hasAudioFile" />
+    <result column="has_pass" jdbcType="VARCHAR" property="hasPass" />
+    <result column="has_offer" jdbcType="VARCHAR" property="hasOffer" />
+    <result column="has_job" jdbcType="VARCHAR" property="hasJob" />
+    <result column="salary" jdbcType="INTEGER" property="salary" />
+    <result column="salary_count" jdbcType="INTEGER" property="salaryCount" />
+    <result column="prob_count" jdbcType="INTEGER" property="probCount" />
+    <result column="prob_discount" jdbcType="INTEGER" property="probDiscount" />
+    <result column="has_pre_tax" jdbcType="VARCHAR" property="hasPreTax" />
+    <result column="is_introduce" jdbcType="VARCHAR" property="isIntroduce" />
+    <result column="introduce_stu_id" jdbcType="INTEGER" property="introduceStuId" />
+    <result column="introduce_stu_name" jdbcType="VARCHAR" property="introduceStuName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="student_name" jdbcType="VARCHAR" property="studentName" />
+    <result column="teacher_name" jdbcType="VARCHAR" property="teacherName" />
+    <result column="tutor_name" jdbcType="VARCHAR" property="tutorName" />
+    <result column="class_name" jdbcType="VARCHAR" property="className" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    interview_id, progress_id, company_name, company_jian, company_addr, out_company_name, 
+    out_company_jian, out_company_addr, hr_name, hr_weichat, hr_phone, hr_tell, interview_date, 
+    interview_time, has_exam, has_exam_file, has_audio, has_audio_file, has_pass, has_offer, 
+    has_job, salary, salary_count, prob_count, prob_discount, has_pre_tax, is_introduce, 
+    introduce_stu_id, introduce_stu_name, create_time, update_time, status, student_name, 
+    teacher_name, tutor_name, class_name
+  </sql>
+  <select id="selectByExample" parameterType="com.guoyasoft.bean.db.interview.TempInterviewInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from temp_interview_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from temp_interview_info
+    where interview_id = #{interviewId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from temp_interview_info
+    where interview_id = #{interviewId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.guoyasoft.bean.db.interview.TempInterviewInfoExample">
+    delete from temp_interview_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.guoyasoft.bean.db.interview.TempInterviewInfo">
+    insert into temp_interview_info (interview_id, progress_id, company_name, 
+      company_jian, company_addr, out_company_name, 
+      out_company_jian, out_company_addr, hr_name, 
+      hr_weichat, hr_phone, hr_tell, 
+      interview_date, interview_time, has_exam, 
+      has_exam_file, has_audio, has_audio_file, 
+      has_pass, has_offer, has_job, 
+      salary, salary_count, prob_count, 
+      prob_discount, has_pre_tax, is_introduce, 
+      introduce_stu_id, introduce_stu_name, create_time, 
+      update_time, status, student_name, 
+      teacher_name, tutor_name, class_name
+      )
+    values (#{interviewId,jdbcType=INTEGER}, #{progressId,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, 
+      #{companyJian,jdbcType=VARCHAR}, #{companyAddr,jdbcType=VARCHAR}, #{outCompanyName,jdbcType=VARCHAR}, 
+      #{outCompanyJian,jdbcType=VARCHAR}, #{outCompanyAddr,jdbcType=VARCHAR}, #{hrName,jdbcType=VARCHAR}, 
+      #{hrWeichat,jdbcType=VARCHAR}, #{hrPhone,jdbcType=VARCHAR}, #{hrTell,jdbcType=VARCHAR}, 
+      #{interviewDate,jdbcType=DATE}, #{interviewTime,jdbcType=TIME}, #{hasExam,jdbcType=VARCHAR}, 
+      #{hasExamFile,jdbcType=VARCHAR}, #{hasAudio,jdbcType=VARCHAR}, #{hasAudioFile,jdbcType=VARCHAR}, 
+      #{hasPass,jdbcType=VARCHAR}, #{hasOffer,jdbcType=VARCHAR}, #{hasJob,jdbcType=VARCHAR}, 
+      #{salary,jdbcType=INTEGER}, #{salaryCount,jdbcType=INTEGER}, #{probCount,jdbcType=INTEGER}, 
+      #{probDiscount,jdbcType=INTEGER}, #{hasPreTax,jdbcType=VARCHAR}, #{isIntroduce,jdbcType=VARCHAR}, 
+      #{introduceStuId,jdbcType=INTEGER}, #{introduceStuName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{studentName,jdbcType=VARCHAR}, 
+      #{teacherName,jdbcType=VARCHAR}, #{tutorName,jdbcType=VARCHAR}, #{className,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guoyasoft.bean.db.interview.TempInterviewInfo">
+    insert into temp_interview_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="interviewId != null">
+        interview_id,
+      </if>
+      <if test="progressId != null">
+        progress_id,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="companyJian != null">
+        company_jian,
+      </if>
+      <if test="companyAddr != null">
+        company_addr,
+      </if>
+      <if test="outCompanyName != null">
+        out_company_name,
+      </if>
+      <if test="outCompanyJian != null">
+        out_company_jian,
+      </if>
+      <if test="outCompanyAddr != null">
+        out_company_addr,
+      </if>
+      <if test="hrName != null">
+        hr_name,
+      </if>
+      <if test="hrWeichat != null">
+        hr_weichat,
+      </if>
+      <if test="hrPhone != null">
+        hr_phone,
+      </if>
+      <if test="hrTell != null">
+        hr_tell,
+      </if>
+      <if test="interviewDate != null">
+        interview_date,
+      </if>
+      <if test="interviewTime != null">
+        interview_time,
+      </if>
+      <if test="hasExam != null">
+        has_exam,
+      </if>
+      <if test="hasExamFile != null">
+        has_exam_file,
+      </if>
+      <if test="hasAudio != null">
+        has_audio,
+      </if>
+      <if test="hasAudioFile != null">
+        has_audio_file,
+      </if>
+      <if test="hasPass != null">
+        has_pass,
+      </if>
+      <if test="hasOffer != null">
+        has_offer,
+      </if>
+      <if test="hasJob != null">
+        has_job,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+      <if test="salaryCount != null">
+        salary_count,
+      </if>
+      <if test="probCount != null">
+        prob_count,
+      </if>
+      <if test="probDiscount != null">
+        prob_discount,
+      </if>
+      <if test="hasPreTax != null">
+        has_pre_tax,
+      </if>
+      <if test="isIntroduce != null">
+        is_introduce,
+      </if>
+      <if test="introduceStuId != null">
+        introduce_stu_id,
+      </if>
+      <if test="introduceStuName != null">
+        introduce_stu_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="studentName != null">
+        student_name,
+      </if>
+      <if test="teacherName != null">
+        teacher_name,
+      </if>
+      <if test="tutorName != null">
+        tutor_name,
+      </if>
+      <if test="className != null">
+        class_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="interviewId != null">
+        #{interviewId,jdbcType=INTEGER},
+      </if>
+      <if test="progressId != null">
+        #{progressId,jdbcType=INTEGER},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyJian != null">
+        #{companyJian,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddr != null">
+        #{companyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="outCompanyName != null">
+        #{outCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="outCompanyJian != null">
+        #{outCompanyJian,jdbcType=VARCHAR},
+      </if>
+      <if test="outCompanyAddr != null">
+        #{outCompanyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="hrName != null">
+        #{hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="hrWeichat != null">
+        #{hrWeichat,jdbcType=VARCHAR},
+      </if>
+      <if test="hrPhone != null">
+        #{hrPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hrTell != null">
+        #{hrTell,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewDate != null">
+        #{interviewDate,jdbcType=DATE},
+      </if>
+      <if test="interviewTime != null">
+        #{interviewTime,jdbcType=TIME},
+      </if>
+      <if test="hasExam != null">
+        #{hasExam,jdbcType=VARCHAR},
+      </if>
+      <if test="hasExamFile != null">
+        #{hasExamFile,jdbcType=VARCHAR},
+      </if>
+      <if test="hasAudio != null">
+        #{hasAudio,jdbcType=VARCHAR},
+      </if>
+      <if test="hasAudioFile != null">
+        #{hasAudioFile,jdbcType=VARCHAR},
+      </if>
+      <if test="hasPass != null">
+        #{hasPass,jdbcType=VARCHAR},
+      </if>
+      <if test="hasOffer != null">
+        #{hasOffer,jdbcType=VARCHAR},
+      </if>
+      <if test="hasJob != null">
+        #{hasJob,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=INTEGER},
+      </if>
+      <if test="salaryCount != null">
+        #{salaryCount,jdbcType=INTEGER},
+      </if>
+      <if test="probCount != null">
+        #{probCount,jdbcType=INTEGER},
+      </if>
+      <if test="probDiscount != null">
+        #{probDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="hasPreTax != null">
+        #{hasPreTax,jdbcType=VARCHAR},
+      </if>
+      <if test="isIntroduce != null">
+        #{isIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceStuId != null">
+        #{introduceStuId,jdbcType=INTEGER},
+      </if>
+      <if test="introduceStuName != null">
+        #{introduceStuName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="studentName != null">
+        #{studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherName != null">
+        #{teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="tutorName != null">
+        #{tutorName,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null">
+        #{className,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.guoyasoft.bean.db.interview.TempInterviewInfoExample" resultType="java.lang.Long">
+    select count(*) from temp_interview_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update temp_interview_info
+    <set>
+      <if test="record.interviewId != null">
+        interview_id = #{record.interviewId,jdbcType=INTEGER},
+      </if>
+      <if test="record.progressId != null">
+        progress_id = #{record.progressId,jdbcType=INTEGER},
+      </if>
+      <if test="record.companyName != null">
+        company_name = #{record.companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyJian != null">
+        company_jian = #{record.companyJian,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyAddr != null">
+        company_addr = #{record.companyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outCompanyName != null">
+        out_company_name = #{record.outCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outCompanyJian != null">
+        out_company_jian = #{record.outCompanyJian,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outCompanyAddr != null">
+        out_company_addr = #{record.outCompanyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrName != null">
+        hr_name = #{record.hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrWeichat != null">
+        hr_weichat = #{record.hrWeichat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrPhone != null">
+        hr_phone = #{record.hrPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrTell != null">
+        hr_tell = #{record.hrTell,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interviewDate != null">
+        interview_date = #{record.interviewDate,jdbcType=DATE},
+      </if>
+      <if test="record.interviewTime != null">
+        interview_time = #{record.interviewTime,jdbcType=TIME},
+      </if>
+      <if test="record.hasExam != null">
+        has_exam = #{record.hasExam,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasExamFile != null">
+        has_exam_file = #{record.hasExamFile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasAudio != null">
+        has_audio = #{record.hasAudio,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasAudioFile != null">
+        has_audio_file = #{record.hasAudioFile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasPass != null">
+        has_pass = #{record.hasPass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasOffer != null">
+        has_offer = #{record.hasOffer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hasJob != null">
+        has_job = #{record.hasJob,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salary != null">
+        salary = #{record.salary,jdbcType=INTEGER},
+      </if>
+      <if test="record.salaryCount != null">
+        salary_count = #{record.salaryCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.probCount != null">
+        prob_count = #{record.probCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.probDiscount != null">
+        prob_discount = #{record.probDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="record.hasPreTax != null">
+        has_pre_tax = #{record.hasPreTax,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isIntroduce != null">
+        is_introduce = #{record.isIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="record.introduceStuId != null">
+        introduce_stu_id = #{record.introduceStuId,jdbcType=INTEGER},
+      </if>
+      <if test="record.introduceStuName != null">
+        introduce_stu_name = #{record.introduceStuName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentName != null">
+        student_name = #{record.studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherName != null">
+        teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tutorName != null">
+        tutor_name = #{record.tutorName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.className != null">
+        class_name = #{record.className,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update temp_interview_info
+    set interview_id = #{record.interviewId,jdbcType=INTEGER},
+      progress_id = #{record.progressId,jdbcType=INTEGER},
+      company_name = #{record.companyName,jdbcType=VARCHAR},
+      company_jian = #{record.companyJian,jdbcType=VARCHAR},
+      company_addr = #{record.companyAddr,jdbcType=VARCHAR},
+      out_company_name = #{record.outCompanyName,jdbcType=VARCHAR},
+      out_company_jian = #{record.outCompanyJian,jdbcType=VARCHAR},
+      out_company_addr = #{record.outCompanyAddr,jdbcType=VARCHAR},
+      hr_name = #{record.hrName,jdbcType=VARCHAR},
+      hr_weichat = #{record.hrWeichat,jdbcType=VARCHAR},
+      hr_phone = #{record.hrPhone,jdbcType=VARCHAR},
+      hr_tell = #{record.hrTell,jdbcType=VARCHAR},
+      interview_date = #{record.interviewDate,jdbcType=DATE},
+      interview_time = #{record.interviewTime,jdbcType=TIME},
+      has_exam = #{record.hasExam,jdbcType=VARCHAR},
+      has_exam_file = #{record.hasExamFile,jdbcType=VARCHAR},
+      has_audio = #{record.hasAudio,jdbcType=VARCHAR},
+      has_audio_file = #{record.hasAudioFile,jdbcType=VARCHAR},
+      has_pass = #{record.hasPass,jdbcType=VARCHAR},
+      has_offer = #{record.hasOffer,jdbcType=VARCHAR},
+      has_job = #{record.hasJob,jdbcType=VARCHAR},
+      salary = #{record.salary,jdbcType=INTEGER},
+      salary_count = #{record.salaryCount,jdbcType=INTEGER},
+      prob_count = #{record.probCount,jdbcType=INTEGER},
+      prob_discount = #{record.probDiscount,jdbcType=INTEGER},
+      has_pre_tax = #{record.hasPreTax,jdbcType=VARCHAR},
+      is_introduce = #{record.isIntroduce,jdbcType=VARCHAR},
+      introduce_stu_id = #{record.introduceStuId,jdbcType=INTEGER},
+      introduce_stu_name = #{record.introduceStuName,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=INTEGER},
+      student_name = #{record.studentName,jdbcType=VARCHAR},
+      teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+      tutor_name = #{record.tutorName,jdbcType=VARCHAR},
+      class_name = #{record.className,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guoyasoft.bean.db.interview.TempInterviewInfo">
+    update temp_interview_info
+    <set>
+      <if test="progressId != null">
+        progress_id = #{progressId,jdbcType=INTEGER},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyJian != null">
+        company_jian = #{companyJian,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddr != null">
+        company_addr = #{companyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="outCompanyName != null">
+        out_company_name = #{outCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="outCompanyJian != null">
+        out_company_jian = #{outCompanyJian,jdbcType=VARCHAR},
+      </if>
+      <if test="outCompanyAddr != null">
+        out_company_addr = #{outCompanyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="hrName != null">
+        hr_name = #{hrName,jdbcType=VARCHAR},
+      </if>
+      <if test="hrWeichat != null">
+        hr_weichat = #{hrWeichat,jdbcType=VARCHAR},
+      </if>
+      <if test="hrPhone != null">
+        hr_phone = #{hrPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="hrTell != null">
+        hr_tell = #{hrTell,jdbcType=VARCHAR},
+      </if>
+      <if test="interviewDate != null">
+        interview_date = #{interviewDate,jdbcType=DATE},
+      </if>
+      <if test="interviewTime != null">
+        interview_time = #{interviewTime,jdbcType=TIME},
+      </if>
+      <if test="hasExam != null">
+        has_exam = #{hasExam,jdbcType=VARCHAR},
+      </if>
+      <if test="hasExamFile != null">
+        has_exam_file = #{hasExamFile,jdbcType=VARCHAR},
+      </if>
+      <if test="hasAudio != null">
+        has_audio = #{hasAudio,jdbcType=VARCHAR},
+      </if>
+      <if test="hasAudioFile != null">
+        has_audio_file = #{hasAudioFile,jdbcType=VARCHAR},
+      </if>
+      <if test="hasPass != null">
+        has_pass = #{hasPass,jdbcType=VARCHAR},
+      </if>
+      <if test="hasOffer != null">
+        has_offer = #{hasOffer,jdbcType=VARCHAR},
+      </if>
+      <if test="hasJob != null">
+        has_job = #{hasJob,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=INTEGER},
+      </if>
+      <if test="salaryCount != null">
+        salary_count = #{salaryCount,jdbcType=INTEGER},
+      </if>
+      <if test="probCount != null">
+        prob_count = #{probCount,jdbcType=INTEGER},
+      </if>
+      <if test="probDiscount != null">
+        prob_discount = #{probDiscount,jdbcType=INTEGER},
+      </if>
+      <if test="hasPreTax != null">
+        has_pre_tax = #{hasPreTax,jdbcType=VARCHAR},
+      </if>
+      <if test="isIntroduce != null">
+        is_introduce = #{isIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceStuId != null">
+        introduce_stu_id = #{introduceStuId,jdbcType=INTEGER},
+      </if>
+      <if test="introduceStuName != null">
+        introduce_stu_name = #{introduceStuName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="studentName != null">
+        student_name = #{studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherName != null">
+        teacher_name = #{teacherName,jdbcType=VARCHAR},
+      </if>
+      <if test="tutorName != null">
+        tutor_name = #{tutorName,jdbcType=VARCHAR},
+      </if>
+      <if test="className != null">
+        class_name = #{className,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where interview_id = #{interviewId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guoyasoft.bean.db.interview.TempInterviewInfo">
+    update temp_interview_info
+    set progress_id = #{progressId,jdbcType=INTEGER},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      company_jian = #{companyJian,jdbcType=VARCHAR},
+      company_addr = #{companyAddr,jdbcType=VARCHAR},
+      out_company_name = #{outCompanyName,jdbcType=VARCHAR},
+      out_company_jian = #{outCompanyJian,jdbcType=VARCHAR},
+      out_company_addr = #{outCompanyAddr,jdbcType=VARCHAR},
+      hr_name = #{hrName,jdbcType=VARCHAR},
+      hr_weichat = #{hrWeichat,jdbcType=VARCHAR},
+      hr_phone = #{hrPhone,jdbcType=VARCHAR},
+      hr_tell = #{hrTell,jdbcType=VARCHAR},
+      interview_date = #{interviewDate,jdbcType=DATE},
+      interview_time = #{interviewTime,jdbcType=TIME},
+      has_exam = #{hasExam,jdbcType=VARCHAR},
+      has_exam_file = #{hasExamFile,jdbcType=VARCHAR},
+      has_audio = #{hasAudio,jdbcType=VARCHAR},
+      has_audio_file = #{hasAudioFile,jdbcType=VARCHAR},
+      has_pass = #{hasPass,jdbcType=VARCHAR},
+      has_offer = #{hasOffer,jdbcType=VARCHAR},
+      has_job = #{hasJob,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=INTEGER},
+      salary_count = #{salaryCount,jdbcType=INTEGER},
+      prob_count = #{probCount,jdbcType=INTEGER},
+      prob_discount = #{probDiscount,jdbcType=INTEGER},
+      has_pre_tax = #{hasPreTax,jdbcType=VARCHAR},
+      is_introduce = #{isIntroduce,jdbcType=VARCHAR},
+      introduce_stu_id = #{introduceStuId,jdbcType=INTEGER},
+      introduce_stu_name = #{introduceStuName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      student_name = #{studentName,jdbcType=VARCHAR},
+      teacher_name = #{teacherName,jdbcType=VARCHAR},
+      tutor_name = #{tutorName,jdbcType=VARCHAR},
+      class_name = #{className,jdbcType=VARCHAR}
+    where interview_id = #{interviewId,jdbcType=INTEGER}
+  </update>
+</mapper>

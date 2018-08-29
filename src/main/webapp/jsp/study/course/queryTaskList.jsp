@@ -23,6 +23,8 @@
 				<th>任务包名称</th>
 				<th>内容概述</th>
 				<th>教学进度</th>
+				<th>开课时间</th>
+				<th>结束时间</th>
 				<th>详情</th>
 				<th>操作</th>
 			</tr>
@@ -35,6 +37,8 @@
 					<td>${var.taskPkgName }</td>
 					<td>${var.summary}</td>
 					<td>3/5</td>
+					<td><%-- <fmt:formatDate value="${var.lessonStartTime }" pattern="yyyy年MM月dd日"/> --%></td>
+					<td><%-- <fmt:formatDate value="${var.lessonEndTime }" pattern="yyyy年MM月dd日"/> --%></td>
 					<td><a href="lessonCheck/getPkgDetail.do?lessonId=${var.lessonId }&taskPkgId=${var.taskPkgId }"
 						target="_blank">详情</a></td>
 					<td><a href="lessonCheck/checkTask.do?lessonId=${var.lessonId }&taskPkgId=${var.taskPkgId }"

@@ -33,6 +33,7 @@
 						<option value="">--请选择--</option>
 						<option value="2">测试基础1805班</option>
 						<option value="9">测试中级1806班</option>
+						<option value="11">测试中级1807班</option>
 						<option></option>
 				</select></td>
 				<td colspan="4" align="right"><input type="submit" value="查询"></td>

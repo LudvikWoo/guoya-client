@@ -210,7 +210,18 @@ table {
 		<nav>
 		<div class="main_div">
 			<ul>
-				<li><a href="jsp/study/class/queryClass.jsp" target="right">课程查询</a></li>
+				<c:forEach items="${menus }" var="var">
+					<li><a href="${var.url }" target="right">${var.menu_name }</a></li>
+				</c:forEach>
+<!-- 				<li><a href="jsp/study/class/queryClass.jsp" target="right">课程查询</a></li>
+ -->				<!-- <li><a href="tempInterview/queryProgress.do" target="_blank">面试准备</a></li>
+				<li><a href="tempInterview/queryInterview.do" target="_blank">面试登记</a></li>
+				<li><a href="tempInterview/initInterviewAddOrUpadte.do" target="_blank">面试登记</a></li>
+				 -->
+				<!-- <li><a href="jsp/interview/statistic/statisticQuery.jsp"
+					target="right">面试统计</a></li>
+				<li><a href="interview/initInterviewQuery.action"
+					target="right">查询面试</a></li> -->
 				<!-- <li><a href="basicClass/exerciseInfo.html" target="right">作业检查</a></li>
 				<li><a href="basicClass/summarizeInfo.html" target="right">上传总结</a></li>
 				<li><a href="jsp/interview/statistic/statisticQuery.jsp" target="right">面试统计</a></li>

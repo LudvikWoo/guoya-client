@@ -76,8 +76,13 @@
 										<td>${var.resultDesc }</td>
 										<td>${var.realSalary }</td>
 										<td>${var.hasExamDesc }</td>
-										<td><input type="button" value="详情" 
-										onclick="window.open('interview/queryInterviewDetail.action?interviewId=${var.interviewId}');"><input
+										<td>
+										<%-- <input type="button" value="详情" 
+										onclick="window.open('interview/queryInterviewDetail.action?interviewId=${var.interviewId}');"> --%>
+										<input
+											type="button" value="口试"
+											onclick="window.open('interview/getAudioExam.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');">
+										<input
 											type="button" value="笔试"
 											onclick="window.open('interview/getPaperExam.action?interviewId=${var.interviewId}');"></td>
 									</tr>

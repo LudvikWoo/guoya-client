@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.user.UserCommonMapper">
+	<select id="selectUserMenu" parameterType="com.guoyasoft.bean.api.user.UserMenuBean"
+		resultType="com.guoyasoft.bean.api.user.UserMenuBean">
+
+		SELECT DISTINCT
+		a.`customer_id`,
+		a.`customer_name`,
+		b.`user_id`,
+		b.`user_name`,
+		f.`menu_id`,
+		f.`menu_name`,
+		f.`url`
+		FROM
+		t_user_customer a
+		INNER JOIN t_user_user b
+		ON a.`customer_id` = b.`customer_id`
+		AND NOW() BETWEEN b.`active_time`
+		AND b.`deactive_time`
+		INNER JOIN t_auth_user_2_role c
+		ON b.`user_id` = c.`user_id`
+		INNER JOIN t_auth_role d
+		ON c.`role_id` = d.`role_id`
+		INNER JOIN t_auth_role_2_memu e
+		ON d.`role_id` = e.`role_id`
+		INNER JOIN t_auth_menu f
+		ON e.`menu_id` = f.`menu_id`
+		WHERE a.`status` = 0
+		AND b.`status` = 0
+		AND c.`status` = 0
+		AND d.`status` = 0
+		AND f.`status` = 0
+		AND b.`user_name`='${user_name}'
+	</select>
+</mapper>
+	

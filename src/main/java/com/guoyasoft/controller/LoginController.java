@@ -50,6 +50,7 @@ public class LoginController {
 			keyValues[0][0]="性能测试";
 			keyValues[0][1]="20";
 			modelAndView.addObject("keyValues",keyValues);
+			session.setAttribute("user", users.get(0));
 			session.setAttribute("userName", userName);
 			modelAndView.addObject("user",users.get(0));
 			modelAndView.setViewName("main/index");

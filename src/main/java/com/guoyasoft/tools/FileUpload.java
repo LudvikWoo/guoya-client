@@ -51,9 +51,6 @@ public class FileUpload {
 		if (savePath.indexOf("\\") > 0) {
 			savePath = savePath.replaceAll("\\\\", "/");
 		}
-		SimpleDateFormat sf = new SimpleDateFormat("yyyyMMddHHmmss");
-		String time = sf.format(new Date());
-		savePath += "/" + time + "-" + RandomUtils.nextInt(100, 900);
 		System.out.println("savePath：" + savePath);
 		File file = new File(savePath);
 		System.out.println(file.getAbsolutePath());
@@ -107,8 +104,9 @@ public class FileUpload {
 					filename = filename
 							.substring(filename.lastIndexOf("/") + 1);
 					System.out.println("fileName=" + filename);
-
-					String fullPath = savePath + "/" + filename;
+					SimpleDateFormat sf = new SimpleDateFormat("hhmmss");
+					String time = sf.format(new Date());
+					String fullPath = savePath + "/" +  time+"_"+ filename;
 					System.out.println("fullpath=" + fullPath);
 					String imgPath = fullPath.substring(fullPath
 							.indexOf("webapps") + 7);

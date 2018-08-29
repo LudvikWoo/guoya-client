@@ -164,7 +164,7 @@ function displayImgs(data) {
 				+ " "
 				+ picture.customerName
 				+ " "
-				+ "<a href='javascript:operatePicture(1,"+picture.pictureId+")'>[删除]</a>"
+				//+ "<a href='javascript:operatePicture(1,"+picture.pictureId+")'>[删除]</a>"
 				
 				+ "</div>                    "
 				+ "			</table>                                                       "

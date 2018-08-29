@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guoyasoft.dao.interview.InterviewCommonMapper">
+	<select id="selectInterviewAsk" parameterType="java.lang.Integer"
+		resultType="java.lang.Integer">
+		SELECT t.`ask_id` FROM t_interview_ask t WHERE
+		t.`interview_id`=#{interviewId}
+	</select>
+	<insert id="insertInterviewAsk" parameterType="com.guoyasoft.bean.api.interview.askAswer.AskBean"
+		useGeneratedKeys="true" keyProperty="ask_id">
+		INSERT INTO
+		t_interview_ask(interview_id,create_time,status,update_time,operate_user_id)VALUES(${interview_id},#{create_time,jdbcType=DATE},${status},#{update_time,jdbcType=DATE},${operate_user_id})
+	</insert>
+	<insert id="insertInterviewAudio" parameterType="com.guoyasoft.bean.api.interview.askAswer.AudioBean"
+		useGeneratedKeys="true" keyProperty="audio_id">
+		INSERT INTO t_interview_audio (
+		ask_id,
+		audio_name,
+		audio_addr,
+		create_time,
+		update_time,
+		operate_user_id,
+		STATUS,
+		file_type
+		)
+		VALUES
+		(
+		#{ask_id},
+		#{audio_name},
+		#{audio_addr},
+		#{create_time,jdbcType=DATE},
+		#{update_time,jdbcType=DATE},
+		#{operate_user_id},
+		#{status},
+		#{file_type}
+		)
+	</insert>
+	<select id="selectAskInfo" parameterType="com.guoyasoft.bean.api.interview.askAswer.AskBean"
+		resultType="com.guoyasoft.bean.api.interview.askAswer.AskBean">
+		SELECT
+		t.`ask_id`,
+		t.`interview_id`,
+		t.`create_time`,
+		t.`update_time`,
+		t.`status`,
+		t.`operate_user_id`
+		FROM
+		`t_interview_ask` t
+		WHERE t.`interview_id`=#{interview_id}
+	</select>
+	<select id="selectAudioInfos" parameterType="com.guoyasoft.bean.api.interview.askAswer.AskBean"
+		resultType="com.guoyasoft.bean.api.interview.askAswer.AudioBean">
+		SELECT
+		t.`audio_id`,
+		t.`audio_name`,
+		t.`ask_id`,
+		t.`audio_addr`,
+		t.`create_time`,
+		t.`update_time`,
+		t.`status`,
+		t.`operate_user_id`,
+		t.`file_type`
+		FROM
+		`t_interview_audio` t
+		WHERE
+		t.`ask_id` =#{ask_id}
+	</select>
+	<select id="selectAudioAswers" parameterType="com.guoyasoft.bean.api.interview.askAswer.AudioBean"
+		resultType="com.guoyasoft.bean.api.interview.askAswer.AudioAnswer">
+		SELECT
+		t.`answer_id`,
+		t.`data_id`,
+		t.`author_user_id`,
+		t.`status`,
+		t.`create_time`,
+		t.`praise_count`,
+		t.`subject_index`,
+		t.`subject_desc`,
+		t.`answer`
+		FROM
+		`t_interview_question_answer` t
+		WHERE
+		t.`data_id`
+		=#{audio_id}
+	</select>
+	<insert id="insertAudioAnswer"
+		parameterType="com.guoyasoft.bean.api.interview.askAswer.AudioAnswer">
+		INSERT INTO t_interview_question_answer (
+		data_id,
+		author_user_id,
+		STATUS,
+		create_time,
+		update_time,
+		praise_count,
+		subject_index,
+		subject_desc,
+		answer
+		)
+		VALUES
+		(
+		#{data_id},
+		#{author_user_id},
+		#{status},
+		#{create_time,jdbcType=DATE},
+		#{update_time,jdbcType=DATE},
+		#{praise_count},
+		#{subject_index},
+		#{subject_desc},
+		#{answer}
+		)
+	</insert>
+
+	<delete id="deleteAudioAnswer"
+		parameterType="com.guoyasoft.bean.api.interview.askAswer.AudioAnswer">
+		DELETE FROM t_interview_question_answer WHERE
+		answer_id=#{answer_id}
+	</delete>
+
+	<insert id="addAsk" parameterType="com.guoyasoft.bean.api.interview.askAswer.AskBean">
+		INSERT INTO t_interview_ask (
+		interview_id,
+		create_time,
+		status,
+		update_time,
+		operate_user_id
+		)
+		VALUES
+		(
+		#{interview_id},
+		#{create_time,jdbcType=DATE},
+		#{status},
+		#{update_time,jdbcType=DATE},
+		#{operate_user_id}
+		)
+	</insert>
+</mapper>
+	

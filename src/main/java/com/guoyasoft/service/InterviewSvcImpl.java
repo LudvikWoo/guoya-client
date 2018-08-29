@@ -15,6 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.guoyasoft.bean.api.interview.InterviewAddBean;
+import com.guoyasoft.bean.api.interview.askAswer.AskBean;
+import com.guoyasoft.bean.api.interview.askAswer.AskPubBean;
+import com.guoyasoft.bean.api.interview.askAswer.AudioAnswer;
+import com.guoyasoft.bean.api.interview.askAswer.AudioBean;
 import com.guoyasoft.bean.api.interview.examAnswer.Answer;
 import com.guoyasoft.bean.api.interview.examAnswer.Exam;
 import com.guoyasoft.bean.api.interview.examAnswer.Picture;
@@ -28,6 +32,8 @@ import com.guoyasoft.bean.db.interview.TInterviewInterviewExample;
 import com.guoyasoft.bean.db.interview.VCourseSchedule;
 import com.guoyasoft.bean.db.interview.VInterviewExamAnswer;
 import com.guoyasoft.bean.db.interview.VInterviewExamAnswerExample;
+import com.guoyasoft.bean.db.user.TUserUser;
+import com.guoyasoft.dao.interview.InterviewCommonMapper;
 import com.guoyasoft.dao.interview.TInterviewExamAnswerMapper;
 import com.guoyasoft.dao.interview.TInterviewExamMapper;
 import com.guoyasoft.dao.interview.TInterviewExamPictureMapper;
@@ -51,6 +57,9 @@ public class InterviewSvcImpl implements IInterviewSvc {
 
 	@Autowired
 	TInterviewExamAnswerMapper answerTableMapper;
+	
+	@Autowired
+	InterviewCommonMapper commonMapper;
 
 	@Override
 	public int insertExamPic(String interviewId, String picAddr) {
@@ -244,6 +253,75 @@ public class InterviewSvcImpl implements IInterviewSvc {
 		exam.setUpdateTime(new Date());
 		int count=examMapper.insert(exam);
 		return count;
+	}
+
+	@Override
+	public void insertExamAudio(AskBean bean,String s) {
+		Integer askId=commonMapper.selectInterviewAsk(bean.getInterview_id());
+		if(askId == null || askId ==0){
+			commonMapper.insertInterviewAsk(bean);
+			askId=bean.getAsk_id();
+		}
+		System.out.println("askId="+askId);
+		AudioBean audio=new AudioBean();
+		audio.setAsk_id(askId);
+		audio.setAudio_addr(s);
+		audio.setCreate_time(new Date());
+		audio.setUpdate_time(new Date());
+		audio.setStatus(0);
+		audio.setFile_type(0);
+		audio.setAudio_name(s.substring(s.lastIndexOf("/")+1));
+		if(s.contains(".png") || s.contains(".jpg") || s.contains("gif") || s.contains("jpeg")){
+			audio.setFile_type(1);
+		}
+		audio.setOperate_user_id(bean.getOperate_user_id());
+		commonMapper.insertInterviewAudio(audio);
+		int audioId=audio.getAudio_id();
+		System.out.println("audioId="+audioId);
+	}
+
+	@Override
+	public AskBean selectAskInfo(AskBean bean) {
+		AskBean ask=commonMapper.selectAskInfo(bean);
+		List<AudioBean> audios=commonMapper.selectAudioInfos(ask);
+		ask.setAudios(audios);
+		for(AudioBean b:audios){
+			List<AudioAnswer> audioAswers=commonMapper.selectAudioAswers(b);
+			b.setAnswers(audioAswers);
+		}
+		return ask;
+	}
+
+	@Override
+	public void insertAudioAnswer(AudioAnswer answer) {
+		commonMapper.insertAudioAnswer(answer);
+	}
+
+	@Override
+	public int deleteAudioAnswer(AudioAnswer answer) {
+		commonMapper.deleteAudioAnswer(answer);
+		return 0;
+	}
+
+	@Override
+	public int addInterviewAsk(TInterviewInterview newInterview,AskBean ask) {
+		TInterviewInterviewExample example=new TInterviewInterviewExample();
+		TInterviewInterviewExample.Criteria criteria=example.createCriteria();
+		criteria.andScheduleIdEqualTo(newInterview.getScheduleId());
+		criteria.andStatusEqualTo(0);
+		/*criteria.andCreateTimeEqualTo(newInterview.getCreateTime());
+		criteria.andInterviewTimeEqualTo(newInterview.getInterviewTime());*/
+		criteria.andHrIdEqualTo(newInterview.getHrId());
+		criteria.andCompanyIdEqualTo(newInterview.getCompanyId());
+		List<TInterviewInterview> newInterviews=interviewMapper.selectByExample(example);
+		int interviewId=0;
+		if(newInterviews.size()>0){
+			interviewId=newInterviews.get(0).getInterviewId();
+		}
+		System.out.println("面试ID="+interviewId);
+		ask.setInterview_id(interviewId);
+		commonMapper.addAsk(ask);
+		return 0;
 	}
 
 }
