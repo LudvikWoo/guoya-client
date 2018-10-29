@@ -115,7 +115,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
   var old = $.fn.alert
 
-  $.fn.alert = function (option) {
+  student = function (option) {
     return this.each(function () {
       var $this = $(this)
       var data  = $this.data('bs.alert')

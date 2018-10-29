@@ -96,7 +96,7 @@
 									<div class="row">
 										<div class="col-lg-3 col-md-4">
 											<c:if test="${audio.file_type == 0 }">
-												<audio src="${audio.audio_addr }" controls="controls">
+												<audio src="${audio.audio_addr }" controls="controls" controlsList="nodownload">
 											</c:if>
 											<c:if test="${audio.file_type == 1 }">
 												<img style="width:100px;height:100px;" src="'${audio.audio_addr}"/>

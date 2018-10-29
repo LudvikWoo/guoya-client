@@ -1,7 +1,12 @@
 .settings/
+out/
+.idea
 target/
 test-output/
 .classpath
 .project
 src/main/webapp/basicClass/多媒体资源/mp3/*.mp3
 src/main/webapp/basicClass/多媒体资源/mp4/*.mp4
+guoya-client.iml
+src/test/test.iml
+src/main/main.iml

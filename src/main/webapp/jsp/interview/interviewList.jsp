@@ -46,18 +46,20 @@
 						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
-									<th class="per6">面试号</th>
+									<th class="per4">编号</th>
 									<th class="per6">姓名</th>
 									<th class="per15">班级</th>
 									<th class="per10">公司</th>
-									<th class="per8">面试日期</th>
+									<th class="per8">日期</th>
 									<th class="per6">时间</th>
-									<th class="per10">是否外包</th>
-									<th class="per10">进度</th>
+									<th class="per10">关系</th>
+									<th class="per6">试卷</th>
+									<th class="per6">录音</th>
 									<th class="per6">结果</th>
+									<th class="per6">offer</th>
 									<th class="per6">薪资</th>
-									<th class="per6">笔试</th>
-									<th class="per12">操作</th>
+									<th class="per6">入职</th>
+									<th class="per12" style="text-align: center">操作</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -72,19 +74,26 @@
 										<td><fmt:formatDate value="${var.interviewTime }"
 												pattern="HH:mm" /></td>
 										<td>${var.isOutsourceDesc }</td>
-										<td>${var.progressDesc }</td>
-										<td>${var.resultDesc }</td>
+										<td><a href="javascript:window.open('interview/getPaperExam.action?interviewId=${var.interviewId}');">${var.hasExamDesc }</a></td>
+										<td><a href="javascript:window.open('interview/getAudioExam.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');">无</a></td>
+										<td><a href="javascript:window.open('interview/getAudioExam.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');">${var.resultDesc }</a></td>
+										<td><a href="javascript:window.open('interview/getAudioExam.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');">无</a></td>
 										<td>${var.realSalary }</td>
-										<td>${var.hasExamDesc }</td>
-										<td>
-										<%-- <input type="button" value="详情" 
-										onclick="window.open('interview/queryInterviewDetail.action?interviewId=${var.interviewId}');"> --%>
-										<input
-											type="button" value="口试"
-											onclick="window.open('interview/getAudioExam.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');">
-										<input
+										<td><a href="javascript:window.open('interview/getAudioExam.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');">流程中</a></td>
+										<td><a href="javascript:window.open('interview/updateInterview.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');">详情</a>
+										<a href="javascript:window.open('interview/getAudioExam.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');">变更</a></td>
+										<%-- <input
 											type="button" value="笔试"
-											onclick="window.open('interview/getPaperExam.action?interviewId=${var.interviewId}');"></td>
+											onclick="window.open('interview/getPaperExam.action?interviewId=${var.interviewId}');">
+										<input
+												type="button" value="口试"
+												onclick="window.open('interview/getAudioExam.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');">
+										<input
+												type="button" value="OFFER"
+												onclick="window.open('interview/getAudioExam.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');">
+										<input
+												type="button" value="入职"
+												onclick="window.open('interview/getAudioExam.action?interview_id=${var.interviewId}&customerName=${var.customerName }&companyName=${var.companyNameAbbreviation }');"> --%>
 									</tr>
 								</c:forEach>
 							</tbody>

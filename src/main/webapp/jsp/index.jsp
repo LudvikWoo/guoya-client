@@ -53,7 +53,7 @@
 	 return height;
 	 }
 
-	
+
 	 window.onresize = function() {
 	 changeFrameHeight();
 
@@ -222,7 +222,7 @@ table {
 					target="right">面试统计</a></li>
 				<li><a href="interview/initInterviewQuery.action"
 					target="right">查询面试</a></li> -->
-				<!-- <li><a href="basicClass/exerciseInfo.html" target="right">作业检查</a></li>
+				 <!-- <li><a href="basicClass/exerciseInfo.html" target="right">作业检查</a></li>
 				<li><a href="basicClass/summarizeInfo.html" target="right">上传总结</a></li>
 				<li><a href="jsp/interview/statistic/statisticQuery.jsp" target="right">面试统计</a></li>
 				<li><a href="jsp/interview/addInterview.jsp" target="right">面试登记</a></li>

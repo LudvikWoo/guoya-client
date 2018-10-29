@@ -54,9 +54,12 @@ public class InterviewController {
 			HttpSession session) {
 		InterviewQueryInitBean init = new InterviewQueryInitBean();
 		init.getClassSelect().add(new SelectOption("", "--请选择--", false));
-		init.getClassSelect().add(new SelectOption("2", "测试基础班1805", false));
-		init.getClassSelect().add(new SelectOption("11", "测试基础班1807", false));
-		init.getClassSelect().add(new SelectOption("9", "测试中级班1806", false));
+		init.getClassSelect().add(new SelectOption("2", "1805基础班", false));
+		init.getClassSelect().add(new SelectOption("11", "1807基础班", false));
+		init.getClassSelect().add(new SelectOption("12", "1808基础班", false));
+		init.getClassSelect().add(new SelectOption("13", "1809基础班", false));
+		init.getClassSelect().add(new SelectOption("15", "1810基础班", false));
+		init.getClassSelect().add(new SelectOption("9", "1806提高班", false));
 
 		for (int i = 0; i < init.getClassSelect().size(); i++) {
 			SelectOption s = init.getClassSelect().get(i);
@@ -378,14 +381,14 @@ public class InterviewController {
 		String result = getAudioExam(bean, req);
 		return result;
 	}
-	
+
 	@RequestMapping("updateAudioAnswer.action")
 	public String updateAudioAnswer(AudioAnswer answer,AskBean bean,HttpServletRequest req){
 		interviewSvc.deleteAudioAnswer(answer);
 		String result = getAudioExam(bean, req);
 		return result;
 	}
-	
+
 	@RequestMapping("deleteAudio.action")
 	public String deleteAudio(AskBean bean,HttpServletRequest req){
 		String result = getAudioExam(bean, req);

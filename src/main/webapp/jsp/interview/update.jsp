@@ -1,138 +1,111 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'updateInterview.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-<style>
-h1 {
-	text-align: center;
-}
+<head>
+<base href="<%=basePath%>">
 
-table {
-	width: 40%;
-	margin: 5% auto;
-	padding: 1%;
-	border: 1px solid gray;
-}
+<title>My JSP 'updateInterview.jsp' starting page</title>
+<!-- import CSS -->
+<link rel="stylesheet"
+	href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+	<div id="app">
+		<el-button @click="reverseMessage">Button</el-button>
+		<el-dialog :visible.sync="visible" title="Hello world">
+		<p>Try Element</p>
+		</el-dialog>
 
-td {
-	border: 1px solid gray;
-}
+		<el-input v-model="input" placeholder="请输入内容"></el-input>
+		<el-select v-model="value" placeholder="请选择"> <el-option
+			v-for="item in options" :key="item.value" :label="item.label"
+			:value="item.value"> </el-option> </el-select>
 
-input[type="text"],[type="number"],[type="date"],[type="file"] {
-	width: 90%;
-}
+		<div>
+			<el-table :data="tableData" style="width: 100%"> <el-table-column
+				prop="date" label="日期" width="180"> </el-table-column> <el-table-column
+				prop="name" label="姓名" width="180"> </el-table-column> <el-table-column
+				prop="address" label="地址"> </el-table-column> </el-table>
+		</div>
+		<div>
+			<el-table :data=students style="width: 100%"> <el-table-column
+				prop="group" label="小组" width="180"> </el-table-column> <el-table-column
+				prop="sno" label="学号" width="180"> </el-table-column> <el-table-column
+				prop="sname" label="姓名"> </el-table-column> </el-table>
+		</div>
+	</div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
-select {
-	width: 90%;
-}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+	var vm=new Vue({
+		el : '#app',
+		//----------- data 开始 ----------
+		data : {
+			visible : false,
+			input : '果芽',
+			options : [ {
+				value : '选项1',
+				label : '黄金糕'
+			}, {
+				value : '选项2',
+				label : '双皮奶'
+			}, {
+				value : '选项3',
+				label : '蚵仔煎'
+			}, {
+				value : '选项4',
+				label : '龙须面'
+			}, {
+				value : '选项5',
+				label : '北京烤鸭'
+			} ],
+			value : '',
+			tableData : [ {
+				date : '2016-05-02',
+				name : '王小虎',
+				address : '上海市普陀区金沙江路 1518 弄'
+			}, {
+				date : '2016-05-04',
+				name : '王小虎',
+				address : '上海市普陀区金沙江路 1517 弄'
+			}, {
+				date : '2016-05-01',
+				name : '王小虎',
+				address : '上海市普陀区金沙江路 1519 弄'
+			}, {
+				date : '2016-05-03',
+				name : '王小虎',
+				address : '上海市普陀区金沙江路 1516 弄'
+			} ],
+			students:[]
+		},
+		//----------- data 结束----------
+		//----------- methods 开始----------
 
-.submit_tr {
-	height: 50px;
-	text-align: center;
-}
-
-.submit_tr td {
-	padding-top: 2%;
-}
-</style>
-  </head>
-  
-  <body>
-    <form action="interview/add.action" method="get" target="right">
-			<table>
-				<tr>
-					<td>姓名:</td>
-					<td><select name="sno" id="sno">
-							<option>S001 李静</option>
-							<option selected="selected">S002 胡小芬</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td>公司名称:</td>
-					<td><input type="text" name="company" id="company" value="蚂蚁金服"></td>
-				</tr>
-				<tr>
-					<td>公司性质:</td>
-					<td><select>
-							<option>金融</option>
-							<option selected="selected">电商</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td>电话时间:</td>
-					<td><input type="date" name="callTime" id="callTime" value="2018-04-24">
-					</td>
-				</tr>
-				<tr>
-					<td>面试时间:</td>
-					<td><input type="date" name="interviewTime" id="interviewTime" value="2018-04-25">
-					</td>
-				</tr>
-				<tr>
-					<td>到岗时间:</td>
-					<td><input type="date" name="workTime" id="workTime" value="2018-04-26">
-					</td>
-				</tr>
-				<tr>
-					<td>面试进度:</td>
-					<td><select name="status" id="status">
-							<option>等待安排</option>
-							<option>等待面试</option>
-							<option>电话未过</option>
-							<option selected="selected">面试通过</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td>薪资:</td>
-					<td><input type="text" name="salary" id="salary" value=12000></td>
-				</tr>
-				<tr>
-					<td>HR联系方式:</td>
-					<td><input type="text" name="hrContact" id="hrContact" value="微信：8754343">
-					</td>
-				</tr>
-				<tr>
-					<td>没过原因:</td>
-					<td><textarea rows="3" cols="30" name="unpassReason"
-							id="unpassReason">已通过</textarea></td>
-				</tr>
-				<tr>
-					<td>难点技术:</td>
-					<td><textarea rows="3" cols="30" name="hardTech" id="hardTech" value="基础功能测试经验不足"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td>其它总结:</td>
-					<td><textarea rows="3" cols="30" name="mark" id="mark" value="面试过程太过于紧张，对角色关系把握不到位"></textarea>
-					</td>
-				</tr>
-				<tr>
-					<td>上传录音:</td>
-					<td><input type="file" name="interviewAudio"
-						id="interviewAudio"></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="提交"> <input
-						type="reset" value="重置"></td>
-				</tr>
-			</table>
-		</form>
-  </body>
+		methods : {
+			reverseMessage : function() {
+				axios.get('http://www.guoyasoft.com:8080/guoya-server/studyInfo?method=getUrls')
+				  .then(function (response) {
+					  	//var obj = JSON.parse(response);
+					  	alert(response.data.study.student[0].group);
+						var result = response.data.study.student;
+						vm.students=result;
+				  });
+			}
+		}
+	//----------- methods 结束----------
+	})
+</script>
 </html>
