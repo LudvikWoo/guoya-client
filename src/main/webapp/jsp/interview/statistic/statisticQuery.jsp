@@ -28,9 +28,12 @@
 				<td>班级：</td>
 				<td><select name="classId" id="classId">
 						<option value="">---请选择---</option>
-						<option value="2">测试基础班1805</option>
-						<option value="10">测试基础班1807</option>
-						<option value="9">测试中级班1806</option>
+						<option value="">--请选择--</option>
+						<option value="2">1805基础班</option>
+						<option value="11">1807基础班</option>
+						<option value="12">1808基础班</option>
+						<option value="13">1809基础班</option>
+						<option value="15">1810基础班</option>
 				</select></td>
 				<td>学历：</td>
 				<td><select name="education" id="education">
