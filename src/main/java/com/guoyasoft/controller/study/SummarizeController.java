@@ -51,10 +51,10 @@ public class SummarizeController {
     for (GyExercise s:exercies){
       groupSet.add(s.getGroupid());
       boolean selected=false;
-      if(user.getUserId()==s.getSno()){
+      if((user.getUserId()+"").equals(s.getSno()+"")){
         selected=true;
       }
-      SelectOption select=new SelectOption(s.getSno()+"", s.getSname()+"_"+s.getSno(), selected);
+      SelectOption select=new SelectOption(s.getSno()+"", s.getSno()+"_"+s.getSname(), selected);
       students.add(select);
     }
     for(Integer i:groupSet){

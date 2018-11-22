@@ -180,9 +180,14 @@ img {
 	/*
 	 */
 	window.onload = function() {
-		initPage();
+
+		var sno = document.getElementById("sno").value;
+		if("" != sno ){
+		  initPage();
+		}
 	}
 	function initPage() {
+	  var sno = document.getElementById("sno").value;
 		var date = new Date();
 		var seperator1 = "-";
 		var year = date.getFullYear();
@@ -200,7 +205,7 @@ img {
 				.open(
 						"POST",
 						publicUrl
-								+ "/guoya-server/summaryInfo?method=querySumarise&outstanding=1");
+								+ "/guoya-server/summaryInfo?method=querySumarise&sno="+sno);
 		xhr.send();
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
@@ -250,7 +255,7 @@ img {
 				</tr>
 				<tr>
 					<td><select style="width:95%" id="searchSno">
-							<option value="" selected="selected">——请选择——</option>
+							<option value="" >——请选择——</option>
 					<c:forEach var="stu" items="${init.students}">
 
 							              <c:if test="${stu.selected ==true }">
