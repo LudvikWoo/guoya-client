@@ -1,7 +1,10 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="commons/jspInit.jsp"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
+<base href="<%=basePath%>">
 <title>作业检查</title>
 <style>
 
@@ -32,9 +35,10 @@ td {
 }
 
 </style>
-<script type="text/javascript" src="js/guoya.js"></script>
+<script type="text/javascript" src="basicClass/js/guoya.js"></script>
 
 <script type="text/javascript">
+	var classCode="<%=session.getAttribute("classCode")%>";
 
 	//点名：学生信息列表
 	var studentNames="";
@@ -43,7 +47,7 @@ td {
 	};
 
 	function refresh() {
-		var parameters = "/guoya-server/studyInfo?method=getUrls";
+		var parameters = "/guoya-server/studyInfo?method=getUrls&classCode="+classCode;
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.open("GET", publicUrl + parameters, true);
 		xmlhttp.send();
@@ -86,17 +90,17 @@ td {
 			}
 			innerHtml = innerHtml
 					+ '			<td style="width:3%;text-align:center;display:none">'
-					+ '<img src="images/icon/delete.jpg" height="20px" onclick="deleteStudy(\''
+					+ '<img src="basicClass/images/icon/delete.jpg" height="20px" onclick="deleteStudy(\''
 					+ item.sno
 					+ '\')">'
 					+ '</td>                    '
 					+ '                                                                                 '
-					+ '			<td style="width:5%;text-align:center"><img src="images/guoya_logo.jpg" width="45px"></td>            '
+					+ '			<td style="width:5%;text-align:center"><img src="basicClass/images/guoya_logo.jpg" width="45px"></td>            '
 					+ '			<td style="width:5%">'
 					+ item.sname
 					+ '<br>&nbsp;&nbsp;<img class="statusImg" id="'
 					+ item.sno
-					+ '_img"src="images/icon/'
+					+ '_img"src="basicClass/images/icon/'
 					+ imageName
 					+ '"           '
 					+ '				height="20px" onclick="switchStatus(\''
@@ -116,7 +120,7 @@ td {
 			groupIndex = groupIndex + 1;
 		}
 		studentNames=studentNames.substring(1);
-		
+
 		var table = document.getElementById('content');
 		table.innerHTML = innerHtml + "</table>";
 		statistic();
@@ -163,10 +167,10 @@ td {
 			var status = 0;
 			//查询JavaScript的string对象材料
 			if (src.lastIndexOf("cross.jpg") != -1) {
-				img.src = "images/icon/tick.jpg";
+				img.src = "basicClass/images/icon/tick.jpg";
 				status = 1;
 			} else {
-				img.src = "images/icon/cross.jpg";
+				img.src = "basicClass/images/icon/cross.jpg";
 				status = 0;
 				//unPass.innerHTML=parseInt(unPass.innerHTML)+1;
 			}
@@ -218,7 +222,7 @@ td {
 					refresh();
 				}
 			};
-			var parameters = "/guoya-server/studyInfo?method=updateAllStatus";
+			var parameters = "/guoya-server/studyInfo?method=updateAllStatus&classCode="+classCode;
 			xmlhttp.open("GET", publicUrl + parameters, true);
 			xmlhttp.send();
 		}
@@ -275,10 +279,10 @@ td {
 		<tr>
 			<td style="width:10%;text-align:center">第1组</td>
 
-			<td>陈超<br> <img id="s001_img" src="images/icon/cross.jpg"
+			<td>陈超<br> <img id="s001_img" src="basicClass/images/icon/cross.jpg"
 				height="20px" onclick="switchStatus('s001')">
 			</td>
-			<td><img src="images/guoya_logo.jpg" width="50"></td>
+			<td><img src="basicClass/images/guoya_logo.jpg" width="50"></td>
 			<td><textarea id="s001_url" rows="3" cols="20"></textarea></td>
 			<td><input type="button" value="保存" onclick="saveUrl('s001')"><br>
 				<input type="button" value="测试" onclick="openUrl('s001')"></td>
