@@ -34,6 +34,8 @@
 						<option value="12">1808基础班</option>
 						<option value="13">1809基础班</option>
 						<option value="15">1810基础班</option>
+						<option value="16">1811基础班</option>
+						<option value="17">1903基础班</option>
 				</select></td>
 				<td>学历：</td>
 				<td><select name="education" id="education">

@@ -188,6 +188,7 @@ img {
 	}
 	function initPage() {
 	  var sno = document.getElementById("sno").value;
+	  var classCode = document.getElementById("classCode").value;
 		var date = new Date();
 		var seperator1 = "-";
 		var year = date.getFullYear();
@@ -205,7 +206,7 @@ img {
 				.open(
 						"POST",
 						publicUrl
-								+ "/guoya-server/summaryInfo?method=querySumarise&sno="+sno);
+								+ "/guoya-server/summaryInfo?method=querySumarise&sno="+sno+"&classCode="+classCode);
 		xhr.send();
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
@@ -225,12 +226,13 @@ img {
 		var tutor = document.getElementById("searchTutor").value;
 		var summaryDate = document.getElementById("searchSummaryDate").value;
 		var sno = document.getElementById("searchSno").value;
+		var classCode=document.getElementById("classCode").value;
 
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", publicUrl
 				+ "/guoya-server/summaryInfo?method=querySumarise&groupId="
 				+ groupId + "&tutor=" + tutor + "&summaryDate=" + summaryDate
-				+ "&sno=" + sno);
+				+ "&sno=" + sno+"&classCode="+classCode);
 		xhr.send();
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4 && xhr.status == 200) {
@@ -246,8 +248,9 @@ img {
 </head>
 
 <body>
-
+  <input type="hidden" id="classCode" name="classCode" value="${init.classCode}" >
 	<div id="search_condition_div">
+
 		<form id="search_condition_form">
 			<table>
 				<tr>

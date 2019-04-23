@@ -36,6 +36,10 @@
 						<option value="12">1808基础班</option>
 						<option value="13">1809基础班</option>
 						<option value="15">1810基础班</option>
+						<option value="16">1811基础班</option>
+						<option value="17">1902基础班</option>
+						<option value="20">1903基础班</option>
+						<option value="21">1904基础班</option>
 						<option></option>
 				</select></td>
 				<td colspan="4" align="right"><input type="submit" value="查询"></td>

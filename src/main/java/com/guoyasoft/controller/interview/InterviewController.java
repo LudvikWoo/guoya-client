@@ -12,6 +12,10 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.guoyasoft.bean.db.classes.TClassClass;
+import com.guoyasoft.dao.classes.TClassClassMapper;
+import com.guoyasoft.service.IStudentSvc;
+import com.guoyasoft.service.IStudySvc;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,23 +53,24 @@ public class InterviewController {
 	@Autowired
 	private IInterviewSvc interviewSvc;
 
+	@Autowired
+	private IStudySvc iStudySvc;
+
 	@RequestMapping("initInterviewQuery.action")
 	public String initInterviewQuery(String studentName, String classId,
 			HttpSession session) {
+		TClassClass tClassClass=new TClassClass();
+		List<TClassClass> list=iStudySvc.getClasses(tClassClass);
+
 		InterviewQueryInitBean init = new InterviewQueryInitBean();
 		init.getClassSelect().add(new SelectOption("", "--请选择--", false));
-		init.getClassSelect().add(new SelectOption("2", "1805基础班", false));
-		init.getClassSelect().add(new SelectOption("11", "1807基础班", false));
-		init.getClassSelect().add(new SelectOption("12", "1808基础班", false));
-		init.getClassSelect().add(new SelectOption("13", "1809基础班", false));
-		init.getClassSelect().add(new SelectOption("15", "1810基础班", false));
-		init.getClassSelect().add(new SelectOption("9", "1806提高班", false));
-
+		for(TClassClass c:list){
+			init.getClassSelect().add(new SelectOption(c.getClassId()+"", c.getClassName(), false));
+		}
 		for (int i = 0; i < init.getClassSelect().size(); i++) {
 			SelectOption s = init.getClassSelect().get(i);
 			if (s.getValue().equals(classId)) {
 				init.getClassSelect().get(i).setSelected(true);
-				;
 			}
 		}
 
